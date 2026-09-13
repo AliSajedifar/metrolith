@@ -1,5 +1,6 @@
 include CITATION.cff README.md CHANGELOG.md LICENSE pyproject.toml MANIFEST.in .gitattributes .gitignore
 recursive-include docs *.md *.yml
+recursive-include docs/assets *.png
 recursive-include input README.md
 recursive-include examples *.py *.js *.csv *.json *.md
 recursive-include requirements *.lock
