@@ -1,6 +1,7 @@
-# Metrolith
-
-![Metrolith](https://raw.githubusercontent.com/AliSajedifar/metrolith/af49510a0d44dd14cb18e11ec86aaee0a3bfa57c/docs/assets/metrolith-wordmark-dark.png)
+<h1>
+  <img src="https://raw.githubusercontent.com/AliSajedifar/metrolith/af49510a0d44dd14cb18e11ec86aaee0a3bfa57c/docs/assets/Logo.png" width="64" height="64" align="absmiddle" alt="">
+  Metrolith
+</h1>
 
 **Evidence, not scores.**
 
