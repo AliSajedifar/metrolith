@@ -108,6 +108,10 @@ metrolith check RUN --policy policy.json --hotspots hotspots.json --duplication 
 
 Evidence must pass its schema and match the Run's subject, revision/snapshot,
 scope and producer contracts. Missing or mismatched evidence is not a pass.
+Local checks are labeled **LOCAL — UNPROTECTED**. Protected admission
+requires externally authenticated evaluator, Policy and supplied-evidence
+provenance. A successful local check does not establish organization trust.
+
 A Dossier is derived and non-authoritative; only admitted supplements
 contribute. The repository's `.github/actions/metrolith-check` includes the
 protected-mode integration. Example workflows are in `docs/examples/`.
