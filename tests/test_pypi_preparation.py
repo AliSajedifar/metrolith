@@ -1,7 +1,12 @@
 """Fail-closed guards for the optional publishing boundary; no upload tests."""
 
 import re
+import os
+import subprocess
+import sys
+import tempfile
 import unittest
+import venv
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -62,6 +67,20 @@ class PyPIPreparationTests(unittest.TestCase):
         self.assertIn('cancel-in-progress: false', self.text)
         for action in re.findall(r'uses: (.+)', self.text):
             self.assertRegex(action, r'^[\w/-]+@[0-9a-f]{40}(?: # .*)?$')
+
+    @unittest.skipIf(os.name == 'nt', 'POSIX virtualenv interpreter symlink regression')
+    def test_validation_interpreter_keeps_its_virtualenv(self):
+        sys.path.insert(0, str(ROOT / 'tools'))
+        try:
+            from prepare_pypi import interpreter_path
+        finally:
+            sys.path.pop(0)
+        with tempfile.TemporaryDirectory() as temporary:
+            environment = Path(temporary) / 'validation'
+            venv.EnvBuilder(with_pip=False, symlinks=True).create(environment)
+            python = interpreter_path(environment / 'bin/python')
+            result = subprocess.check_output([str(python), '-c', 'import sys; print(sys.prefix)'], text=True)
+            self.assertEqual(Path(result.strip()), environment)
 
 
 if __name__ == '__main__':

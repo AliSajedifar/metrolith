@@ -38,6 +38,12 @@ def sha(data):
     return hashlib.sha256(data).hexdigest()
 
 
+def interpreter_path(path):
+    # Resolving a POSIX virtualenv symlink selects the base interpreter and
+    # silently discards its installed validation tools. Preserve the venv path.
+    return path.absolute()
+
+
 def save(path, value):
     path.write_text(json.dumps(value, indent=2) + "\n", encoding="utf-8")
 
@@ -200,4 +206,4 @@ if __name__ == "__main__":
     parser.add_argument("--source-sha", required=True)
     args = parser.parse_args()
     prepare(Path(__file__).resolve().parent.parent, args.output.resolve(),
-            args.validation_python.resolve(), args.source_sha)
+            interpreter_path(args.validation_python), args.source_sha)
