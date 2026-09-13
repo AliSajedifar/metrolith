@@ -26,7 +26,7 @@ VERSION = "4.0.0"
 FILENAMES = (f"metrolith-{VERSION}-py3-none-any.whl", f"metrolith-{VERSION}.tar.gz")
 BASELINE_RUNTIME = "9447207fbe25027a5878fd652ef56fe387372a5be690fa11e790521eea3f352a"
 BASELINE_PRODUCER = "sha256:3815aa21c2d091cd208e2db7038bae50acb0bed80c34b59d36a3775ea19a0020"
-LOGO_URL = "https://raw.githubusercontent.com/AliSajedifar/metrolith/af49510a0d44dd14cb18e11ec86aaee0a3bfa57c/docs/assets/metrolith-wordmark-dark.png"
+LOGO_URL = "https://raw.githubusercontent.com/AliSajedifar/metrolith/af49510a0d44dd14cb18e11ec86aaee0a3bfa57c/docs/assets/Logo.png"
 
 
 def require(condition, message):
@@ -154,7 +154,7 @@ def prepare(repository, output, validation_python, source_sha):
     run([validation_python, "-m", "twine", "check", "--strict", *(dist / n for n in FILENAMES)], output, logs, "strict-twine")
     # Render CommonMark with tables, then apply the same HTML sanitizer used by
     # readme-renderer. The frozen validation lock has no optional cmarkgfm extra.
-    render = "from pathlib import Path; from markdown_it import MarkdownIt; from readme_renderer.clean import clean; import sys; html=clean(MarkdownIt('commonmark', {'html':True}).enable('table').render(Path(sys.argv[1]).read_text(encoding='utf-8'))); assert html and 'metrolith-wordmark-dark.png' in html; Path(sys.argv[2]).write_text(html, encoding='utf-8')"
+    render = "from pathlib import Path; from markdown_it import MarkdownIt; from readme_renderer.clean import clean; import sys; html=clean(MarkdownIt('commonmark', {'html':True}).enable('table').render(Path(sys.argv[1]).read_text(encoding='utf-8'))); assert html and 'Logo.png' in html; Path(sys.argv[2]).write_text(html, encoding='utf-8')"
     run([validation_python, "-c", render, source / "README.md", logs / "readme-pypi-compatible.html"], output, logs, "readme-render")
     run([sys.executable, "-m", "pytest", "-q", "-p", "no:cacheprovider",
          "tests/test_release_documentation.py", "tests/test_pypi_preparation.py"], source, logs, "focused-regressions")
