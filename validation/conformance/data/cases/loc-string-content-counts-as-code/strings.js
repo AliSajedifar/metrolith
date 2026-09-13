@@ -1,0 +1,4 @@
+const banner = `
+multiline
+template
+`;

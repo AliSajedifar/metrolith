@@ -1,0 +1,50 @@
+{
+  "$id": "https://archlens.dev/schemas/frozen_input_row-1.5.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "One row of repositories_frozen.csv. Derivable byte-identically from normalized_input.csv (plan section 11.4). Limited to verified analyzed SHAs per decision D-2.",
+  "properties": {
+    "architecture_type": {
+      "type": "string"
+    },
+    "commit_sha": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": "string"
+    },
+    "enabled": {
+      "enum": [
+        "TRUE",
+        "FALSE",
+        "true",
+        "false",
+        "True",
+        "False",
+        ""
+      ]
+    },
+    "expected_language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "url",
+    "architecture_type",
+    "commit_sha",
+    "enabled"
+  ],
+  "title": "ArchLens frozen input row 1.5",
+  "type": "object"
+}

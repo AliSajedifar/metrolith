@@ -1,0 +1,13 @@
+{
+  "case_id": "git-mode-160000-submodule-excluded",
+  "observations": {
+    "aggregate/source_files": 1,
+    "inventory": {
+      "exclusion_reason": "git_submodule",
+      "git_mode": "160000",
+      "included_in_metrics": false,
+      "is_git_submodule": true
+    }
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract and Exclusion Policy clause recorded in the manifest. ArchLens output is not the oracle."
+}

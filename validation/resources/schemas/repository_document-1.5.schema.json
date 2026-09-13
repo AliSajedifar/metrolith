@@ -1,0 +1,164 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archlens.dev/schemas/repository_document-1.5.schema.json",
+  "title": "ArchLens repository document 1.5 (lifecycle variant)",
+  "description": "One schema for the single path repositories/<slug>.json, which is a lifecycle-variant document rather than two separate artifacts (plan section 4.2).\n\nDISCRIMINATION (decision D-1, which diverges from plan section 4.2 on evidence). Run lifecycle is the primary discriminator and is external to this document, so the schema encodes only the document-local rule: presence of checkpoint_updated_at selects the checkpoint variant, absence selects the final-result variant. The reader additionally requires a terminal run lifecycle and exact reconciliation with the matching analysis.json element before treating a document as a final result; a terminal document that does not reconcile is invalid or corrupt.\n\ncheckpoint_status is deliberately NOT a discriminator. Every finalized ArchLens 3.4.0 repository document retains it, verified across all 13 documents of the 3.4.0 targeted acceptance run.\n\nAUTHORITY. This document is an optional projection of finalized repository results. analysis.json is authoritative. A missing repository document produces an explicit projection warning, never an exception, and never invalidates authoritative metrics.",
+  "type": "object",
+  "required": [
+    "acquisition",
+    "analysis_status",
+    "architecture_type",
+    "architecture_type_source",
+    "artifact_schema_version",
+    "core_metric_status",
+    "distribution_name",
+    "errors",
+    "exclusion_policy_version",
+    "execution_mode",
+    "expected_language",
+    "input_file",
+    "input_line",
+    "inventory_schema_version",
+    "metric_contract_version",
+    "metrics",
+    "module_statuses",
+    "notes",
+    "product_name",
+    "program_version",
+    "repository_duration_seconds",
+    "repository_end_timestamp",
+    "repository_name",
+    "repository_owner",
+    "repository_start_timestamp",
+    "repository_url",
+    "requested_commit_sha",
+    "static",
+    "timings"
+  ],
+  "oneOf": [
+    {
+      "title": "Checkpoint variant",
+      "description": "Written while the run is running or interrupted. Not a finalized repository result, and no finalized verdict may be derived from it.",
+      "type": "object",
+      "required": ["checkpoint_status", "checkpoint_updated_at"],
+      "properties": {
+        "checkpoint_updated_at": { "$ref": "#/$defs/utcTimestamp" },
+        "checkpoint_status": { "$ref": "#/$defs/checkpointStatus" }
+      }
+    },
+    {
+      "title": "Final-result variant",
+      "description": "Written at finalization. checkpoint_status is permitted here because ArchLens 3.4.0 retains it; checkpoint_updated_at must be absent.",
+      "type": "object",
+      "not": { "required": ["checkpoint_updated_at"] },
+      "properties": {
+        "checkpoint_status": { "$ref": "#/$defs/checkpointStatus" }
+      }
+    }
+  ],
+  "properties": {
+    "repository_url": { "type": "string", "minLength": 1, "description": "Canonical URL. The comparison key for this document." },
+    "repository_owner": { "type": "string" },
+    "repository_name": { "type": "string" },
+    "architecture_type": { "type": "string", "description": "Supplied input metadata, never inferred truth (plan section 3.4)." },
+    "architecture_type_source": { "type": "string" },
+    "expected_language": { "type": "string" },
+    "requested_commit_sha": {
+      "type": ["string", "null"],
+      "description": "SHA requested by the input row. Retained even when acquisition fails, which is why the 7ep control still carries it."
+    },
+    "analysis_status": { "$ref": "#/$defs/repositoryStatus" },
+    "core_metric_status": { "$ref": "#/$defs/metricStatus" },
+    "checkpoint_status": { "$ref": "#/$defs/checkpointStatus" },
+    "checkpoint_updated_at": { "$ref": "#/$defs/utcTimestamp" },
+    "expected_language_family_status": {
+      "$ref": "#/$defs/metricStatus",
+      "description": "Introduced at Artifact Schema 1.4. Absent from every 1.3 document, so a reader must treat it as not evaluable rather than assume a value."
+    },
+    "partial_origin": {
+      "type": ["string", "null"],
+      "description": "Introduced at Artifact Schema 1.4. Absent from every 1.3 document."
+    },
+    "acquisition": { "type": "object" },
+    "metrics": { "type": "object", "description": "Authoritative measurement payload. This schema checks shape only; metric semantics belong to the Metric Contract." },
+    "module_statuses": { "type": "object" },
+    "static": { "type": "object" },
+    "timings": { "type": "object" },
+    "errors": { "type": "array" },
+    "notes": { "type": "string" },
+    "input_file": { "type": "string", "description": "Logical input identifier. Absolute host paths are not portable evidence." },
+    "input_line": { "type": "integer", "minimum": 1 },
+    "product_name": { "type": "string" },
+    "distribution_name": { "type": "string" },
+    "program_version": { "$ref": "#/$defs/semanticVersion" },
+    "metric_contract_version": { "$ref": "#/$defs/semanticVersion" },
+    "exclusion_policy_version": { "$ref": "#/$defs/semanticVersion" },
+    "inventory_schema_version": { "$ref": "#/$defs/semanticVersion" },
+    "artifact_schema_version": { "$ref": "#/$defs/semanticVersion" },
+    "execution_mode": { "type": "string" },
+    "repository_start_timestamp": { "$ref": "#/$defs/utcTimestamp" },
+    "repository_end_timestamp": { "$ref": "#/$defs/utcTimestamp" },
+    "repository_duration_seconds": { "type": ["number", "null"], "minimum": 0 },
+    "inventory_summary": { "type": ["object", "null"] },
+    "included_source_manifest": { "type": "array" },
+    "metric_warnings": { "type": ["object", "array", "null"] },
+    "performance_diagnostics": { "type": ["object", "null"] },
+    "git_mode_map_status": { "type": ["string", "null"] },
+    "git_mode_map_available": { "type": ["boolean", "null"] },
+    "git_mode_map_error": { "type": ["string", "null"] },
+    "git_mode_entry_count": { "type": ["integer", "null"], "minimum": 0 },
+    "git_mode_command_duration_seconds": { "type": ["number", "null"], "minimum": 0 },
+    "git_mode_effective_timeout_seconds": { "type": ["number", "null"], "minimum": 0 },
+    "metadata": { "type": ["object", "null"] },
+    "metadata_status": { "type": ["string", "null"] },
+    "audits": { "type": ["object", "null"] },
+    "audits_status": { "type": ["string", "null"] },
+    "classification": { "type": ["object", "null"] },
+    "classification_status": { "type": ["string", "null"] },
+    "coverage": { "type": ["object", "null"] },
+    "coverage_analysis_status": { "type": ["string", "null"] },
+    "db_analysis": { "type": ["object", "null"] },
+    "db_analysis_status": { "type": ["string", "null"] },
+    "deployability": { "type": ["object", "null"] },
+    "deployability_status": { "type": ["string", "null"] },
+    "endpoints": { "type": ["array", "null"] },
+    "endpoint_analysis_status": { "type": ["string", "null"] },
+    "framework_markers": { "type": ["array", "null"] },
+    "framework_analysis_status": { "type": ["string", "null"] },
+    "message_brokers": { "type": ["object", "array", "null"] },
+    "message_broker_analysis_status": { "type": ["string", "null"] }
+  },
+  "additionalProperties": {
+    "description": "Auxiliary module payloads vary by execution mode and are permitted. Every field load-bearing for measurement is enumerated above."
+  },
+  "$defs": {
+    "semanticVersion": {
+      "type": "string",
+      "pattern": "^[0-9]+\\.[0-9]+\\.[0-9]+$"
+    },
+    "utcTimestamp": {
+      "type": ["string", "null"],
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$"
+    },
+    "repositoryStatus": {
+      "type": "string",
+      "enum": ["complete", "partial", "failed", "interrupted", "not_applicable"]
+    },
+    "metricStatus": {
+      "type": ["string", "null"],
+      "enum": ["complete", "partial", "failed", "not_applicable", null]
+    },
+    "checkpointStatus": {
+      "type": "string",
+      "description": "Stage reached when the document was last written. Observed values across ArchLens 3.3.0 and 3.4.0 artifacts.",
+      "enum": [
+        "incomplete",
+        "core_complete",
+        "metrics_complete",
+        "full_complete",
+        "complete",
+        "interrupted"
+      ]
+    }
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "$id": "https://archlens.dev/schemas/retry_input_row-1.5.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "One row of retry_failed_or_partial.csv. Under Artifact Schema 1.5 a retry row carries the requested SHA when no analyzed SHA exists, so a failed acquisition such as the 7ep control no longer loses its requested SHA (plan section 11.4, decision D-2). Artifact <= 1.4 emitted an empty commit_sha in that case, which is why the column stays nullable here.",
+  "properties": {
+    "architecture_type": {
+      "type": "string"
+    },
+    "commit_sha": {
+      "pattern": "^([0-9a-f]{40})?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "enabled": {
+      "enum": [
+        "TRUE",
+        "FALSE",
+        "true",
+        "false",
+        "True",
+        "False",
+        ""
+      ]
+    },
+    "expected_language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "url": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "url",
+    "architecture_type",
+    "commit_sha",
+    "enabled"
+  ],
+  "title": "ArchLens retry input row 1.5",
+  "type": "object"
+}

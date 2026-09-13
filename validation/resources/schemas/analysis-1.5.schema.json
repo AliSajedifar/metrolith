@@ -1,0 +1,10 @@
+{
+  "$id": "https://archlens.dev/schemas/analysis-1.5.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Authoritative finalized repository results (plan section 4.1). Each element must reconcile exactly with the matching repositories/<slug>.json final-result document when that optional projection is present.",
+  "items": {
+    "$ref": "https://archlens.dev/schemas/repository_document-1.5.schema.json"
+  },
+  "title": "ArchLens analysis 1.5",
+  "type": "array"
+}

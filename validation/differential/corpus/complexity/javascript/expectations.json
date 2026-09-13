@@ -1,0 +1,479 @@
+{
+  "$comment": "Per-construct expectations derived from docs/COMPLEXITY_CONTRACT_V1.md. Entries pinning a ZERO contribution are as load-bearing as the rest: a silently absent increment and a correctly absent one look identical in a total.",
+  "corpus_layer": "layer1_synthetic",
+  "language": "JavaScript",
+  "complexity_contract_version": "1.0.0",
+  "source": "constructs.js",
+  "file_level": {
+    "methods_functions": 25,
+    "callable_count": 25,
+    "structural_complexity_status": "complete",
+    "nloc_status": "complete"
+  },
+  "outside_population": [
+    {
+      "name": "constructor",
+      "start_line": 158,
+      "reason": "constructor; secondary component",
+      "expected_records": 0
+    },
+    {
+      "name": "handler",
+      "start_line": 181,
+      "reason": "class-property arrow; anonymous_functions",
+      "expected_records": 0
+    },
+    {
+      "name": "<callback>",
+      "start_line": 112,
+      "reason": "anonymous callback; secondary component",
+      "expected_records": 0
+    }
+  ],
+  "callables": [
+    {
+      "name": "trivial",
+      "qualified_name": "trivial",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 9,
+      "end_line": 11,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 0
+      },
+      "pins": "exactly 1"
+    },
+    {
+      "name": "sequentialBranches",
+      "qualified_name": "sequentialBranches",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 13,
+      "end_line": 21,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "elseIfChain",
+      "qualified_name": "elseIfChain",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 23,
+      "end_line": 31,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 1
+      },
+      "pins": "else-if measures flat; bare else adds 0"
+    },
+    {
+      "name": "nestedBranches",
+      "qualified_name": "nestedBranches",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 33,
+      "end_line": 40,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 8,
+        "formal_parameter_count": 2
+      },
+      "pins": "same cyclomatic, twice the nesting"
+    },
+    {
+      "name": "loops",
+      "qualified_name": "loops",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 42,
+      "end_line": 59,
+      "expected": {
+        "cyclomatic_complexity": 6,
+        "decision_point_count": 5,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 18,
+        "formal_parameter_count": 2
+      },
+      "pins": "for-of + for-in + for + while + do = 5"
+    },
+    {
+      "name": "switching",
+      "qualified_name": "switching",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 61,
+      "end_line": 70,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 10,
+        "formal_parameter_count": 1
+      },
+      "pins": "two cases; default adds 0; body and arm each nest"
+    },
+    {
+      "name": "exceptionHandling",
+      "qualified_name": "exceptionHandling",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 72,
+      "end_line": 81,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 10,
+        "formal_parameter_count": 1
+      },
+      "pins": "catch is 1; finally is 0 but DOES nest"
+    },
+    {
+      "name": "ternary",
+      "qualified_name": "ternary",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 83,
+      "end_line": 85,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "booleanOperators",
+      "qualified_name": "booleanOperators",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 87,
+      "end_line": 95,
+      "expected": {
+        "cyclomatic_complexity": 8,
+        "decision_point_count": 2,
+        "boolean_operator_count": 5,
+        "max_condition_operator_count": 2,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 3
+      },
+      "pins": "5 operators across the callable, 2 in the largest single condition"
+    },
+    {
+      "name": "nullishAndLogicalAssignment",
+      "qualified_name": "nullishAndLogicalAssignment",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 97,
+      "end_line": 104,
+      "expected": {
+        "cyclomatic_complexity": 5,
+        "decision_point_count": 0,
+        "boolean_operator_count": 4,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 8,
+        "formal_parameter_count": 2
+      },
+      "pins": "?? plus ??=, ||=, &&= are short-circuit alternatives and count; no decision expression, so mco is 0"
+    },
+    {
+      "name": "optionalChaining",
+      "qualified_name": "optionalChaining",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 106,
+      "end_line": 108,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      },
+      "pins": "?. is NOT a decision under contract 7.1"
+    },
+    {
+      "name": "excludedCallbacks",
+      "qualified_name": "excludedCallbacks",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 110,
+      "end_line": 122,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 13,
+        "formal_parameter_count": 1
+      },
+      "pins": "the arrow's && and the callback's if belong to no record, yet their LINES stay in the span"
+    },
+    {
+      "name": "measuredInnerClass",
+      "qualified_name": "measuredInnerClass",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 124,
+      "end_line": 134,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 11,
+        "formal_parameter_count": 1
+      },
+      "pins": "the class is a boundary for attribution; discovery still finds the method inside"
+    },
+    {
+      "name": "innerMethod",
+      "qualified_name": "measuredInnerClass.Inner.innerMethod",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 126,
+      "end_line": 131,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 6,
+        "formal_parameter_count": 1
+      },
+      "pins": "a method of a class declared inside a function IS in the population"
+    },
+    {
+      "name": "destructuringParameters",
+      "qualified_name": "destructuringParameters",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 136,
+      "end_line": 138,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 3
+      },
+      "pins": "a destructuring pattern is ONE parameter; rest is ONE"
+    },
+    {
+      "name": "commentsAndBlanks",
+      "qualified_name": "commentsAndBlanks",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 140,
+      "end_line": 146,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 4,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "boundArrow",
+      "qualified_name": "boundArrow",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 148,
+      "end_line": 148,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 0,
+        "boolean_operator_count": 1,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 1,
+        "formal_parameter_count": 1
+      },
+      "pins": "a concise arrow body IS the expression, so the operator on the root node counts"
+    },
+    {
+      "name": "boundExpression",
+      "qualified_name": "boundExpression",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 150,
+      "end_line": 155,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 6,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "render",
+      "qualified_name": "Widget.render",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 162,
+      "end_line": 167,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 6,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "size",
+      "qualified_name": "Widget.size",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 169,
+      "end_line": 171,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 0
+      },
+      "pins": "a get accessor is a class method"
+    },
+    {
+      "name": "make",
+      "qualified_name": "Widget.make",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 173,
+      "end_line": 175,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 2
+      },
+      "pins": "a static method is a class method"
+    },
+    {
+      "name": "#secret",
+      "qualified_name": "Widget.#secret",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 177,
+      "end_line": 179,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      },
+      "pins": "a private method is a class method"
+    },
+    {
+      "name": "first",
+      "qualified_name": "helpers.first",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 190,
+      "end_line": 192,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      },
+      "pins": "an object-literal method bound at module scope counts"
+    },
+    {
+      "name": "second",
+      "qualified_name": "helpers.second",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 193,
+      "end_line": 195,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 0
+      }
+    },
+    {
+      "name": "exported",
+      "qualified_name": "exported",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 198,
+      "end_line": 200,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      },
+      "pins": "a CommonJS export target is a stable binding"
+    }
+  ]
+}

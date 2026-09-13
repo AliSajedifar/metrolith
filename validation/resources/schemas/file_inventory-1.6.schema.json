@@ -1,0 +1,331 @@
+{
+  "$id": "https://archlens.dev/schemas/file_inventory-1.6.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "description": "Authoritative file identity, inclusion, language, parser/read status, and encoding and strategy evidence (plan section 4.1). Inventory keeps its own schema version, independent of Artifact Schema. Property types are derived from preserved Artifact 1.4 runs. additionalProperties stays true because three runs of thirteen repositories prove which fields exist, not that no other field may appear.",
+  "properties": {
+    "directory_errors": {
+      "type": "array"
+    },
+    "exclusion_policy_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "files": {
+      "items": {
+        "additionalProperties": true,
+        "properties": {
+          "alternating_nul_evidence": {
+            "additionalProperties": true,
+            "type": "object"
+          },
+          "byte_order_mark": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "classes_structs_status": {
+            "enum": [
+              "complete",
+              "partial",
+              "failed",
+              "not_applicable"
+            ]
+          },
+          "content_hash": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "content_type": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "detected_encoding": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "detected_language": {
+            "type": "string"
+          },
+          "encoding_error": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "encoding_transformation_applied": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "error_category": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "exclusion_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "extension": {
+            "type": "string"
+          },
+          "filename": {
+            "type": "string"
+          },
+          "git_mode": {
+            "type": "string"
+          },
+          "git_symlink_target": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "git_symlink_target_exists": {
+            "type": [
+              "boolean",
+              "null"
+            ]
+          },
+          "included_in_metrics": {
+            "type": "boolean"
+          },
+          "is_build_output": {
+            "type": "boolean"
+          },
+          "is_configuration": {
+            "type": "boolean"
+          },
+          "is_declaration_only": {
+            "type": "boolean"
+          },
+          "is_dependency": {
+            "type": "boolean"
+          },
+          "is_generated": {
+            "type": "boolean"
+          },
+          "is_git_submodule": {
+            "type": "boolean"
+          },
+          "is_git_symlink": {
+            "type": "boolean"
+          },
+          "is_infrastructure": {
+            "type": "boolean"
+          },
+          "is_minified_or_bundled": {
+            "type": "boolean"
+          },
+          "is_source": {
+            "type": "boolean"
+          },
+          "is_test": {
+            "type": "boolean"
+          },
+          "is_vendor": {
+            "type": "boolean"
+          },
+          "line_ending_style": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "loc_status": {
+            "enum": [
+              "complete",
+              "partial",
+              "failed",
+              "not_applicable"
+            ]
+          },
+          "malformed_nodes": {
+            "type": "array"
+          },
+          "methods_functions_status": {
+            "enum": [
+              "complete",
+              "partial",
+              "failed",
+              "not_applicable"
+            ]
+          },
+          "nul_classification": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "nul_contexts": {
+            "type": "array"
+          },
+          "nul_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "nul_density": {
+            "minimum": 0,
+            "type": "number"
+          },
+          "nul_positions": {
+            "items": {
+              "minimum": 0,
+              "type": "integer"
+            },
+            "type": "array"
+          },
+          "original_byte_length": {
+            "minimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "original_byte_offsets_available": {
+            "type": "boolean"
+          },
+          "original_encoding": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "oversized": {
+            "type": "boolean"
+          },
+          "parse_error": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "parse_status": {
+            "type": "string"
+          },
+          "parser_byte_length": {
+            "minimum": 0,
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "parser_byte_offset_adjustment": {
+            "type": "integer"
+          },
+          "parser_compatibility_strategy": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "parser_diagnostic": {
+            "additionalProperties": true,
+            "type": [
+              "object",
+              "null"
+            ]
+          },
+          "parser_encoding": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "parser_normalization_applied": {
+            "type": "boolean"
+          },
+          "parser_offsets_map_directly_to_original_bytes": {
+            "type": "boolean"
+          },
+          "read_error": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "read_status": {
+            "type": "string"
+          },
+          "relative_path": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "size_bytes": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "suspected_bomless_utf16": {
+            "type": "boolean"
+          },
+          "template_evidence_category": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "template_evidence_summary": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "template_family": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "typed_javascript_dialect_evidence": {
+            "type": "array"
+          }
+        },
+        "required": [
+          "detected_language",
+          "included_in_metrics",
+          "parse_status",
+          "read_status",
+          "relative_path",
+          "size_bytes"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "git_mode_map": {
+      "additionalProperties": true,
+      "type": "object"
+    },
+    "inventory_schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "pruned_directories": {
+      "type": "array"
+    },
+    "summary": {
+      "additionalProperties": true,
+      "type": "object"
+    }
+  },
+  "required": [
+    "inventory_schema_version",
+    "files",
+    "summary"
+  ],
+  "title": "ArchLens file inventory 1.6",
+  "type": "object"
+}

@@ -1,0 +1,957 @@
+{
+  "language": "TypeScript",
+  "source": "constructs.ts",
+  "additional_source": "constructs.tsx",
+  "rule_table": "validation/complexity_g1a_20260811/FROZEN_RULE_TABLE.md",
+  "authorship": "Derived from the frozen rule table by hand. No ArchLens cognitive implementation exists; SonarJS was executed only AFTER this file was written.",
+  "contribution_arithmetic": "structural = 1 + nesting_level; flat = 1; nesting_only = 0; zero = 0. A fifth CORPUS-ONLY kind, `not_fired`, contributes 0 and means the named rule was evaluated at that site and did NOT fire -- it is how a negative case is pinned explicitly rather than left to be inferred. The callable total is the sum of the contributions listed.",
+  "callables": [
+    {
+      "name": "trivial",
+      "start_line": 11,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": []
+    },
+    {
+      "name": "plainIf",
+      "start_line": 15,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 16,
+          "line_contains": "if (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "ifElseIfElse",
+      "start_line": 22,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 23,
+          "line_contains": "if (a === 1) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-ELSEIF",
+          "line": 25,
+          "line_contains": "} else if (a === 2) {",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-ELSE",
+          "line": 27,
+          "line_contains": "} else {",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "nestedIf",
+      "start_line": 32,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 33,
+          "line_contains": "if (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-IF",
+          "line": 34,
+          "line_contains": "if (b) {",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        }
+      ]
+    },
+    {
+      "name": "loops",
+      "start_line": 41,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 43,
+          "line_contains": "for (const x of xs) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-LOOP",
+          "line": 44,
+          "line_contains": "while (total < x) {",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        }
+      ]
+    },
+    {
+      "name": "switchWhole",
+      "start_line": 51,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-SWITCH",
+          "line": 52,
+          "line_contains": "switch (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "exceptionHandling",
+      "start_line": 62,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "Z-TRY",
+          "line": 63,
+          "line_contains": "try {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "S-CATCH",
+          "line": 65,
+          "line_contains": "} catch (error) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-FINALLY",
+          "line": 67,
+          "line_contains": "} finally {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "Amendment 001: `finally` is ignored entirely -- no increment and no nesting. It was N-FINALLY (nesting-only) in revision 1."
+        },
+        {
+          "rule": "S-IF",
+          "line": 68,
+          "line_contains": "if (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "amended_by": "Amendment 001 (owner, 2026-08-11)",
+      "pre_amendment_expected_cognitive_complexity": 3
+    },
+    {
+      "name": "ternary",
+      "start_line": 74,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-TERNARY",
+          "line": 75,
+          "line_contains": "return a ? 1 : 0;",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "boolSameOperator",
+      "start_line": 78,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 79,
+          "line_contains": "if (a && b && c) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 79,
+          "line_contains": "a && b && c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "boolMixedOperators",
+      "start_line": 85,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 86,
+          "line_contains": "if (a && b || c) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 86,
+          "line_contains": "a && b",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 86,
+          "line_contains": "|| c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "nullishSequence",
+      "start_line": 92,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 93,
+          "line_contains": "(a ?? b) ?? 1",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "optionalChaining",
+      "start_line": 96,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "Z-OPTCHAIN",
+          "line": 97,
+          "line_contains": "return a?.b?.c;",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "bitwiseNotCounted",
+      "start_line": 100,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 101,
+          "line_contains": "if ((a & b) !== 0) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-BITWISE",
+          "line": 101,
+          "line_contains": "(a & b)",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "labelledFlow",
+      "start_line": 107,
+      "expected_cognitive_complexity": 8,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 108,
+          "line_contains": "outer: for (const x of xs) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-LOOP",
+          "line": 109,
+          "line_contains": "for (const y of xs) {",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        },
+        {
+          "rule": "S-IF",
+          "line": 110,
+          "line_contains": "if (x > y) {",
+          "kind": "structural",
+          "nesting_level": 2,
+          "nesting_increment": 1,
+          "contribution": 3
+        },
+        {
+          "rule": "F-LABELJUMP",
+          "line": 111,
+          "line_contains": "break outer;",
+          "kind": "flat",
+          "nesting_level": 3,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-LABELJUMP",
+          "line": 113,
+          "line_contains": "continue outer;",
+          "kind": "flat",
+          "nesting_level": 2,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "unlabelledJump",
+      "start_line": 119,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 120,
+          "line_contains": "for (const x of xs) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-JUMP",
+          "line": 121,
+          "line_contains": "break;",
+          "kind": "zero",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "recursive",
+      "start_line": 126,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 127,
+          "line_contains": "if (n <= 0) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 130,
+          "line_contains": "return recursive(n - 1);",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "callbackExcluded",
+      "start_line": 133,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "B-NESTED",
+          "line": 134,
+          "line_contains": "return xs.map((x) => {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "typeOnlyConstructs",
+      "start_line": 142,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "Z-TYPEONLY",
+          "line": 143,
+          "line_contains": "a as Maybe<number>",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "Z-TYPEONLY",
+          "line": 144,
+          "line_contains": "widened!",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ],
+      "note": "`as` and `!` are type-level. `Maybe<T> = T | null` is a union type, not a boolean sequence."
+    },
+    {
+      "name": "overloaded",
+      "start_line": 150,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "Z-TYPEONLY",
+          "line": 148,
+          "line_contains": "export function overloaded(a: number): number;",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "an overload signature has no body and is outside the population entirely"
+        },
+        {
+          "rule": "S-TERNARY",
+          "line": 151,
+          "line_contains": "typeof a === \"number\" ? a : a.length",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "note": "Only the implementation signature is measured; the two overload declarations emit no record."
+    },
+    {
+      "name": "Widget.render",
+      "start_line": 155,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 156,
+          "line_contains": "if (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "jsxShortCircuit",
+      "source": "constructs.tsx",
+      "start_line": 15,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 16,
+          "line_contains": "{show && <span>",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "an `&&` inside JSX is an `&&`; the frozen table grants JSX no exemption"
+        }
+      ]
+    },
+    {
+      "name": "jsxConditionalRender",
+      "source": "constructs.tsx",
+      "start_line": 19,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 20,
+          "line_contains": "if (show && ready) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 20,
+          "line_contains": "show && ready",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "note": "The control case for jsxShortCircuit: the same operator OUTSIDE a JSX expression, where the reference does count it."
+    },
+    {
+      "name": "seqParenSame",
+      "source": "clarifications.ts",
+      "start_line": 7,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 8,
+          "line_contains": "if (a && (b && c)) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 8,
+          "line_contains": "a && (b && c)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "seqParenMixed",
+      "source": "clarifications.ts",
+      "start_line": 14,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 15,
+          "line_contains": "if (a && (b || c)) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 15,
+          "line_contains": "a && (",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 15,
+          "line_contains": "b || c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "seqThreeRuns",
+      "source": "clarifications.ts",
+      "start_line": 21,
+      "expected_cognitive_complexity": 4,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 22,
+          "line_contains": "if (a || b && c || d) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 22,
+          "line_contains": "a ||",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 22,
+          "line_contains": "b && c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 22,
+          "line_contains": "|| d",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "seqNullishRun",
+      "source": "clarifications.ts",
+      "start_line": 28,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 29,
+          "line_contains": "a ?? b ?? c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "one maximal ?? sequence"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "seqNullishThenOr",
+      "source": "clarifications.ts",
+      "start_line": 32,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 33,
+          "line_contains": "(a ?? b)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "the ?? sequence"
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 33,
+          "line_contains": "|| c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "the || sequence"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "logicalAssignAnd",
+      "source": "clarifications.ts",
+      "start_line": 36,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 37,
+          "line_contains": "x &&= ",
+          "kind": "not_fired",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "the logical assignment operator is NOT an F-BOOLSEQ operator and contributes 0"
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 37,
+          "line_contains": "(a || b)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "its right operand is still traversed"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "The case that separates the assignment operator from its operands."
+    },
+    {
+      "name": "logicalAssignOr",
+      "source": "clarifications.ts",
+      "start_line": 41,
+      "expected_cognitive_complexity": 0,
+      "contributions": [
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 42,
+          "line_contains": "x ||= a",
+          "kind": "not_fired",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "logical assignment contributes 0 and this operand carries no sequence"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true
+    },
+    {
+      "name": "logicalAssignNullish",
+      "source": "clarifications.ts",
+      "start_line": 46,
+      "expected_cognitive_complexity": 0,
+      "contributions": [
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 47,
+          "line_contains": "x ??= a",
+          "kind": "not_fired",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "logical assignment contributes 0"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true
+    },
+    {
+      "name": "recursionTwice",
+      "source": "clarifications.ts",
+      "start_line": 51,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 52,
+          "line_contains": "if (n <= 0) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 55,
+          "line_contains": "recursionTwice(n - 1) + recursionTwice(n - 2)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "two call sites, one increment"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "returnTraversed",
+      "source": "clarifications.ts",
+      "start_line": 58,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-TERNARY",
+          "line": 59,
+          "line_contains": "return (a ? b : c);",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "Holder.recursiveMethod",
+      "source": "clarifications.ts",
+      "start_line": 63,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 64,
+          "line_contains": "if (n <= 0) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 67,
+          "line_contains": "return this.recursiveMethod(n - 1);",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "explicit current receiver `this` -- rule B"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "Holder.sameNameOtherReceiver",
+      "source": "clarifications.ts",
+      "start_line": 70,
+      "expected_cognitive_complexity": 0,
+      "contributions": [
+        {
+          "rule": "F-RECURSION",
+          "line": 71,
+          "line_contains": "return other.recursiveMethod(n);",
+          "kind": "not_fired",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "member name matches, receiver is not `this` -- NOT recursion"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true
+    },
+    {
+      "name": "discoveryFunctionClassMethod",
+      "source": "clarifications.ts",
+      "start_line": 75,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "B-NESTED",
+          "line": 76,
+          "line_contains": "class Inner {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "the nested class contributes nothing to this callable"
+        },
+        {
+          "rule": "S-TERNARY",
+          "line": 84,
+          "line_contains": "return flag ? Inner : null;",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "Inner.measured",
+      "source": "clarifications.ts",
+      "start_line": 77,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 78,
+          "line_contains": "if (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "GLOBAL DISCOVERY: a method of a class declared inside a function is discovered and measured in its own right."
+    }
+  ],
+  "predicted_reference_divergences": [
+    {
+      "divergence_id": "D6",
+      "tool": "eslint-plugin-sonarjs 4.2.0",
+      "callable": "boolMixedOperators",
+      "archlens_expected": 3,
+      "reference_predicted": 2,
+      "reason": "SonarJS scores `||` sequences at zero."
+    },
+    {
+      "divergence_id": "D7",
+      "tool": "eslint-plugin-sonarjs 4.2.0",
+      "callable": "nullishSequence",
+      "archlens_expected": 1,
+      "reference_predicted": 0,
+      "reason": "Same exclusion applied to `??`; the callable will be absent from the output entirely."
+    },
+    {
+      "divergence_id": "D8",
+      "tool": "eslint-plugin-sonarjs 4.2.0",
+      "callable": "recursive",
+      "archlens_expected": 2,
+      "reference_predicted": 1,
+      "reason": "SonarJS does not count recursion."
+    },
+    {
+      "divergence_id": "D9",
+      "tool": "eslint-plugin-sonarjs 4.2.0",
+      "callable": "jsxShortCircuit",
+      "archlens_expected": 1,
+      "reference_predicted": 0,
+      "reason": "SonarJS excludes JSX short-circuits from the boolean rule (getJsxShortCircuitNodes). jsxConditionalRender is the control: the same operator outside JSX, where the reference predicted value is 2."
+    },
+    {
+      "divergence_id": "D3",
+      "tool": "eslint-plugin-sonarjs 4.2.0",
+      "callable": "typeOnlyConstructs",
+      "archlens_expected": 0,
+      "reference_predicted": null,
+      "reason": "Zero is UNOBSERVABLE at threshold 0. Applies to trivial, optionalChaining, callbackExcluded and typeOnlyConstructs alike."
+    }
+  ],
+  "clarification_source": "clarifications.ts",
+  "amendment_002": "Additive: the original source files are untouched so their line citations stay valid. New callables live in a separate clarification file and are authored from revision 3 of the frozen rule table."
+}

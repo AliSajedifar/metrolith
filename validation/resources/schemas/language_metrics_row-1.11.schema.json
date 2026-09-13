@@ -1,0 +1,377 @@
+{
+  "$id": "https://archlens.dev/schemas/language_metrics_row-1.11.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "One typed row of language_metrics.csv, as produced by validation.artifact_io.strict_csv. Column types were derived from preserved Artifact 1.3 and 1.4 runs rather than assumed; see validation/scripts/derive_tabular_schemas.py. This artifact is a checked projection of authoritative repository results, not an independent measurement authority.\n\nArtifact Schema 1.7.0: `subject_key` is the logical join key for this row. The locator column becomes nullable because a local subject has no remote URL — a key that is sometimes absent was never a key.\n\nArtifact Schema 1.11.0 adds the benchmark qualification projection. Repository representativeness and benchmark admission are dimensions SEPARATE from measurement completeness: `metric_status` keeps its exact 1.10 meaning and is neither redefined nor derived from any column added here. Every qualification cell is a checked projection of the authoritative `benchmark_qualification.json`; none is an independent authority. In `qualification_mode=not_requested` the qualification cells are explicit nulls with eligibility false, and the measurement cells are byte-identical to what 1.10 produced.",
+  "properties": {
+    "analysis_scope_hash": {
+      "description": "Identity of the exact measured source scope, copied from the authoritative repository result. Part of the qualification primary binding. Never a repository coverage or representativeness proof.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    },
+    "analysis_scope_hash_version": {
+      "description": "Construction version of `analysis_scope_hash`. Part of the primary binding: two scope hashes built by different constructions are not comparable identities.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    },
+    "analyzed_commit_sha": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "architecture_type": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "artifact_schema_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "benchmark_usability": {
+      "description": "DERIVED admission verdict. Never read from registry input. `partial_but_usable` says nothing about repository scope, so no consumer may infer scope from this column alone.",
+      "enum": [
+        "repository_level_usable",
+        "analyzed_scope_only",
+        "partial_but_usable",
+        "unsupported_scope",
+        null
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    },
+    "classes_structs": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "classes_structs_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "exclusion_policy_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "execution_mode": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "expected_language_mismatch": {
+      "type": "boolean",
+      "x-archlens-cell-type": "boolean",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "inventory_schema_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "inventory_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "language": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "lines_of_code": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "loc_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "methods_functions": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "methods_functions_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "metric_contract_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "metric_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "program_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "qualification_profile": {
+      "description": "Qualification profile the decision was made under. A representativeness verdict is only meaningful relative to the question its profile asks.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    },
+    "qualification_record_id": {
+      "description": "Stable identifier of the accepted registry record this projection came from.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    },
+    "qualification_status": {
+      "description": "`adjudicated` when an exact registry match supplied an accepted human/forensic decision; `unresolved` when evidence was absent, stale or identity-mismatched; `not_requested` in generic mode. `unresolved` never defaults to ADEQUATE.",
+      "enum": [
+        "adjudicated",
+        "unresolved",
+        "not_requested",
+        null
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    },
+    "repository_level_comparison_eligible": {
+      "description": "STRICTLY DERIVED. True only for an adjudicated ADEQUATE record with complete measurement, no manual restriction, and derived `repository_level_usable`. Never supplied by registry input. False in generic mode and for every historical unqualified run.",
+      "type": "boolean",
+      "x-archlens-cell-type": "boolean",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    },
+    "repository_representativeness": {
+      "description": "Whether the selected supported scope adequately represents first-party application code for the declared profile. INDEPENDENT of `metric_status`: a complete measurement of a non-representative scope is still complete.",
+      "enum": [
+        "ADEQUATE",
+        "MATERIAL_MIX",
+        "NON_REPRESENTATIVE",
+        "UNRESOLVED",
+        null
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    },
+    "repository_url": {
+      "description": "Source/origin locator. **Nullable and no longer the identity key** — a local subject may have no origin. Use `subject_key` for joins.",
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "representativeness_reason_codes": {
+      "description": "Stable semantic reason codes for the representativeness verdict, canonical JSON list encoding. These are comparison keys; the accompanying basis text is not.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    },
+    "source_files": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_entity_parsed": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_failed_parse": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_failed_read": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_loc_analyzed": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_oversized": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.3.0"
+    },
+    "source_files_partial_parse": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_readable": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_recovered_parse": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.1.0"
+    },
+    "source_files_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "subject_key": {
+      "description": "Logical subject identity. The join key across runs, revisions and source modes. Never a content hash.",
+      "minLength": 1,
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.7.0"
+    },
+    "usability_reason_codes": {
+      "description": "Stable semantic reason codes for the usability verdict, canonical JSON list encoding.",
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ],
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.11.0"
+    }
+  },
+  "required": [
+    "analysis_scope_hash",
+    "analysis_scope_hash_version",
+    "analyzed_commit_sha",
+    "architecture_type",
+    "artifact_schema_version",
+    "benchmark_usability",
+    "classes_structs",
+    "classes_structs_status",
+    "exclusion_policy_version",
+    "execution_mode",
+    "expected_language_mismatch",
+    "inventory_schema_version",
+    "inventory_status",
+    "language",
+    "lines_of_code",
+    "loc_status",
+    "methods_functions",
+    "methods_functions_status",
+    "metric_contract_version",
+    "metric_status",
+    "program_version",
+    "qualification_profile",
+    "qualification_record_id",
+    "qualification_status",
+    "repository_level_comparison_eligible",
+    "repository_representativeness",
+    "representativeness_reason_codes",
+    "source_files",
+    "source_files_entity_parsed",
+    "source_files_failed_parse",
+    "source_files_failed_read",
+    "source_files_loc_analyzed",
+    "source_files_oversized",
+    "source_files_partial_parse",
+    "source_files_readable",
+    "source_files_recovered_parse",
+    "source_files_status",
+    "subject_key",
+    "usability_reason_codes"
+  ],
+  "title": "ArchLens language metrics row 1.11",
+  "type": "object",
+  "x-archlens-key-columns": [
+    "repository_url",
+    "language"
+  ],
+  "x-archlens-unverified-columns": []
+}

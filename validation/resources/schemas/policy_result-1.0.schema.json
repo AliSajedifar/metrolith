@@ -1,0 +1,338 @@
+{
+  "$id": "https://archlens.dev/schemas/policy_result-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "The machine-readable outcome of evaluating one run against one policy document. A DERIVED, explicitly non-authoritative output with its own format version; it is never measurement evidence.\n\n`passed` reflects violations only. A warning never changes the outcome. `rules_not_evaluated` is reported so a rule that was simply not enabled can never be mistaken for a rule that passed.",
+  "properties": {
+    "evaluated_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "type": "string"
+    },
+    "exit_code": {
+      "type": "integer"
+    },
+    "exit_code_meanings": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "expired_waivers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expires_on": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "type": "string"
+          },
+          "issue_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "rule_id": {
+            "enum": [
+              "artifact.compatibility_waiver_required_by_current_generation",
+              "artifact.schema_invalid",
+              "artifact.structurally_unreadable",
+              "capability.parser_unavailable",
+              "contract.artifact_generation_unsupported",
+              "contract.incompatible",
+              "diagnostics.parser_execution_failure",
+              "diagnostics.unknown_category",
+              "measurement.incomplete",
+              "measurement.metric_unavailable",
+              "reproducibility.provenance_incomplete",
+              "run.integrity_failed",
+              "run.mandatory_output_failure"
+            ]
+          },
+          "subject_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "expires_on",
+          "reason",
+          "rule_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "findings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "domain": {
+            "enum": [
+              "artifact_integrity",
+              "run_integrity",
+              "capability",
+              "diagnostics",
+              "contract_compatibility",
+              "measurement_completeness",
+              "reproducibility"
+            ]
+          },
+          "evidence": {
+            "type": "object"
+          },
+          "rule_id": {
+            "enum": [
+              "artifact.compatibility_waiver_required_by_current_generation",
+              "artifact.schema_invalid",
+              "artifact.structurally_unreadable",
+              "capability.parser_unavailable",
+              "contract.artifact_generation_unsupported",
+              "contract.incompatible",
+              "diagnostics.parser_execution_failure",
+              "diagnostics.unknown_category",
+              "measurement.incomplete",
+              "measurement.metric_unavailable",
+              "reproducibility.provenance_incomplete",
+              "run.integrity_failed",
+              "run.mandatory_output_failure"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "violation",
+              "warning",
+              "info"
+            ]
+          },
+          "subject_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "detail",
+          "domain",
+          "evidence",
+          "rule_id",
+          "severity",
+          "subject_key"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "passed": {
+      "type": "boolean"
+    },
+    "policy_name": {
+      "type": "string"
+    },
+    "policy_result_format_version": {
+      "const": "1.0.0"
+    },
+    "rules_evaluated": {
+      "items": {
+        "enum": [
+          "artifact.compatibility_waiver_required_by_current_generation",
+          "artifact.schema_invalid",
+          "artifact.structurally_unreadable",
+          "capability.parser_unavailable",
+          "contract.artifact_generation_unsupported",
+          "contract.incompatible",
+          "diagnostics.parser_execution_failure",
+          "diagnostics.unknown_category",
+          "measurement.incomplete",
+          "measurement.metric_unavailable",
+          "reproducibility.provenance_incomplete",
+          "run.integrity_failed",
+          "run.mandatory_output_failure"
+        ]
+      },
+      "type": "array"
+    },
+    "rules_not_evaluated": {
+      "items": {
+        "enum": [
+          "artifact.compatibility_waiver_required_by_current_generation",
+          "artifact.schema_invalid",
+          "artifact.structurally_unreadable",
+          "capability.parser_unavailable",
+          "contract.artifact_generation_unsupported",
+          "contract.incompatible",
+          "diagnostics.parser_execution_failure",
+          "diagnostics.unknown_category",
+          "measurement.incomplete",
+          "measurement.metric_unavailable",
+          "reproducibility.provenance_incomplete",
+          "run.integrity_failed",
+          "run.mandatory_output_failure"
+        ]
+      },
+      "type": "array"
+    },
+    "run_directory": {
+      "type": "string"
+    },
+    "run_id": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "scope_note": {
+      "type": "string"
+    },
+    "violation_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "waived_findings": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "detail": {
+            "type": "string"
+          },
+          "domain": {
+            "enum": [
+              "artifact_integrity",
+              "run_integrity",
+              "capability",
+              "diagnostics",
+              "contract_compatibility",
+              "measurement_completeness",
+              "reproducibility"
+            ]
+          },
+          "evidence": {
+            "type": "object"
+          },
+          "rule_id": {
+            "enum": [
+              "artifact.compatibility_waiver_required_by_current_generation",
+              "artifact.schema_invalid",
+              "artifact.structurally_unreadable",
+              "capability.parser_unavailable",
+              "contract.artifact_generation_unsupported",
+              "contract.incompatible",
+              "diagnostics.parser_execution_failure",
+              "diagnostics.unknown_category",
+              "measurement.incomplete",
+              "measurement.metric_unavailable",
+              "reproducibility.provenance_incomplete",
+              "run.integrity_failed",
+              "run.mandatory_output_failure"
+            ]
+          },
+          "severity": {
+            "enum": [
+              "violation",
+              "warning",
+              "info"
+            ]
+          },
+          "subject_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "waiver": {
+            "additionalProperties": false,
+            "properties": {
+              "expires_on": {
+                "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+                "type": "string"
+              },
+              "issue_id": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "reason": {
+                "minLength": 1,
+                "type": "string"
+              },
+              "rule_id": {
+                "enum": [
+                  "artifact.compatibility_waiver_required_by_current_generation",
+                  "artifact.schema_invalid",
+                  "artifact.structurally_unreadable",
+                  "capability.parser_unavailable",
+                  "contract.artifact_generation_unsupported",
+                  "contract.incompatible",
+                  "diagnostics.parser_execution_failure",
+                  "diagnostics.unknown_category",
+                  "measurement.incomplete",
+                  "measurement.metric_unavailable",
+                  "reproducibility.provenance_incomplete",
+                  "run.integrity_failed",
+                  "run.mandatory_output_failure"
+                ]
+              },
+              "subject_key": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "expires_on",
+              "reason",
+              "rule_id"
+            ],
+            "type": "object"
+          }
+        },
+        "required": [
+          "detail",
+          "domain",
+          "evidence",
+          "rule_id",
+          "severity",
+          "subject_key",
+          "waiver"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "warning_count": {
+      "minimum": 0,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "evaluated_at",
+    "exit_code",
+    "exit_code_meanings",
+    "expired_waivers",
+    "findings",
+    "passed",
+    "policy_name",
+    "policy_result_format_version",
+    "rules_evaluated",
+    "rules_not_evaluated",
+    "run_directory",
+    "run_id",
+    "scope_note",
+    "violation_count",
+    "waived_findings",
+    "warning_count"
+  ],
+  "title": "ArchLens policy evaluation result 1.0.0",
+  "type": "object"
+}

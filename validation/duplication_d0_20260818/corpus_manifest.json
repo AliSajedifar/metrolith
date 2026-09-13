@@ -1,0 +1,116 @@
+{
+  "manifest_version": "1.0.0",
+  "purpose": "Reviewed characterization expectations authored before duplication production code",
+  "languages": {
+    "Python": {
+      "grammar_file": "grammar/python.py",
+      "probe_files": ["grammar/operators.py"],
+      "threshold_file": "thresholds/thresholds.py",
+      "structural_file": "structural/python.py"
+    },
+    "Java": {
+      "grammar_file": "grammar/GrammarProbe.java",
+      "probe_files": ["grammar/OperatorProbe.java"],
+      "threshold_file": "thresholds/Thresholds.java",
+      "structural_file": "structural/StructuralVariants.java"
+    },
+    "Go": {
+      "grammar_file": "grammar/grammar.go",
+      "probe_files": ["grammar/operators.go"],
+      "threshold_file": "thresholds/thresholds.go",
+      "structural_file": "structural/structural.go"
+    },
+    "JavaScript": {
+      "grammar_file": "grammar/javascript.js",
+      "dialect_files": ["grammar/javascript.jsx"],
+      "probe_files": ["grammar/operators.js"],
+      "threshold_file": "thresholds/thresholds.js",
+      "structural_file": "structural/structural.js"
+    },
+    "TypeScript": {
+      "grammar_file": "grammar/typescript.ts",
+      "dialect_files": ["grammar/typescript.tsx"],
+      "probe_files": ["grammar/operators.ts"],
+      "threshold_file": "thresholds/thresholds.ts",
+      "structural_file": "structural/structural.ts"
+    }
+  },
+  "candidate_discovery_expectations": [
+    {"construct": "callable bodies", "expected": "candidate", "coverage": "named functions, methods, constructors, nested/local callables, anonymous block callables, generators"},
+    {"construct": "branch bodies", "expected": "candidate", "coverage": "if, else, language-equivalent branch blocks"},
+    {"construct": "loop bodies", "expected": "candidate", "coverage": "for, while, async/range forms, Python loop-else"},
+    {"construct": "exception bodies", "expected": "candidate", "coverage": "try, catch/except, else, finally"},
+    {"construct": "switch/case bodies", "expected": "candidate", "coverage": "Java/JS switch, Python match, Go expression/type switch and select"},
+    {"construct": "explicit executable scoped blocks", "expected": "candidate", "coverage": "Python with, Java synchronized/initializers, Go/JS statement blocks, JS class static block"},
+    {"construct": "expressions", "expected": "excluded", "coverage": "lambda/concise arrow expressions and ordinary expressions"},
+    {"construct": "single statements", "expected": "excluded", "coverage": "return, assignment, expression statement"},
+    {"construct": "arbitrary statement windows", "expected": "excluded", "coverage": "only complete body lists may be selected"},
+    {"construct": "module bodies", "expected": "excluded", "coverage": "program/module/source_file roots"},
+    {"construct": "imports and declarations", "expected": "excluded", "coverage": "imports, types, fields, signatures, .pyi and .d.ts"},
+    {"construct": "unsupported/generated content", "expected": "excluded", "coverage": "unsupported extension plus existing inventory exclusions"}
+  ],
+  "transformation_matrix": [
+    {"variant": "exact_copy", "lexical_exact": "match", "structural": "match"},
+    {"variant": "whitespace_comment_copy", "lexical_exact": "match", "structural": "match"},
+    {"variant": "renamed", "lexical_exact": "no_match", "structural": "match"},
+    {"variant": "literal_changed", "lexical_exact": "no_match", "structural": "match"},
+    {"variant": "operator_changed", "lexical_exact": "no_match", "structural": "no_match"},
+    {"variant": "statement_added", "lexical_exact": "no_match", "structural": "no_match"},
+    {"variant": "statement_removed", "lexical_exact": "no_match", "structural": "no_match"},
+    {"variant": "statement_reordered", "lexical_exact": "no_match", "structural": "no_match"}
+  ],
+  "nested_and_overlap": [
+    {"file": "structural/python.py", "construct": "nested_outer_a/nested_outer_b", "expectation": "outer and inner complete-body candidates overlap only by proper containment"},
+    {"file": "grammar/python.py", "construct": "method/nested", "expectation": "nested callable body is a separate candidate contained by the outer callable body"},
+    {"file": "grammar/GrammarProbe.java", "construct": "method/local class/lambda/anonymous class", "expectation": "nested candidate spans remain laminar"},
+    {"file": "grammar/grammar.go", "construct": "method/function literal", "expectation": "function-literal body is contained by the method body"},
+    {"file": "grammar/javascript.js", "construct": "method/nested function/function expression", "expectation": "anonymous and nested block bodies are included; concise arrow body is excluded"},
+    {"file": "grammar/typescript.ts", "construct": "method/block arrow", "expectation": "block-arrow body included; concise-arrow expression excluded"}
+  ],
+  "threshold_cases": [
+    {"language": "Python", "file": "thresholds/thresholds.py", "name": "below_statements", "intended_floor_failure": "immediate_statements"},
+    {"language": "Python", "file": "thresholds/thresholds.py", "name": "below_tokens", "intended_floor_failure": "tokens"},
+    {"language": "Python", "file": "thresholds/thresholds.py", "name": "below_nloc", "intended_floor_failure": "nloc"},
+    {"language": "Python", "file": "thresholds/thresholds.py", "name": "qualifying", "intended_floor_failure": null},
+    {"language": "Java", "file": "thresholds/Thresholds.java", "name": "belowStatements", "intended_floor_failure": "immediate_statements"},
+    {"language": "Java", "file": "thresholds/Thresholds.java", "name": "belowTokens", "intended_floor_failure": "tokens"},
+    {"language": "Java", "file": "thresholds/Thresholds.java", "name": "belowNloc", "intended_floor_failure": "nloc"},
+    {"language": "Java", "file": "thresholds/Thresholds.java", "name": "qualifying", "intended_floor_failure": null},
+    {"language": "Go", "file": "thresholds/thresholds.go", "name": "belowStatements", "intended_floor_failure": "immediate_statements"},
+    {"language": "Go", "file": "thresholds/thresholds.go", "name": "belowTokens", "intended_floor_failure": "tokens"},
+    {"language": "Go", "file": "thresholds/thresholds.go", "name": "belowNloc", "intended_floor_failure": "nloc"},
+    {"language": "Go", "file": "thresholds/thresholds.go", "name": "qualifying", "intended_floor_failure": null},
+    {"language": "JavaScript", "file": "thresholds/thresholds.js", "name": "belowStatements", "intended_floor_failure": "immediate_statements"},
+    {"language": "JavaScript", "file": "thresholds/thresholds.js", "name": "belowTokens", "intended_floor_failure": "tokens"},
+    {"language": "JavaScript", "file": "thresholds/thresholds.js", "name": "belowNloc", "intended_floor_failure": "nloc"},
+    {"language": "JavaScript", "file": "thresholds/thresholds.js", "name": "qualifying", "intended_floor_failure": null},
+    {"language": "TypeScript", "file": "thresholds/thresholds.ts", "name": "belowStatements", "intended_floor_failure": "immediate_statements"},
+    {"language": "TypeScript", "file": "thresholds/thresholds.ts", "name": "belowTokens", "intended_floor_failure": "tokens"},
+    {"language": "TypeScript", "file": "thresholds/thresholds.ts", "name": "belowNloc", "intended_floor_failure": "nloc"},
+    {"language": "TypeScript", "file": "thresholds/thresholds.ts", "name": "qualifying", "intended_floor_failure": null}
+  ],
+  "portability_expectations": [
+    {"path": "portability/café/日本語.py", "property": "Unicode path and identifiers", "expected": "complete"},
+    {"path": "portability/crlf.java", "property": "CRLF", "expected": "complete"},
+    {"path": "portability/lone_cr.go", "property": "lone CR", "expected": "complete after current parser normalization"},
+    {"path": "portability/bom.ts", "property": "UTF-8 BOM", "expected": "complete after BOM removal; source byte offsets shifted"},
+    {"path": "portability/no_final_newline.js", "property": "no final newline", "expected": "complete"},
+    {"path": "portability/malformed.py", "property": "malformed syntax", "expected": "failed"},
+    {"path": "portability/malformed.java", "property": "partial parser recovery", "expected": "partial"},
+    {"path": "portability/malformed.go", "property": "partial parser recovery", "expected": "partial"},
+    {"path": "portability/malformed.js", "property": "partial parser recovery", "expected": "partial"},
+    {"path": "portability/malformed.ts", "property": "partial parser recovery", "expected": "partial"}
+    ,{"path": "portability/recovered_import_assertion.js", "property": "JavaScript compatibility recovery", "expected": "complete_recovered"}
+    ,{"path": "portability/recovered_keyword_parameter.ts", "property": "TypeScript compatibility recovery", "expected": "complete_recovered"}
+  ],
+  "selection_expectations": [
+    {"path": "selection/generated/copy.generated.js", "expected": "pruned_or_excluded_generated"},
+    {"path": "selection/vendor/copy.java", "expected": "pruned_vendor"},
+    {"path": "selection/tests/copy.py", "expected": "pruned_test"},
+    {"path": "selection/build/copy.go", "expected": "pruned_build_output"},
+    {"path": "selection/declarations.d.ts", "expected": "excluded_declaration_only"},
+    {"path": "selection/stubs.pyi", "expected": "excluded_declaration_only"},
+    {"path": "selection/bundle.min.js", "expected": "excluded_minified_or_bundled"},
+    {"path": "selection/unsupported.rb", "expected": "unsupported_not_source"}
+  ]
+}

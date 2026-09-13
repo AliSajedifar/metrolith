@@ -1,0 +1,38 @@
+{
+  "archlens_version": "3.5.0",
+  "artifact_schema_version": "1.5.0",
+  "effective_git_checkout_configuration": {
+    "core.autocrlf": "false",
+    "core.eol": "lf",
+    "core.longpaths": "true",
+    "core.safecrlf": "false"
+  },
+  "exclusion_policy_sha256": "0de3fd9cf959e6b2be01e4eeab2b0fba1bbdfb74f9b71403649472a0d95b9356",
+  "exclusion_policy_version": "1.5.0",
+  "git_version": "git version 2.54.0.windows.1",
+  "grammar_versions": {
+    "tree-sitter-go": "0.25.0",
+    "tree-sitter-java": "0.23.5",
+    "tree-sitter-javascript": "0.25.0",
+    "tree-sitter-typescript": "0.23.2"
+  },
+  "inventory_schema_version": "1.6.0",
+  "metric_contract_version": "3.0.0",
+  "operating_system": "nt",
+  "package_distribution_version": "3.4.0",
+  "parser_initialization": {
+    "Go": "complete",
+    "Java": "complete",
+    "JavaScript": "complete",
+    "Python": "complete",
+    "TSX": "complete",
+    "TypeScript": "complete"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "profiler_git_commit_sha": null,
+  "profiler_git_dirty": true,
+  "profiler_git_tag": null,
+  "python_version": "3.13.11",
+  "python_version_exact": "3.13.11 | packaged by Anaconda, Inc. | (main, Dec 10 2025, 21:21:58) [MSC v.1929 64 bit (AMD64)]",
+  "tree_sitter_version": "0.25.2"
+}

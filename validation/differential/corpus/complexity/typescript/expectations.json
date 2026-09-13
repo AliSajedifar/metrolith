@@ -1,0 +1,314 @@
+{
+  "$comment": "Per-construct expectations derived from docs/COMPLEXITY_CONTRACT_V1.md. Entries pinning a ZERO contribution are as load-bearing as the rest: a silently absent increment and a correctly absent one look identical in a total.",
+  "corpus_layer": "layer1_synthetic",
+  "language": "TypeScript",
+  "complexity_contract_version": "1.0.0",
+  "source": "constructs.ts",
+  "file_level": {
+    "methods_functions": 16,
+    "callable_count": 16,
+    "structural_complexity_status": "complete",
+    "nloc_status": "complete"
+  },
+  "outside_population": [
+    {
+      "name": "declaredOnly",
+      "start_line": 107,
+      "reason": "declaration only, no body; signature_only_methods",
+      "expected_records": 0
+    },
+    {
+      "name": "overloadedImplementation signatures",
+      "start_line": 109,
+      "reason": "overload signatures are declaration-only",
+      "expected_records": 0
+    },
+    {
+      "name": "predicate",
+      "start_line": 73,
+      "reason": "arrow bound inside a function; nested/anonymous",
+      "expected_records": 0
+    }
+  ],
+  "callables": [
+    {
+      "name": "trivial",
+      "qualified_name": "trivial",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 9,
+      "end_line": 11,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 0
+      },
+      "pins": "exactly 1"
+    },
+    {
+      "name": "sequentialBranches",
+      "qualified_name": "sequentialBranches",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 13,
+      "end_line": 21,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "elseIfChain",
+      "qualified_name": "elseIfChain",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 23,
+      "end_line": 31,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "loops",
+      "qualified_name": "loops",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 33,
+      "end_line": 41,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "switching",
+      "qualified_name": "switching",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 43,
+      "end_line": 52,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 10,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "booleanOperators",
+      "qualified_name": "booleanOperators",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 54,
+      "end_line": 62,
+      "expected": {
+        "cyclomatic_complexity": 8,
+        "decision_point_count": 2,
+        "boolean_operator_count": 5,
+        "max_condition_operator_count": 2,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 3
+      }
+    },
+    {
+      "name": "nullishCoalescing",
+      "qualified_name": "nullishCoalescing",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 64,
+      "end_line": 66,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 0,
+        "boolean_operator_count": 1,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 2
+      },
+      "pins": "?? counts in TypeScript exactly as in JavaScript"
+    },
+    {
+      "name": "optionalAndDefaultParameters",
+      "qualified_name": "optionalAndDefaultParameters",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 68,
+      "end_line": 70,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 3
+      },
+      "pins": "optional and defaulted parameters each count once"
+    },
+    {
+      "name": "excludedArrow",
+      "qualified_name": "excludedArrow",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 72,
+      "end_line": 78,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 7,
+        "formal_parameter_count": 1
+      },
+      "pins": "the arrow is a traversal boundary: its && belongs to no record, yet its line stays inside this callable's span"
+    },
+    {
+      "name": "commentsAndBlanks",
+      "qualified_name": "commentsAndBlanks",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 80,
+      "end_line": 86,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 4,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "withThis",
+      "qualified_name": "Widget.withThis",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 89,
+      "end_line": 94,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 1,
+        "boolean_operator_count": 1,
+        "max_condition_operator_count": 1,
+        "max_nesting_depth": 1,
+        "nloc": 6,
+        "formal_parameter_count": 3
+      },
+      "pins": "the `this` parameter is EXCLUDED; destructuring is one, rest is one"
+    },
+    {
+      "name": "plain",
+      "qualified_name": "Widget.plain",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 96,
+      "end_line": 98,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "decorated",
+      "qualified_name": "Widget.decorated",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified",
+      "start_line": 100,
+      "end_line": 104,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 5,
+        "formal_parameter_count": 1
+      },
+      "pins": "decorators are preceding siblings, so the span extends BACK over both of them"
+    },
+    {
+      "name": "overloadedImplementation",
+      "qualified_name": "overloadedImplementation",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 111,
+      "end_line": 116,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 6,
+        "formal_parameter_count": 1
+      },
+      "pins": "only the implementation is in the population; the two overload signatures are declaration-only"
+    },
+    {
+      "name": "HostListener",
+      "qualified_name": "HostListener",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 118,
+      "end_line": 120,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "Throttle",
+      "qualified_name": "Throttle",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 122,
+      "end_line": 124,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      }
+    }
+  ]
+}

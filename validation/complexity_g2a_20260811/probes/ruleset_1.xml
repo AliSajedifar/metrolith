@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<ruleset name="g2a" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0">
+  <description>G2-A zero-suppression probe.</description>
+  <rule ref="category/java/design.xml/CognitiveComplexity">
+    <properties><property name="reportLevel" value="1"/></properties>
+  </rule>
+</ruleset>

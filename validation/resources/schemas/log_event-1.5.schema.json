@@ -1,0 +1,72 @@
+{
+  "$id": "https://archlens.dev/schemas/log_event-1.5.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "description": "One line of logs/run.jsonl. The log is authoritative for event ORDERING only and is never authoritative for metric values (plan section 4.1). Log-derived duration is diagnostic, not the normative run clock (plan section 19.3).",
+  "properties": {
+    "commit_sha": {
+      "pattern": "^[0-9a-f]{40}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "error_type": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exception_details": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "message": {
+      "type": "string"
+    },
+    "module": {
+      "type": "string"
+    },
+    "product_name": {
+      "type": "string"
+    },
+    "program_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "repository_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "severity": {
+      "enum": [
+        "DEBUG",
+        "INFO",
+        "WARNING",
+        "ERROR",
+        "CRITICAL"
+      ]
+    },
+    "timestamp": {
+      "description": "UTC timestamp. Constrained by pattern, not by 'format': ArchLens supplies no FormatChecker, so a 'format' keyword would be silently unenforced.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:?\\d{2})?$",
+      "type": "string"
+    }
+  },
+  "required": [
+    "timestamp",
+    "severity",
+    "message",
+    "run_id"
+  ],
+  "title": "ArchLens log event 1.5",
+  "type": "object"
+}

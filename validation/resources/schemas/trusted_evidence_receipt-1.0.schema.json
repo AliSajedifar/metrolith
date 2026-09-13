@@ -1,0 +1,150 @@
+{
+  "$id": "https://archlens.dev/schemas/trusted_evidence_receipt-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "ArchLens trusted evidence receipt 1.0.0",
+  "description": "Canonical externally authenticated receipt binding exact evidence bytes to a protected evaluator/producer, exact run manifest, subject revisions, analyzed scopes, and document contracts. The receipt never authenticates itself.",
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "receipt_format": {
+      "const": "archlens-trusted-evidence-receipt"
+    },
+    "receipt_format_version": {
+      "const": "1.0.0"
+    },
+    "evaluator": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "repository": {
+          "type": "string",
+          "pattern": "^[^/\\s]+/[^/\\s]+$"
+        },
+        "revision": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{40}$"
+        },
+        "source_sha256": {
+          "type": "string",
+          "pattern": "^[0-9a-f]{64}$"
+        }
+      },
+      "required": [
+        "repository",
+        "revision",
+        "source_sha256"
+      ]
+    },
+    "run_manifest_sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "evidence": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "kind": {
+            "enum": [
+              "duplication",
+              "hotspots"
+            ]
+          },
+          "document_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "producer": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "repository": {
+                "type": "string",
+                "pattern": "^[^/\\s]+/[^/\\s]+$"
+              },
+              "revision": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{40}$"
+              },
+              "source_sha256": {
+                "type": "string",
+                "pattern": "^[0-9a-f]{64}$"
+              }
+            },
+            "required": [
+              "repository",
+              "revision",
+              "source_sha256"
+            ]
+          },
+          "run_manifest_sha256": {
+            "type": "string",
+            "pattern": "^[0-9a-f]{64}$"
+          },
+          "run_id": {
+            "type": "string",
+            "minLength": 1
+          },
+          "document_format": {
+            "type": "string",
+            "minLength": 1
+          },
+          "document_format_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "analysis_contract_version": {
+            "type": "string",
+            "minLength": 1
+          },
+          "subjects": {
+            "type": "array",
+            "minItems": 1,
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "subject_key": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "analyzed_revision": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "analysis_scope_hash": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "subject_key",
+                "analyzed_revision",
+                "analysis_scope_hash"
+              ]
+            }
+          }
+        },
+        "required": [
+          "kind",
+          "document_sha256",
+          "producer",
+          "run_manifest_sha256",
+          "run_id",
+          "document_format",
+          "document_format_version",
+          "analysis_contract_version",
+          "subjects"
+        ]
+      }
+    }
+  },
+  "required": [
+    "receipt_format",
+    "receipt_format_version",
+    "evaluator",
+    "run_manifest_sha256",
+    "evidence"
+  ]
+}

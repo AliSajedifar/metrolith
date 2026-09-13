@@ -1,0 +1,194 @@
+{
+  "$id": "https://archlens.dev/schemas/differential_record-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Records produced by the differential-validation study. These are STUDY OUTPUT, not measurement output, and are deliberately kept outside the Artifact Schema 1.7 family and outside the production schema registry: forcing experimental validation results into the measurement contract would make an unvalidated research artifact look authoritative.\n\nNo reference implementation recorded here is ground truth. A disagreement is a finding about BOTH implementations until adjudicated, and 'unresolved' is a permitted terminal classification.\n\nSuccess is not a high agreement rate. Success is that every disagreement is localized to concrete evidence and classified.",
+  "properties": {
+    "differential_record_format_version": {
+      "const": "1.0.0"
+    },
+    "records": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "adjudication_note": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "adjudication_status": {
+            "enum": [
+              "not_required",
+              "pending",
+              "manually_adjudicated_single_reviewer",
+              "automatically_classified"
+            ]
+          },
+          "agreement_status": {
+            "enum": [
+              "exact_agreement",
+              "disagreement",
+              "not_evaluable"
+            ]
+          },
+          "analysis_scope_hash": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "analyzed_revision": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "archlens_result": {},
+          "archlens_version": {
+            "type": "string"
+          },
+          "corpus_layer": {
+            "enum": [
+              "layer1_synthetic",
+              "layer2_selected_real",
+              "layer3_benchmark_sample"
+            ]
+          },
+          "definition_mapping_id": {
+            "type": "string"
+          },
+          "difference": {},
+          "differential_record_format_version": {
+            "const": "1.0.0"
+          },
+          "disagreement_cause": {
+            "enum": [
+              "metric_definition_mismatch",
+              "source_selection_mismatch",
+              "parser_limitation",
+              "archlens_defect",
+              "reference_tool_defect",
+              "unsupported_construct",
+              "adapter_defect",
+              "unresolved",
+              "not_applicable"
+            ]
+          },
+          "evidence_paths": {
+            "items": {
+              "type": "string"
+            },
+            "type": "array"
+          },
+          "exclusion_policy_version": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "metric": {
+            "type": "string"
+          },
+          "metric_contract_version": {
+            "type": "string"
+          },
+          "not_evaluable_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reference_name": {
+            "type": "string"
+          },
+          "reference_result": {},
+          "reference_version": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "subject_key": {
+            "type": "string"
+          },
+          "track": {
+            "enum": [
+              "A_scope_controlled_metric",
+              "B_independent_source_selection"
+            ]
+          }
+        },
+        "required": [
+          "adjudication_note",
+          "adjudication_status",
+          "agreement_status",
+          "analysis_scope_hash",
+          "analyzed_revision",
+          "archlens_result",
+          "archlens_version",
+          "corpus_layer",
+          "definition_mapping_id",
+          "difference",
+          "differential_record_format_version",
+          "disagreement_cause",
+          "evidence_paths",
+          "exclusion_policy_version",
+          "language",
+          "metric",
+          "metric_contract_version",
+          "not_evaluable_reason",
+          "reference_name",
+          "reference_result",
+          "reference_version",
+          "subject_key",
+          "track"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "study_metadata": {
+      "type": "object"
+    },
+    "summary": {
+      "additionalProperties": true,
+      "properties": {
+        "all_disagreements_classified": {
+          "type": "boolean"
+        },
+        "by_agreement_status": {
+          "type": "object"
+        },
+        "disagreements_by_cause": {
+          "type": "object"
+        },
+        "note": {
+          "type": "string"
+        },
+        "record_count": {
+          "type": "integer"
+        },
+        "unresolved_disagreements": {
+          "type": "integer"
+        }
+      },
+      "required": [
+        "all_disagreements_classified",
+        "by_agreement_status",
+        "disagreements_by_cause",
+        "record_count",
+        "unresolved_disagreements"
+      ],
+      "type": "object"
+    }
+  },
+  "required": [
+    "differential_record_format_version",
+    "records",
+    "study_metadata",
+    "summary"
+  ],
+  "title": "ArchLens differential-validation study record 1.0.0",
+  "type": "object"
+}

@@ -1,0 +1,1404 @@
+{
+  "$defs": {
+    "finding": {
+      "additionalProperties": false,
+      "description": "One deterministic finding. It carries everything a consumer needs without re-evaluating the policy or re-reading the run, so a later SARIF writer is a projection of this record rather than a second evaluator.\n\nOnly `violated`, `not_evaluable`, `not_applicable` and `evaluation_error` produce findings. A pass is counted and never enumerated: one row per passing callable would be megabytes of output saying nothing is wrong. Pass counts are in `counts.units` and per rule in `rules[]`.",
+      "properties": {
+        "callable_qualified_name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "callable_row_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "data_completeness": {
+          "$ref": "#/$defs/completeness"
+        },
+        "domain": {
+          "description": "The Policy v1 domain, for integrity findings only.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "end_line": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "evidence": {
+          "description": "Extra evidence only: the v1 rule's evidence for an integrity finding, the collapsed row counts for a callable- or hotspot-file-scope non-evaluability, or the source document's own published classification and reasons for a hotspot finding. Never a copy of the analysis.",
+          "type": "object"
+        },
+        "finding_id": {
+          "description": "Deterministic identity, digested from the rule id, the metric, the scope and the location and NOTHING else. Not a timestamp, not a UUID, not an array position, and deliberately not the observed value or the threshold: the same problem keeps one identity as the number drifts, and re-tuning a threshold does not orphan a finding's history.",
+          "pattern": "^alf1:[0-9a-f]{32}$",
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "integrity",
+            "metric"
+          ]
+        },
+        "language": {
+          "description": "The language exactly as the artifact recorded it. The producer spells core metrics lowercase and complexity in display case; matching is case-insensitive and identity casefolds, so one language never yields two findings.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "message": {
+          "description": "A deterministic sentence. A `not_evaluable` message states that the rule did NOT run; it never reads as a pass.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "metric": {
+          "description": "Null for an integrity finding: a v1 rule is a predicate over the measurement process, not a comparison against a number, and filling this with a placeholder would invent a threshold where the point is that none exists.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "observed_value": {
+          "description": "The persisted measurement, or null when the rule could not be evaluated. A null here is UNAVAILABLE and is never read as zero.",
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "operator": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "operator_symbol": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "path": {
+          "description": "POSIX-normalized relative path, for callable-scope findings.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provenance": {
+          "description": "What a reader needs to know the number's meaning: run id and the contract versions it was measured under, plus the analyzed scope for a subject-bound finding.",
+          "type": "object"
+        },
+        "reason": {
+          "description": "Typed reason, present whenever the status is not `violated`, so a consumer never parses the message to learn why.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "repository_url": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "rule_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "scope": {
+          "enum": [
+            "run",
+            "repository",
+            "language",
+            "callable",
+            "hotspot_file",
+            "duplication_group"
+          ]
+        },
+        "severity": {
+          "enum": [
+            "violation",
+            "warning",
+            "info"
+          ]
+        },
+        "start_line": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "subject_key": {
+          "description": "Empty for a run-wide integrity fact that names no subject.",
+          "type": "string"
+        },
+        "threshold": {
+          "type": [
+            "number",
+            "null"
+          ]
+        },
+        "value_status": {
+          "description": "The persisted status that gated the read, verbatim. `metric_status` itself is never modified by policy evaluation.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "value_status_field": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "waiver": {
+          "$ref": "#/$defs/waiver"
+        }
+      },
+      "required": [
+        "data_completeness",
+        "domain",
+        "evidence",
+        "finding_id",
+        "kind",
+        "language",
+        "message",
+        "metric",
+        "observed_value",
+        "operator",
+        "operator_symbol",
+        "path",
+        "provenance",
+        "reason",
+        "repository_url",
+        "rule_id",
+        "scope",
+        "severity",
+        "status",
+        "subject_key",
+        "threshold",
+        "value_status",
+        "value_status_field"
+      ],
+      "type": "object"
+    },
+    "completeness": {
+      "description": "What the observed value is worth, derived from the persisted status and never written back to it. `not_applicable` (nothing of this kind to measure) is deliberately distinct from `unavailable` (a gap) and from `absent` (this artifact generation recorded nothing of this kind at all).",
+      "enum": [
+        "complete",
+        "partial",
+        "unavailable",
+        "not_applicable",
+        "absent"
+      ]
+    },
+    "outcomeCounts": {
+      "additionalProperties": false,
+      "properties": {
+        "evaluation_error": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "not_applicable": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "not_evaluable": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "passed": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "units_evaluated": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "violated": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "evaluation_error",
+        "not_applicable",
+        "not_evaluable",
+        "passed",
+        "units_evaluated",
+        "violated"
+      ],
+      "type": "object"
+    },
+    "ratchetIdentitySubject": {
+      "additionalProperties": false,
+      "properties": {
+        "analyzed_commit_sha": {
+          "pattern": "^(?:[0-9a-f]{40}|[0-9a-f]{64})$",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subject_key": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "analyzed_commit_sha",
+        "subject_key"
+      ],
+      "type": "object"
+    },
+    "ratchetBaselineIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "format": {
+          "const": "archlens-ratchet-baseline"
+        },
+        "format_version": {
+          "const": "1.0.0"
+        },
+        "source_run_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "source_run_manifest_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "subjects": {
+          "items": {
+            "$ref": "#/$defs/ratchetIdentitySubject"
+          },
+          "type": "array"
+        },
+        "verified_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "format",
+        "format_version",
+        "source_run_id",
+        "source_run_manifest_sha256",
+        "subjects",
+        "verified_sha256"
+      ],
+      "type": "object"
+    },
+    "ratchetCurrentIdentity": {
+      "additionalProperties": false,
+      "properties": {
+        "run_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subjects": {
+          "items": {
+            "$ref": "#/$defs/ratchetIdentitySubject"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "run_id",
+        "subjects"
+      ],
+      "type": "object"
+    },
+    "ratchetError": {
+      "additionalProperties": false,
+      "properties": {
+        "code": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "detail": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "code",
+        "detail"
+      ],
+      "type": "object"
+    },
+    "ratchetSummary": {
+      "additionalProperties": false,
+      "description": "Bounded Ratchet V1 state. It summarizes configuration, admission, identities, and outcome counts only. Per-comparison passing records, histories, trends, and waivers are deliberately absent.",
+      "properties": {
+        "admission_status": {
+          "enum": [
+            "not_requested",
+            "admitted",
+            "failed"
+          ]
+        },
+        "baseline": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ratchetBaselineIdentity"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "configured": {
+          "type": "boolean"
+        },
+        "current": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ratchetCurrentIdentity"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "error": {
+          "oneOf": [
+            {
+              "$ref": "#/$defs/ratchetError"
+            },
+            {
+              "type": "null"
+            }
+          ]
+        },
+        "evaluated_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "not_evaluable_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "paired_subject_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "status": {
+          "enum": [
+            "not_configured",
+            "admission_failed",
+            "evaluation_failed",
+            "evaluated",
+            "evaluated_with_not_evaluable"
+          ]
+        },
+        "violated_count": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "admission_status",
+        "baseline",
+        "configured",
+        "current",
+        "error",
+        "evaluated_count",
+        "not_evaluable_count",
+        "paired_subject_count",
+        "status",
+        "violated_count"
+      ],
+      "type": "object"
+    },
+    "status": {
+      "enum": [
+        "violated",
+        "passed",
+        "not_evaluable",
+        "not_applicable",
+        "evaluation_error"
+      ]
+    },
+    "waiver": {
+      "additionalProperties": false,
+      "properties": {
+        "expires_on": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string"
+        },
+        "issue_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rule_id": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "subject_key": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "expires_on",
+        "reason",
+        "rule_id"
+      ],
+      "type": "object"
+    },
+    "evidenceBinding": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Which subject(s) of this run the document speaks for. An `ambiguous` binding names its candidates and binds to nothing: evidence that could describe either of two subjects is refused rather than attributed to an arbitrary one of them.",
+      "required": [
+        "state",
+        "state_meaning",
+        "subject_keys",
+        "scope_hash_compared",
+        "require_scope_hash"
+      ],
+      "properties": {
+        "state": {
+          "enum": [
+            "not_attempted",
+            "bound",
+            "unbound",
+            "ambiguous"
+          ]
+        },
+        "state_meaning": {
+          "type": "string",
+          "minLength": 1
+        },
+        "subject_keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Empty unless the state is `bound`. Never a guess."
+        },
+        "candidate_subject_keys": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Present only when the state is `ambiguous`: every subject that matched, none of which was chosen."
+        },
+        "scope_hash_compared": {
+          "type": [
+            "boolean",
+            "null"
+          ],
+          "description": "Whether an analysis scope hash was actually compared on both sides. `null` means the comparison does not apply to this evidence kind, which is not the same as `false`."
+        },
+        "require_scope_hash": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        }
+      }
+    },
+    "evidenceRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "One admission decision for one standalone evidence document. It carries NO figure from that document: this record states whether the evidence may be used at all, and copying its numbers here would make a rejected document's figures reachable through the very object that rejected it.",
+      "required": [
+        "kind",
+        "supplied",
+        "admission",
+        "admission_meaning",
+        "expected_format",
+        "document_format",
+        "document_format_version",
+        "contract_compatibility",
+        "expected_analysis_contract_version",
+        "document_analysis_contract_version",
+        "provenance_rule",
+        "provenance_evidence",
+        "binding",
+        "reason",
+        "reason_meaning",
+        "detail",
+        "used_by_rules",
+        "document_sha256",
+        "trust_state",
+        "producer_identity",
+        "attestation"
+      ],
+      "properties": {
+        "kind": {
+          "enum": [
+            "duplication",
+            "hotspots"
+          ]
+        },
+        "supplied": {
+          "type": "boolean",
+          "description": "Whether a document was supplied at all. `false` is an absence of INPUT and is never a measured absence of findings."
+        },
+        "admission": {
+          "enum": [
+            "admitted",
+            "not_supplied",
+            "unreadable",
+            "contract_incompatible",
+            "validator_rejected",
+            "provenance_mismatch",
+            "trust_refused"
+          ]
+        },
+        "admission_meaning": {
+          "type": "string",
+          "minLength": 1
+        },
+        "expected_format": {
+          "type": "string",
+          "minLength": 1
+        },
+        "document_format": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "document_format_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "contract_compatibility": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "expected_analysis_contract_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "document_analysis_contract_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provenance_rule": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "provenance_evidence": {
+          "type": [
+            "object",
+            "null"
+          ],
+          "description": "The values that were compared, both sides, so a reader can check the decision instead of trusting it."
+        },
+        "binding": {
+          "$ref": "#/$defs/evidenceBinding"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason_meaning": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "detail": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "used_by_rules": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "description": "Rule ids in this policy that read this evidence kind. An empty array beside a supplied document means the document was admitted and nothing gated on it."
+        },
+        "document_sha256": {
+          "type": [
+            "string",
+            "null"
+          ],
+          "pattern": "^[0-9a-f]{64}$"
+        },
+        "trust_state": {
+          "enum": [
+            "trusted",
+            "untrusted_local",
+            "absent",
+            "refused"
+          ]
+        },
+        "producer_identity": {
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "attestation": {
+          "type": [
+            "object",
+            "null"
+          ]
+        }
+      }
+    }
+  },
+  "$id": "https://archlens.dev/schemas/check_result-1.4.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "One `archlens check` result at format version 1.4.0. It adds bounded exact-input provenance and protected evidence trust state, removes the machine-local run directory from canonical identity, and retains the Ratchet summary introduced by 1.3.0.",
+  "properties": {
+    "archlens_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "check_result_format_version": {
+      "const": "1.4.0"
+    },
+    "completeness_meanings": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "counts": {
+      "additionalProperties": false,
+      "properties": {
+        "by_severity": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "description": "Over emitted findings.",
+          "type": "object"
+        },
+        "by_status": {
+          "additionalProperties": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "description": "Over emitted findings. `passed` is always 0 here, because a pass is never enumerated; the honest pass count is in `units`.",
+          "type": "object"
+        },
+        "failing": {
+          "description": "Findings that require exit 1: violation-severity rules that fired, plus violation-severity rules that could not run when options.on_not_evaluable is `fail`.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "findings": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "rules_evaluated": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "units": {
+          "$ref": "#/$defs/outcomeCounts",
+          "description": "Over every evaluation unit, passes included."
+        },
+        "waived": {
+          "minimum": 0,
+          "type": "integer"
+        }
+      },
+      "required": [
+        "by_severity",
+        "by_status",
+        "failing",
+        "findings",
+        "rules_evaluated",
+        "units",
+        "waived"
+      ],
+      "type": "object"
+    },
+    "evaluated_at": {
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+      "type": "string"
+    },
+    "exit_code": {
+      "enum": [
+        0,
+        1,
+        2
+      ]
+    },
+    "exit_code_meanings": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "expired_waivers": {
+      "items": {
+        "$ref": "#/$defs/waiver"
+      },
+      "type": "array"
+    },
+    "failure_kind": {
+      "description": "Why the evaluation did not happen. Null when it did. The seven kinds are never collapsed into one another in this document, even though the process exit code for all of them is 2 — CI can only branch on a small integer.",
+      "oneOf": [
+        {
+          "enum": [
+            "usage",
+            "policy_invalid",
+            "run_unreadable",
+            "contract_incompatible",
+            "evaluation_error",
+            "ratchet_admission_failed",
+            "ratchet_evaluation_failed",
+            "trust_admission_failed"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
+    "failure_message": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "findings": {
+      "description": "Deterministically ordered by (severity rank, rule id, subject key, scope rank, language, path, start line, callable row id, finding id). Every component is a property of the rule or of the artifact, never of the evaluation, so the order is stable across runs.",
+      "items": {
+        "$ref": "#/$defs/finding"
+      },
+      "type": "array"
+    },
+    "not_evaluable": {
+      "description": "Compact projection of the `not_evaluable` findings, cross-referenced by finding_id rather than duplicated. Reported as its own section so a rule that did not run can never be mistaken for a rule that passed.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "fails_the_build": {
+            "type": "boolean"
+          },
+          "finding_id": {
+            "type": "string"
+          },
+          "language": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "metric": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason_meaning": {
+            "type": "string"
+          },
+          "rule_id": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "subject_key": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "fails_the_build",
+          "finding_id",
+          "metric",
+          "reason",
+          "reason_meaning",
+          "rule_id",
+          "scope",
+          "subject_key"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "policy": {
+      "additionalProperties": false,
+      "properties": {
+        "description": {
+          "type": "string"
+        },
+        "evaluated_as_format_version": {
+          "const": "2.2.0"
+        },
+        "expected_contracts": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "integrity_rule_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "metric_rule_count": {
+          "minimum": 0,
+          "type": "integer"
+        },
+        "name": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "options": {
+          "description": "Null only on a failed evaluation, where no policy was loaded.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "policy_document_format_version": {
+          "description": "The version the source file declared. A v1 document accepted by `check` keeps `1.0.0` here, so the result never claims the author wrote a v2 policy they did not write.",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "thresholds_are_user_supplied": {
+          "const": true
+        }
+      },
+      "required": [
+        "evaluated_as_format_version",
+        "integrity_rule_count",
+        "metric_rule_count",
+        "name",
+        "options",
+        "policy_document_format_version",
+        "thresholds_are_user_supplied"
+      ],
+      "type": "object"
+    },
+    "provenance": {
+      "description": "Run-level contract provenance. Deliberately small: this document references the run, it does not duplicate it.",
+      "type": "object"
+    },
+    "ratchet": {
+      "$ref": "#/$defs/ratchetSummary"
+    },
+    "rules": {
+      "description": "One entry per enabled rule with its outcome tally, so a rule that evaluated cleanly is visible without enumerating a finding for every unit that passed.",
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "domain": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "evaluation_error": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "kind": {
+            "enum": [
+              "integrity",
+              "metric"
+            ]
+          },
+          "metric": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "metric_source": {
+            "description": "The persisted artifact field the metric is read from.",
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "not_applicable": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "not_evaluable": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "operator": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "passed": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "rule_id": {
+            "type": "string"
+          },
+          "scope": {
+            "type": "string"
+          },
+          "severity": {
+            "enum": [
+              "violation",
+              "warning",
+              "info"
+            ]
+          },
+          "threshold": {
+            "type": [
+              "number",
+              "null"
+            ]
+          },
+          "units_evaluated": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "violated": {
+            "minimum": 0,
+            "type": "integer"
+          }
+        },
+        "required": [
+          "domain",
+          "evaluation_error",
+          "kind",
+          "metric",
+          "metric_source",
+          "not_applicable",
+          "not_evaluable",
+          "operator",
+          "passed",
+          "rule_id",
+          "scope",
+          "severity",
+          "threshold",
+          "units_evaluated",
+          "violated"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run": {
+      "additionalProperties": false,
+      "description": "The evaluated run's identity and the contracts it declares. Null-valued on a failed evaluation.",
+      "properties": {
+        "artifact_schema_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "benchmark_qualification": {
+          "description": "CONTEXTUAL PROVENANCE ONLY. `archlens check` is a generic product command: it requires no benchmark_qualification.json, no representativeness verdict, no benchmark usability and no benchmark-of-record readiness, and nothing here moves a metric, a threshold, a status or a verdict. Null when the evaluation did not happen.",
+          "type": [
+            "object",
+            "null"
+          ]
+        },
+        "lifecycle": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "run_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "run_status": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "schema_validation_result": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subjects": {
+          "items": {
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "artifact_schema_version",
+        "benchmark_qualification",
+        "lifecycle",
+        "run_id",
+        "run_status",
+        "schema_validation_result",
+        "subjects"
+      ],
+      "type": "object"
+    },
+    "scope_note": {
+      "type": "string"
+    },
+    "status_meanings": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "verdict": {
+      "enum": [
+        "pass",
+        "fail",
+        "error"
+      ]
+    },
+    "waived_findings": {
+      "items": {
+        "$ref": "#/$defs/finding"
+      },
+      "type": "array"
+    },
+    "evidence": {
+      "type": "object",
+      "description": "One admission record per evidence kind this evaluation accepted, keyed by kind. Present even when nothing was supplied, so a reader can always tell a gate that HAD evidence from one that did not -- the two are otherwise indistinguishable in a passing result. An empty object means no evidence was considered.",
+      "propertyNames": {
+        "enum": [
+          "duplication",
+          "hotspots"
+        ]
+      },
+      "additionalProperties": {
+        "$ref": "#/$defs/evidenceRecord"
+      }
+    },
+    "evaluated_input_provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "description": "Bounded identities of the exact bytes and rule conditions evaluated, present even when the result has zero findings.",
+      "properties": {
+        "mode": {
+          "enum": [
+            "local_unprotected",
+            "protected_required"
+          ]
+        },
+        "protected_gate": {
+          "type": "boolean"
+        },
+        "evaluator": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "identity_kind": {
+              "type": "string"
+            },
+            "repository": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "revision": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source_sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "installed_version": {
+              "type": "string"
+            },
+            "trust": {
+              "enum": [
+                "externally_authenticated",
+                "locally_trusted_only"
+              ]
+            }
+          },
+          "required": [
+            "identity_kind",
+            "repository",
+            "revision",
+            "source_sha256",
+            "installed_version",
+            "trust"
+          ]
+        },
+        "policy": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "trust": {
+              "enum": [
+                "externally_authenticated",
+                "unprotected_local"
+              ]
+            }
+          },
+          "required": [
+            "sha256",
+            "trust"
+          ]
+        },
+        "run_manifest": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "sha256"
+          ]
+        },
+        "evidence": {
+          "type": "object",
+          "propertyNames": {
+            "enum": [
+              "duplication",
+              "hotspots"
+            ]
+          },
+          "additionalProperties": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "state": {
+                "enum": [
+                  "trusted",
+                  "untrusted_local",
+                  "absent",
+                  "refused"
+                ]
+              },
+              "sha256": {
+                "type": [
+                  "string",
+                  "null"
+                ],
+                "pattern": "^[0-9a-f]{64}$"
+              },
+              "producer_identity": {
+                "type": [
+                  "object",
+                  "null"
+                ],
+                "additionalProperties": false,
+                "properties": {
+                  "repository": {
+                    "type": "string"
+                  },
+                  "revision": {
+                    "type": "string"
+                  },
+                  "source_sha256": {
+                    "type": "string",
+                    "pattern": "^[0-9a-f]{64}$"
+                  }
+                },
+                "required": [
+                  "repository",
+                  "revision",
+                  "source_sha256"
+                ]
+              }
+            },
+            "required": [
+              "state",
+              "sha256",
+              "producer_identity"
+            ]
+          }
+        },
+        "trusted_evidence_receipt": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "format": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "format_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "sha256",
+            "format",
+            "format_version"
+          ]
+        },
+        "ratchet": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "baseline_sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9a-f]{64}$"
+            },
+            "source_run_manifest_sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "baseline_sha256",
+            "source_run_manifest_sha256"
+          ]
+        },
+        "rule_conditions": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "count": {
+              "type": "integer",
+              "minimum": 0
+            },
+            "sha256": {
+              "type": [
+                "string",
+                "null"
+              ],
+              "pattern": "^[0-9a-f]{64}$"
+            }
+          },
+          "required": [
+            "count",
+            "sha256"
+          ]
+        }
+      },
+      "required": [
+        "mode",
+        "protected_gate",
+        "evaluator",
+        "policy",
+        "run_manifest",
+        "evidence",
+        "trusted_evidence_receipt",
+        "ratchet",
+        "rule_conditions"
+      ]
+    }
+  },
+  "required": [
+    "archlens_version",
+    "check_result_format_version",
+    "completeness_meanings",
+    "counts",
+    "evaluated_at",
+    "evaluated_input_provenance",
+    "evidence",
+    "exit_code",
+    "exit_code_meanings",
+    "expired_waivers",
+    "failure_kind",
+    "failure_message",
+    "findings",
+    "not_evaluable",
+    "policy",
+    "provenance",
+    "ratchet",
+    "rules",
+    "run",
+    "scope_note",
+    "status_meanings",
+    "verdict",
+    "waived_findings"
+  ],
+  "title": "ArchLens check result 1.4.0",
+  "type": "object"
+}

@@ -1,0 +1,252 @@
+{
+  "$id": "https://archlens.dev/schemas/benchmark_qualification_registry-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Accepted manual/forensic benchmark qualification decisions, loaded only through `--qualification-registry`. This is an INPUT contract, never a run artifact.\n\nWhat a registry record may say is deliberately narrow. It supplies repository representativeness, the evidence and adjudication provenance behind that verdict, and at most a MORE RESTRICTIVE admission ceiling. It may not supply `usable_metric_families`, `benchmark_usability`, or `repository_level_comparison_eligible`: those are derived after exact matching against the authoritative measurement result, and accepting them here would create a second, unreconciled authority for facts `analysis.json` already owns. `additionalProperties: false` at every level is what enforces that - a registry that tries to supply a derived value is REJECTED rather than quietly ignored, because silent ignoring is indistinguishable from acceptance to whoever wrote the file.\n\nA non-UNRESOLVED verdict requires accepted human or forensic-audit provenance. No automatic rule over extension counts, byte ratios, language labels, directory names or project markers may produce one; automated evidence may prepare or rank a decision but never replace it.",
+  "properties": {
+    "registry_schema_version": {
+      "const": "1.0.0",
+      "description": "Version of this registry contract. Independent of Artifact Schema: a registry is an input, and its shape does not move when a run bundle's does.",
+      "type": "string"
+    },
+    "source_id": {
+      "description": "Stable logical identifier for this registry, recorded in the run manifest so a decision can be traced to the file that carried it. Never an absolute workstation path.",
+      "minLength": 1,
+      "type": "string"
+    },
+    "qualification_profile": {
+      "description": "The question every record in this registry answers. A representativeness verdict is meaningless without it, so it is part of the primary binding rather than metadata.",
+      "minLength": 1,
+      "type": "string"
+    },
+    "records": {
+      "description": "Accepted decisions. Uniqueness of the primary binding is enforced by the loader, which reports a duplicate as a fatal registry error rather than choosing a winner.",
+      "items": {
+        "$ref": "#/$defs/registry_record"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "qualification_profile",
+    "records",
+    "registry_schema_version",
+    "source_id"
+  ],
+  "title": "ArchLens benchmark qualification registry 1.0",
+  "type": "object",
+  "$defs": {
+    "registry_record": {
+      "additionalProperties": false,
+      "description": "One accepted qualification decision for one exactly-identified analyzed revision and scope.",
+      "properties": {
+        "binding": {
+          "$ref": "#/$defs/binding"
+        },
+        "record_id": {
+          "description": "Stable identifier for this decision, carried into the artifact and the checked projections.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "repository_representativeness": {
+          "description": "Whether the selected supported scope adequately represents first-party application code for the declared profile. UNRESOLVED is an explicit state, never a default, and never silently upgraded.",
+          "enum": [
+            "ADEQUATE",
+            "MATERIAL_MIX",
+            "NON_REPRESENTATIVE",
+            "UNRESOLVED"
+          ],
+          "type": "string"
+        },
+        "representativeness_reason_codes": {
+          "description": "Stable semantic codes for the verdict. At least one is required for any non-UNRESOLVED decision; the loader enforces that, because a schema minItems cannot express the dependency on the enum.",
+          "items": {
+            "$ref": "#/$defs/representativeness_reason_code"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "manual_admission_restriction": {
+          "description": "An optional ceiling that can only make admission MORE restrictive. It can never promote a record: derived usability is computed first from measurement state and representativeness, and this may then lower it. `unsupported_scope` is an explicit editorial decision about the benchmark subject, not an automatic alias for NON_REPRESENTATIVE.",
+          "enum": [
+            "none",
+            "analyzed_scope_only",
+            "unsupported_scope"
+          ],
+          "type": "string"
+        },
+        "manual_admission_reason_codes": {
+          "items": {
+            "$ref": "#/$defs/usability_reason_code"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "evidence_summary": {
+          "$ref": "#/$defs/evidence_summary"
+        },
+        "adjudication": {
+          "$ref": "#/$defs/adjudication"
+        },
+        "representativeness_basis": {
+          "description": "Human-readable evidence text. NON-SEMANTIC: it may clarify a decision but can never change one, and no gate, join, count or comparison may key on it.",
+          "type": ["string", "null"]
+        },
+        "usability_basis": {
+          "description": "Human-readable admission text. NON-SEMANTIC, exactly as `representativeness_basis`.",
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "adjudication",
+        "binding",
+        "evidence_summary",
+        "manual_admission_restriction",
+        "record_id",
+        "representativeness_reason_codes",
+        "repository_representativeness"
+      ],
+      "type": "object"
+    },
+    "binding": {
+      "additionalProperties": false,
+      "description": "The primary identity of a qualification decision, and the whole of it. A decision is about one profile's question, asked of one subject, at one exact revision, over one exact analyzed scope.\n\n`filesystem_manifest_hash` is deliberately ABSENT. The current contract describes it as broader filesystem evidence rather than comparability identity, so admitting it here would let a decision match or fail to match for reasons unrelated to what was measured.",
+      "properties": {
+        "qualification_profile": {"minLength": 1, "type": "string"},
+        "subject_key": {
+          "description": "Logical subject identity. The join key across runs, revisions and source modes.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "analyzed_commit_sha": {
+          "description": "The exact revision the decision was made about. A decision for one revision is not evidence about another.",
+          "pattern": "^[0-9a-f]{40}$",
+          "type": "string"
+        },
+        "analysis_scope_hash": {
+          "description": "Identity of the exact measured source scope.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "analysis_scope_hash_version": {
+          "description": "Construction version of the scope hash. Two hashes built by different constructions are not comparable identities, so this is part of the key rather than an annotation.",
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "analysis_scope_hash",
+        "analysis_scope_hash_version",
+        "analyzed_commit_sha",
+        "qualification_profile",
+        "subject_key"
+      ],
+      "type": "object"
+    },
+    "evidence_summary": {
+      "additionalProperties": false,
+      "description": "The evidence the accepted decision rests on. Counts and bytes are recorded on both sides; derived shares are NOT stored, because a stored ratio is a second copy of a fact that can drift from the numbers it came from. Consumers calculate shares.",
+      "properties": {
+        "supported_first_party_files": {"minimum": 0, "type": "integer"},
+        "supported_first_party_bytes": {"minimum": 0, "type": "integer"},
+        "unsupported_first_party_files": {"minimum": 0, "type": "integer"},
+        "unsupported_first_party_bytes": {"minimum": 0, "type": "integer"},
+        "unsupported_language_groups": {
+          "description": "Unsupported first-party language evidence. Required to be non-empty by the loader when unsupported first-party code exists.",
+          "items": {"type": "string"},
+          "type": "array"
+        },
+        "project_or_service_structure_evidence_count": {
+          "description": "Structural assessment result. An explicit 0 means 'assessed, none found', which is a different fact from an absent assessment - and absence is refused for a non-UNRESOLVED record.",
+          "minimum": 0,
+          "type": "integer"
+        },
+        "entrypoint_evidence_count": {"minimum": 0, "type": "integer"},
+        "definition_mapped_code_line_evidence": {
+          "description": "OPTIONAL independent definition-mapped line evidence. Its absence is never zero: an empty list means no suitable independent tool and mapping existed, not that no code lines exist.",
+          "items": {"type": "object"},
+          "type": "array"
+        },
+        "full_tree_evidence_sha256": {
+          "description": "Hash of the exact-tree evidence the decision was adjudicated against. Corroborates the decision; never replaces the primary binding.",
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        },
+        "evidence_source_ids": {
+          "description": "Stable logical evidence IDs, never absolute workstation paths.",
+          "items": {"type": "string"},
+          "type": "array"
+        },
+        "evidence_bundle_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": "string"
+        }
+      },
+      "required": [
+        "definition_mapped_code_line_evidence",
+        "entrypoint_evidence_count",
+        "evidence_bundle_sha256",
+        "evidence_source_ids",
+        "full_tree_evidence_sha256",
+        "project_or_service_structure_evidence_count",
+        "supported_first_party_bytes",
+        "supported_first_party_files",
+        "unsupported_first_party_bytes",
+        "unsupported_first_party_files",
+        "unsupported_language_groups"
+      ],
+      "type": "object"
+    },
+    "adjudication": {
+      "additionalProperties": false,
+      "description": "Provenance of the accepted decision. `mode` is constrained to human or accepted-forensic review: there is no enum member for an automatic rule, which is how the 'no automatic ADEQUATE' guarantee is expressed in the contract rather than only in the loader.",
+      "properties": {
+        "mode": {
+          "enum": ["manual_review", "accepted_forensic_audit"],
+          "type": "string"
+        },
+        "record_id": {"minLength": 1, "type": "string"},
+        "adjudicator_id": {"minLength": 1, "type": "string"},
+        "adjudicated_at": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}T\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?Z$",
+          "type": "string"
+        },
+        "decision_source_revision": {"minLength": 1, "type": "string"}
+      },
+      "required": [
+        "adjudicated_at",
+        "adjudicator_id",
+        "decision_source_revision",
+        "mode",
+        "record_id"
+      ],
+      "type": "object"
+    },
+    "representativeness_reason_code": {
+      "description": "Adding or changing a member is a qualification-contract change, not a data edit.",
+      "enum": [
+        "no_unsupported_first_party_code",
+        "supported_scope_adequately_representative",
+        "unsupported_first_party_material_by_files",
+        "unsupported_first_party_material_by_bytes",
+        "unsupported_first_party_structurally_distinct",
+        "unsupported_first_party_dominant",
+        "evidence_missing",
+        "evidence_identity_mismatch",
+        "evidence_conflict"
+      ],
+      "type": "string"
+    },
+    "usability_reason_code": {
+      "enum": [
+        "measurement_complete_and_representative",
+        "representativeness_limits_to_analyzed_scope",
+        "measurement_partial",
+        "measurement_failed",
+        "manual_admission_restricted_to_analyzed_scope",
+        "supported_scope_incidental_to_application"
+      ],
+      "type": "string"
+    }
+  }
+}

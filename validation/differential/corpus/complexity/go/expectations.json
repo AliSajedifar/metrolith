@@ -1,0 +1,504 @@
+{
+  "$comment": "Authored by hand from docs/COMPLEXITY_CONTRACT_V1.md BEFORE any implementation existed, so the specification cannot be retrofitted to the implementation. Per-construct contributions are recorded, not only totals: a total-only expectation lets two offsetting rule errors pass. Line numbers are locations, not contract values.",
+  "corpus_layer": "layer1_synthetic",
+  "language": "Go",
+  "complexity_contract_version": "1.0.0",
+  "source": "constructs.go",
+  "file_level": {
+    "methods_functions": 21,
+    "callable_count": 21,
+    "classes_structs": 1,
+    "structural_complexity_status": "complete",
+    "nloc_status": "complete",
+    "$comment": "AssemblyStub has no body and is outside the canonical population, so 22 func declarations yield 21 records. The keystone invariant compares 21 against methods_functions, not against the declaration count."
+  },
+  "outside_population": [
+    {
+      "name": "AssemblyStub",
+      "start_line": 233,
+      "reason": "body-less declaration; fails _reliable_declaration on 'body'",
+      "expected_records": 0
+    }
+  ],
+  "callables": [
+    {
+      "name": "Trivial",
+      "qualified_name": "Trivial",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 11,
+      "end_line": 13,
+      "pins": "a callable with no decision and no boolean operator is exactly 1",
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "contributions": [],
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 0
+      }
+    },
+    {
+      "name": "SequentialBranches",
+      "qualified_name": "SequentialBranches",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 16,
+      "end_line": 24,
+      "pins": "two decisions at the same depth; contrast with NestedBranches, which has the same cyclomatic value and twice the nesting",
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "contributions": [
+          {"construct": "if_statement", "line": 17, "increment": 1},
+          {"construct": "if_statement", "line": 20, "increment": 1}
+        ],
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "ElseIfChain",
+      "qualified_name": "ElseIfChain",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 28,
+      "end_line": 36,
+      "pins": "an `else if` alternative is a nested if_statement rather than a block, so the chain reads flat and measures flat at depth 1; the bare `else` contributes 0 decisions",
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "contributions": [
+          {"construct": "if_statement", "line": 29, "increment": 1},
+          {"construct": "if_statement (else if)", "line": 31, "increment": 1},
+          {"construct": "else (bare)", "line": 33, "increment": 0}
+        ],
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "NestedBranches",
+      "qualified_name": "NestedBranches",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 40,
+      "end_line": 47,
+      "pins": "same cyclomatic value as SequentialBranches, depth 2 instead of 1 - the distinction the bundle exists to preserve",
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "contributions": [
+          {"construct": "if_statement", "line": 41, "increment": 1},
+          {"construct": "if_statement", "line": 42, "increment": 1}
+        ],
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 8,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "SingleLoop",
+      "qualified_name": "SingleLoop",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 50,
+      "end_line": 56,
+      "pins": "a range loop is one decision",
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "contributions": [
+          {"construct": "for_statement (range)", "line": 52, "increment": 1}
+        ],
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 7,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "NestedLoops",
+      "qualified_name": "NestedLoops",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 59,
+      "end_line": 67,
+      "pins": "a three-clause for is one decision, not three",
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "contributions": [
+          {"construct": "for_statement", "line": 61, "increment": 1},
+          {"construct": "for_statement", "line": 62, "increment": 1}
+        ],
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 9,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "SwitchWithDefault",
+      "qualified_name": "SwitchWithDefault",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 70,
+      "end_line": 79,
+      "pins": "`default` contributes 0; the switch body and each case body each add one nesting level, so a case statement is depth 2",
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "contributions": [
+          {"construct": "expression_case", "line": 72, "increment": 1},
+          {"construct": "expression_case", "line": 74, "increment": 1},
+          {"construct": "default_case", "line": 76, "increment": 0}
+        ],
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 10,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "SwitchWithoutDefault",
+      "qualified_name": "SwitchWithoutDefault",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 82,
+      "end_line": 90,
+      "pins": "a multi-value case (`case 2, 3:`) is ONE arm and contributes 1, not 2",
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "contributions": [
+          {"construct": "expression_case", "line": 84, "increment": 1},
+          {"construct": "expression_case (multi-value)", "line": 86, "increment": 1}
+        ],
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 9,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "TypeSwitch",
+      "qualified_name": "TypeSwitch",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 93,
+      "end_line": 102,
+      "pins": "a type switch case counts exactly as an expression case",
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "contributions": [
+          {"construct": "type_case", "line": 95, "increment": 1},
+          {"construct": "type_case", "line": 97, "increment": 1},
+          {"construct": "default_case", "line": 99, "increment": 0}
+        ],
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 10,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "SelectWithDefault",
+      "qualified_name": "SelectWithDefault",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 105,
+      "end_line": 112,
+      "pins": "a select communication case counts 1; a select `default` counts 0",
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "contributions": [
+          {"construct": "communication_case", "line": 107, "increment": 1},
+          {"construct": "default_case", "line": 109, "increment": 0}
+        ],
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 8,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "BooleanOperators",
+      "qualified_name": "BooleanOperators",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 118,
+      "end_line": 126,
+      "pins": "THE separation case for the two condition metrics. boolean_operator_count counts every short-circuit token anywhere in the callable (5, including the two in the return statement); max_condition_operator_count inspects decision expressions only (2, from `a || b || c`). A tool that conflates them reports 2 and 2, or 5 and 5, and this case catches both errors.",
+      "expected": {
+        "cyclomatic_complexity": 8,
+        "contributions": [
+          {"construct": "if_statement", "line": 119, "increment": 1},
+          {"construct": "boolean_operator &&", "line": 119, "increment": 1},
+          {"construct": "if_statement", "line": 122, "increment": 1},
+          {"construct": "boolean_operator ||", "line": 122, "increment": 1},
+          {"construct": "boolean_operator ||", "line": 122, "increment": 1},
+          {"construct": "boolean_operator &&", "line": 125, "increment": 1},
+          {"construct": "boolean_operator ||", "line": 125, "increment": 1}
+        ],
+        "decision_point_count": 2,
+        "boolean_operator_count": 5,
+        "max_condition_operator_count": 2,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 3
+      }
+    },
+    {
+      "name": "ExcludedFuncLiteral",
+      "qualified_name": "ExcludedFuncLiteral",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 131,
+      "end_line": 143,
+      "pins": "KEYSTONE case for the traversal rule AND the NLOC asymmetry together. The func_literal is a boundary: its `&&`, its `if` and its `for` contribute to NO record and are measured nowhere. Yet its lines are inside this callable's span, so nloc is 13 while cyclomatic_complexity is 2. Any implementation that absorbs the literal reports cyclomatic_complexity 5; any implementation that excludes the literal's lines from the span reports nloc 7.",
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "contributions": [
+          {"construct": "if_statement", "line": 132, "increment": 1},
+          {"construct": "func_literal (boundary)", "line": 135, "increment": 0},
+          {"construct": "if_statement inside boundary", "line": 136, "increment": 0},
+          {"construct": "boolean_operator && inside boundary", "line": 136, "increment": 0},
+          {"construct": "for_statement inside boundary", "line": 137, "increment": 0}
+        ],
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 13,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "GoroutineLiteral",
+      "qualified_name": "GoroutineLiteral",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 147,
+      "end_line": 153,
+      "pins": "a callable whose only control flow lives inside a boundary is exactly 1, at depth 0",
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "contributions": [
+          {"construct": "func_literal (boundary)", "line": 148, "increment": 0},
+          {"construct": "if_statement inside boundary", "line": 149, "increment": 0}
+        ],
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 7,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "LabelledFlow",
+      "qualified_name": "LabelledFlow",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 156,
+      "end_line": 169,
+      "pins": "labelled break and continue contribute 0; a label line is code for NLOC",
+      "expected": {
+        "cyclomatic_complexity": 5,
+        "contributions": [
+          {"construct": "for_statement (range)", "line": 158, "increment": 1},
+          {"construct": "for_statement (range)", "line": 159, "increment": 1},
+          {"construct": "if_statement", "line": 160, "increment": 1},
+          {"construct": "labelled break", "line": 161, "increment": 0},
+          {"construct": "if_statement", "line": 163, "increment": 1},
+          {"construct": "labelled continue", "line": 164, "increment": 0}
+        ],
+        "decision_point_count": 4,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 3,
+        "nloc": 14,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "ValueReceiver",
+      "qualified_name": "Server.ValueReceiver",
+      "callable_kind": "receiver_method",
+      "row_id_basis": "qualified",
+      "receiver_type_name": "Server",
+      "receiver_is_pointer": false,
+      "start_line": 178,
+      "end_line": 180,
+      "pins": "the receiver is excluded from formal_parameter_count; receiver pointer-ness is evidence, not identity",
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "contributions": [],
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 0
+      }
+    },
+    {
+      "name": "PointerReceiver",
+      "qualified_name": "Server.PointerReceiver",
+      "callable_kind": "receiver_method",
+      "row_id_basis": "qualified",
+      "receiver_type_name": "Server",
+      "receiver_is_pointer": true,
+      "start_line": 184,
+      "end_line": 189,
+      "pins": "qualified_name carries the receiver type name WITHOUT the pointer marker, so a value-to-pointer receiver change does not read as delete plus add",
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "contributions": [
+          {"construct": "if_statement", "line": 185, "increment": 1}
+        ],
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 6,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "GroupedParameters",
+      "qualified_name": "GroupedParameters",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 192,
+      "end_line": 194,
+      "pins": "`(a, b int, c string)` is 2 parameter_declaration nodes and 3 declared names; the contract counts NAMES, so the answer is 3",
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "contributions": [],
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 3
+      }
+    },
+    {
+      "name": "UnnamedParameters",
+      "qualified_name": "UnnamedParameters",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 197,
+      "end_line": 199,
+      "pins": "`(int, string)` has 2 declarations and 0 names; a declaration with no identifier counts as 1, so the answer is 2",
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "contributions": [],
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "VariadicParameters",
+      "qualified_name": "VariadicParameters",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 202,
+      "end_line": 208,
+      "pins": "a variadic_parameter_declaration counts as one",
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "contributions": [
+          {"construct": "for_statement (range)", "line": 204, "increment": 1}
+        ],
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 7,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "CommentsAndBlanks",
+      "qualified_name": "CommentsAndBlanks",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 213,
+      "end_line": 221,
+      "pins": "function NLOC reuses the repository line classification. Span is 9 lines; code lines are 213, 216, 220 and 221. Line 214 is comment-only, 215 and 217 are blank, 218 and 219 are a block comment. Line 216 mixes code with a trailing comment and counts ONCE.",
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "contributions": [],
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 4,
+        "formal_parameter_count": 1,
+        "span_line_count": 9
+      }
+    },
+    {
+      "name": "RawStringContent",
+      "qualified_name": "RawStringContent",
+      "callable_kind": "module_function",
+      "row_id_basis": "qualified",
+      "start_line": 225,
+      "end_line": 229,
+      "pins": "line 227 reads `// not a comment` but lies inside a raw string literal, so it is string content and counts as CODE. A naive line scanner reports nloc 4.",
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "contributions": [],
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 5,
+        "formal_parameter_count": 0
+      }
+    }
+  ],
+  "not_applicable_to_go": [
+    {
+      "family": "ternary / conditional expression",
+      "reason": "Go has no conditional expression; the family is covered by the Java, JavaScript, TypeScript and Python corpora"
+    },
+    {
+      "family": "exception handling (try / catch / finally)",
+      "reason": "Go has no try/catch. `defer` and `recover` are not decisions under this contract"
+    },
+    {
+      "family": "measured callable nested inside a measured callable",
+      "reason": "Go has no nested function declarations; every measured callable is package level. Covered by the Java local-class and Python class-in-function corpora"
+    },
+    {
+      "family": "decorators / annotations affecting the span",
+      "reason": "Go has no decorator or annotation syntax; the span always begins at the `func` keyword"
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+[
+  {
+    "rule_id": "ratchet.source-files",
+    "metric": "repository.source_files",
+    "metric_contract": "metrics",
+    "scope": "repository",
+    "direction": "increase_is_worse",
+    "max_regression": 0,
+    "severity": "violation"
+  }
+]

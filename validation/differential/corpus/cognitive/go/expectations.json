@@ -1,0 +1,724 @@
+{
+  "language": "Go",
+  "source": "constructs.go",
+  "rule_table": "validation/complexity_g1a_20260811/FROZEN_RULE_TABLE.md",
+  "authorship": "Every value below is derived from the frozen rule table by hand. No ArchLens cognitive implementation exists, so none could have been consulted; the reference tools were executed only AFTER this file was written, and their measurements live in a separate file.",
+  "contribution_arithmetic": "structural = 1 + nesting_level; flat = 1; nesting_only = 0; zero = 0. A fifth CORPUS-ONLY kind, `not_fired`, contributes 0 and means the named rule was evaluated at that site and did NOT fire -- it is how a negative case is pinned explicitly rather than left to be inferred. The callable total is the sum of the contributions listed.",
+  "callables": [
+    {
+      "name": "Trivial",
+      "start_line": 11,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [],
+      "note": "No construct at all. A measured zero, not an absence."
+    },
+    {
+      "name": "PlainIf",
+      "start_line": 16,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 17,
+          "line_contains": "if a {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "IfElseIfElse",
+      "start_line": 24,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 25,
+          "line_contains": "if a == 1 {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-ELSEIF",
+          "line": 27,
+          "line_contains": "} else if a == 2 {",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-ELSE",
+          "line": 29,
+          "line_contains": "} else {",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "note": "The chain measures flat: each clause raises nesting only for its own body, so the siblings all sit at level 0."
+    },
+    {
+      "name": "NestedIf",
+      "start_line": 35,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 36,
+          "line_contains": "if a {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-IF",
+          "line": 37,
+          "line_contains": "if b {",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        }
+      ],
+      "note": "The pair that separates cognitive from cyclomatic: two ifs, 3 not 2."
+    },
+    {
+      "name": "Loops",
+      "start_line": 45,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 47,
+          "line_contains": "for _, x := range xs {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-LOOP",
+          "line": 48,
+          "line_contains": "for i := 0; i < x; i++ {",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        }
+      ]
+    },
+    {
+      "name": "SwitchWhole",
+      "start_line": 56,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-SWITCH",
+          "line": 57,
+          "line_contains": "switch a {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "note": "Three arms, one increment. This is the deliberate divergence from Complexity Contract 1.0.0, which counts arms."
+    },
+    {
+      "name": "TypeSwitch",
+      "start_line": 68,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-SWITCH",
+          "line": 69,
+          "line_contains": "switch v.(type) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "SelectStmt",
+      "start_line": 79,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-SELECT",
+          "line": 80,
+          "line_contains": "select {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "BoolSameOperator",
+      "start_line": 89,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 90,
+          "line_contains": "if a && b && c {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 90,
+          "line_contains": "a && b && c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "one maximal && sequence over three operands"
+        }
+      ]
+    },
+    {
+      "name": "BoolMixedOperators",
+      "start_line": 97,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 98,
+          "line_contains": "if a && b || c {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 98,
+          "line_contains": "a && b",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "the && sequence"
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 98,
+          "line_contains": "|| c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "the || sequence"
+        }
+      ]
+    },
+    {
+      "name": "BitwiseNotCounted",
+      "start_line": 105,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 106,
+          "line_contains": "if a&b != 0 {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-BITWISE",
+          "line": 106,
+          "line_contains": "a&b",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "LabelledFlow",
+      "start_line": 113,
+      "expected_cognitive_complexity": 8,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 115,
+          "line_contains": "for _, x := range xs {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-LOOP",
+          "line": 116,
+          "line_contains": "for range xs {",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        },
+        {
+          "rule": "S-IF",
+          "line": 117,
+          "line_contains": "if x > 0 {",
+          "kind": "structural",
+          "nesting_level": 2,
+          "nesting_increment": 1,
+          "contribution": 3
+        },
+        {
+          "rule": "F-LABELJUMP",
+          "line": 118,
+          "line_contains": "break outer",
+          "kind": "flat",
+          "nesting_level": 3,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-LABELJUMP",
+          "line": 120,
+          "line_contains": "continue outer",
+          "kind": "flat",
+          "nesting_level": 2,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "note": "The hardest jump case, and the one where a flat rule must NOT scale with nesting: both labelled jumps contribute 1 despite sitting at depth 3 and 2."
+    },
+    {
+      "name": "UnlabelledJump",
+      "start_line": 127,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 128,
+          "line_contains": "for range xs {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-JUMP",
+          "line": 129,
+          "line_contains": "break",
+          "kind": "zero",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "GotoJump",
+      "start_line": 135,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 136,
+          "line_contains": "if a {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-LABELJUMP",
+          "line": 137,
+          "line_contains": "goto done",
+          "kind": "flat",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "note": "Go's `goto` has no counterpart in the other four corpus languages."
+    },
+    {
+      "name": "Recursive",
+      "start_line": 145,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 146,
+          "line_contains": "if n <= 0 {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 149,
+          "line_contains": "return Recursive(n - 1)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "FuncLiteralExcluded",
+      "start_line": 153,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "B-NESTED",
+          "line": 154,
+          "line_contains": "return func() int {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "the literal's own `if` at line 155 contributes to no record"
+        }
+      ]
+    },
+    {
+      "name": "DeferredLiteral",
+      "start_line": 163,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "Z-DEFER",
+          "line": 164,
+          "line_contains": "defer func() {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "B-NESTED",
+          "line": 164,
+          "line_contains": "func() {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "SeqParenSame",
+      "source": "clarifications.go",
+      "start_line": 10,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 11,
+          "line_contains": "if a && (b && c) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 11,
+          "line_contains": "a && (b && c)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "ONE maximal && sequence: parentheses do not split it"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "SeqParenMixed",
+      "source": "clarifications.go",
+      "start_line": 18,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 19,
+          "line_contains": "if a && (b || c) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 19,
+          "line_contains": "a && (",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "the && sequence"
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 19,
+          "line_contains": "b || c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "the || sequence"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "SeqThreeRuns",
+      "source": "clarifications.go",
+      "start_line": 26,
+      "expected_cognitive_complexity": 4,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 27,
+          "line_contains": "if a || b && c || d {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 27,
+          "line_contains": "a ||",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "first || run"
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 27,
+          "line_contains": "b && c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "the && run"
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 27,
+          "line_contains": "|| d",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "second || run"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "Three maximal same-operator sequences in one expression."
+    },
+    {
+      "name": "RecursionTwice",
+      "source": "clarifications.go",
+      "start_line": 34,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 35,
+          "line_contains": "if n <= 0 {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 38,
+          "line_contains": "return RecursionTwice(n-1) + RecursionTwice(n-2)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "TWO self-call sites, ONE increment: F-RECURSION is capped at +1 per callable"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "receiverHolder.RecursiveMethod",
+      "source": "clarifications.go",
+      "start_line": 44,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 45,
+          "line_contains": "if n <= 0 {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 48,
+          "line_contains": "return r.RecursiveMethod(n - 1)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "self-call through the DECLARED receiver identifier `r` -- rule B"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "otherHolder.RecursiveMethod",
+      "source": "clarifications.go",
+      "start_line": 53,
+      "expected_cognitive_complexity": 0,
+      "contributions": [],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true,
+      "note": "Same method name on a different type. Exists so the next case has a real target."
+    },
+    {
+      "name": "receiverHolder.SameNameOtherReceiver",
+      "source": "clarifications.go",
+      "start_line": 57,
+      "expected_cognitive_complexity": 0,
+      "contributions": [
+        {
+          "rule": "F-RECURSION",
+          "line": 59,
+          "line_contains": "return o.RecursiveMethod(n)",
+          "kind": "not_fired",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "member name matches, receiver is NOT the declared receiver -- NOT recursion"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true,
+      "note": "The false-positive class Amendment 002 removed."
+    },
+    {
+      "name": "DeferPlainCall",
+      "source": "clarifications.go",
+      "start_line": 64,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "Z-DEFER",
+          "line": 65,
+          "line_contains": "defer consume(a && b)",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 65,
+          "line_contains": "a && b",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "default traversal: `defer` is zero, its argument still counts"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "A `defer` that carries NO function literal, so B-NESTED is not involved."
+    },
+    {
+      "name": "consume",
+      "source": "clarifications.go",
+      "start_line": 68,
+      "expected_cognitive_complexity": 0,
+      "contributions": [],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true
+    },
+    {
+      "name": "ReturnTraversed",
+      "source": "clarifications.go",
+      "start_line": 72,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 73,
+          "line_contains": "a || b",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "default traversal: `return` is zero, the expression inside it still counts"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "identity",
+      "source": "clarifications.go",
+      "start_line": 76,
+      "expected_cognitive_complexity": 0,
+      "contributions": [],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true
+    }
+  ],
+  "predicted_reference_divergences": [
+    {
+      "divergence_id": "D16",
+      "tool": "gocognit 1.2.1",
+      "callable": "FuncLiteralExcluded",
+      "archlens_expected": 0,
+      "reference_predicted": 2,
+      "reason": "gocognit folds the func literal into the enclosing function and raises nesting for it, so the literal's `if` scores 2 there. ArchLens stops at the boundary (B-NESTED)."
+    },
+    {
+      "divergence_id": "D16",
+      "tool": "gocognit 1.2.1",
+      "callable": "DeferredLiteral",
+      "archlens_expected": 0,
+      "reference_predicted": 2,
+      "reason": "Same mechanism, reached through `defer`."
+    },
+    {
+      "divergence_id": "D17",
+      "tool": "gocognit 1.2.1",
+      "callable": "GotoJump",
+      "archlens_expected": 2,
+      "reference_predicted": null,
+      "reason": "UNVERIFIED at G0 -- gocognit's treatment of `goto` was never probed. This corpus case exists to resolve it."
+    }
+  ],
+  "clarification_source": "clarifications.go",
+  "amendment_002": "Additive: the original source files are untouched so their line citations stay valid. New callables live in a separate clarification file and are authored from revision 3 of the frozen rule table."
+}

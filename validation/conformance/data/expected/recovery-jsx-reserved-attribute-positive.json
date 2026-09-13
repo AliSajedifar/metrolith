@@ -1,0 +1,10 @@
+{
+  "case_id": "recovery-jsx-reserved-attribute-positive",
+  "observations": {
+    "aggregate/metric_status": "complete",
+    "recovery/selected_fallback_strategies": [
+      "jsx_reserved_attribute_compat"
+    ]
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract and Exclusion Policy clause recorded in the manifest. ArchLens output is not the oracle."
+}

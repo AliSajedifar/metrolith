@@ -1,0 +1,13 @@
+{
+  "case_id": "loc-comment-and-blank-lines-excluded",
+  "observations": {
+    "aggregate/blank_lines": 1,
+    "aggregate/code_lines": 3,
+    "aggregate/comment_lines": 1,
+    "aggregate/lines_of_code": 3,
+    "aggregate/loc_status": "complete",
+    "aggregate/source_files": 1,
+    "aggregate/total_physical_lines": 5
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

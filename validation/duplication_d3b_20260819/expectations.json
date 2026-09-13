@@ -1,0 +1,62 @@
+{
+  "format": "archlens-duplication-d3b-expectations",
+  "format_version": "1.0.0",
+  "languages": [
+    "Go",
+    "Java",
+    "JavaScript",
+    "Python",
+    "TypeScript"
+  ],
+  "core_variants": [
+    "base",
+    "exact",
+    "identifier",
+    "literal"
+  ],
+  "operator_non_clone": "operator",
+  "distributions": {
+    "same_file": [
+      "python/same_file.py"
+    ],
+    "cross_file": [
+      "python/base.py",
+      "python/exact.py"
+    ],
+    "mixed": [
+      "python/base.py",
+      "python/same_file.py"
+    ]
+  },
+  "nested": {
+    "outer_if": [
+      "nested/outer_if_a.py",
+      "nested/outer_if_b.py"
+    ],
+    "outer_if_with_third_inner": [
+      "nested/outer_if_a.py",
+      "nested/outer_if_b.py",
+      "nested/inner_third.py"
+    ],
+    "inner_only": [
+      "nested/inner_only_a.py",
+      "nested/inner_only_b.py"
+    ],
+    "outer_loop": [
+      "nested/outer_loop_a.py",
+      "nested/outer_loop_b.py"
+    ],
+    "siblings": [
+      "nested/siblings_a.py",
+      "nested/siblings_b.py"
+    ]
+  },
+  "malformed_unavailable": [
+    "go/malformed.go",
+    "java/malformed.java",
+    "javascript/malformed.js",
+    "python/malformed.py",
+    "typescript/malformed.ts"
+  ],
+  "synthetic_overlap_fixture": "synthetic_overlap.json"
+}

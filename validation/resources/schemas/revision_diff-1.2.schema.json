@@ -1,0 +1,1419 @@
+{
+  "$id": "https://archlens.dev/schemas/revision_diff-1.1.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Structured diff between two source states of one logical subject, emitted by 'archlens diff'. This is a DERIVED, explicitly non-authoritative output: it carries an independent format version and must never be read back as measurement evidence. The authoritative measurement remains the two Artifact 1.7 runs it references.\n\nFour concepts are kept separate throughout and must not be conflated by a consumer: logical subject identity ('subject'), source/revision identity ('source_identity_changes'), analyzed-scope identity ('analysis_scope_hash'), and measurement-contract compatibility ('comparability'). A changed 'analysis_scope_hash' means different bytes were analyzed; it is never by itself a statement that the two sides are incomparable.\n\n'metric_attribution' is reconciliation from recorded per-file contributions, not causal inference. A non-zero 'residual' is a finding, not something to explain away. Rename evidence is typed and never inferred from similarity: only a one-to-one exact content match is called a rename.",
+  "properties": {
+    "aggregate_metric_deltas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "delta": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "dimension": {
+            "enum": [
+              "source_files",
+              "lines_of_code",
+              "classes_structs",
+              "methods_functions"
+            ]
+          },
+          "evidence_level": {
+            "enum": [
+              "observed_difference",
+              "exact_observed_delta_reconciliation",
+              "unexplained_residual",
+              "not_evaluable_missing_evidence"
+            ]
+          },
+          "language": {
+            "description": "Present only on per-language deltas.",
+            "type": "string"
+          },
+          "not_evaluable_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value_from": {},
+          "value_to": {}
+        },
+        "required": [
+          "delta",
+          "dimension",
+          "evidence_level",
+          "not_evaluable_reason",
+          "value_from",
+          "value_to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "comparability": {
+      "additionalProperties": false,
+      "properties": {
+        "comparable": {
+          "type": "boolean"
+        },
+        "dimensions": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "blocking": {
+                "type": "boolean"
+              },
+              "compatible": {
+                "type": "boolean"
+              },
+              "dimension": {
+                "type": "string"
+              },
+              "from": {},
+              "note": {
+                "description": "Present on dimensions that are reported as evidence but never block. A difference in these is what a diff exists to describe.",
+                "type": "string"
+              },
+              "rationale": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "to": {}
+            },
+            "required": [
+              "blocking",
+              "compatible",
+              "dimension",
+              "from",
+              "rationale",
+              "to"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "refusal_reasons": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "detail": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "dimension": {
+                "type": "string"
+              },
+              "from": {},
+              "to": {}
+            },
+            "required": [
+              "detail",
+              "dimension",
+              "from",
+              "to"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "result": {
+          "enum": [
+            "comparison_completed",
+            "comparison_refused"
+          ]
+        },
+        "subject_key_override": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "comparable",
+        "dimensions",
+        "refusal_reasons",
+        "result",
+        "subject_key_override"
+      ],
+      "type": "object"
+    },
+    "complexity_aggregate_deltas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "delta": {
+            "type": [
+              "integer",
+              "number",
+              "null"
+            ]
+          },
+          "dimension": {
+            "enum": [
+              "callable_count",
+              "cyclomatic_complexity_total",
+              "cyclomatic_complexity_mean",
+              "cyclomatic_complexity_median",
+              "cyclomatic_complexity_max",
+              "nloc_median",
+              "nloc_max",
+              "max_nesting_depth_median",
+              "max_nesting_depth_max",
+              "formal_parameter_count_median",
+              "formal_parameter_count_max"
+            ]
+          },
+          "evidence_level": {
+            "enum": [
+              "observed_difference",
+              "exact_observed_delta_reconciliation",
+              "unexplained_residual",
+              "not_evaluable_missing_evidence"
+            ]
+          },
+          "language": {
+            "description": "Present only on per-language deltas.",
+            "type": "string"
+          },
+          "not_evaluable_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "relative_path": {
+            "description": "Present only on file-level complexity deltas.",
+            "type": "string"
+          },
+          "value_from": {},
+          "value_to": {}
+        },
+        "required": [
+          "delta",
+          "dimension",
+          "evidence_level",
+          "not_evaluable_reason",
+          "value_from",
+          "value_to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "complexity_comparability": {
+      "additionalProperties": false,
+      "description": "Whether Complexity Contract 1.0.0 deltas are meaningful. Never blocks the diff: benchmark-metric comparisons proceed whenever they are otherwise comparable.",
+      "properties": {
+        "blocks_diff": {
+          "const": false
+        },
+        "complexity_contract_version_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "complexity_contract_version_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evaluable": {
+          "type": "boolean"
+        },
+        "measurement_state_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "measurement_state_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "not_evaluable_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "note": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "blocks_diff",
+        "complexity_contract_version_from",
+        "complexity_contract_version_to",
+        "evaluable",
+        "measurement_state_from",
+        "measurement_state_to",
+        "not_evaluable_reason"
+      ],
+      "type": "object"
+    },
+    "evidence_level_meanings": {
+      "additionalProperties": false,
+      "properties": {
+        "exact_observed_delta_reconciliation": {
+          "type": "string"
+        },
+        "not_evaluable_missing_evidence": {
+          "type": "string"
+        },
+        "observed_difference": {
+          "type": "string"
+        },
+        "unexplained_residual": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "exact_observed_delta_reconciliation",
+        "not_evaluable_missing_evidence",
+        "observed_difference",
+        "unexplained_residual"
+      ],
+      "type": "object"
+    },
+    "file_complexity_evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "deltas": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "delta": {
+                "type": [
+                  "integer",
+                  "number",
+                  "null"
+                ]
+              },
+              "dimension": {
+                "enum": [
+                  "callable_count",
+                  "cyclomatic_complexity_total",
+                  "cyclomatic_complexity_mean",
+                  "cyclomatic_complexity_median",
+                  "cyclomatic_complexity_max",
+                  "nloc_median",
+                  "nloc_max",
+                  "max_nesting_depth_median",
+                  "max_nesting_depth_max",
+                  "formal_parameter_count_median",
+                  "formal_parameter_count_max"
+                ]
+              },
+              "evidence_level": {
+                "enum": [
+                  "observed_difference",
+                  "exact_observed_delta_reconciliation",
+                  "unexplained_residual",
+                  "not_evaluable_missing_evidence"
+                ]
+              },
+              "language": {
+                "description": "Present only on per-language deltas.",
+                "type": "string"
+              },
+              "not_evaluable_reason": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "relative_path": {
+                "description": "Present only on file-level complexity deltas.",
+                "type": "string"
+              },
+              "value_from": {},
+              "value_to": {}
+            },
+            "required": [
+              "delta",
+              "dimension",
+              "evidence_level",
+              "not_evaluable_reason",
+              "value_from",
+              "value_to"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "evaluable": {
+          "type": "boolean"
+        },
+        "not_evaluable_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "status_changes": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "dimension": {
+                "enum": [
+                  "structural_complexity_status",
+                  "nloc_status"
+                ]
+              },
+              "from": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "relative_path": {
+                "type": "string"
+              },
+              "to": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "dimension",
+              "from",
+              "relative_path",
+              "to"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        }
+      },
+      "required": [
+        "deltas",
+        "evaluable",
+        "not_evaluable_reason",
+        "status_changes"
+      ],
+      "type": "object"
+    },
+    "file_evidence": {
+      "additionalProperties": false,
+      "properties": {
+        "added": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "content_hash": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "relative_path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "content_hash",
+              "relative_path"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "content_changed": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "content_hash_from": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "content_hash_to": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "relative_path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "content_hash_from",
+              "content_hash_to",
+              "relative_path"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "counts": {
+          "additionalProperties": false,
+          "properties": {
+            "added": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "content_changed": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            },
+            "removed": {
+              "type": [
+                "integer",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "added",
+            "content_changed",
+            "removed"
+          ],
+          "type": "object"
+        },
+        "evaluable": {
+          "type": "boolean"
+        },
+        "indeterminate_content_count": {
+          "description": "Files present on both sides whose content hash is unavailable on at least one side, so change could not be determined. Never counted as unchanged.",
+          "type": "integer"
+        },
+        "not_evaluable_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "removed": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "content_hash": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "relative_path": {
+                "type": "string"
+              }
+            },
+            "required": [
+              "content_hash",
+              "relative_path"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "renames": {
+          "items": {
+            "additionalProperties": false,
+            "properties": {
+              "candidate_from_paths": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "candidate_to_paths": {
+                "items": {
+                  "type": "string"
+                },
+                "type": "array"
+              },
+              "content_hash": {
+                "type": "string"
+              },
+              "evidence": {
+                "enum": [
+                  "exact_content_rename",
+                  "ambiguous_content_match"
+                ]
+              },
+              "from_path": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              },
+              "to_path": {
+                "type": [
+                  "string",
+                  "null"
+                ]
+              }
+            },
+            "required": [
+              "candidate_from_paths",
+              "candidate_to_paths",
+              "content_hash",
+              "evidence",
+              "from_path",
+              "to_path"
+            ],
+            "type": "object"
+          },
+          "type": "array"
+        },
+        "unchanged_count": {
+          "type": [
+            "integer",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "added",
+        "content_changed",
+        "counts",
+        "evaluable",
+        "not_evaluable_reason",
+        "removed",
+        "renames",
+        "unchanged_count"
+      ],
+      "type": "object"
+    },
+    "has_differences": {
+      "type": "boolean"
+    },
+    "measurement_status_changes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dimension": {
+            "type": "string"
+          },
+          "language": {
+            "type": "string"
+          },
+          "scope": {
+            "enum": [
+              "aggregate",
+              "repository",
+              "language"
+            ]
+          },
+          "value_from": {},
+          "value_to": {}
+        },
+        "required": [
+          "dimension",
+          "scope",
+          "value_from",
+          "value_to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "metric_attribution": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dimension": {
+            "type": "string"
+          },
+          "evidence_level": {
+            "enum": [
+              "observed_difference",
+              "exact_observed_delta_reconciliation",
+              "unexplained_residual",
+              "not_evaluable_missing_evidence"
+            ]
+          },
+          "from_added_files": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "from_changed_files": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "from_removed_files": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "not_evaluable_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "observed_delta": {
+            "type": "integer"
+          },
+          "residual": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "dimension",
+          "evidence_level",
+          "from_added_files",
+          "from_changed_files",
+          "from_removed_files",
+          "not_evaluable_reason",
+          "observed_delta",
+          "residual"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "per_language_complexity_deltas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "delta": {
+            "type": [
+              "integer",
+              "number",
+              "null"
+            ]
+          },
+          "dimension": {
+            "enum": [
+              "callable_count",
+              "cyclomatic_complexity_total",
+              "cyclomatic_complexity_mean",
+              "cyclomatic_complexity_median",
+              "cyclomatic_complexity_max",
+              "nloc_median",
+              "nloc_max",
+              "max_nesting_depth_median",
+              "max_nesting_depth_max",
+              "formal_parameter_count_median",
+              "formal_parameter_count_max"
+            ]
+          },
+          "evidence_level": {
+            "enum": [
+              "observed_difference",
+              "exact_observed_delta_reconciliation",
+              "unexplained_residual",
+              "not_evaluable_missing_evidence"
+            ]
+          },
+          "language": {
+            "description": "Present only on per-language deltas.",
+            "type": "string"
+          },
+          "not_evaluable_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "relative_path": {
+            "description": "Present only on file-level complexity deltas.",
+            "type": "string"
+          },
+          "value_from": {},
+          "value_to": {}
+        },
+        "required": [
+          "delta",
+          "dimension",
+          "evidence_level",
+          "not_evaluable_reason",
+          "value_from",
+          "value_to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "per_language_metric_deltas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "delta": {
+            "type": [
+              "integer",
+              "null"
+            ]
+          },
+          "dimension": {
+            "enum": [
+              "source_files",
+              "lines_of_code",
+              "classes_structs",
+              "methods_functions"
+            ]
+          },
+          "evidence_level": {
+            "enum": [
+              "observed_difference",
+              "exact_observed_delta_reconciliation",
+              "unexplained_residual",
+              "not_evaluable_missing_evidence"
+            ]
+          },
+          "language": {
+            "description": "Present only on per-language deltas.",
+            "type": "string"
+          },
+          "not_evaluable_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "value_from": {},
+          "value_to": {}
+        },
+        "required": [
+          "delta",
+          "dimension",
+          "evidence_level",
+          "not_evaluable_reason",
+          "value_from",
+          "value_to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "revision_diff_format_version": {
+      "const": "1.2.0"
+    },
+    "semantic_projection": {
+      "additionalProperties": false,
+      "properties": {
+        "available": {
+          "type": "boolean"
+        },
+        "equal": {
+          "type": [
+            "boolean",
+            "null"
+          ]
+        },
+        "from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "available",
+        "from",
+        "reason",
+        "to"
+      ],
+      "type": "object"
+    },
+    "sides": {
+      "additionalProperties": false,
+      "properties": {
+        "from": {
+          "additionalProperties": false,
+          "properties": {
+            "analysis_scope_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "analysis_status": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "analyzed_commit_sha": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "artifact_schema_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "exclusion_policy_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "filesystem_manifest_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "freshly_analyzed": {
+              "type": "boolean"
+            },
+            "inventory_schema_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "kind": {
+              "enum": [
+                "revision",
+                "worktree",
+                "existing_run",
+                "remote_revision"
+              ]
+            },
+            "label": {
+              "enum": [
+                "from",
+                "to"
+              ]
+            },
+            "metric_contract_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "repository_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requested_revision": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "run_directory": {
+              "type": "string"
+            },
+            "run_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source_mode": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "specifier": {
+              "type": "string"
+            },
+            "subject_key": {
+              "type": "string"
+            },
+            "subject_key_basis": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "warnings": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "working_tree_state": {
+              "type": [
+                "object",
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "analysis_scope_hash",
+            "analysis_status",
+            "analyzed_commit_sha",
+            "artifact_schema_version",
+            "exclusion_policy_version",
+            "filesystem_manifest_hash",
+            "freshly_analyzed",
+            "inventory_schema_version",
+            "kind",
+            "label",
+            "metric_contract_version",
+            "repository_url",
+            "requested_revision",
+            "run_directory",
+            "run_id",
+            "source_mode",
+            "specifier",
+            "subject_key",
+            "subject_key_basis",
+            "warnings",
+            "working_tree_state"
+          ],
+          "type": "object"
+        },
+        "to": {
+          "additionalProperties": false,
+          "properties": {
+            "analysis_scope_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "analysis_status": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "analyzed_commit_sha": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "artifact_schema_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "exclusion_policy_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "filesystem_manifest_hash": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "freshly_analyzed": {
+              "type": "boolean"
+            },
+            "inventory_schema_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "kind": {
+              "enum": [
+                "revision",
+                "worktree",
+                "existing_run",
+                "remote_revision"
+              ]
+            },
+            "label": {
+              "enum": [
+                "from",
+                "to"
+              ]
+            },
+            "metric_contract_version": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "repository_url": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "requested_revision": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "run_directory": {
+              "type": "string"
+            },
+            "run_id": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "source_mode": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "specifier": {
+              "type": "string"
+            },
+            "subject_key": {
+              "type": "string"
+            },
+            "subject_key_basis": {
+              "type": [
+                "string",
+                "null"
+              ]
+            },
+            "warnings": {
+              "items": {
+                "type": "string"
+              },
+              "type": "array"
+            },
+            "working_tree_state": {
+              "type": [
+                "object",
+                "string",
+                "null"
+              ]
+            }
+          },
+          "required": [
+            "analysis_scope_hash",
+            "analysis_status",
+            "analyzed_commit_sha",
+            "artifact_schema_version",
+            "exclusion_policy_version",
+            "filesystem_manifest_hash",
+            "freshly_analyzed",
+            "inventory_schema_version",
+            "kind",
+            "label",
+            "metric_contract_version",
+            "repository_url",
+            "requested_revision",
+            "run_directory",
+            "run_id",
+            "source_mode",
+            "specifier",
+            "subject_key",
+            "subject_key_basis",
+            "warnings",
+            "working_tree_state"
+          ],
+          "type": "object"
+        }
+      },
+      "required": [
+        "from",
+        "to"
+      ],
+      "type": "object"
+    },
+    "source_identity_changes": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dimension": {
+            "type": "string"
+          },
+          "note": {
+            "type": "string"
+          },
+          "value_from": {},
+          "value_to": {}
+        },
+        "required": [
+          "dimension",
+          "value_from",
+          "value_to"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "subject": {
+      "additionalProperties": false,
+      "properties": {
+        "natural_subject_key_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "natural_subject_key_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "same_logical_subject": {
+          "type": "boolean"
+        },
+        "subject_key_from": {
+          "type": "string"
+        },
+        "subject_key_override": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "subject_key_to": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "natural_subject_key_from",
+        "natural_subject_key_to",
+        "same_logical_subject",
+        "subject_key_from",
+        "subject_key_override",
+        "subject_key_to"
+      ],
+      "type": "object"
+    },
+    "cognitive_comparability": {
+      "additionalProperties": false,
+      "description": "Whether Complexity Contract 1.0.0 deltas are meaningful. Never blocks the diff: benchmark-metric comparisons proceed whenever they are otherwise comparable.",
+      "properties": {
+        "blocks_diff": {
+          "const": false
+        },
+        "complexity_contract_version_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "complexity_contract_version_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "evaluable": {
+          "type": "boolean"
+        },
+        "measurement_state_from": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "measurement_state_to": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "not_evaluable_reason": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "note": {
+          "type": "string"
+        },
+        "metric_name": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "blocks_diff",
+        "complexity_contract_version_from",
+        "complexity_contract_version_to",
+        "evaluable",
+        "measurement_state_from",
+        "measurement_state_to",
+        "not_evaluable_reason"
+      ],
+      "type": "object"
+    },
+    "cognitive_aggregate_deltas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "delta": {
+            "type": [
+              "integer",
+              "number",
+              "null"
+            ]
+          },
+          "dimension": {
+            "enum": [
+              "cognitive_callable_count",
+              "cognitive_complexity_total",
+              "cognitive_complexity_mean",
+              "cognitive_complexity_median",
+              "cognitive_complexity_max"
+            ]
+          },
+          "evidence_level": {
+            "enum": [
+              "observed_difference",
+              "exact_observed_delta_reconciliation",
+              "unexplained_residual",
+              "not_evaluable_missing_evidence"
+            ]
+          },
+          "language": {
+            "description": "Present only on per-language deltas.",
+            "type": "string"
+          },
+          "not_evaluable_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "relative_path": {
+            "description": "Present only on file-level complexity deltas.",
+            "type": "string"
+          },
+          "value_from": {},
+          "value_to": {}
+        },
+        "required": [
+          "delta",
+          "dimension",
+          "evidence_level",
+          "not_evaluable_reason",
+          "value_from",
+          "value_to"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "description": "ArchLens Cognitive Complexity deltas. Derived from the persisted per-callable column; never summed across languages."
+    },
+    "per_language_cognitive_deltas": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "delta": {
+            "type": [
+              "integer",
+              "number",
+              "null"
+            ]
+          },
+          "dimension": {
+            "enum": [
+              "cognitive_callable_count",
+              "cognitive_complexity_total",
+              "cognitive_complexity_mean",
+              "cognitive_complexity_median",
+              "cognitive_complexity_max"
+            ]
+          },
+          "evidence_level": {
+            "enum": [
+              "observed_difference",
+              "exact_observed_delta_reconciliation",
+              "unexplained_residual",
+              "not_evaluable_missing_evidence"
+            ]
+          },
+          "language": {
+            "description": "Present only on per-language deltas.",
+            "type": "string"
+          },
+          "not_evaluable_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "relative_path": {
+            "description": "Present only on file-level complexity deltas.",
+            "type": "string"
+          },
+          "value_from": {},
+          "value_to": {}
+        },
+        "required": [
+          "delta",
+          "dimension",
+          "evidence_level",
+          "not_evaluable_reason",
+          "value_from",
+          "value_to"
+        ],
+        "type": "object"
+      },
+      "type": "array",
+      "description": "ArchLens Cognitive Complexity deltas. Derived from the persisted per-callable column; never summed across languages."
+    },
+    "file_cognitive_evidence": {
+      "type": "object",
+      "description": "File-level ArchLens Cognitive Complexity evidence, joined on relative_path. No callable-level matching exists."
+    }
+  },
+  "required": [
+    "aggregate_metric_deltas",
+    "comparability",
+    "complexity_aggregate_deltas",
+    "complexity_comparability",
+    "evidence_level_meanings",
+    "file_complexity_evidence",
+    "file_evidence",
+    "has_differences",
+    "measurement_status_changes",
+    "metric_attribution",
+    "per_language_complexity_deltas",
+    "per_language_metric_deltas",
+    "revision_diff_format_version",
+    "semantic_projection",
+    "sides",
+    "source_identity_changes",
+    "subject"
+  ],
+  "title": "ArchLens Direct Revision Diff output 1.0.0",
+  "type": "object"
+}

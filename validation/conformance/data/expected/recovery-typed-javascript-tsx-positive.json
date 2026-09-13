@@ -1,0 +1,10 @@
+{
+  "case_id": "recovery-typed-javascript-tsx-positive",
+  "observations": {
+    "aggregate/metric_status": "complete",
+    "recovery/selected_fallback_strategies": [
+      "typed_javascript_tsx_compat"
+    ]
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract and Exclusion Policy clause recorded in the manifest. ArchLens output is not the oracle."
+}

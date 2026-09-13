@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!--
+  The Java IDENTITY ENUMERATOR. Not a second opinion about any value.
+
+  Cyclomatic complexity is at least 1 for every method by construction, so
+  CyclomaticComplexity at methodReportLevel=1 reports EVERY method PMD's own
+  parser saw, including the ones the cognitive rule suppresses for scoring 0.
+  It answers exactly one question: did this parser see a callable here?
+
+  classReportLevel is pushed out of reach because a class-level finding is not a
+  callable and would enter the enumeration as a row with no method behind it.
+-->
+<ruleset name="archlens-cognitive-enumerate"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0">
+  <description>ArchLens CG differential validation: callable enumeration.</description>
+  <rule ref="category/java/design.xml/CyclomaticComplexity">
+    <properties>
+      <property name="methodReportLevel" value="1"/>
+      <property name="classReportLevel" value="1000000"/>
+    </properties>
+  </rule>
+</ruleset>

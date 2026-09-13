@@ -1,0 +1,10 @@
+{
+  "$id": "https://archlens.dev/schemas/analysis-1.6.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Authoritative finalized repository results (plan section 4.1). Each element must reconcile exactly with the matching repositories/<slug>.json final-result document when that optional projection is present.\n\nArtifact Schema 1.6.0 is a CORRECTION-ONLY version. It fixes four places where the frozen 1.5.0 schemas contradicted their own producers and in two cases their own sibling schemas (findings F-P3-3, F-P3-4, F-P3-5, F-P3-6). It introduces no new fields, no metric semantics, and none of the B1/local-analysis structure, which remains Artifact Schema 1.7.0.",
+  "items": {
+    "$ref": "https://archlens.dev/schemas/repository_document-1.6.schema.json"
+  },
+  "title": "ArchLens analysis 1.6",
+  "type": "array"
+}

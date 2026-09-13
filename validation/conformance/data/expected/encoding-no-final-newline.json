@@ -1,0 +1,9 @@
+{
+  "case_id": "encoding-no-final-newline",
+  "observations": {
+    "aggregate/lines_of_code": 2,
+    "aggregate/loc_status": "complete",
+    "aggregate/total_physical_lines": 2
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

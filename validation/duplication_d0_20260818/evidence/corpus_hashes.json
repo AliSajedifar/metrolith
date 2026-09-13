@@ -1,0 +1,338 @@
+[
+  {
+    "bom": null,
+    "bytes": 2264,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/grammar.go",
+    "sha256": "b108bebb164eb2af88d60c279897b152c72dfe23944c5d5705a41be373f4e379"
+  },
+  {
+    "bom": null,
+    "bytes": 5030,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/GrammarProbe.java",
+    "sha256": "2e8face4e45422f291516fa0115c35c943753301b91ccb090decb49faeaa26e3"
+  },
+  {
+    "bom": null,
+    "bytes": 3931,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/javascript.js",
+    "sha256": "7f802748cf411c3c45deaa29539745b0d634e7378c3e28c853d652edd4feac02"
+  },
+  {
+    "bom": null,
+    "bytes": 228,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/javascript.jsx",
+    "sha256": "0b4d762233e0257ecc68e3399b20f9903cbbba57accff934d2f5423f30aa26cf"
+  },
+  {
+    "bom": null,
+    "bytes": 950,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/OperatorProbe.java",
+    "sha256": "73460dbcbac5cde6436f0fe5c9ab6023f37ea953b3f6c122cb883bc008331b16"
+  },
+  {
+    "bom": null,
+    "bytes": 669,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/operators.go",
+    "sha256": "99a201d6a9c9716427e6c2023f82a9bc11802773c5d1d9ad60b55d1a3555bd20"
+  },
+  {
+    "bom": null,
+    "bytes": 1088,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/operators.js",
+    "sha256": "39f431becb6fef4f7b3c6b3bec9c6c942d233a01baaa295bf346635e1d9b6d7b"
+  },
+  {
+    "bom": null,
+    "bytes": 763,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/operators.py",
+    "sha256": "3c17fc30f266477cf9e30110815bebc4fa766f503a6024cfeb01f9b984063001"
+  },
+  {
+    "bom": null,
+    "bytes": 1425,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/operators.ts",
+    "sha256": "689760a26537f43dc05e1e481ffbb09351346d886a603e762e811f5491b347f8"
+  },
+  {
+    "bom": null,
+    "bytes": 3548,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/python.py",
+    "sha256": "53e8b73086b9703442056b3aaba6be90bd0d830886156a82e984f1d2a59c673d"
+  },
+  {
+    "bom": null,
+    "bytes": 3812,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/typescript.ts",
+    "sha256": "44279798e8817d2b7ec74b966434f8765c59b94f6c2481c33bdd3658595189c3"
+  },
+  {
+    "bom": null,
+    "bytes": 305,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "grammar/typescript.tsx",
+    "sha256": "56d6d135311c7796bb0190f3dee0480381d24721f5203bbc44738a37e67a1f0d"
+  },
+  {
+    "bom": "utf-8",
+    "bytes": 108,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "portability/bom.ts",
+    "sha256": "b07c91b08c87d1f871e2490ef4fdeacb0aa8041b949075168e3ad885feaa4cdc"
+  },
+  {
+    "bom": null,
+    "bytes": 104,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "portability/café/日本語.py",
+    "sha256": "2ea4ef6170ba7a86b3ee1957d36838ca07b04eb62fb3b9cf51c803cdbb072b93"
+  },
+  {
+    "bom": null,
+    "bytes": 5221,
+    "final_newline": true,
+    "line_endings": "crlf",
+    "path": "portability/crlf.java",
+    "sha256": "6bdcfb8515bb1aa862fa9ec0a0698d941e7f2e552e9da111fe2be984aa511285"
+  },
+  {
+    "bom": null,
+    "bytes": 2264,
+    "final_newline": true,
+    "line_endings": "cr",
+    "path": "portability/lone_cr.go",
+    "sha256": "a482207794ce5536a85ee82ca26c9b32b82cc5417b18c10b0a2499aaf4b6f042"
+  },
+  {
+    "bom": null,
+    "bytes": 41,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "portability/malformed.go",
+    "sha256": "80d4a57b2246504c8929dfac8a4eddad7f56e183327570cd49dfc637f1c5b739"
+  },
+  {
+    "bom": null,
+    "bytes": 43,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "portability/malformed.java",
+    "sha256": "10e1d99a42d133a82a45d4f3a2d101ddce034da2f9b87b545db70b6e3f175bf2"
+  },
+  {
+    "bom": null,
+    "bytes": 31,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "portability/malformed.js",
+    "sha256": "0887f88d90a7f5ee8dcdd023ffe2516b5c91c1c1eee0d30fcc40c182353e5f00"
+  },
+  {
+    "bom": null,
+    "bytes": 26,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "portability/malformed.py",
+    "sha256": "e6938fd8f563665fcaefec05805213a62ed5a1fa7a136aa6aad7c16602ca1da8"
+  },
+  {
+    "bom": null,
+    "bytes": 43,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "portability/malformed.ts",
+    "sha256": "a21c39758fc33617d9bd4005373a2b4aa01da01e72cecf4a7df988ef0799c792"
+  },
+  {
+    "bom": null,
+    "bytes": 100,
+    "final_newline": false,
+    "line_endings": "lf",
+    "path": "portability/no_final_newline.js",
+    "sha256": "58258c0a8c1322b593e9ca6c8d2af7fcf81a282d8eaf0e78667e0a62e868e83b"
+  },
+  {
+    "bom": null,
+    "bytes": 134,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "portability/recovered_import_assertion.js",
+    "sha256": "abd4bae61379d327126ef1fa9d7a9b7215dbba4cb9013d0849a45368d38af90d"
+  },
+  {
+    "bom": null,
+    "bytes": 103,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "portability/recovered_keyword_parameter.ts",
+    "sha256": "f1448fffc7dd2ab8d2162a162fbb942b3755bdb86c96154c53a3561a90cdba69"
+  },
+  {
+    "bom": null,
+    "bytes": 31,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "selection/build/copy.go",
+    "sha256": "450c4b8aebb2a3ab28777c7c986628cea029486123c0ce79b83a5d1bf095231f"
+  },
+  {
+    "bom": null,
+    "bytes": 27,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "selection/bundle.min.js",
+    "sha256": "5c7110e9a86024dee71027a0205ac75bc283cc9df42fabff12a9f56bf8d658a5"
+  },
+  {
+    "bom": null,
+    "bytes": 55,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "selection/declarations.d.ts",
+    "sha256": "29641ecb66b615589363cddbbd7f14939a764ffb1c679a558d723212e7b5b136"
+  },
+  {
+    "bom": null,
+    "bytes": 34,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "selection/generated/copy.generated.js",
+    "sha256": "a74f2f33b2c880b649cbd3041ed9d836966f47f4b97e9d08e8cc755d0fca670d"
+  },
+  {
+    "bom": null,
+    "bytes": 43,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "selection/stubs.pyi",
+    "sha256": "b856f5bb94635de8706678afce31ad85a06e6c94df1c25773c4f0e41fe5a6780"
+  },
+  {
+    "bom": null,
+    "bytes": 34,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "selection/tests/copy.py",
+    "sha256": "d13baf5ca4aa92c5781823cd5806187b1fccc7d14ba8f7e615134ecca2108860"
+  },
+  {
+    "bom": null,
+    "bytes": 24,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "selection/unsupported.rb",
+    "sha256": "7078537117aef56d6ff04b095d52bcb1f5585958215ac547d2b7b557d8a43fb2"
+  },
+  {
+    "bom": null,
+    "bytes": 38,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "selection/vendor/copy.java",
+    "sha256": "efede547b2dbd0844e2b59b423fd1082b99caa618d29689a1bbcf4a433707731"
+  },
+  {
+    "bom": null,
+    "bytes": 3205,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "structural/python.py",
+    "sha256": "cad0aebfd1a4df4c348a17f1d2b74f183a7768e8fcad90aa0cb448c944bf866f"
+  },
+  {
+    "bom": null,
+    "bytes": 2819,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "structural/structural.go",
+    "sha256": "d9b644118a1b0cb74a3d0906d1c58d621ab15ab20d26eca2f33977d7f67c7ade"
+  },
+  {
+    "bom": null,
+    "bytes": 2898,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "structural/structural.js",
+    "sha256": "d61e948cf1608156063a35bf4b3a46ae6e696926f5c2df50deac02b448f7a431"
+  },
+  {
+    "bom": null,
+    "bytes": 3114,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "structural/structural.ts",
+    "sha256": "bea6061da05ddd6319d28af76c21b97c77de4ec66a06c2cf0eecadbfe6ae0f6b"
+  },
+  {
+    "bom": null,
+    "bytes": 2937,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "structural/StructuralVariants.java",
+    "sha256": "1068a3e5dc22bf3b2f050762785d0efada0dee99291030aad1680720cb1341ea"
+  },
+  {
+    "bom": null,
+    "bytes": 1019,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "thresholds/thresholds.go",
+    "sha256": "d4157589b77952c22f1692ae16f1c1375516bf9a7197e5c667ef782d86997711"
+  },
+  {
+    "bom": null,
+    "bytes": 1147,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "thresholds/Thresholds.java",
+    "sha256": "f7c74471e66992ffef44a61cf1fab1fed9cfaa5fb594347e9784fc9f1bd1f6a3"
+  },
+  {
+    "bom": null,
+    "bytes": 1050,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "thresholds/thresholds.js",
+    "sha256": "295ffc2f1a7c73319cef772eae6b8247d42b09df75be4fd175dcbe303831ee87"
+  },
+  {
+    "bom": null,
+    "bytes": 977,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "thresholds/thresholds.py",
+    "sha256": "f2213ee3213c37fddf71874a22fe48a860ec39c4ddbb62fddf11e86cc872b66c"
+  },
+  {
+    "bom": null,
+    "bytes": 1114,
+    "final_newline": true,
+    "line_endings": "lf",
+    "path": "thresholds/thresholds.ts",
+    "sha256": "1fef8aa253f99f294b212ff7ee49b133f1880c4a765a016e84b16eb77f1485a2"
+  }
+]

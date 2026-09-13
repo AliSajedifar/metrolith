@@ -1,0 +1,9 @@
+{
+  "case_id": "entity-js-stable-assigned-class",
+  "observations": {
+    "aggregate/classes_structs": 1,
+    "aggregate/classes_structs_status": "complete",
+    "aggregate/methods_functions": 1
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

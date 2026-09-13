@@ -1,0 +1,166 @@
+{
+  "format": "archlens-duplication-d4-expectations",
+  "format_version": "1.0.0",
+  "authored_before_d4_execution": true,
+  "languages": [
+    "Go",
+    "Java",
+    "JavaScript",
+    "Python",
+    "TypeScript"
+  ],
+  "lexical": {
+    "match_against_base": [
+      "exact",
+      "whitespace",
+      "comment"
+    ],
+    "non_match_against_base": [
+      "identifier",
+      "literal",
+      "operator",
+      "reordered",
+      "added",
+      "removed"
+    ],
+    "portability_matches": [
+      [
+        "java/base.java",
+        "java/crlf.java"
+      ],
+      [
+        "go/base.go",
+        "go/lone_cr.go"
+      ],
+      [
+        "typescript/base.ts",
+        "typescript/bom.ts"
+      ],
+      [
+        "python/café/日本語_unicode_a.py",
+        "python/café/日本語_unicode_b.py"
+      ]
+    ],
+    "portability_non_matches": [
+      [
+        "python/unicode_nfc.py",
+        "python/unicode_nfd.py"
+      ]
+    ]
+  },
+  "structural": {
+    "match_against_base": [
+      "exact",
+      "whitespace",
+      "comment",
+      "identifier",
+      "literal"
+    ],
+    "non_match_against_base": [
+      "operator",
+      "added",
+      "removed"
+    ],
+    "non_relations": [
+      [
+        "relations/equality_distinct.py",
+        "relations/equality_repeated.py",
+        "identifier equality pattern"
+      ],
+      [
+        "relations/literal_integer.py",
+        "relations/literal_string.py",
+        "literal class"
+      ],
+      [
+        "relations/child_left_right.py",
+        "relations/child_right_left.py",
+        "child order"
+      ],
+      [
+        "structural/role_value.py",
+        "structural/role_member.py",
+        "identifier role and AST shape"
+      ],
+      [
+        "structural/fstring_a.py",
+        "structural/fstring_shape_changed.py",
+        "f-string child order"
+      ],
+      [
+        "structural/template_a.js",
+        "structural/template_shape_changed.js",
+        "tagged template shape"
+      ],
+      [
+        "risks/syntax_augmented.py",
+        "risks/syntax_expanded.py",
+        "equivalent-looking syntax is retained"
+      ]
+    ],
+    "match_relations": [
+      [
+        "structural/fstring_a.py",
+        "structural/fstring_b.py",
+        "f-string raw chunks and literal values abstracted"
+      ],
+      [
+        "structural/template_a.js",
+        "structural/template_b.js",
+        "template raw chunks and literal values abstracted"
+      ],
+      [
+        "risks/external_member_a.py",
+        "risks/external_member_b.py",
+        "documented external-member false-positive risk"
+      ]
+    ]
+  },
+  "grouping": {
+    "same_file": [
+      "python/same_file.py"
+    ],
+    "cross_file": [
+      "python/base.py",
+      "python/exact.py"
+    ],
+    "mixed": [
+      "python/base.py",
+      "python/same_file.py"
+    ],
+    "multiple_occurrences": [
+      "python/base.py",
+      "python/exact.py",
+      "python/same_file.py"
+    ],
+    "nested_suppression": [
+      "nested/outer_if_a.py",
+      "nested/outer_if_b.py"
+    ],
+    "nested_third_retained": [
+      "nested/outer_if_a.py",
+      "nested/outer_if_b.py",
+      "nested/inner_third.py"
+    ],
+    "inner_only": [
+      "nested/inner_only_a.py",
+      "nested/inner_only_b.py"
+    ],
+    "siblings": [
+      "nested/siblings_a.py",
+      "nested/siblings_b.py"
+    ],
+    "overlap_fixture": "synthetic_overlap.json"
+  },
+  "below_floor": [
+    "thresholds/below_floor_a.py",
+    "thresholds/below_floor_b.py"
+  ],
+  "malformed_unavailable": [
+    "go/malformed.go",
+    "java/malformed.java",
+    "javascript/malformed.js",
+    "python/malformed.py",
+    "typescript/malformed.ts"
+  ]
+}

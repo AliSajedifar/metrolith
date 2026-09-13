@@ -1,0 +1,40 @@
+{
+  "format": "archlens-duplication-d3a-expectations",
+  "format_version": "1.0.0",
+  "clone_kind": "structural",
+  "languages": ["Go", "Java", "JavaScript", "Python", "TypeScript"],
+  "match_against_base": ["comment", "exact", "identifier", "literal", "whitespace"],
+  "non_match_against_base": ["added", "operator", "removed"],
+  "five_language_non_relations": [
+    {"left": "{language}/order_base", "right": "{language}/order_changed", "reason": "statement order"}
+  ],
+  "python_non_relations": [
+    {"left": "relations/equality_distinct.py", "right": "relations/equality_repeated.py", "reason": "identifier equality pattern"},
+    {"left": "relations/literal_integer.py", "right": "relations/literal_string.py", "reason": "literal class"},
+    {"left": "relations/child_left_right.py", "right": "relations/child_right_left.py", "reason": "ordered expression children"},
+    {"left": "relations/control_plain.py", "right": "relations/control_changed.py", "reason": "control node kind"}
+  ],
+  "typed_unavailable": [
+    "go/malformed.go",
+    "java/malformed.java",
+    "javascript/malformed.js",
+    "python/malformed.py",
+    "typescript/malformed.ts"
+  ],
+  "language_feature_sources": {
+    "Python": "features/python.py",
+    "Java": "features/Features.java",
+    "Go": "features/features.go",
+    "JavaScript": ["features/features.js", "features/features.jsx", "javascript/async_generator.js"],
+    "TypeScript": ["features/features.ts", "features/features.tsx", "typescript/async_generator.ts"]
+  },
+  "feature_coverage": [
+    "value/type/member/label roles where supported",
+    "async and generator forms",
+    "optional chaining",
+    "templates and f-strings",
+    "switch/match/select cases",
+    "Unicode identifiers and paths",
+    "malformed selected syntax"
+  ]
+}

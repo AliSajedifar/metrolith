@@ -1,0 +1,15 @@
+{
+  "format": "archlens-duplication-d4-disagreement-log",
+  "format_version": "1.0.0",
+  "entries": [
+    {
+      "id": "D4-OBS-001",
+      "observed_during": "initial synthetic execution",
+      "check": "risks/syntax_augmented.py versus risks/syntax_expanded.py structural non-relation",
+      "observed": "syntax_augmented.py produced zero admitted candidates",
+      "classification_before_change": "extraction / validation-corpus fixture",
+      "production_defect": false,
+      "disposition": "Expanded both validation-only bodies above all frozen D1 floors; no production or contract code changed."
+    }
+  ]
+}

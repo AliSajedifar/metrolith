@@ -1,0 +1,242 @@
+{
+  "$id": "https://archlens.dev/schemas/callable_row-1.9.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "One canonical callable. Artifact Schema 1.10.0 adds cognitive_complexity under Complexity Contract 2.0.0; every 1.9 column is unchanged.",
+  "properties": {
+    "analyzed_sha": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "body_end_line": {
+      "minimum": 1,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "body_start_line": {
+      "minimum": 1,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "boolean_operator_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "callable_kind": {
+      "enum": [
+        "module_function",
+        "class_method",
+        "receiver_method"
+      ]
+    },
+    "callable_row_id": {
+      "pattern": "^sha256:[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "complexity_contract_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "content_sha256": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "cyclomatic_complexity": {
+      "minimum": 1,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "decision_point_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "declares_typescript_this_parameter": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "detected_language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "end_line": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "formal_parameter_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "location_maps_to_original_source": {
+      "type": "boolean"
+    },
+    "max_condition_operator_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "max_nesting_depth": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "name": {
+      "type": "string"
+    },
+    "nloc": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "nloc_status": {
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "not_applicable"
+      ]
+    },
+    "ordinal": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "owner_kind": {
+      "oneOf": [
+        {
+          "enum": [
+            "module",
+            "class",
+            "interface",
+            "enum",
+            "record",
+            "object_literal",
+            "receiver_type",
+            "callable"
+          ]
+        },
+        {
+          "type": "null"
+        }
+      ],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "owner_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "qualified_name": {
+      "type": "string"
+    },
+    "receiver_is_pointer": {
+      "type": [
+        "boolean",
+        "null"
+      ]
+    },
+    "receiver_type_name": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "relative_path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "repository_url": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "row_id_basis": {
+      "enum": [
+        "qualified",
+        "qualified_with_signature",
+        "positional"
+      ]
+    },
+    "signature_discriminator": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "start_line": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "structural_complexity_status": {
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "not_applicable"
+      ]
+    },
+    "subject_key": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "cognitive_complexity": {
+      "type": [
+        "integer",
+        "null"
+      ],
+      "minimum": 0,
+      "description": "ArchLens Cognitive Complexity for this callable, Complexity Contract 2.0.0 section 12. Minimum is 0 and 0 is an ORDINARY MEASURED VALUE -- unlike cyclomatic_complexity, whose minimum of 1 makes a zero impossible. Nullability therefore carries the whole distinction: NULL means the measurement was unavailable, and an unavailable measurement is never written as 0. Governed by structural_complexity_status, which it shares with the six tree-derived metrics because it is computed in the same traversal over the same selected tree."
+    }
+  },
+  "required": [
+    "subject_key",
+    "relative_path",
+    "callable_row_id",
+    "row_id_basis",
+    "name",
+    "qualified_name",
+    "callable_kind",
+    "start_line",
+    "end_line",
+    "structural_complexity_status",
+    "nloc_status",
+    "complexity_contract_version"
+  ],
+  "title": "ArchLens callable complexity row 1.9 (Artifact Schema 1.10.0)",
+  "type": "object"
+}

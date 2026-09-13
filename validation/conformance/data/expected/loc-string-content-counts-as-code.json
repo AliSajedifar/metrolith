@@ -1,0 +1,10 @@
+{
+  "case_id": "loc-string-content-counts-as-code",
+  "observations": {
+    "aggregate/blank_lines": 0,
+    "aggregate/comment_lines": 0,
+    "aggregate/lines_of_code": 4,
+    "aggregate/loc_status": "complete"
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

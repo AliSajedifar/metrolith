@@ -1,0 +1,131 @@
+{
+  "$id": "https://archlens.dev/schemas/reproduction_output-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Preflight or execution result from `archlens reproduce`. This is a DERIVED, explicitly non-authoritative output (plan section 3.3). It carries an independent format version and must never be read back as measurement evidence.",
+  "properties": {
+    "assurance_state": {
+      "description": "exact_environment_ready is impossible when the original run lacks a real profiler commit SHA (plan section 16.2).",
+      "enum": [
+        "exact_environment_ready",
+        "compatible_reexecution_ready",
+        "resolved_subset_only",
+        "not_reproducible",
+        "invalid_artifacts"
+      ]
+    },
+    "blockers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "check": {
+            "type": "string"
+          },
+          "detail": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "check",
+          "detail"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "checks": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "check": {
+            "type": "string"
+          },
+          "detail": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "outcome": {
+            "enum": [
+              "passed",
+              "failed",
+              "not_evaluable",
+              "advisory"
+            ]
+          }
+        },
+        "required": [
+          "check",
+          "outcome"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "executed": {
+      "type": "boolean"
+    },
+    "large_run_confirmed": {
+      "type": "boolean"
+    },
+    "mode": {
+      "enum": [
+        "offline",
+        "frozen",
+        null
+      ],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "network_authorized": {
+      "type": "boolean"
+    },
+    "output_root": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "reproduction_format_version": {
+      "const": "1.0.0"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "scope": {
+      "enum": [
+        "full_normalized_population",
+        "resolved_subset",
+        "explicit_repository_selection",
+        null
+      ],
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "workers": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "wrote_anything": {
+      "const": false,
+      "description": "Preflight writes nothing (plan section 16.4). Execution reports its isolated output root separately."
+    }
+  },
+  "required": [
+    "reproduction_format_version",
+    "run_id",
+    "assurance_state",
+    "checks"
+  ],
+  "title": "ArchLens reproduction output 1.0",
+  "type": "object"
+}

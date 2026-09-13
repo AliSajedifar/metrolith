@@ -1,0 +1,8 @@
+{
+  "case_id": "encoding-cr-only-line-endings",
+  "observations": {
+    "aggregate/lines_of_code": 3,
+    "aggregate/loc_status": "complete"
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

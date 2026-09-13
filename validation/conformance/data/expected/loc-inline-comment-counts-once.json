@@ -1,0 +1,9 @@
+{
+  "case_id": "loc-inline-comment-counts-once",
+  "observations": {
+    "aggregate/lines_of_code": 3,
+    "aggregate/loc_status": "complete",
+    "aggregate/total_physical_lines": 3
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

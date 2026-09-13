@@ -1,0 +1,4 @@
+url,architecture_type,expected_language,commit_sha,enabled,notes
+https://github.com/netlify/gocommerce,unknown,Go,fc6215a8af06b407e94e2f6680f6c2b5a82a4278,TRUE,Exact-SHA architecture provenance probe
+https://github.com/openpredictionmarkets/socialpredict,unknown,Go,9ef6530b06daf3223da214aa9c353ddc07d481d6,TRUE,Exact-SHA architecture provenance probe
+https://github.com/ThreeDotsLabs/monolith-microservice-shop,unknown,Go,dbb94dbea6752bb5a851dff45cc9d326c8479222,TRUE,Exact-SHA architecture provenance probe

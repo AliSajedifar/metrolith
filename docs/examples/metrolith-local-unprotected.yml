@@ -1,0 +1,31 @@
+# LOCAL DEVELOPMENT EXAMPLE — UNPROTECTED, NEVER A REQUIRED BRANCH GATE.
+# The Action and every supplied input below come from candidate/worktree bytes.
+name: ArchLens local development (UNPROTECTED)
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  archlens_local_unprotected:
+    name: ArchLens local development (UNPROTECTED)
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out local development tree
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+
+      # A project-specific development step must first create the persisted run
+      # and Policy shown here. These candidate-local bytes are intentionally not
+      # accepted as protected custody material.
+      - name: Evaluate local development inputs (UNPROTECTED)
+        id: archlens
+        uses: ./.github/actions/metrolith-check
+        with:
+          run: archlens-input/run
+          policy: policy/architecture.json
+          protected-required: "false"
+          # Each execution must use a fresh destination; repeated paths refuse.
+          sarif: metrolith-results/check-${{ github.run_id }}-${{ github.run_attempt }}.sarif
+          upload-sarif: "false"

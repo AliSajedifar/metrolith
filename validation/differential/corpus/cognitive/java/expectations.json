@@ -1,0 +1,855 @@
+{
+  "language": "Java",
+  "source": "Constructs.java",
+  "additional_source": "ConstructsGuarded.java",
+  "rule_table": "validation/complexity_g1a_20260811/FROZEN_RULE_TABLE.md",
+  "authorship": "Derived from the frozen rule table by hand. No ArchLens cognitive implementation exists; PMD was executed only AFTER this file was written.",
+  "contribution_arithmetic": "structural = 1 + nesting_level; flat = 1; nesting_only = 0; zero = 0. A fifth CORPUS-ONLY kind, `not_fired`, contributes 0 and means the named rule was evaluated at that site and did NOT fire -- it is how a negative case is pinned explicitly rather than left to be inferred. The callable total is the sum of the contributions listed.",
+  "toolchain_note": "ConstructsGuarded.java uses JDK 21 syntax and does not compile under the pinned JDK 17.0.17.10. Its expectation is authored from the rule table and flagged as toolchain-unvalidatable here.",
+  "callables": [
+    {
+      "name": "trivial",
+      "start_line": 12,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": []
+    },
+    {
+      "name": "plainIf",
+      "start_line": 16,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 17,
+          "line_contains": "if (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "ifElseIfElse",
+      "start_line": 23,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 24,
+          "line_contains": "if (a == 1) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-ELSEIF",
+          "line": 26,
+          "line_contains": "} else if (a == 2) {",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-ELSE",
+          "line": 28,
+          "line_contains": "} else {",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "nestedIf",
+      "start_line": 33,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 34,
+          "line_contains": "if (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-IF",
+          "line": 35,
+          "line_contains": "if (b) {",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        }
+      ]
+    },
+    {
+      "name": "loops",
+      "start_line": 42,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 44,
+          "line_contains": "for (int x : xs) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-LOOP",
+          "line": 45,
+          "line_contains": "while (x > 0) {",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        }
+      ]
+    },
+    {
+      "name": "switchWhole",
+      "start_line": 53,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-SWITCH",
+          "line": 54,
+          "line_contains": "switch (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "switchExpression",
+      "start_line": 64,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-SWITCH",
+          "line": 65,
+          "line_contains": "return switch (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "note": "The expression form must be routed as well as the statement form. The C4 Java adapter shipped a defect for exactly this omission, so it is pinned here from the start."
+    },
+    {
+      "name": "exceptionHandling",
+      "start_line": 72,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "Z-TRY",
+          "line": 73,
+          "line_contains": "try {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "S-CATCH",
+          "line": 75,
+          "line_contains": "catch (NumberFormatException e) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-CATCH",
+          "line": 77,
+          "line_contains": "catch (RuntimeException e) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-FINALLY",
+          "line": 79,
+          "line_contains": "} finally {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "Amendment 001: `finally` is ignored entirely -- no increment and no nesting. It was N-FINALLY (nesting-only) in revision 1."
+        },
+        {
+          "rule": "S-IF",
+          "line": 80,
+          "line_contains": "if (a != null) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "amended_by": "Amendment 001 (owner, 2026-08-11)",
+      "pre_amendment_expected_cognitive_complexity": 4
+    },
+    {
+      "name": "multiCatch",
+      "start_line": 86,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "Z-TRY",
+          "line": 87,
+          "line_contains": "try {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "S-CATCH",
+          "line": 89,
+          "line_contains": "catch (NumberFormatException | NullPointerException e) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-BITWISE",
+          "line": 89,
+          "line_contains": "NumberFormatException | NullPointerException",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "the `|` is a type union, not a short-circuit operator; one catch, one increment"
+        }
+      ]
+    },
+    {
+      "name": "ternary",
+      "start_line": 94,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-TERNARY",
+          "line": 95,
+          "line_contains": "return a ? 1 : 0;",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "boolSameOperator",
+      "start_line": 98,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 99,
+          "line_contains": "if (a && b && c) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 99,
+          "line_contains": "a && b && c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "boolMixedOperators",
+      "start_line": 105,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 106,
+          "line_contains": "if (a && b || c) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 106,
+          "line_contains": "a && b",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 106,
+          "line_contains": "|| c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "bitwiseNotCounted",
+      "start_line": 112,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 113,
+          "line_contains": "if ((a & b) != 0) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-BITWISE",
+          "line": 113,
+          "line_contains": "(a & b)",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "labelledFlow",
+      "start_line": 119,
+      "expected_cognitive_complexity": 8,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 121,
+          "line_contains": "for (int x : xs) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-LOOP",
+          "line": 122,
+          "line_contains": "for (int y : xs) {",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        },
+        {
+          "rule": "S-IF",
+          "line": 123,
+          "line_contains": "if (x > y) {",
+          "kind": "structural",
+          "nesting_level": 2,
+          "nesting_increment": 1,
+          "contribution": 3
+        },
+        {
+          "rule": "F-LABELJUMP",
+          "line": 124,
+          "line_contains": "break outer;",
+          "kind": "flat",
+          "nesting_level": 3,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-LABELJUMP",
+          "line": 126,
+          "line_contains": "continue outer;",
+          "kind": "flat",
+          "nesting_level": 2,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "unlabelledJump",
+      "start_line": 132,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 133,
+          "line_contains": "for (int x : xs) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-JUMP",
+          "line": 134,
+          "line_contains": "break;",
+          "kind": "zero",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "recursive",
+      "start_line": 139,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 140,
+          "line_contains": "if (n <= 0) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 143,
+          "line_contains": "return recursive(n - 1);",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "synchronizedBlock",
+      "start_line": 146,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "Z-SYNCHRONIZED",
+          "line": 147,
+          "line_contains": "synchronized (this) {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "S-IF",
+          "line": 148,
+          "line_contains": "if (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "note": "The case that proves Z-SYNCHRONIZED does NOT nest: the `if` costs 1, not 2. Complexity Contract 1.0.0 nests `synchronized`; this contract does not, by design."
+    },
+    {
+      "name": "lambdaExcluded",
+      "start_line": 155,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "B-NESTED",
+          "line": 156,
+          "line_contains": "return () -> {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "anonymousClassExcluded",
+      "start_line": 163,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "B-NESTED",
+          "line": 164,
+          "line_contains": "return new Runnable() {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ],
+      "note": "The anonymous class's `run` is outside the canonical population entirely, so it is neither folded in here nor emitted as its own record."
+    },
+    {
+      "name": "guardedSwitch",
+      "source": "ConstructsGuarded.java",
+      "start_line": 17,
+      "expected_cognitive_complexity": 2,
+      "toolchain_unvalidatable": true,
+      "contributions": [
+        {
+          "rule": "S-SWITCH",
+          "line": 18,
+          "line_contains": "return switch (v) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-GUARD",
+          "line": 19,
+          "line_contains": "case Integer i when i > 0 -> 1;",
+          "kind": "flat",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "note": "JDK 21 syntax. The pinned JDK 17 cannot compile it, so this expectation is authored from the rule table and cannot be checked against PMD in the current reference environment."
+    },
+    {
+      "name": "seqParenSame",
+      "source": "Clarifications.java",
+      "start_line": 9,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 10,
+          "line_contains": "if (a && (b && c)) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 10,
+          "line_contains": "a && (b && c)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "seqParenMixed",
+      "source": "Clarifications.java",
+      "start_line": 16,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 17,
+          "line_contains": "if (a && (b || c)) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 17,
+          "line_contains": "a && (",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 17,
+          "line_contains": "b || c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "seqThreeRuns",
+      "source": "Clarifications.java",
+      "start_line": 23,
+      "expected_cognitive_complexity": 4,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 24,
+          "line_contains": "if (a || b && c || d) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 24,
+          "line_contains": "a ||",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 24,
+          "line_contains": "b && c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 24,
+          "line_contains": "|| d",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "recursionTwice",
+      "source": "Clarifications.java",
+      "start_line": 30,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 31,
+          "line_contains": "if (n <= 0) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 34,
+          "line_contains": "recursionTwice(n - 1) + recursionTwice(n - 2)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "two call sites, one increment"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "recursiveViaThis",
+      "source": "Clarifications.java",
+      "start_line": 37,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 38,
+          "line_contains": "if (n <= 0) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 41,
+          "line_contains": "return this.recursiveViaThis(n - 1);",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "explicit current receiver `this` -- rule B"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "sameNameOtherReceiver",
+      "source": "Clarifications.java",
+      "start_line": 44,
+      "expected_cognitive_complexity": 0,
+      "contributions": [
+        {
+          "rule": "F-RECURSION",
+          "line": 45,
+          "line_contains": "return other.recursiveViaThis(n);",
+          "kind": "not_fired",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "member name matches, receiver is not `this` -- NOT recursion"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true
+    },
+    {
+      "name": "returnTraversed",
+      "source": "Clarifications.java",
+      "start_line": 48,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-TERNARY",
+          "line": 49,
+          "line_contains": "return (a ? b : c);",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "throwTraversed",
+      "source": "Clarifications.java",
+      "start_line": 52,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 53,
+          "line_contains": "if (a && b) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 53,
+          "line_contains": "a && b",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "`throw` has no rule, so it contributes 0 and its subtree is still traversed."
+    },
+    {
+      "name": "discoveryLocalClassMethod",
+      "source": "Clarifications.java",
+      "start_line": 59,
+      "expected_cognitive_complexity": 0,
+      "contributions": [
+        {
+          "rule": "B-NESTED",
+          "line": 60,
+          "line_contains": "class Inner {",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "the local class contributes nothing to this callable"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true
+    },
+    {
+      "name": "Inner.measured",
+      "source": "Clarifications.java",
+      "start_line": 61,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 62,
+          "line_contains": "if (a) {",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "GLOBAL DISCOVERY: a method of a NAMED LOCAL class is discovered and measured in its own right."
+    },
+    {
+      "name": "Other.recursiveViaThis",
+      "source": "Clarifications.java",
+      "start_line": 73,
+      "expected_cognitive_complexity": 0,
+      "contributions": [],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true,
+      "note": "The real target for sameNameOtherReceiver."
+    }
+  ],
+  "predicted_reference_divergences": [
+    {
+      "divergence_id": "D1",
+      "tool": "PMD 7.7.0",
+      "callable": "lambdaExcluded",
+      "archlens_expected": 0,
+      "reference_predicted": 2,
+      "reason": "PMD folds the lambda body into the enclosing method and raises nesting for it; measured as 2 for this exact shape at G0."
+    },
+    {
+      "divergence_id": "D1",
+      "tool": "PMD 7.7.0",
+      "callable": "anonymousClassExcluded",
+      "archlens_expected": 0,
+      "reference_predicted": null,
+      "reason": "UNVERIFIED. PMD may fold the anonymous class's `run` into the enclosing method, or report `run` as its own method, or both. This case exists to resolve it."
+    },
+    {
+      "divergence_id": "D4",
+      "tool": "PMD 7.7.0",
+      "callable": "synchronizedBlock",
+      "archlens_expected": 1,
+      "reference_predicted": 1,
+      "reason": "NO divergence expected -- recorded because Complexity Contract 1.0.0 DOES nest `synchronized`, so a reader comparing the two ArchLens contracts will expect one."
+    },
+    {
+      "divergence_id": "D5",
+      "tool": "PMD 7.7.0",
+      "callable": "guardedSwitch",
+      "archlens_expected": 2,
+      "reference_predicted": null,
+      "reason": "UNVERIFIED and, on the pinned JDK 17, unverifiable: the file does not compile. Open G1-B question."
+    },
+    {
+      "divergence_id": "D19",
+      "tool": "PMD 7.7.0",
+      "callable": "multiCatch",
+      "archlens_expected": 1,
+      "reference_predicted": 1,
+      "reason": "NEW at G1-A and unprobed at G0. If PMD treats the multi-catch `|` as a boolean sequence it would report 2, which would be a divergence worth naming."
+    }
+  ],
+  "clarification_source": "Clarifications.java",
+  "amendment_002": "Additive: the original source files are untouched so their line citations stay valid. New callables live in a separate clarification file and are authored from revision 3 of the frozen rule table."
+}

@@ -1,0 +1,85 @@
+{
+  "$id": "https://archlens.dev/schemas/contribution_container-1.5.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Describes how the fixed contribution rows are stored. The container choice is measured evidence (plan section 14.5); the row contract it carries is fixed and identical regardless of container.",
+  "properties": {
+    "compression": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "container_format": {
+      "enum": [
+        "single_csv",
+        "partitioned_csv",
+        "jsonl",
+        "partitioned_jsonl",
+        "compressed_csv"
+      ]
+    },
+    "ordering": {
+      "description": "Deterministic ordering rule (plan section 14.4 rule 8).",
+      "type": "string"
+    },
+    "partitions": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "path": {
+            "description": "Run-relative POSIX path.",
+            "type": "string"
+          },
+          "repository_url": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "row_count": {
+            "minimum": 0,
+            "type": "integer"
+          },
+          "sha256": {
+            "pattern": "^[0-9a-f]{64}$",
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "path",
+          "row_count"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "row_contract_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "row_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "selection_evidence": {
+      "additionalProperties": true,
+      "description": "Measured row count, size, generation time, validation time, memory, and comparison cost for each prototyped container.",
+      "type": [
+        "object",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "container_format",
+    "row_contract_version",
+    "row_count",
+    "partitions"
+  ],
+  "title": "ArchLens contribution container descriptor 1.5",
+  "type": "object"
+}

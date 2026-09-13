@@ -1,0 +1,186 @@
+{
+  "$id": "https://archlens.dev/schemas/benchmark_qualification-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "The authoritative benchmark qualification artifact of one immutable run bundle. Present if and only if `qualification_mode=benchmark_qualified`; a generic ArchLens analysis carries no qualification object at all, and its absence in such a run is correct rather than missing.\n\nWhat this document is authoritative FOR: repository representativeness, benchmark admission, stable qualification reason codes, and adjudication provenance. What it is NOT authoritative for, and may never modify: `analysis.json`, inventories, contributions, callables, metric populations, metric values, and every `*_status` field. Measurement authority stays exactly where Artifact 1.10 left it.\n\nThree of the fields on each record - `usable_metric_families`, `benchmark_usability` and `repository_level_comparison_eligible` - are PERSISTED CHECKED DERIVATIONS. They are computed from the authoritative measurement statuses plus the accepted representativeness verdict and any manual restriction, never read from registry input, and a persisted value that disagrees with its derivation is a semantic validation failure rather than an override.\n\nThe artifact holds exactly one record per executed repository, including for subjects whose registry entry was absent, stale or identity-mismatched: those become explicit UNRESOLVED records. Preserving cardinality is what makes a readiness blocker visible instead of silent.",
+  "properties": {
+    "qualification_schema_version": {
+      "const": "1.0.0",
+      "type": "string"
+    },
+    "qualification_profile": {
+      "description": "The single profile every record in this artifact was decided under.",
+      "minLength": 1,
+      "type": "string"
+    },
+    "registry_provenance": {
+      "additionalProperties": false,
+      "description": "Which accepted registry bytes produced these records. A qualification decision cannot be attached to a finalized run after the fact: changing the registry requires producing a new run bundle with a new manifest binding.",
+      "properties": {
+        "registry_schema_version": {"pattern": "^\\d+\\.\\d+\\.\\d+$", "type": "string"},
+        "source_id": {"minLength": 1, "type": "string"},
+        "registry_sha256": {"pattern": "^[0-9a-f]{64}$", "type": "string"}
+      },
+      "required": ["registry_schema_version", "registry_sha256", "source_id"],
+      "type": "object"
+    },
+    "records": {
+      "items": {"$ref": "#/$defs/qualification_record"},
+      "type": "array"
+    }
+  },
+  "required": [
+    "qualification_profile",
+    "qualification_schema_version",
+    "records",
+    "registry_provenance"
+  ],
+  "title": "ArchLens benchmark qualification 1.0",
+  "type": "object",
+  "$defs": {
+    "qualification_record": {
+      "additionalProperties": false,
+      "properties": {
+        "binding": {
+          "additionalProperties": false,
+          "description": "Exactly the primary identity. Must equal the matching `analysis.json` result's identity field for field; a near match is not a match.",
+          "properties": {
+            "qualification_profile": {"minLength": 1, "type": "string"},
+            "subject_key": {"minLength": 1, "type": "string"},
+            "analyzed_commit_sha": {"type": ["string", "null"]},
+            "analysis_scope_hash": {"type": ["string", "null"]},
+            "analysis_scope_hash_version": {"type": ["string", "null"]}
+          },
+          "required": [
+            "analysis_scope_hash",
+            "analysis_scope_hash_version",
+            "analyzed_commit_sha",
+            "qualification_profile",
+            "subject_key"
+          ],
+          "type": "object"
+        },
+        "qualification_status": {
+          "description": "`adjudicated` requires an exact registry match carrying accepted human/forensic provenance. `unresolved` is emitted for a missing, stale or identity-mismatched entry and carries no fabricated adjudicator.",
+          "enum": ["adjudicated", "unresolved"],
+          "type": "string"
+        },
+        "repository_representativeness": {
+          "enum": [
+            "ADEQUATE",
+            "MATERIAL_MIX",
+            "NON_REPRESENTATIVE",
+            "UNRESOLVED"
+          ],
+          "type": "string"
+        },
+        "representativeness_reason_codes": {
+          "items": {"$ref": "#/$defs/representativeness_reason_code"},
+          "type": "array",
+          "uniqueItems": true
+        },
+        "manual_admission_restriction": {
+          "enum": ["none", "analyzed_scope_only", "unsupported_scope"],
+          "type": "string"
+        },
+        "manual_admission_reason_codes": {
+          "items": {"$ref": "#/$defs/usability_reason_code"},
+          "type": "array",
+          "uniqueItems": true
+        },
+        "usable_metric_families": {
+          "description": "DERIVED, in fixed contract order, from the authoritative per-metric statuses alone. A family is included when its status is `complete` or `partial`. Membership never upgrades a partial observation: the original status remains the authority on completeness.",
+          "items": {
+            "enum": [
+              "source_files",
+              "lines_of_code",
+              "classes_structs",
+              "methods_functions",
+              "callable_metrics"
+            ],
+            "type": "string"
+          },
+          "type": "array",
+          "uniqueItems": true
+        },
+        "benchmark_usability": {
+          "description": "DERIVED. Null when aggregate measurement failed, or when a partial measurement yields no usable family at all - mapping either case onto `unsupported_scope` would conflate measurement failure with scope and admission.",
+          "enum": [
+            "repository_level_usable",
+            "analyzed_scope_only",
+            "partial_but_usable",
+            "unsupported_scope",
+            null
+          ]
+        },
+        "usability_reason_codes": {
+          "items": {"$ref": "#/$defs/usability_reason_code"},
+          "type": "array",
+          "uniqueItems": true
+        },
+        "repository_level_comparison_eligible": {
+          "description": "STRICTLY DERIVED, never an input. Persisted only for consumer convenience. Final unrestricted benchmark-of-record permission additionally requires the run-level readiness verdict, which is deliberately NOT folded into this per-record field: an exploratory run can hold correctly qualified records without being a benchmark of record.",
+          "type": "boolean"
+        },
+        "evidence_summary": {
+          "additionalProperties": true,
+          "description": "Evidence carried forward from the accepted decision. Permissive here, unlike the registry's own strict form, because this is a faithful copy of accepted evidence rather than a place where new evidence is authored.",
+          "type": ["object", "null"]
+        },
+        "adjudication": {
+          "additionalProperties": true,
+          "description": "Accepted provenance, or null for an `unresolved` record. Null is the ONLY correct value there: synthesizing an adjudicator for a decision nobody made is the specific failure this field's nullability exists to prevent.",
+          "type": ["object", "null"]
+        },
+        "representativeness_basis": {
+          "description": "NON-SEMANTIC evidence text. Never a gate, join, count or comparison key.",
+          "type": ["string", "null"]
+        },
+        "usability_basis": {
+          "description": "NON-SEMANTIC admission text.",
+          "type": ["string", "null"]
+        }
+      },
+      "required": [
+        "adjudication",
+        "benchmark_usability",
+        "binding",
+        "evidence_summary",
+        "manual_admission_reason_codes",
+        "manual_admission_restriction",
+        "qualification_status",
+        "repository_level_comparison_eligible",
+        "repository_representativeness",
+        "representativeness_reason_codes",
+        "usability_reason_codes",
+        "usable_metric_families"
+      ],
+      "type": "object"
+    },
+    "representativeness_reason_code": {
+      "enum": [
+        "no_unsupported_first_party_code",
+        "supported_scope_adequately_representative",
+        "unsupported_first_party_material_by_files",
+        "unsupported_first_party_material_by_bytes",
+        "unsupported_first_party_structurally_distinct",
+        "unsupported_first_party_dominant",
+        "evidence_missing",
+        "evidence_identity_mismatch",
+        "evidence_conflict"
+      ],
+      "type": "string"
+    },
+    "usability_reason_code": {
+      "enum": [
+        "measurement_complete_and_representative",
+        "representativeness_limits_to_analyzed_scope",
+        "measurement_partial",
+        "measurement_failed",
+        "manual_admission_restricted_to_analyzed_scope",
+        "supported_scope_incidental_to_application"
+      ],
+      "type": "string"
+    }
+  }
+}

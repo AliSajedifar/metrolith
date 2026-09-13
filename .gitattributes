@@ -1,0 +1,11 @@
+# Preserve exact file bytes on checkout and staging.
+# Line endings and encodings are measurement inputs: conformance cases cover
+# CR-only, UTF-16, invalid UTF-8, NUL bytes, and missing final newlines.
+# Historical fixtures and frozen benchmark inputs also have SHA-256 identities.
+# Disable Git end-of-line conversion in both directions, including when a local
+# core.autocrlf setting would otherwise translate text.
+* -text
+
+# The pinned conformance manifest preserves CRLF bytes. Recognize its line
+# endings while retaining checks for trailing whitespace and indentation errors.
+validation/conformance/data/manifest.json whitespace=blank-at-eol,blank-at-eof,space-before-tab,cr-at-eol

@@ -1,0 +1,740 @@
+[
+  {
+    "duplicated_nloc": 9,
+    "failed_floors": [
+      "immediate_statements"
+    ],
+    "file": "thresholds/thresholds.py",
+    "immediate_statement_count": 3,
+    "immediate_statement_types": [
+      "Assign",
+      "Assign",
+      "Return"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "immediate_statements",
+    "language": "Python",
+    "name": "below_statements",
+    "occurrence_end": [
+      10,
+      5
+    ],
+    "occurrence_start": [
+      2,
+      4
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 52,
+    "significant_lines": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "duplicated_nloc": 12,
+    "failed_floors": [
+      "tokens"
+    ],
+    "file": "thresholds/thresholds.py",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "Assign",
+      "Assign",
+      "Assign",
+      "Return"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "tokens",
+    "language": "Python",
+    "name": "below_tokens",
+    "occurrence_end": [
+      25,
+      5
+    ],
+    "occurrence_start": [
+      14,
+      4
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 25,
+    "significant_lines": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23,
+      24,
+      25
+    ]
+  },
+  {
+    "duplicated_nloc": 1,
+    "failed_floors": [
+      "nloc"
+    ],
+    "file": "thresholds/thresholds.py",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "Assign",
+      "Assign",
+      "Assign",
+      "Return"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "nloc",
+    "language": "Python",
+    "name": "below_nloc",
+    "occurrence_end": [
+      29,
+      215
+    ],
+    "occurrence_start": [
+      29,
+      4
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 64,
+    "significant_lines": [
+      29
+    ]
+  },
+  {
+    "duplicated_nloc": 12,
+    "failed_floors": [],
+    "file": "thresholds/thresholds.py",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "Assign",
+      "Assign",
+      "Assign",
+      "Return"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": null,
+    "language": "Python",
+    "name": "qualifying",
+    "occurrence_end": [
+      44,
+      5
+    ],
+    "occurrence_start": [
+      33,
+      4
+    ],
+    "qualifies_proposed_floors": true,
+    "significant_lexical_token_count": 65,
+    "significant_lines": [
+      33,
+      34,
+      35,
+      36,
+      37,
+      38,
+      39,
+      40,
+      41,
+      42,
+      43,
+      44
+    ]
+  },
+  {
+    "duplicated_nloc": 9,
+    "failed_floors": [
+      "immediate_statements"
+    ],
+    "file": "thresholds/Thresholds.java",
+    "immediate_statement_count": 3,
+    "immediate_statement_types": [
+      "local_variable_declaration",
+      "local_variable_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "immediate_statements",
+    "language": "Java",
+    "name": "belowStatements",
+    "occurrence_end_point": [
+      10,
+      30
+    ],
+    "occurrence_start_point": [
+      2,
+      8
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 54,
+    "significant_lines": [
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11
+    ]
+  },
+  {
+    "duplicated_nloc": 8,
+    "failed_floors": [
+      "tokens"
+    ],
+    "file": "thresholds/Thresholds.java",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "local_variable_declaration",
+      "local_variable_declaration",
+      "local_variable_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "tokens",
+    "language": "Java",
+    "name": "belowTokens",
+    "occurrence_end_point": [
+      20,
+      18
+    ],
+    "occurrence_start_point": [
+      13,
+      8
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 24,
+    "significant_lines": [
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "duplicated_nloc": 1,
+    "failed_floors": [
+      "nloc"
+    ],
+    "file": "thresholds/Thresholds.java",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "local_variable_declaration",
+      "local_variable_declaration",
+      "local_variable_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "nloc",
+    "language": "Java",
+    "name": "belowNloc",
+    "occurrence_end_point": [
+      22,
+      255
+    ],
+    "occurrence_start_point": [
+      22,
+      31
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 68,
+    "significant_lines": [
+      23
+    ]
+  },
+  {
+    "duplicated_nloc": 8,
+    "failed_floors": [],
+    "file": "thresholds/Thresholds.java",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "local_variable_declaration",
+      "local_variable_declaration",
+      "local_variable_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": null,
+    "language": "Java",
+    "name": "qualifying",
+    "occurrence_end_point": [
+      31,
+      41
+    ],
+    "occurrence_start_point": [
+      24,
+      8
+    ],
+    "qualifies_proposed_floors": true,
+    "significant_lexical_token_count": 68,
+    "significant_lines": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32
+    ]
+  },
+  {
+    "duplicated_nloc": 9,
+    "failed_floors": [
+      "immediate_statements"
+    ],
+    "file": "thresholds/thresholds.go",
+    "immediate_statement_count": 3,
+    "immediate_statement_types": [
+      "short_var_declaration",
+      "short_var_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "immediate_statements",
+    "language": "Go",
+    "name": "belowStatements",
+    "occurrence_end_point": [
+      11,
+      5
+    ],
+    "occurrence_start_point": [
+      3,
+      4
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 52,
+    "significant_lines": [
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10,
+      11,
+      12
+    ]
+  },
+  {
+    "duplicated_nloc": 9,
+    "failed_floors": [
+      "tokens"
+    ],
+    "file": "thresholds/thresholds.go",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "short_var_declaration",
+      "short_var_declaration",
+      "short_var_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "tokens",
+    "language": "Go",
+    "name": "belowTokens",
+    "occurrence_end_point": [
+      22,
+      5
+    ],
+    "occurrence_start_point": [
+      14,
+      4
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 19,
+    "significant_lines": [
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21,
+      22,
+      23
+    ]
+  },
+  {
+    "duplicated_nloc": 1,
+    "failed_floors": [
+      "nloc"
+    ],
+    "file": "thresholds/thresholds.go",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "short_var_declaration",
+      "short_var_declaration",
+      "short_var_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "nloc",
+    "language": "Go",
+    "name": "belowNloc",
+    "occurrence_end_point": [
+      24,
+      246
+    ],
+    "occurrence_start_point": [
+      24,
+      32
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 61,
+    "significant_lines": [
+      25
+    ]
+  },
+  {
+    "duplicated_nloc": 12,
+    "failed_floors": [],
+    "file": "thresholds/thresholds.go",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "short_var_declaration",
+      "short_var_declaration",
+      "short_var_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": null,
+    "language": "Go",
+    "name": "qualifying",
+    "occurrence_end_point": [
+      37,
+      5
+    ],
+    "occurrence_start_point": [
+      26,
+      4
+    ],
+    "qualifies_proposed_floors": true,
+    "significant_lexical_token_count": 65,
+    "significant_lines": [
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36,
+      37,
+      38
+    ]
+  },
+  {
+    "duplicated_nloc": 9,
+    "failed_floors": [
+      "immediate_statements"
+    ],
+    "file": "thresholds/thresholds.js",
+    "immediate_statement_count": 3,
+    "immediate_statement_types": [
+      "lexical_declaration",
+      "lexical_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "immediate_statements",
+    "language": "JavaScript",
+    "name": "belowStatements",
+    "occurrence_end_point": [
+      9,
+      6
+    ],
+    "occurrence_start_point": [
+      1,
+      4
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 57,
+    "significant_lines": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "duplicated_nloc": 9,
+    "failed_floors": [
+      "tokens"
+    ],
+    "file": "thresholds/thresholds.js",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "lexical_declaration",
+      "lexical_declaration",
+      "lexical_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "tokens",
+    "language": "JavaScript",
+    "name": "belowTokens",
+    "occurrence_end_point": [
+      20,
+      6
+    ],
+    "occurrence_start_point": [
+      12,
+      4
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 26,
+    "significant_lines": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "duplicated_nloc": 1,
+    "failed_floors": [
+      "nloc"
+    ],
+    "file": "thresholds/thresholds.js",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "lexical_declaration",
+      "lexical_declaration",
+      "lexical_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "nloc",
+    "language": "JavaScript",
+    "name": "belowNloc",
+    "occurrence_end_point": [
+      22,
+      258
+    ],
+    "occurrence_start_point": [
+      22,
+      28
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 68,
+    "significant_lines": [
+      23
+    ]
+  },
+  {
+    "duplicated_nloc": 12,
+    "failed_floors": [],
+    "file": "thresholds/thresholds.js",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "lexical_declaration",
+      "lexical_declaration",
+      "lexical_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": null,
+    "language": "JavaScript",
+    "name": "qualifying",
+    "occurrence_end_point": [
+      35,
+      6
+    ],
+    "occurrence_start_point": [
+      24,
+      4
+    ],
+    "qualifies_proposed_floors": true,
+    "significant_lexical_token_count": 72,
+    "significant_lines": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ]
+  },
+  {
+    "duplicated_nloc": 9,
+    "failed_floors": [
+      "immediate_statements"
+    ],
+    "file": "thresholds/thresholds.ts",
+    "immediate_statement_count": 3,
+    "immediate_statement_types": [
+      "lexical_declaration",
+      "lexical_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "immediate_statements",
+    "language": "TypeScript",
+    "name": "belowStatements",
+    "occurrence_end_point": [
+      9,
+      6
+    ],
+    "occurrence_start_point": [
+      1,
+      4
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 57,
+    "significant_lines": [
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8,
+      9,
+      10
+    ]
+  },
+  {
+    "duplicated_nloc": 9,
+    "failed_floors": [
+      "tokens"
+    ],
+    "file": "thresholds/thresholds.ts",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "lexical_declaration",
+      "lexical_declaration",
+      "lexical_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "tokens",
+    "language": "TypeScript",
+    "name": "belowTokens",
+    "occurrence_end_point": [
+      20,
+      6
+    ],
+    "occurrence_start_point": [
+      12,
+      4
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 26,
+    "significant_lines": [
+      13,
+      14,
+      15,
+      16,
+      17,
+      18,
+      19,
+      20,
+      21
+    ]
+  },
+  {
+    "duplicated_nloc": 1,
+    "failed_floors": [
+      "nloc"
+    ],
+    "file": "thresholds/thresholds.ts",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "lexical_declaration",
+      "lexical_declaration",
+      "lexical_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": "nloc",
+    "language": "TypeScript",
+    "name": "belowNloc",
+    "occurrence_end_point": [
+      22,
+      274
+    ],
+    "occurrence_start_point": [
+      22,
+      44
+    ],
+    "qualifies_proposed_floors": false,
+    "significant_lexical_token_count": 68,
+    "significant_lines": [
+      23
+    ]
+  },
+  {
+    "duplicated_nloc": 12,
+    "failed_floors": [],
+    "file": "thresholds/thresholds.ts",
+    "immediate_statement_count": 4,
+    "immediate_statement_types": [
+      "lexical_declaration",
+      "lexical_declaration",
+      "lexical_declaration",
+      "return_statement"
+    ],
+    "intended_failure_observed": true,
+    "intended_floor_failure": null,
+    "language": "TypeScript",
+    "name": "qualifying",
+    "occurrence_end_point": [
+      35,
+      6
+    ],
+    "occurrence_start_point": [
+      24,
+      4
+    ],
+    "qualifies_proposed_floors": true,
+    "significant_lexical_token_count": 72,
+    "significant_lines": [
+      25,
+      26,
+      27,
+      28,
+      29,
+      30,
+      31,
+      32,
+      33,
+      34,
+      35,
+      36
+    ]
+  }
+]

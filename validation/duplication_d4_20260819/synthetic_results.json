@@ -1,0 +1,2154 @@
+{
+  "format": "archlens-duplication-d4-synthetic-results",
+  "format_version": "1.0.0",
+  "verdict": "pass",
+  "corpus": {
+    "materialized_files": 113,
+    "files_analyzed": 113,
+    "boundaries_extracted": 218,
+    "candidates_admitted": 117,
+    "malformed_unavailable": 5
+  },
+  "production": {
+    "lexical_occurrences": 117,
+    "structural_occurrences": 117,
+    "lexical_groups": 8,
+    "structural_initial_groups": 11,
+    "structural_groups": 11,
+    "suppressed_structural_groups": 0
+  },
+  "timings": {
+    "extraction_seconds": 0.11476260016206652,
+    "canonicalization_seconds": 0.10164689976954833,
+    "grouping_seconds": 0.004660199978388846,
+    "total_duplication_seconds": 0.2210696999100037
+  },
+  "checks": [
+    {
+      "name": "lexical oracle bytes: features/Features.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: features/Features.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: features/features.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: features/features.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: features/features.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: features/features.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: features/features.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: features/features.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: features/python.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: features/python.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: features/python.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: features/python.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/added.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/added.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/base.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/base.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/comment.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/comment.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/exact.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/exact.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/identifier.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/identifier.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/literal.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/literal.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/lone_cr.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/lone_cr.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/operator.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/operator.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/order_base.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/order_base.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/order_changed.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/order_changed.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/removed.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/removed.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/reordered.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/reordered.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: go/whitespace.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: go/whitespace.go#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/added.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/added.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/base.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/base.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/comment.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/comment.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/crlf.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/crlf.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/exact.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/exact.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/identifier.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/identifier.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/literal.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/literal.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/operator.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/operator.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/order_base.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/order_base.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/order_changed.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/order_changed.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/removed.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/removed.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/reordered.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/reordered.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: java/whitespace.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: java/whitespace.java#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/added.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/added.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/async_generator.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/async_generator.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/base.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/base.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/comment.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/comment.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/exact.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/exact.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/identifier.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/identifier.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/literal.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/literal.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/operator.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/operator.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/order_base.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/order_base.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/order_changed.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/order_changed.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/removed.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/removed.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/reordered.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/reordered.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: javascript/whitespace.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: javascript/whitespace.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/inner_only_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/inner_only_a.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/inner_only_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/inner_only_a.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/inner_only_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/inner_only_b.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/inner_only_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/inner_only_b.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/inner_third.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/inner_third.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/inner_third.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/inner_third.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/outer_if_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/outer_if_a.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/outer_if_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/outer_if_a.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/outer_if_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/outer_if_b.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/outer_if_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/outer_if_b.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/outer_loop_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/outer_loop_a.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/outer_loop_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/outer_loop_a.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/outer_loop_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/outer_loop_b.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/outer_loop_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/outer_loop_b.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/siblings_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/siblings_a.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/siblings_a.py#2",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/siblings_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/siblings_a.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/siblings_a.py#2",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/siblings_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/siblings_b.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: nested/siblings_b.py#2",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/siblings_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/siblings_b.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: nested/siblings_b.py#2",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/added.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/added.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/base.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/base.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/café/日本語_unicode_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/café/日本語_unicode_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/café/日本語_unicode_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/café/日本語_unicode_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/comment.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/comment.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/exact.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/exact.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/identifier.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/identifier.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/literal.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/literal.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/operator.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/operator.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/order_base.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/order_base.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/order_changed.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/order_changed.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/removed.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/removed.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/reordered.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/reordered.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/same_file.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/same_file.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/same_file.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/same_file.py#1",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/unicode_nfc.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/unicode_nfc.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/unicode_nfd.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/unicode_nfd.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: python/whitespace.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: python/whitespace.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: relations/child_left_right.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: relations/child_left_right.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: relations/child_right_left.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: relations/child_right_left.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: relations/control_changed.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: relations/control_changed.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: relations/control_plain.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: relations/control_plain.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: relations/equality_distinct.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: relations/equality_distinct.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: relations/equality_repeated.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: relations/equality_repeated.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: relations/literal_integer.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: relations/literal_integer.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: relations/literal_string.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: relations/literal_string.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: risks/external_member_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: risks/external_member_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: risks/external_member_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: risks/external_member_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: risks/syntax_augmented.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: risks/syntax_augmented.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: risks/syntax_expanded.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: risks/syntax_expanded.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: structural/fstring_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: structural/fstring_a.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: structural/fstring_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: structural/fstring_b.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: structural/fstring_shape_changed.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: structural/fstring_shape_changed.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: structural/role_member.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: structural/role_member.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: structural/role_value.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: structural/role_value.py#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: structural/template_a.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: structural/template_a.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: structural/template_b.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: structural/template_b.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: structural/template_shape_changed.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: structural/template_shape_changed.js#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/added.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/added.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/async_generator.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/async_generator.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/base.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/base.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/bom.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/bom.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/comment.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/comment.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/exact.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/exact.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/identifier.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/identifier.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/literal.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/literal.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/operator.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/operator.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/order_base.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/order_base.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/order_changed.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/order_changed.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/removed.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/removed.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/reordered.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/reordered.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical oracle bytes: typescript/whitespace.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural oracle bytes: typescript/whitespace.ts#0",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: go/base.go = go/exact.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: go/base.go = go/whitespace.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: go/base.go = go/comment.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: go/base.go != go/identifier.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: go/base.go != go/literal.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: go/base.go != go/operator.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: go/base.go != go/reordered.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: go/base.go != go/added.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: go/base.go != go/removed.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: go/base.go = go/exact.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: go/base.go = go/whitespace.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: go/base.go = go/comment.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: go/base.go = go/identifier.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: go/base.go = go/literal.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: go/base.go != go/operator.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: go/base.go != go/added.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: go/base.go != go/removed.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural child order: go/order_base.go != go/order_changed.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: java/base.java = java/exact.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: java/base.java = java/whitespace.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: java/base.java = java/comment.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: java/base.java != java/identifier.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: java/base.java != java/literal.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: java/base.java != java/operator.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: java/base.java != java/reordered.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: java/base.java != java/added.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: java/base.java != java/removed.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: java/base.java = java/exact.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: java/base.java = java/whitespace.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: java/base.java = java/comment.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: java/base.java = java/identifier.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: java/base.java = java/literal.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: java/base.java != java/operator.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: java/base.java != java/added.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: java/base.java != java/removed.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural child order: java/order_base.java != java/order_changed.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: javascript/base.js = javascript/exact.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: javascript/base.js = javascript/whitespace.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: javascript/base.js = javascript/comment.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: javascript/base.js != javascript/identifier.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: javascript/base.js != javascript/literal.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: javascript/base.js != javascript/operator.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: javascript/base.js != javascript/reordered.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: javascript/base.js != javascript/added.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: javascript/base.js != javascript/removed.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: javascript/base.js = javascript/exact.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: javascript/base.js = javascript/whitespace.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: javascript/base.js = javascript/comment.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: javascript/base.js = javascript/identifier.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: javascript/base.js = javascript/literal.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: javascript/base.js != javascript/operator.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: javascript/base.js != javascript/added.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: javascript/base.js != javascript/removed.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural child order: javascript/order_base.js != javascript/order_changed.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: python/base.py = python/exact.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: python/base.py = python/whitespace.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: python/base.py = python/comment.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: python/base.py != python/identifier.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: python/base.py != python/literal.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: python/base.py != python/operator.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: python/base.py != python/reordered.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: python/base.py != python/added.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: python/base.py != python/removed.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: python/base.py = python/exact.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: python/base.py = python/whitespace.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: python/base.py = python/comment.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: python/base.py = python/identifier.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: python/base.py = python/literal.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: python/base.py != python/operator.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: python/base.py != python/added.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: python/base.py != python/removed.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural child order: python/order_base.py != python/order_changed.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: typescript/base.ts = typescript/exact.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: typescript/base.ts = typescript/whitespace.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical match: typescript/base.ts = typescript/comment.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: typescript/base.ts != typescript/identifier.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: typescript/base.ts != typescript/literal.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: typescript/base.ts != typescript/operator.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: typescript/base.ts != typescript/reordered.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: typescript/base.ts != typescript/added.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical non-match: typescript/base.ts != typescript/removed.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: typescript/base.ts = typescript/exact.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: typescript/base.ts = typescript/whitespace.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: typescript/base.ts = typescript/comment.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: typescript/base.ts = typescript/identifier.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match: typescript/base.ts = typescript/literal.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: typescript/base.ts != typescript/operator.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: typescript/base.ts != typescript/added.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match: typescript/base.ts != typescript/removed.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural child order: typescript/order_base.ts != typescript/order_changed.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical portability match: java/base.java = java/crlf.java",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical portability match: go/base.go = go/lone_cr.go",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical portability match: typescript/base.ts = typescript/bom.ts",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical portability match: python/café/日本語_unicode_a.py = python/café/日本語_unicode_b.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical portability non-match: python/unicode_nfc.py != python/unicode_nfd.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match (f-string raw chunks and literal values abstracted): structural/fstring_a.py = structural/fstring_b.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match (template raw chunks and literal values abstracted): structural/template_a.js = structural/template_b.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural match (documented external-member false-positive risk): risks/external_member_a.py = risks/external_member_b.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match (identifier equality pattern): relations/equality_distinct.py != relations/equality_repeated.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match (literal class): relations/literal_integer.py != relations/literal_string.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match (child order): relations/child_left_right.py != relations/child_right_left.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match (identifier role and AST shape): structural/role_value.py != structural/role_member.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match (f-string child order): structural/fstring_a.py != structural/fstring_shape_changed.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match (tagged template shape): structural/template_a.js != structural/template_shape_changed.js",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural non-match (equivalent-looking syntax is retained): risks/syntax_augmented.py != risks/syntax_expanded.py",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "malformed syntax is typed unavailable",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "below-floor bodies are measured but not admitted",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "full-corpus lexical membership and identity oracle",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "full-corpus structural membership and suppression oracle",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical grouping same_file",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical grouping cross_file",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical grouping mixed",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "lexical grouping multiple_occurrences",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural suppression oracle: nested_suppression",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural suppression oracle: nested_third_retained",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural suppression oracle: inner_only",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "structural suppression oracle: siblings",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "nested clone is suppressed only under a complete containment bijection",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "third independent inner occurrence prevents suppression",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    },
+    {
+      "name": "production and oracle fail closed on partial overlap",
+      "passed": true,
+      "detail": null,
+      "disagreement_classification": null
+    }
+  ],
+  "disagreements": [],
+  "classification_rule": "Every failed check is recorded as extraction, lexical_contract, structural_contract, canonical_bytes, grouping, or parser_limitation before any implementation change is considered."
+}

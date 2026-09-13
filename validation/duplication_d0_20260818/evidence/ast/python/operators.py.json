@@ -1,0 +1,3992 @@
+{
+  "fields": [
+    {
+      "field": "body",
+      "items": [
+        {
+          "node": {
+            "col_offset": 0,
+            "end_col_offset": 95,
+            "end_lineno": 26,
+            "fields": [
+              {
+                "field": "name",
+                "value": "operator_probe"
+              },
+              {
+                "field": "args",
+                "node": {
+                  "fields": [
+                    {
+                      "field": "posonlyargs",
+                      "items": []
+                    },
+                    {
+                      "field": "args",
+                      "items": [
+                        {
+                          "node": {
+                            "col_offset": 25,
+                            "end_col_offset": 26,
+                            "end_lineno": 1,
+                            "fields": [
+                              {
+                                "field": "arg",
+                                "value": "a"
+                              },
+                              {
+                                "field": "annotation",
+                                "value": null
+                              },
+                              {
+                                "field": "type_comment",
+                                "value": null
+                              }
+                            ],
+                            "lineno": 1,
+                            "type": "arg"
+                          }
+                        },
+                        {
+                          "node": {
+                            "col_offset": 28,
+                            "end_col_offset": 29,
+                            "end_lineno": 1,
+                            "fields": [
+                              {
+                                "field": "arg",
+                                "value": "b"
+                              },
+                              {
+                                "field": "annotation",
+                                "value": null
+                              },
+                              {
+                                "field": "type_comment",
+                                "value": null
+                              }
+                            ],
+                            "lineno": 1,
+                            "type": "arg"
+                          }
+                        },
+                        {
+                          "node": {
+                            "col_offset": 31,
+                            "end_col_offset": 32,
+                            "end_lineno": 1,
+                            "fields": [
+                              {
+                                "field": "arg",
+                                "value": "c"
+                              },
+                              {
+                                "field": "annotation",
+                                "value": null
+                              },
+                              {
+                                "field": "type_comment",
+                                "value": null
+                              }
+                            ],
+                            "lineno": 1,
+                            "type": "arg"
+                          }
+                        },
+                        {
+                          "node": {
+                            "col_offset": 34,
+                            "end_col_offset": 43,
+                            "end_lineno": 1,
+                            "fields": [
+                              {
+                                "field": "arg",
+                                "value": "awaitable"
+                              },
+                              {
+                                "field": "annotation",
+                                "value": null
+                              },
+                              {
+                                "field": "type_comment",
+                                "value": null
+                              }
+                            ],
+                            "lineno": 1,
+                            "type": "arg"
+                          }
+                        }
+                      ]
+                    },
+                    {
+                      "field": "vararg",
+                      "node": {
+                        "col_offset": 46,
+                        "end_col_offset": 50,
+                        "end_lineno": 1,
+                        "fields": [
+                          {
+                            "field": "arg",
+                            "value": "args"
+                          },
+                          {
+                            "field": "annotation",
+                            "value": null
+                          },
+                          {
+                            "field": "type_comment",
+                            "value": null
+                          }
+                        ],
+                        "lineno": 1,
+                        "type": "arg"
+                      }
+                    },
+                    {
+                      "field": "kwonlyargs",
+                      "items": []
+                    },
+                    {
+                      "field": "kw_defaults",
+                      "items": []
+                    },
+                    {
+                      "field": "kwarg",
+                      "node": {
+                        "col_offset": 54,
+                        "end_col_offset": 60,
+                        "end_lineno": 1,
+                        "fields": [
+                          {
+                            "field": "arg",
+                            "value": "kwargs"
+                          },
+                          {
+                            "field": "annotation",
+                            "value": null
+                          },
+                          {
+                            "field": "type_comment",
+                            "value": null
+                          }
+                        ],
+                        "lineno": 1,
+                        "type": "arg"
+                      }
+                    },
+                    {
+                      "field": "defaults",
+                      "items": []
+                    }
+                  ],
+                  "type": "arguments"
+                }
+              },
+              {
+                "field": "body",
+                "items": [
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 75,
+                      "end_lineno": 2,
+                      "fields": [
+                        {
+                          "field": "targets",
+                          "items": [
+                            {
+                              "node": {
+                                "col_offset": 4,
+                                "end_col_offset": 14,
+                                "end_lineno": 2,
+                                "fields": [
+                                  {
+                                    "field": "id",
+                                    "value": "arithmetic"
+                                  },
+                                  {
+                                    "field": "ctx",
+                                    "node": {
+                                      "fields": [],
+                                      "type": "Store"
+                                    }
+                                  }
+                                ],
+                                "lineno": 2,
+                                "type": "Name"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 17,
+                            "end_col_offset": 75,
+                            "end_lineno": 2,
+                            "fields": [
+                              {
+                                "field": "elts",
+                                "items": [
+                                  {
+                                    "node": {
+                                      "col_offset": 18,
+                                      "end_col_offset": 23,
+                                      "end_lineno": 2,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 18,
+                                            "end_col_offset": 19,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Add"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 22,
+                                            "end_col_offset": 23,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 2,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 25,
+                                      "end_col_offset": 30,
+                                      "end_lineno": 2,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 25,
+                                            "end_col_offset": 26,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Sub"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 29,
+                                            "end_col_offset": 30,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 2,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 32,
+                                      "end_col_offset": 37,
+                                      "end_lineno": 2,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 32,
+                                            "end_col_offset": 33,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Mult"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 36,
+                                            "end_col_offset": 37,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 2,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 39,
+                                      "end_col_offset": 44,
+                                      "end_lineno": 2,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 39,
+                                            "end_col_offset": 40,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "MatMult"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 43,
+                                            "end_col_offset": 44,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 2,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 46,
+                                      "end_col_offset": 51,
+                                      "end_lineno": 2,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 46,
+                                            "end_col_offset": 47,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Div"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 50,
+                                            "end_col_offset": 51,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 2,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 53,
+                                      "end_col_offset": 59,
+                                      "end_lineno": 2,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 53,
+                                            "end_col_offset": 54,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "FloorDiv"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 58,
+                                            "end_col_offset": 59,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 2,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 61,
+                                      "end_col_offset": 66,
+                                      "end_lineno": 2,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 61,
+                                            "end_col_offset": 62,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Mod"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 65,
+                                            "end_col_offset": 66,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 2,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 68,
+                                      "end_col_offset": 74,
+                                      "end_lineno": 2,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 68,
+                                            "end_col_offset": 69,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Pow"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 73,
+                                            "end_col_offset": 74,
+                                            "end_lineno": 2,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 2,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 2,
+                                      "type": "BinOp"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 2,
+                            "type": "Tuple"
+                          }
+                        },
+                        {
+                          "field": "type_comment",
+                          "value": null
+                        }
+                      ],
+                      "lineno": 2,
+                      "type": "Assign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 51,
+                      "end_lineno": 3,
+                      "fields": [
+                        {
+                          "field": "targets",
+                          "items": [
+                            {
+                              "node": {
+                                "col_offset": 4,
+                                "end_col_offset": 11,
+                                "end_lineno": 3,
+                                "fields": [
+                                  {
+                                    "field": "id",
+                                    "value": "bitwise"
+                                  },
+                                  {
+                                    "field": "ctx",
+                                    "node": {
+                                      "fields": [],
+                                      "type": "Store"
+                                    }
+                                  }
+                                ],
+                                "lineno": 3,
+                                "type": "Name"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 14,
+                            "end_col_offset": 51,
+                            "end_lineno": 3,
+                            "fields": [
+                              {
+                                "field": "elts",
+                                "items": [
+                                  {
+                                    "node": {
+                                      "col_offset": 15,
+                                      "end_col_offset": 21,
+                                      "end_lineno": 3,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 15,
+                                            "end_col_offset": 16,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "LShift"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 20,
+                                            "end_col_offset": 21,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 3,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 23,
+                                      "end_col_offset": 29,
+                                      "end_lineno": 3,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 23,
+                                            "end_col_offset": 24,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "RShift"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 28,
+                                            "end_col_offset": 29,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 3,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 31,
+                                      "end_col_offset": 36,
+                                      "end_lineno": 3,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 31,
+                                            "end_col_offset": 32,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "BitOr"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 35,
+                                            "end_col_offset": 36,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 3,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 38,
+                                      "end_col_offset": 43,
+                                      "end_lineno": 3,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 38,
+                                            "end_col_offset": 39,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "BitXor"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 42,
+                                            "end_col_offset": 43,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 3,
+                                      "type": "BinOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 45,
+                                      "end_col_offset": 50,
+                                      "end_lineno": 3,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 45,
+                                            "end_col_offset": 46,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "BitAnd"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "col_offset": 49,
+                                            "end_col_offset": 50,
+                                            "end_lineno": 3,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "b"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 3,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 3,
+                                      "type": "BinOp"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 3,
+                            "type": "Tuple"
+                          }
+                        },
+                        {
+                          "field": "type_comment",
+                          "value": null
+                        }
+                      ],
+                      "lineno": 3,
+                      "type": "Assign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 38,
+                      "end_lineno": 4,
+                      "fields": [
+                        {
+                          "field": "targets",
+                          "items": [
+                            {
+                              "node": {
+                                "col_offset": 4,
+                                "end_col_offset": 11,
+                                "end_lineno": 4,
+                                "fields": [
+                                  {
+                                    "field": "id",
+                                    "value": "boolean"
+                                  },
+                                  {
+                                    "field": "ctx",
+                                    "node": {
+                                      "fields": [],
+                                      "type": "Store"
+                                    }
+                                  }
+                                ],
+                                "lineno": 4,
+                                "type": "Name"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 14,
+                            "end_col_offset": 38,
+                            "end_lineno": 4,
+                            "fields": [
+                              {
+                                "field": "elts",
+                                "items": [
+                                  {
+                                    "node": {
+                                      "col_offset": 15,
+                                      "end_col_offset": 22,
+                                      "end_lineno": 4,
+                                      "fields": [
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "And"
+                                          }
+                                        },
+                                        {
+                                          "field": "values",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 15,
+                                                "end_col_offset": 16,
+                                                "end_lineno": 4,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "a"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 4,
+                                                "type": "Name"
+                                              }
+                                            },
+                                            {
+                                              "node": {
+                                                "col_offset": 21,
+                                                "end_col_offset": 22,
+                                                "end_lineno": 4,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 4,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 4,
+                                      "type": "BoolOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 24,
+                                      "end_col_offset": 30,
+                                      "end_lineno": 4,
+                                      "fields": [
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Or"
+                                          }
+                                        },
+                                        {
+                                          "field": "values",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 24,
+                                                "end_col_offset": 25,
+                                                "end_lineno": 4,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "a"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 4,
+                                                "type": "Name"
+                                              }
+                                            },
+                                            {
+                                              "node": {
+                                                "col_offset": 29,
+                                                "end_col_offset": 30,
+                                                "end_lineno": 4,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 4,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 4,
+                                      "type": "BoolOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 32,
+                                      "end_col_offset": 37,
+                                      "end_lineno": 4,
+                                      "fields": [
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Not"
+                                          }
+                                        },
+                                        {
+                                          "field": "operand",
+                                          "node": {
+                                            "col_offset": 36,
+                                            "end_col_offset": 37,
+                                            "end_lineno": 4,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 4,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 4,
+                                      "type": "UnaryOp"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 4,
+                            "type": "Tuple"
+                          }
+                        },
+                        {
+                          "field": "type_comment",
+                          "value": null
+                        }
+                      ],
+                      "lineno": 4,
+                      "type": "Assign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 104,
+                      "end_lineno": 5,
+                      "fields": [
+                        {
+                          "field": "targets",
+                          "items": [
+                            {
+                              "node": {
+                                "col_offset": 4,
+                                "end_col_offset": 15,
+                                "end_lineno": 5,
+                                "fields": [
+                                  {
+                                    "field": "id",
+                                    "value": "comparisons"
+                                  },
+                                  {
+                                    "field": "ctx",
+                                    "node": {
+                                      "fields": [],
+                                      "type": "Store"
+                                    }
+                                  }
+                                ],
+                                "lineno": 5,
+                                "type": "Name"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 18,
+                            "end_col_offset": 104,
+                            "end_lineno": 5,
+                            "fields": [
+                              {
+                                "field": "elts",
+                                "items": [
+                                  {
+                                    "node": {
+                                      "col_offset": 19,
+                                      "end_col_offset": 25,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 19,
+                                            "end_col_offset": 20,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "Eq"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 24,
+                                                "end_col_offset": 25,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 27,
+                                      "end_col_offset": 33,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 27,
+                                            "end_col_offset": 28,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "NotEq"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 32,
+                                                "end_col_offset": 33,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 35,
+                                      "end_col_offset": 40,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 35,
+                                            "end_col_offset": 36,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "Lt"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 39,
+                                                "end_col_offset": 40,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 42,
+                                      "end_col_offset": 48,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 42,
+                                            "end_col_offset": 43,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "LtE"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 47,
+                                                "end_col_offset": 48,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 50,
+                                      "end_col_offset": 55,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 50,
+                                            "end_col_offset": 51,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "Gt"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 54,
+                                                "end_col_offset": 55,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 57,
+                                      "end_col_offset": 63,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 57,
+                                            "end_col_offset": 58,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "GtE"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 62,
+                                                "end_col_offset": 63,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 65,
+                                      "end_col_offset": 71,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 65,
+                                            "end_col_offset": 66,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "Is"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 70,
+                                                "end_col_offset": 71,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 73,
+                                      "end_col_offset": 83,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 73,
+                                            "end_col_offset": 74,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "IsNot"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 82,
+                                                "end_col_offset": 83,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "b"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 85,
+                                      "end_col_offset": 91,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 85,
+                                            "end_col_offset": 86,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "In"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 90,
+                                                "end_col_offset": 91,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "c"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 93,
+                                      "end_col_offset": 103,
+                                      "end_lineno": 5,
+                                      "fields": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "col_offset": 93,
+                                            "end_col_offset": 94,
+                                            "end_lineno": 5,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 5,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ops",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "fields": [],
+                                                "type": "NotIn"
+                                              }
+                                            }
+                                          ]
+                                        },
+                                        {
+                                          "field": "comparators",
+                                          "items": [
+                                            {
+                                              "node": {
+                                                "col_offset": 102,
+                                                "end_col_offset": 103,
+                                                "end_lineno": 5,
+                                                "fields": [
+                                                  {
+                                                    "field": "id",
+                                                    "value": "c"
+                                                  },
+                                                  {
+                                                    "field": "ctx",
+                                                    "node": {
+                                                      "fields": [],
+                                                      "type": "Load"
+                                                    }
+                                                  }
+                                                ],
+                                                "lineno": 5,
+                                                "type": "Name"
+                                              }
+                                            }
+                                          ]
+                                        }
+                                      ],
+                                      "lineno": 5,
+                                      "type": "Compare"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 5,
+                            "type": "Tuple"
+                          }
+                        },
+                        {
+                          "field": "type_comment",
+                          "value": null
+                        }
+                      ],
+                      "lineno": 5,
+                      "type": "Assign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 24,
+                      "end_lineno": 6,
+                      "fields": [
+                        {
+                          "field": "targets",
+                          "items": [
+                            {
+                              "node": {
+                                "col_offset": 4,
+                                "end_col_offset": 9,
+                                "end_lineno": 6,
+                                "fields": [
+                                  {
+                                    "field": "id",
+                                    "value": "unary"
+                                  },
+                                  {
+                                    "field": "ctx",
+                                    "node": {
+                                      "fields": [],
+                                      "type": "Store"
+                                    }
+                                  }
+                                ],
+                                "lineno": 6,
+                                "type": "Name"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 12,
+                            "end_col_offset": 24,
+                            "end_lineno": 6,
+                            "fields": [
+                              {
+                                "field": "elts",
+                                "items": [
+                                  {
+                                    "node": {
+                                      "col_offset": 13,
+                                      "end_col_offset": 15,
+                                      "end_lineno": 6,
+                                      "fields": [
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "UAdd"
+                                          }
+                                        },
+                                        {
+                                          "field": "operand",
+                                          "node": {
+                                            "col_offset": 14,
+                                            "end_col_offset": 15,
+                                            "end_lineno": 6,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 6,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 6,
+                                      "type": "UnaryOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 17,
+                                      "end_col_offset": 19,
+                                      "end_lineno": 6,
+                                      "fields": [
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "USub"
+                                          }
+                                        },
+                                        {
+                                          "field": "operand",
+                                          "node": {
+                                            "col_offset": 18,
+                                            "end_col_offset": 19,
+                                            "end_lineno": 6,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 6,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 6,
+                                      "type": "UnaryOp"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 21,
+                                      "end_col_offset": 23,
+                                      "end_lineno": 6,
+                                      "fields": [
+                                        {
+                                          "field": "op",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Invert"
+                                          }
+                                        },
+                                        {
+                                          "field": "operand",
+                                          "node": {
+                                            "col_offset": 22,
+                                            "end_col_offset": 23,
+                                            "end_lineno": 6,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "a"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 6,
+                                            "type": "Name"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 6,
+                                      "type": "UnaryOp"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 6,
+                            "type": "Tuple"
+                          }
+                        },
+                        {
+                          "field": "type_comment",
+                          "value": null
+                        }
+                      ],
+                      "lineno": 6,
+                      "type": "Assign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 10,
+                      "end_lineno": 7,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 7,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 7,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "Add"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 9,
+                            "end_col_offset": 10,
+                            "end_lineno": 7,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 7,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 7,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 10,
+                      "end_lineno": 8,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 8,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 8,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "Sub"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 9,
+                            "end_col_offset": 10,
+                            "end_lineno": 8,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 8,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 8,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 10,
+                      "end_lineno": 9,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 9,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 9,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "Mult"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 9,
+                            "end_col_offset": 10,
+                            "end_lineno": 9,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 9,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 9,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 10,
+                      "end_lineno": 10,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 10,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 10,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "MatMult"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 9,
+                            "end_col_offset": 10,
+                            "end_lineno": 10,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 10,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 10,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 10,
+                      "end_lineno": 11,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 11,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 11,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "Div"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 9,
+                            "end_col_offset": 10,
+                            "end_lineno": 11,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 11,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 11,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 11,
+                      "end_lineno": 12,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 12,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 12,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "FloorDiv"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 10,
+                            "end_col_offset": 11,
+                            "end_lineno": 12,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 12,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 12,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 10,
+                      "end_lineno": 13,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 13,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 13,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "Mod"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 9,
+                            "end_col_offset": 10,
+                            "end_lineno": 13,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 13,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 13,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 11,
+                      "end_lineno": 14,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 14,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 14,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "Pow"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 10,
+                            "end_col_offset": 11,
+                            "end_lineno": 14,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 14,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 14,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 11,
+                      "end_lineno": 15,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 15,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 15,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "LShift"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 10,
+                            "end_col_offset": 11,
+                            "end_lineno": 15,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 15,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 15,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 11,
+                      "end_lineno": 16,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 16,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 16,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "RShift"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 10,
+                            "end_col_offset": 11,
+                            "end_lineno": 16,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 16,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 16,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 10,
+                      "end_lineno": 17,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 17,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 17,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "BitOr"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 9,
+                            "end_col_offset": 10,
+                            "end_lineno": 17,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 17,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 17,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 10,
+                      "end_lineno": 18,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 18,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 18,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "BitXor"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 9,
+                            "end_col_offset": 10,
+                            "end_lineno": 18,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 18,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 18,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 10,
+                      "end_lineno": 19,
+                      "fields": [
+                        {
+                          "field": "target",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 5,
+                            "end_lineno": 19,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "a"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Store"
+                                }
+                              }
+                            ],
+                            "lineno": 19,
+                            "type": "Name"
+                          }
+                        },
+                        {
+                          "field": "op",
+                          "node": {
+                            "fields": [],
+                            "type": "BitAnd"
+                          }
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 9,
+                            "end_col_offset": 10,
+                            "end_lineno": 19,
+                            "fields": [
+                              {
+                                "field": "id",
+                                "value": "b"
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 19,
+                            "type": "Name"
+                          }
+                        }
+                      ],
+                      "lineno": 19,
+                      "type": "AugAssign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 27,
+                      "end_lineno": 20,
+                      "fields": [
+                        {
+                          "field": "targets",
+                          "items": [
+                            {
+                              "node": {
+                                "col_offset": 4,
+                                "end_col_offset": 12,
+                                "end_lineno": 20,
+                                "fields": [
+                                  {
+                                    "field": "id",
+                                    "value": "captured"
+                                  },
+                                  {
+                                    "field": "ctx",
+                                    "node": {
+                                      "fields": [],
+                                      "type": "Store"
+                                    }
+                                  }
+                                ],
+                                "lineno": 20,
+                                "type": "Name"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 16,
+                            "end_col_offset": 26,
+                            "end_lineno": 20,
+                            "fields": [
+                              {
+                                "field": "target",
+                                "node": {
+                                  "col_offset": 16,
+                                  "end_col_offset": 21,
+                                  "end_lineno": 20,
+                                  "fields": [
+                                    {
+                                      "field": "id",
+                                      "value": "named"
+                                    },
+                                    {
+                                      "field": "ctx",
+                                      "node": {
+                                        "fields": [],
+                                        "type": "Store"
+                                      }
+                                    }
+                                  ],
+                                  "lineno": 20,
+                                  "type": "Name"
+                                }
+                              },
+                              {
+                                "field": "value",
+                                "node": {
+                                  "col_offset": 25,
+                                  "end_col_offset": 26,
+                                  "end_lineno": 20,
+                                  "fields": [
+                                    {
+                                      "field": "id",
+                                      "value": "a"
+                                    },
+                                    {
+                                      "field": "ctx",
+                                      "node": {
+                                        "fields": [],
+                                        "type": "Load"
+                                      }
+                                    }
+                                  ],
+                                  "lineno": 20,
+                                  "type": "Name"
+                                }
+                              }
+                            ],
+                            "lineno": 20,
+                            "type": "NamedExpr"
+                          }
+                        },
+                        {
+                          "field": "type_comment",
+                          "value": null
+                        }
+                      ],
+                      "lineno": 20,
+                      "type": "Assign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 25,
+                      "end_lineno": 21,
+                      "fields": [
+                        {
+                          "field": "targets",
+                          "items": [
+                            {
+                              "node": {
+                                "col_offset": 4,
+                                "end_col_offset": 12,
+                                "end_lineno": 21,
+                                "fields": [
+                                  {
+                                    "field": "id",
+                                    "value": "expanded"
+                                  },
+                                  {
+                                    "field": "ctx",
+                                    "node": {
+                                      "fields": [],
+                                      "type": "Store"
+                                    }
+                                  }
+                                ],
+                                "lineno": 21,
+                                "type": "Name"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 15,
+                            "end_col_offset": 25,
+                            "end_lineno": 21,
+                            "fields": [
+                              {
+                                "field": "elts",
+                                "items": [
+                                  {
+                                    "node": {
+                                      "col_offset": 16,
+                                      "end_col_offset": 21,
+                                      "end_lineno": 21,
+                                      "fields": [
+                                        {
+                                          "field": "value",
+                                          "node": {
+                                            "col_offset": 17,
+                                            "end_col_offset": 21,
+                                            "end_lineno": 21,
+                                            "fields": [
+                                              {
+                                                "field": "id",
+                                                "value": "args"
+                                              },
+                                              {
+                                                "field": "ctx",
+                                                "node": {
+                                                  "fields": [],
+                                                  "type": "Load"
+                                                }
+                                              }
+                                            ],
+                                            "lineno": 21,
+                                            "type": "Name"
+                                          }
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 21,
+                                      "type": "Starred"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 23,
+                                      "end_col_offset": 24,
+                                      "end_lineno": 21,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "a"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 21,
+                                      "type": "Name"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 21,
+                            "type": "List"
+                          }
+                        },
+                        {
+                          "field": "type_comment",
+                          "value": null
+                        }
+                      ],
+                      "lineno": 21,
+                      "type": "Assign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 36,
+                      "end_lineno": 22,
+                      "fields": [
+                        {
+                          "field": "targets",
+                          "items": [
+                            {
+                              "node": {
+                                "col_offset": 4,
+                                "end_col_offset": 11,
+                                "end_lineno": 22,
+                                "fields": [
+                                  {
+                                    "field": "id",
+                                    "value": "mapping"
+                                  },
+                                  {
+                                    "field": "ctx",
+                                    "node": {
+                                      "fields": [],
+                                      "type": "Store"
+                                    }
+                                  }
+                                ],
+                                "lineno": 22,
+                                "type": "Name"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 14,
+                            "end_col_offset": 36,
+                            "end_lineno": 22,
+                            "fields": [
+                              {
+                                "field": "keys",
+                                "items": [
+                                  {
+                                    "value": null
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 25,
+                                      "end_col_offset": 32,
+                                      "end_lineno": 22,
+                                      "fields": [
+                                        {
+                                          "field": "value",
+                                          "value": "value"
+                                        },
+                                        {
+                                          "field": "kind",
+                                          "value": null
+                                        }
+                                      ],
+                                      "lineno": 22,
+                                      "type": "Constant"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "field": "values",
+                                "items": [
+                                  {
+                                    "node": {
+                                      "col_offset": 17,
+                                      "end_col_offset": 23,
+                                      "end_lineno": 22,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "kwargs"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 22,
+                                      "type": "Name"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 34,
+                                      "end_col_offset": 35,
+                                      "end_lineno": 22,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "b"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 22,
+                                      "type": "Name"
+                                    }
+                                  }
+                                ]
+                              }
+                            ],
+                            "lineno": 22,
+                            "type": "Dict"
+                          }
+                        },
+                        {
+                          "field": "type_comment",
+                          "value": null
+                        }
+                      ],
+                      "lineno": 22,
+                      "type": "Assign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 29,
+                      "end_lineno": 23,
+                      "fields": [
+                        {
+                          "field": "targets",
+                          "items": [
+                            {
+                              "node": {
+                                "col_offset": 4,
+                                "end_col_offset": 11,
+                                "end_lineno": 23,
+                                "fields": [
+                                  {
+                                    "field": "id",
+                                    "value": "awaited"
+                                  },
+                                  {
+                                    "field": "ctx",
+                                    "node": {
+                                      "fields": [],
+                                      "type": "Store"
+                                    }
+                                  }
+                                ],
+                                "lineno": 23,
+                                "type": "Name"
+                              }
+                            }
+                          ]
+                        },
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 14,
+                            "end_col_offset": 29,
+                            "end_lineno": 23,
+                            "fields": [
+                              {
+                                "field": "value",
+                                "node": {
+                                  "col_offset": 20,
+                                  "end_col_offset": 29,
+                                  "end_lineno": 23,
+                                  "fields": [
+                                    {
+                                      "field": "id",
+                                      "value": "awaitable"
+                                    },
+                                    {
+                                      "field": "ctx",
+                                      "node": {
+                                        "fields": [],
+                                        "type": "Load"
+                                      }
+                                    }
+                                  ],
+                                  "lineno": 23,
+                                  "type": "Name"
+                                }
+                              }
+                            ],
+                            "lineno": 23,
+                            "type": "Await"
+                          }
+                        },
+                        {
+                          "field": "type_comment",
+                          "value": null
+                        }
+                      ],
+                      "lineno": 23,
+                      "type": "Assign"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 20,
+                      "end_lineno": 24,
+                      "fields": [
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 20,
+                            "end_lineno": 24,
+                            "fields": [
+                              {
+                                "field": "value",
+                                "node": {
+                                  "col_offset": 10,
+                                  "end_col_offset": 20,
+                                  "end_lineno": 24,
+                                  "fields": [
+                                    {
+                                      "field": "id",
+                                      "value": "from_value"
+                                    },
+                                    {
+                                      "field": "ctx",
+                                      "node": {
+                                        "fields": [],
+                                        "type": "Load"
+                                      }
+                                    }
+                                  ],
+                                  "lineno": 24,
+                                  "type": "Name"
+                                }
+                              }
+                            ],
+                            "lineno": 24,
+                            "type": "Yield"
+                          }
+                        }
+                      ],
+                      "lineno": 24,
+                      "type": "Expr"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 17,
+                      "end_lineno": 25,
+                      "fields": [
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 4,
+                            "end_col_offset": 17,
+                            "end_lineno": 25,
+                            "fields": [
+                              {
+                                "field": "value",
+                                "node": {
+                                  "col_offset": 10,
+                                  "end_col_offset": 17,
+                                  "end_lineno": 25,
+                                  "fields": [
+                                    {
+                                      "field": "id",
+                                      "value": "awaited"
+                                    },
+                                    {
+                                      "field": "ctx",
+                                      "node": {
+                                        "fields": [],
+                                        "type": "Load"
+                                      }
+                                    }
+                                  ],
+                                  "lineno": 25,
+                                  "type": "Name"
+                                }
+                              }
+                            ],
+                            "lineno": 25,
+                            "type": "Yield"
+                          }
+                        }
+                      ],
+                      "lineno": 25,
+                      "type": "Expr"
+                    }
+                  },
+                  {
+                    "node": {
+                      "col_offset": 4,
+                      "end_col_offset": 95,
+                      "end_lineno": 26,
+                      "fields": [
+                        {
+                          "field": "value",
+                          "node": {
+                            "col_offset": 11,
+                            "end_col_offset": 95,
+                            "end_lineno": 26,
+                            "fields": [
+                              {
+                                "field": "elts",
+                                "items": [
+                                  {
+                                    "node": {
+                                      "col_offset": 11,
+                                      "end_col_offset": 21,
+                                      "end_lineno": 26,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "arithmetic"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 26,
+                                      "type": "Name"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 23,
+                                      "end_col_offset": 30,
+                                      "end_lineno": 26,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "bitwise"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 26,
+                                      "type": "Name"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 32,
+                                      "end_col_offset": 39,
+                                      "end_lineno": 26,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "boolean"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 26,
+                                      "type": "Name"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 41,
+                                      "end_col_offset": 52,
+                                      "end_lineno": 26,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "comparisons"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 26,
+                                      "type": "Name"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 54,
+                                      "end_col_offset": 59,
+                                      "end_lineno": 26,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "unary"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 26,
+                                      "type": "Name"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 61,
+                                      "end_col_offset": 69,
+                                      "end_lineno": 26,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "captured"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 26,
+                                      "type": "Name"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 71,
+                                      "end_col_offset": 79,
+                                      "end_lineno": 26,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "expanded"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 26,
+                                      "type": "Name"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 81,
+                                      "end_col_offset": 88,
+                                      "end_lineno": 26,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "mapping"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 26,
+                                      "type": "Name"
+                                    }
+                                  },
+                                  {
+                                    "node": {
+                                      "col_offset": 90,
+                                      "end_col_offset": 95,
+                                      "end_lineno": 26,
+                                      "fields": [
+                                        {
+                                          "field": "id",
+                                          "value": "named"
+                                        },
+                                        {
+                                          "field": "ctx",
+                                          "node": {
+                                            "fields": [],
+                                            "type": "Load"
+                                          }
+                                        }
+                                      ],
+                                      "lineno": 26,
+                                      "type": "Name"
+                                    }
+                                  }
+                                ]
+                              },
+                              {
+                                "field": "ctx",
+                                "node": {
+                                  "fields": [],
+                                  "type": "Load"
+                                }
+                              }
+                            ],
+                            "lineno": 26,
+                            "type": "Tuple"
+                          }
+                        }
+                      ],
+                      "lineno": 26,
+                      "type": "Return"
+                    }
+                  }
+                ]
+              },
+              {
+                "field": "decorator_list",
+                "items": []
+              },
+              {
+                "field": "returns",
+                "value": null
+              },
+              {
+                "field": "type_comment",
+                "value": null
+              },
+              {
+                "field": "type_params",
+                "items": []
+              }
+            ],
+            "lineno": 1,
+            "type": "AsyncFunctionDef"
+          }
+        }
+      ]
+    },
+    {
+      "field": "type_ignores",
+      "items": []
+    }
+  ],
+  "type": "Module"
+}

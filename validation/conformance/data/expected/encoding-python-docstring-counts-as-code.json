@@ -1,0 +1,12 @@
+{
+  "case_id": "encoding-python-docstring-counts-as-code",
+  "observations": {
+    "aggregate/blank_lines": 3,
+    "aggregate/comment_lines": 0,
+    "aggregate/lines_of_code": 5,
+    "aggregate/loc_status": "complete",
+    "aggregate/methods_functions": 1,
+    "aggregate/total_physical_lines": 8
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

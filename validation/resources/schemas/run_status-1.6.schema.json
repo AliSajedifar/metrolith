@@ -1,0 +1,168 @@
+{
+  "$defs": {
+    "utcTimestamp": {
+      "description": "UTC timestamp with an explicit trailing Z. Local offsets are not portable evidence.",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$",
+      "type": "string"
+    }
+  },
+  "$id": "https://archlens.dev/schemas/run_status-1.6.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "allOf": [
+    {
+      "if": {
+        "properties": {
+          "status": {
+            "const": "running"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      },
+      "then": {
+        "description": "A non-terminal run carries no finalized verdict; finalized counts are not required."
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "mandatory_output_failures": {
+            "minItems": 1,
+            "type": "array"
+          }
+        },
+        "required": [
+          "mandatory_output_failures"
+        ]
+      },
+      "then": {
+        "properties": {
+          "status": {
+            "const": "failed"
+          }
+        },
+        "required": [
+          "status"
+        ]
+      }
+    }
+  ],
+  "description": "Authoritative run-integrity state. This document, not summary.md and not run_manifest.json, is authoritative for run_integrity_status (plan sections 4.1 and 4.5).\n\nArtifact Schema 1.6.0 is a CORRECTION-ONLY version. It fixes four places where the frozen 1.5.0 schemas contradicted their own producers and in two cases their own sibling schemas (findings F-P3-3, F-P3-4, F-P3-5, F-P3-6). It introduces no new fields, no metric semantics, and none of the B1/local-analysis structure, which remains Artifact Schema 1.7.0.",
+  "properties": {
+    "duplicate_rows_dropped": {
+      "description": "Identical duplicates removed from execution. Each remains represented in normalized_input.csv with its representative row.",
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "failure_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "input_row_count": {
+      "description": "Accepted source rows. Reconciles with normalized_input.csv when that artifact is present.",
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "mandatory_output_failures": {
+      "description": "Non-empty implies status 'failed'.",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "measurement_outcome": {
+      "description": "Aggregate measurement availability, separated from run integrity in Artifact Schema 1.5. `modules/summary.py::measurement_outcome` returns exactly these four values. 1.5.0 listed `unavailable` here while its sibling run_manifest listed `failed`, so every run in which all repositories failed wrote a status violating its own schema (F-P3-4).",
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "not_evaluable"
+      ]
+    },
+    "optional_output_failures": {
+      "description": "Optional projection failures. These must not change measurement_outcome (plan section 4.5).",
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "partial_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "planned_repository_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "processed_repository_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "repository_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "run_id": {
+      "description": "Stable identifier of this run.",
+      "minLength": 1,
+      "type": "string"
+    },
+    "skipped_disabled_count": {
+      "description": "Rows accepted but disabled. Retained in normalized_input.csv rather than discarded.",
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "status": {
+      "description": "run_integrity_status. ArchLens writes 'running' at run-directory creation and one terminal value at finalization. It never writes 'interrupted' as a run status; interruption is observed from repository checkpoint evidence instead.",
+      "enum": [
+        "running",
+        "completed",
+        "completed_with_errors",
+        "failed"
+      ]
+    },
+    "success_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "updated_at": {
+      "$ref": "#/$defs/utcTimestamp"
+    }
+  },
+  "required": [
+    "run_id",
+    "status",
+    "updated_at"
+  ],
+  "title": "ArchLens run status 1.6",
+  "type": "object",
+  "unevaluatedProperties": false
+}

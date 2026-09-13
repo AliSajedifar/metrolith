@@ -1,0 +1,69 @@
+# TEMPLATE ONLY — deliberately non-deployable until every <PLACEHOLDER> is
+# replaced with an owner-reviewed value. ArchLens validation refuses these
+# placeholder coordinates. Do not make this candidate-editable caller job the
+# sole trust anchor: enforce the protected source workflow through an
+# organization/enterprise ruleset "Require workflows to pass before merging"
+# rule, or protect this file and its required-check configuration equivalently.
+name: ArchLens protected required gate
+
+on:
+  pull_request:
+  # Required when the protected branch uses GitHub merge queues.
+  merge_group:
+    types: [checks_requested]
+
+permissions:
+  contents: read
+  # Required only when METROLITH_UPLOAD_SARIF is true. Fork pull requests have a
+  # read-only token and the protected workflow skips their code-scanning upload.
+  security-events: write
+
+jobs:
+  archlens_protected_required:
+    name: ArchLens protected required gate
+    uses: <OWNER>/<METROLITH_REPOSITORY>/.github/workflows/metrolith-protected-required.yml@<FULL_40_HEX_COMMIT_SHA>
+    with:
+      # Repository variables are owner-controlled and cannot be selected by the
+      # pull-request author. Never replace these with candidate-file values.
+      evaluator_repository: ${{ vars.METROLITH_EVALUATOR_REPOSITORY }}
+      evaluator_revision: ${{ vars.METROLITH_EVALUATOR_REVISION }}
+      evaluator_source_sha256: ${{ vars.METROLITH_EVALUATOR_SOURCE_SHA256 }}
+      evaluator_program_version: ${{ vars.METROLITH_EVALUATOR_PROGRAM_VERSION }}
+      evaluator_runtime_lock_sha256: ${{ vars.METROLITH_EVALUATOR_RUNTIME_LOCK_SHA256 }}
+
+      # Custody may be an external owner repository/artifact checkout or an
+      # exact protected base revision. It must never be the candidate revision.
+      custody_repository: ${{ vars.METROLITH_CUSTODY_REPOSITORY }}
+      custody_revision: ${{ vars.METROLITH_CUSTODY_REVISION }}
+      run_relative_path: ${{ vars.METROLITH_RUN_RELATIVE_PATH }}
+      run_manifest_sha256: ${{ vars.METROLITH_RUN_MANIFEST_SHA256 }}
+      policy_relative_path: ${{ vars.METROLITH_POLICY_RELATIVE_PATH }}
+      policy_sha256: ${{ vars.METROLITH_POLICY_SHA256 }}
+
+      # Empty paths mean the corresponding standalone evidence kind is absent.
+      # When supplied, the protected workflow recreates the receipt and compares
+      # it with this separately pinned digest; the receipt never authenticates
+      # itself and candidate-authored unattested evidence is refused.
+      hotspots_relative_path: ${{ vars.METROLITH_HOTSPOTS_RELATIVE_PATH }}
+      duplication_relative_path: ${{ vars.METROLITH_DUPLICATION_RELATIVE_PATH }}
+      evidence_receipt_sha256: ${{ vars.METROLITH_EVIDENCE_RECEIPT_SHA256 }}
+
+      # Optional Ratchet custody. Leave both empty when Ratchet is not enabled.
+      # The baseline's BASELINE.source-run sidecar is mandatory when configured.
+      baseline_relative_path: ${{ vars.METROLITH_BASELINE_RELATIVE_PATH }}
+      baseline_sha256: ${{ vars.METROLITH_BASELINE_SHA256 }}
+
+      # Upload is skipped for fork pull_request runs; SARIF is still generated.
+      upload_sarif: ${{ vars.METROLITH_UPLOAD_SARIF == 'true' }}
+
+# Owner deployment notes:
+# 1. Publish the evaluator workflow and source at one reviewed full commit SHA.
+# 2. Configure every variable above outside candidate-controlled bytes.
+# 3. Enforce the source workflow with an organization/enterprise ruleset, or
+#    require the exact resulting job check with its expected GitHub App source.
+#    Reusable checks are named "<caller job> / <reusable job>" by GitHub.
+# 4. Keep pull_request enabled for fork-safe read-only evaluation. Never change
+#    this gate to pull_request_target to execute or analyze candidate code.
+# 5. If merge queues are enabled, keep merge_group or the required check will
+#    not be reported for the merge group.
+# 6. Retain the hosted run, SARIF, receipt, and ruleset/required-check evidence.

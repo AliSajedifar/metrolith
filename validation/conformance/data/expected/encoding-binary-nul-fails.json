@@ -1,0 +1,7 @@
+{
+  "case_id": "encoding-binary-nul-fails",
+  "observations": {
+    "aggregate/loc_status": "failed"
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

@@ -1,0 +1,1 @@
+class VendorCopy { void copied() {} }

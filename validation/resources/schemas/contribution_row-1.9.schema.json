@@ -1,0 +1,392 @@
+{
+  "$comment": "A null value with a Failed aggregate status reconciles as not_evaluable, never as zero and never as a residual (plan section 14.4 rule 4).",
+  "$id": "https://archlens.dev/schemas/contribution_row-1.9.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "One row of the per-file metric-contribution ledger: the already computed FileMetricResult components persisted before aggregation discards them (plan section 14). ArchLens implements no second metric calculation; derived metrics are recomputed from these raw components only for validation. This row contract is FIXED at Phase 1 and the Phase 8 container choice may not change any field name, type, status semantics, or ordering rule.\n\nArtifact Schema 1.7.0: `subject_key` is the logical join key for this row. The locator column becomes nullable because a local subject has no remote URL — a key that is sometimes absent was never a key.",
+  "properties": {
+    "analyzed_sha": {
+      "pattern": "^([0-9a-f]{40})?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "annotation_types": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "anonymous_class_methods": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "anonymous_classes": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "anonymous_functions": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "anonymous_structs": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "assigned_classes": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "async_functions": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "blank_lines": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "callable_count": {
+      "description": "Canonical callables measured in this file. NULL when the measurement was unavailable; 0 only when the file was measured and genuinely contains none. The two must never be conflated, which is why this column exists rather than being inferred from the absence of rows.",
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "class_methods": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "classes": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "classes_structs": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "classes_structs_status": {
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "not_applicable"
+      ]
+    },
+    "code_lines": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "comment_lines": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "constructors": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "content_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "contribution_state": {
+      "description": "A file whose detected language is outside the supported metric languages stays present with no_contribution_unsupported_language (plan section 14.1).",
+      "enum": [
+        "contributed",
+        "no_contribution_unsupported_language",
+        "no_contribution_failed_read",
+        "no_contribution_failed_parse",
+        "no_contribution_oversized"
+      ]
+    },
+    "detected_language": {
+      "type": "string"
+    },
+    "enums": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "error_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exported_functions": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "generator_functions": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "inclusion_state": {
+      "type": "string"
+    },
+    "interfaces": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "lambdas": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "lines_of_code": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "loc_status": {
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "not_applicable"
+      ]
+    },
+    "methods_functions": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "methods_functions_status": {
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "not_applicable"
+      ]
+    },
+    "module_functions": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "nested_functions": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "nloc_status": {
+      "description": "Governs function NLOC and the line fields. Separate because span and location mapping can fail while tree traversal succeeds.",
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "not_applicable"
+      ]
+    },
+    "nonblank_lines": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "offset_mapping_mode": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "parse_status": {
+      "type": "string"
+    },
+    "parser_compatibility_strategy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "read_status": {
+      "type": "string"
+    },
+    "receiver_methods": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "records": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "recovery_reference": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "recovery_strategy": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "relative_path": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "repository_url": {
+      "description": "Source/origin locator. **Nullable and no longer the identity key** — a local subject may have no origin. Use `subject_key` for joins.",
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-nullable": true
+    },
+    "requested_sha": {
+      "pattern": "^([0-9a-f]{40})?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resolved_sha": {
+      "pattern": "^([0-9a-f]{40})?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "signature_only_methods": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "size_bytes": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "source_files_contribution": {
+      "maximum": 1,
+      "minimum": 0,
+      "type": "integer"
+    },
+    "structs": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "structural_complexity_status": {
+      "description": "Governs the six tree-derived complexity metrics, which share one traversal and therefore one failure mode.",
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "not_applicable"
+      ]
+    },
+    "subject_key": {
+      "description": "Logical subject identity. The join key across runs, revisions and source modes. Never a content hash.",
+      "minLength": 1,
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.7.0"
+    },
+    "total_physical_lines": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "type_aliases": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "content_sha256",
+    "contribution_state",
+    "detected_language",
+    "inclusion_state",
+    "parse_status",
+    "read_status",
+    "relative_path",
+    "source_files_contribution",
+    "subject_key"
+  ],
+  "title": "ArchLens file contribution row 1.9",
+  "type": "object"
+}

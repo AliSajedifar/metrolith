@@ -1,0 +1,1118 @@
+{
+  "cases": [
+    {
+      "file_name": "huge.jsx",
+      "id": "compatibility-cap-oversized-jsx-is-not-rewritten",
+      "input_path": "compatibility-cap-oversized-jsx-is-not-rewritten/huge.jsx",
+      "input_sha256": "86866e2641173ce5481d2d4db12f0be2fe0b44cb26501fcd8a8c2b64c58caf47",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file with grammar identity, affected metrics, and normalized cause. Valid observed declarations outside malformed ranges may be retained with a partial entity status. Lines of Code: a narrow, same-length, parser-only compatibility strategy may be applied where the contract names one; original Git bytes and hashes remain unchanged. Compatibility strategies are bounded and must refuse rather than grow without limit.",
+      "notes": "Roughly 1.1 MB, above the 1 MB JavaScript compatibility growth bound. The assertion is deliberately narrow: the file stays in Source Files, and the bound is not silently exceeded.",
+      "observed_metric_paths": [
+        "aggregate/source_files"
+      ],
+      "purpose": "A file beyond the compatibility growth bound is not rewritten by a parser-only strategy; the bound is enforced rather than exceeded.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "config.ts",
+      "id": "content-ambiguous-marker-does-not-exclude",
+      "input_path": "content-ambiguous-marker-does-not-exclude/config.ts",
+      "input_sha256": "278bc4a101c03824f23ed9b09f98da42ad79b45a32c9a2ce8a8dc131251ec307",
+      "metric_contract_clause": "Scope and Source Files: Policy 1.5.0 excludes high-confidence Qt Linguist XML catalogs named .ts as content_type_mismatch and dialect-corroborated mixed templates as templated_source. Ambiguous single markers do not trigger these rules.",
+      "notes": "Negative control for the Qt Linguist rule. The policy requires high-confidence corroboration, so one mention in a comment must not exclude a genuine source file.",
+      "observed_inventory_fields": [
+        "included_in_metrics"
+      ],
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/source_files"
+      ],
+      "purpose": "A single ambiguous marker does not trigger the content-type exclusion.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "i18n/messages_de.ts"
+      ],
+      "file_name": "app.ts",
+      "id": "content-qt-linguist-ts-is-excluded",
+      "input_path": "content-qt-linguist-ts-is-excluded/app.ts",
+      "input_sha256": "5ec158daee7e4f583154fcae191eb66143890d23690e7c517827079863fff4bd",
+      "metric_contract_clause": "Scope and Source Files: Policy 1.5.0 excludes high-confidence Qt Linguist XML catalogs named .ts as content_type_mismatch and dialect-corroborated mixed templates as templated_source. Ambiguous single markers do not trigger these rules.",
+      "notes": "High-confidence: XML declaration, DOCTYPE TS, and TS root element.",
+      "observed_inventory_fields": [
+        "included_in_metrics"
+      ],
+      "observed_inventory_path": "i18n/messages_de.ts",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/source_files"
+      ],
+      "purpose": "A Qt Linguist XML catalog named .ts is excluded as a content-type mismatch; the real TypeScript file beside it is measured.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "binary.js",
+      "id": "encoding-binary-nul-fails",
+      "input_path": "encoding-binary-nul-fails/binary.js",
+      "input_sha256": "e51379b2d6a8f46b0a6968cebdc957860b2a706435de3be2a5d5ae046de415af",
+      "metric_contract_clause": "Lines of Code: high-density, alternating, binary, invalid UTF-8, and unrecognized-context NUL inputs remain failed encoding evidence.",
+      "notes": "Negative control for the low-density textual-NUL compatibility strategy.",
+      "observed_metric_paths": [
+        "aggregate/loc_status"
+      ],
+      "purpose": "High-density binary NUL input is failed encoding evidence and never receives the narrow parser-only space substitution.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "cr.py",
+      "id": "encoding-cr-only-line-endings",
+      "input_path": "encoding-cr-only-line-endings/cr.py",
+      "input_sha256": "e6c3127397481546174a87417c814d5cb6390993ae6b3ad15e354cebcf129499",
+      "metric_contract_clause": "Lines of Code: physical lines containing syntactic code; blank and comment-only lines are excluded; syntactic strings and Python docstrings count as code.",
+      "notes": "Three CR-terminated code lines.",
+      "observed_metric_paths": [
+        "aggregate/lines_of_code",
+        "aggregate/loc_status"
+      ],
+      "purpose": "Classic-Mac CR-only line endings are counted as line terminators.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "invalid.py",
+      "id": "encoding-invalid-utf8-fails-loc",
+      "input_path": "encoding-invalid-utf8-fails-loc/invalid.py",
+      "input_sha256": "dfeb7fa9417c7a762c1536b1bac1c0b60df4bf05ce77d06079c33a18eaa2ce4d",
+      "metric_contract_clause": "Lines of Code: invalid or undecodable Python is not replacement-decoded and labeled complete.",
+      "notes": "Source Files still counts the file: successful reading is not a prerequisite for inclusion. Only the LOC status degrades.",
+      "observed_metric_paths": [
+        "aggregate/loc_status",
+        "aggregate/source_files"
+      ],
+      "purpose": "Invalid UTF-8 is not replacement-decoded and silently labelled complete; LOC status records the failure.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "nofinal.py",
+      "id": "encoding-no-final-newline",
+      "input_path": "encoding-no-final-newline/nofinal.py",
+      "input_sha256": "9af816430225a200bd1da83ad7cfc1e13bdff4759621e9d1c92867dfaae11c34",
+      "metric_contract_clause": "Lines of Code: physical lines containing syntactic code; blank and comment-only lines are excluded; syntactic strings and Python docstrings count as code.",
+      "observed_metric_paths": [
+        "aggregate/lines_of_code",
+        "aggregate/loc_status",
+        "aggregate/total_physical_lines"
+      ],
+      "purpose": "A missing final newline does not lose the last physical line.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "docstring.py",
+      "id": "encoding-python-docstring-counts-as-code",
+      "input_path": "encoding-python-docstring-counts-as-code/docstring.py",
+      "input_sha256": "30d14eba89fb0c1c8a3f792cfb0ee8d04a3e0ceeea631a993bf3f0abe225060f",
+      "metric_contract_clause": "Lines of Code: physical lines containing syntactic code; blank and comment-only lines are excluded; syntactic strings and Python docstrings count as code.",
+      "notes": "Lines 1-4 are the docstring; line 2 is physically blank and counts as blank, not code. Lines 5-6 blank, lines 7-8 code. code=5, blank=3, total=8. A docstring counting as code makes its non-blank lines code rather than comments; it does not make a blank line non-blank.",
+      "observed_metric_paths": [
+        "aggregate/blank_lines",
+        "aggregate/comment_lines",
+        "aggregate/lines_of_code",
+        "aggregate/loc_status",
+        "aggregate/methods_functions",
+        "aggregate/total_physical_lines"
+      ],
+      "purpose": "A Python docstring counts as code, not as a comment; blank lines inside it are part of the string and are still code.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "truncated.py",
+      "id": "encoding-truncated-utf16-fails-loc",
+      "input_path": "encoding-truncated-utf16-fails-loc/truncated.py",
+      "input_sha256": "d0824b595f7e8ef5811a48a1f9c104e1aa7468475a0285644781c186b1af6c5f",
+      "metric_contract_clause": "Lines of Code: BOM-identified UTF-16LE and UTF-16BE are decoded strictly. Invalid UTF-16 has failed LOC status.",
+      "notes": "An odd byte count cannot be a valid UTF-16 stream.",
+      "observed_metric_paths": [
+        "aggregate/loc_status",
+        "aggregate/source_files"
+      ],
+      "purpose": "A UTF-16 stream truncated mid-code-unit is not silently repaired; LOC status records the failure.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "caf\u00e9/\u65e5\u672c\u8a9e.py",
+      "id": "encoding-unicode-path-is-inventoried",
+      "input_path": "encoding-unicode-path-is-inventoried/caf\u00e9/\u65e5\u672c\u8a9e.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "metric_contract_clause": "Scope and Source Files: each included path counts once.",
+      "observed_inventory_fields": [
+        "included_in_metrics"
+      ],
+      "observed_metric_paths": [
+        "aggregate/lines_of_code",
+        "aggregate/source_files"
+      ],
+      "purpose": "A non-ASCII path is inventoried and measured without transliteration.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "utf16be.py",
+      "id": "encoding-utf16be-bom-python",
+      "input_path": "encoding-utf16be-bom-python/utf16be.py",
+      "input_sha256": "fe8fc16c57acdcc70c57f74a224d99fd15b4f3781266ad9c0286b90d37829325",
+      "metric_contract_clause": "Lines of Code: Python encoding follows tokenize.detect_encoding, including UTF-8 BOM and PEP 263 cookies. BOM-identified UTF-16LE and UTF-16BE are decoded strictly and measured from the decoded logical source. Original Git bytes and hashes remain unchanged. Invalid UTF-16 has failed LOC status.",
+      "observed_inventory_fields": [
+        "included_in_metrics"
+      ],
+      "observed_metric_paths": [
+        "aggregate/lines_of_code",
+        "aggregate/loc_status"
+      ],
+      "purpose": "BOM-identified UTF-16BE is decoded strictly, mirroring the LE case.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "utf16le.py",
+      "id": "encoding-utf16le-bom-python",
+      "input_path": "encoding-utf16le-bom-python/utf16le.py",
+      "input_sha256": "39f8e8d890c953b2b653079a65e687fe7432853a007ec82ffe86d8b402910e4e",
+      "metric_contract_clause": "Lines of Code: Python encoding follows tokenize.detect_encoding, including UTF-8 BOM and PEP 263 cookies. BOM-identified UTF-16LE and UTF-16BE are decoded strictly and measured from the decoded logical source. Original Git bytes and hashes remain unchanged. Invalid UTF-16 has failed LOC status.",
+      "notes": "Content is prefixed with the UTF-16LE BOM by the generator.",
+      "observed_inventory_fields": [
+        "included_in_metrics"
+      ],
+      "observed_metric_paths": [
+        "aggregate/lines_of_code",
+        "aggregate/loc_status"
+      ],
+      "purpose": "BOM-identified UTF-16LE is decoded strictly and measured from the decoded logical source, not from raw bytes.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "bom.py",
+      "id": "encoding-utf8-bom-python",
+      "input_path": "encoding-utf8-bom-python/bom.py",
+      "input_sha256": "15ff1464753b7d70bc99ed68846dca0bc9044ac1b1e7b313f624b02cfe6dbf0a",
+      "metric_contract_clause": "Lines of Code: Python encoding follows tokenize.detect_encoding, including UTF-8 BOM and PEP 263 cookies. BOM-identified UTF-16LE and UTF-16BE are decoded strictly and measured from the decoded logical source. Original Git bytes and hashes remain unchanged. Invalid UTF-16 has failed LOC status.",
+      "notes": "Two logical code lines after the BOM is stripped as encoding evidence.",
+      "observed_inventory_fields": [
+        "byte_order_mark",
+        "included_in_metrics"
+      ],
+      "observed_metric_paths": [
+        "aggregate/lines_of_code",
+        "aggregate/loc_status",
+        "aggregate/total_physical_lines"
+      ],
+      "purpose": "A UTF-8 BOM is consumed as encoding evidence and does not become a code line.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "iface.go",
+      "id": "entity-go-interface-is-secondary",
+      "input_path": "entity-go-interface-is-secondary/iface.go",
+      "input_sha256": "8368db912ff14231a03b9758bac9f06f59b98b350ed7e87f4355002d460529f4",
+      "metric_contract_clause": "Classes / Structs: classes_structs = classes + records + structs. Methods / Functions: methods_functions = module_functions + class_methods + receiver_methods; nested functions, lambdas, anonymous callbacks, and signature-only declarations do not count.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/interfaces",
+        "aggregate/structs"
+      ],
+      "purpose": "A Go interface is secondary; a Go named struct in the same file counts.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "shape.go",
+      "id": "entity-go-struct-and-receiver-method",
+      "input_path": "entity-go-struct-and-receiver-method/shape.go",
+      "input_sha256": "9c3a15d83afc55412ea1c5e43f455888fca092161371fff8d83193f137a51585",
+      "metric_contract_clause": "Classes / Structs: Go named struct types. Methods / Functions: methods_functions = module_functions + class_methods + receiver_methods.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/methods_functions",
+        "aggregate/module_functions",
+        "aggregate/receiver_methods",
+        "aggregate/structs"
+      ],
+      "purpose": "A Go named struct counts in Classes / Structs; receiver methods and module functions both count in Methods / Functions.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "Delta.java",
+      "id": "entity-java-constructor-is-secondary",
+      "input_path": "entity-java-constructor-is-secondary/Delta.java",
+      "input_sha256": "45772c1ee67208b5f9106066e1cd81cd67a5939dee3e4b4f1eebfcb28989c414",
+      "metric_contract_clause": "Methods / Functions: ordinary Java constructors remain secondary constructors and are excluded from Methods / Functions.",
+      "observed_metric_paths": [
+        "aggregate/class_methods",
+        "aggregate/classes",
+        "aggregate/classes_structs",
+        "aggregate/constructors",
+        "aggregate/methods_functions"
+      ],
+      "purpose": "An ordinary Java constructor is secondary and excluded from Methods / Functions.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "Colour.java",
+      "id": "entity-java-enum-is-secondary",
+      "input_path": "entity-java-enum-is-secondary/Colour.java",
+      "input_sha256": "62d048d46f5189a54c1492159f2ad484f60cf649fb5f249c0409ae6ac5765dba",
+      "metric_contract_clause": "Classes / Structs: classes_structs = classes + records + structs. Methods / Functions: methods_functions = module_functions + class_methods + receiver_methods; nested functions, lambdas, anonymous callbacks, and signature-only declarations do not count.",
+      "notes": "Deliberately excluded entity kind: enums.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/classes_structs_status",
+        "aggregate/enums"
+      ],
+      "purpose": "A Java enum is secondary and contributes zero to Classes / Structs.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "Gamma.java",
+      "id": "entity-java-interface-is-secondary",
+      "input_path": "entity-java-interface-is-secondary/Gamma.java",
+      "input_sha256": "4f88c8017b140269bb517da91021e4d623bb47012469bff4e830a8e7e12a5a6c",
+      "metric_contract_clause": "Classes / Structs: interfaces, enums, annotation types, aliases, anonymous classes and anonymous structs are secondary. Methods / Functions: signature-only declarations do not count.",
+      "notes": "Deliberately excluded entity kind: interfaces.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/classes_structs_status",
+        "aggregate/interfaces",
+        "aggregate/methods_functions",
+        "aggregate/methods_functions_status"
+      ],
+      "purpose": "A Java interface is secondary and contributes zero to Classes / Structs, and a signature-only method contributes zero to Methods / Functions. Both zeros are verified complete, not partial.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "Outer.java",
+      "id": "entity-java-nested-class-counts",
+      "input_path": "entity-java-nested-class-counts/Outer.java",
+      "input_sha256": "f1d93676d3d5842a23832c078a93f58596bd188c5a52542fa3233e73ef48d4a7",
+      "metric_contract_clause": "Classes / Structs: classes_structs = classes + records + structs. Methods / Functions: methods_functions = module_functions + class_methods + receiver_methods; nested functions, lambdas, anonymous callbacks, and signature-only declarations do not count. The main categories include named nested/local classes.",
+      "notes": "Outer and Inner are both counted classes; act() and outerMethod() are both class methods.",
+      "observed_metric_paths": [
+        "aggregate/classes",
+        "aggregate/classes_structs",
+        "aggregate/methods_functions"
+      ],
+      "purpose": "A named nested Java class counts, and its direct method counts.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "Point.java",
+      "id": "entity-java-record-counts",
+      "input_path": "entity-java-record-counts/Point.java",
+      "input_sha256": "270614a7a1691151e115a9154e26fd02a7fd15d97c841ff8fd9ead2190674836",
+      "metric_contract_clause": "Classes / Structs: classes_structs = classes + records + structs. Methods / Functions: methods_functions = module_functions + class_methods + receiver_methods; nested functions, lambdas, anonymous callbacks, and signature-only declarations do not count. The main categories include Java named classes and records.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/records"
+      ],
+      "purpose": "A Java record counts in Classes / Structs, unlike interfaces and enums.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "callbacks.js",
+      "id": "entity-js-anonymous-callback-is-secondary",
+      "input_path": "entity-js-anonymous-callback-is-secondary/callbacks.js",
+      "input_sha256": "5cf12ed1c4d94af4227fb7d56d38d3ad42319d7d0a3bfd24e644ff8d37235113",
+      "metric_contract_clause": "Classes / Structs: classes_structs = classes + records + structs. Methods / Functions: methods_functions = module_functions + class_methods + receiver_methods; nested functions, lambdas, anonymous callbacks, and signature-only declarations do not count.",
+      "notes": "Verified complete zero: the file parses, and nothing in it is countable.",
+      "observed_metric_paths": [
+        "aggregate/methods_functions",
+        "aggregate/methods_functions_status"
+      ],
+      "purpose": "An anonymous callback does not count in Methods / Functions.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "arrow.js",
+      "id": "entity-js-arrow-lambda-is-secondary",
+      "input_path": "entity-js-arrow-lambda-is-secondary/arrow.js",
+      "input_sha256": "0ad0c1a9d8ca58e82763a2831359c65e155abac8cf33ab6871f3530e94f7a02d",
+      "metric_contract_clause": "Classes / Structs: classes_structs = classes + records + structs. Methods / Functions: methods_functions = module_functions + class_methods + receiver_methods; nested functions, lambdas, anonymous callbacks, and signature-only declarations do not count.",
+      "notes": "Finding F-6. Metric Contract 3.0.0 explicitly counts stable module-level CLASS assignments (const C = class {}) but never states the symmetric FUNCTION case. ArchLens counts const f = () => {} as a module function with lambdas=0, which is consistent with the class rule. This case pins that behaviour; the contract wording gap is recorded in ARCHLENS_3_5_0_PHASE_1_FINDINGS.md.",
+      "observed_metric_paths": [
+        "aggregate/lambdas",
+        "aggregate/methods_functions",
+        "aggregate/methods_functions_status",
+        "aggregate/module_functions"
+      ],
+      "purpose": "A stable named module-scope arrow binding counts as a module function, and is not classified as a lambda. Anonymous inline arrows are the negative control.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed_with_notes",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "helper.js",
+      "id": "entity-js-commonjs-exported-function",
+      "input_path": "entity-js-commonjs-exported-function/helper.js",
+      "input_sha256": "fbb6dde9e18ee9b5028f87573e82764e8d2effb3b70f2e9ca7881ddaa1dc5385",
+      "metric_contract_clause": "Methods / Functions: stable module-scope CommonJS functions assigned to module.exports, module.exports.name, or exports.name count.",
+      "observed_metric_paths": [
+        "aggregate/methods_functions",
+        "aggregate/methods_functions_status"
+      ],
+      "purpose": "A stable module-scope CommonJS exported function counts in Methods / Functions.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "alpha.js",
+      "id": "entity-js-stable-assigned-class",
+      "input_path": "entity-js-stable-assigned-class/alpha.js",
+      "input_sha256": "b49fddb3ac1fac509800336d61c1f56829d670ff0915f80709380fb0d4e00d11",
+      "metric_contract_clause": "Classes / Structs: stable module-level class assignments such as const C = class {}.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/classes_structs_status",
+        "aggregate/methods_functions"
+      ],
+      "purpose": "A stable module-level class assignment counts in Classes / Structs.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "factory.py",
+      "id": "entity-python-class-inside-function",
+      "input_path": "entity-python-class-inside-function/factory.py",
+      "input_sha256": "6e186fa0fe4690120968665903bdd4b925b0537b162d5c5c7d025717cb3eae9c",
+      "metric_contract_clause": "Classes / Structs: Python classes, including classes defined inside functions. Methods / Functions: direct methods of a Python class inside a function are class methods.",
+      "observed_metric_paths": [
+        "aggregate/class_methods",
+        "aggregate/classes",
+        "aggregate/classes_structs",
+        "aggregate/methods_functions",
+        "aggregate/module_functions"
+      ],
+      "purpose": "A Python class defined inside a function counts, and its direct methods are class methods.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "widget.py",
+      "id": "entity-python-init-is-secondary",
+      "input_path": "entity-python-init-is-secondary/widget.py",
+      "input_sha256": "9d5cacdb4f9ef5369d8d2a6640d8f1463805071c7e781d10dd6d6bdd1e226156",
+      "metric_contract_clause": "Methods / Functions: Python __init__ and __new__ remain secondary constructors and are excluded.",
+      "observed_metric_paths": [
+        "aggregate/class_methods",
+        "aggregate/classes",
+        "aggregate/classes_structs",
+        "aggregate/methods_functions"
+      ],
+      "purpose": "Python __init__ is a secondary constructor and is excluded from Methods / Functions.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "nested.py",
+      "id": "entity-python-nested-function-is-secondary",
+      "input_path": "entity-python-nested-function-is-secondary/nested.py",
+      "input_sha256": "8d6aff62765a33112c0e531e428589f5607c703912cce0550768062a2b6962a2",
+      "metric_contract_clause": "Classes / Structs: classes_structs = classes + records + structs. Methods / Functions: methods_functions = module_functions + class_methods + receiver_methods; nested functions, lambdas, anonymous callbacks, and signature-only declarations do not count.",
+      "notes": "Only outer() counts; inner() is recorded separately as a nested function.",
+      "observed_metric_paths": [
+        "aggregate/methods_functions",
+        "aggregate/module_functions",
+        "aggregate/nested_functions"
+      ],
+      "purpose": "A function nested inside a function is secondary and excluded from Methods / Functions.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "dirty_after_commit": {
+        "app.py": "x = 1\ny = 2\n"
+      },
+      "file_name": "app.py",
+      "id": "git-dirty-working-tree-is-still-measured",
+      "input_path": "git-dirty-working-tree-is-still-measured/app.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "kind": "git",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Policy 1.5.0 governs Git mode evidence: a 120000 entry is a Git symlink and a 160000 entry is a Git submodule; neither is first-party production source.",
+      "notes": "After the edit the file has two code lines; source_files stays 1.",
+      "observed_inventory_summary": [
+        "git_mode_map_status"
+      ],
+      "observed_metric_paths": [
+        "aggregate/loc_status",
+        "aggregate/source_files"
+      ],
+      "purpose": "A modified working tree does not stop measurement; the dirty state is recorded as acquisition evidence rather than silently discarding metrics.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "link.py"
+      ],
+      "file_name": "app.py",
+      "git_index_entries": [
+        {
+          "content": "target.py",
+          "mode": "120000",
+          "path": "link.py"
+        }
+      ],
+      "id": "git-mode-120000-symlink-excluded",
+      "input_path": "git-mode-120000-symlink-excluded/app.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "kind": "git",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Policy 1.5.0 governs Git mode evidence: a 120000 entry is a Git symlink and a 160000 entry is a Git submodule; neither is first-party production source.",
+      "notes": "Windows commonly materializes a Git symlink as a regular file whose content is the link target. The 120000 index mode is the authoritative evidence, not the working-tree file type, so this case is meaningful on every platform.",
+      "observed_inventory_fields": [
+        "exclusion_reason",
+        "git_mode",
+        "included_in_metrics",
+        "is_git_symlink"
+      ],
+      "observed_inventory_path": "link.py",
+      "observed_metric_paths": [
+        "aggregate/source_files"
+      ],
+      "purpose": "A Git 120000 entry is a symlink and is excluded from Source Files, even when the working tree materializes it as a regular file. The ordinary file beside it stays included.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "vendorlib/inner.py"
+      ],
+      "file_name": "app.py",
+      "git_add_paths": [
+        "app.py"
+      ],
+      "git_index_entries": [
+        {
+          "mode": "160000",
+          "path": "vendorlib"
+        }
+      ],
+      "id": "git-mode-160000-submodule-excluded",
+      "input_path": "git-mode-160000-submodule-excluded/app.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "kind": "git",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Policy 1.5.0 governs Git mode evidence: a 120000 entry is a Git symlink and a 160000 entry is a Git submodule; neither is first-party production source.",
+      "notes": "vendorlib/inner.py exists on disk but must not appear as a separate included record: source_files stays 1.",
+      "observed_inventory_fields": [
+        "exclusion_reason",
+        "git_mode",
+        "included_in_metrics",
+        "is_git_submodule"
+      ],
+      "observed_inventory_path": "vendorlib",
+      "observed_metric_paths": [
+        "aggregate/source_files"
+      ],
+      "purpose": "A Git 160000 gitlink is a submodule, is excluded, and is not descended into: its contents are another repository's source, not this one's.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "app.py",
+      "id": "git-mode-map-available-in-a-repository",
+      "input_path": "git-mode-map-available-in-a-repository/app.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "kind": "git",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Policy 1.5.0 governs Git mode evidence: a 120000 entry is a Git symlink and a 160000 entry is a Git submodule; neither is first-party production source.",
+      "observed_inventory_summary": [
+        "git_mode_map_status",
+        "git_mode_map_available"
+      ],
+      "observed_metric_paths": [
+        "aggregate/source_files"
+      ],
+      "purpose": "A real Git repository yields an available mode map.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "app.py",
+      "git_fault": "failed",
+      "id": "git-mode-map-failed-downgrades-inventory",
+      "input_path": "git-mode-map-failed-downgrades-inventory/app.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "kind": "git",
+      "metric_contract_clause": "Per-metric status: every aggregate and language row carries inventory_status using complete, partial, failed, or not_applicable. A Git mode-map failure downgrades inventory rather than being ignored.",
+      "notes": "The failure is injected by raising the exception the production code already handles, so the branch is exercised with no dependence on machine speed or Git version. Injected stderr deliberately avoids the phrase 'not a git repository', which maps to the separate unavailable state.",
+      "observed_inventory_summary": [
+        "git_mode_map_status",
+        "git_mode_map_available"
+      ],
+      "observed_metric_paths": [
+        "aggregate/inventory_status",
+        "aggregate/source_files"
+      ],
+      "purpose": "A Git mode-map command failure downgrades inventory to partial and is recorded as failed, distinct from the unavailable-not-git state.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "app.py",
+      "git_fault": "timed_out",
+      "id": "git-mode-map-timed-out-downgrades-inventory",
+      "input_path": "git-mode-map-timed-out-downgrades-inventory/app.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "kind": "git",
+      "metric_contract_clause": "Per-metric status: every aggregate and language row carries inventory_status using complete, partial, failed, or not_applicable. A Git mode-map failure downgrades inventory rather than being ignored.",
+      "notes": "TimeoutExpired is raised directly rather than arranging a real slow command, so this case cannot flake on a fast or slow host.",
+      "observed_inventory_summary": [
+        "git_mode_map_status",
+        "git_mode_map_available"
+      ],
+      "observed_metric_paths": [
+        "aggregate/inventory_status",
+        "aggregate/source_files"
+      ],
+      "purpose": "A Git mode-map timeout downgrades inventory to partial and is recorded as timed_out, distinct from a generic failure.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "app.py",
+      "id": "git-mode-map-unavailable-outside-a-repository",
+      "input_path": "git-mode-map-unavailable-outside-a-repository/app.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Policy 1.5.0 governs Git mode evidence: a 120000 entry is a Git symlink and a 160000 entry is a Git submodule; neither is first-party production source.",
+      "notes": "Negative control. An absent mode map is a distinct state from a failed one and must not downgrade inventory on its own.",
+      "observed_inventory_summary": [
+        "git_mode_map_status",
+        "git_mode_map_available",
+        "git_mode_map_reason"
+      ],
+      "observed_metric_paths": [
+        "aggregate/lines_of_code",
+        "aggregate/source_files"
+      ],
+      "purpose": "A directory that is not a Git repository reports the mode map as unavailable rather than failed, and measurement still proceeds.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "target.py"
+      ],
+      "file_name": "app.py",
+      "id": "git-native-symlink-excluded",
+      "input_path": "git-native-symlink-excluded/app.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "metric_contract_clause": "Scope and Source Files: Policy 1.5.0 excludes high-confidence Qt Linguist XML catalogs named .ts as content_type_mismatch and dialect-corroborated mixed templates as templated_source. Ambiguous single markers do not trigger these rules.",
+      "native_symlinks": {
+        "link.py": "target.py"
+      },
+      "notes": "Requires the native_symlink capability. On a host without it the case reports skipped_capability rather than passed: silently accepting the materialized-symlink result would claim coverage this case never had. Both regular files, app.py and target.py, are counted; link.py is excluded, so source_files is 2.",
+      "observed_inventory_fields": [
+        "included_in_metrics"
+      ],
+      "observed_inventory_path": "link.py",
+      "observed_metric_paths": [
+        "aggregate/source_files"
+      ],
+      "purpose": "A real filesystem symlink is excluded from Source Files. This is a different code path from a Git 120000 index entry materialized as a regular file, and is pinned separately.",
+      "requires_capabilities": [
+        "native_symlink"
+      ],
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "block.java",
+      "id": "loc-block-comment-only-lines-excluded",
+      "input_path": "loc-block-comment-only-lines-excluded/block.java",
+      "input_sha256": "581c6a9251e16d6a93268512d0d1b442970a936bec3252cda6815cd8afb19256",
+      "metric_contract_clause": "Lines of Code: physical lines containing syntactic code; blank and comment-only lines are excluded; syntactic strings and Python docstrings count as code.",
+      "notes": "Lines 1-3 are comment-only; lines 4-5 are code.",
+      "observed_metric_paths": [
+        "aggregate/comment_lines",
+        "aggregate/lines_of_code",
+        "aggregate/loc_status"
+      ],
+      "purpose": "Block-comment-only lines are excluded from Lines of Code.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "Alpha.java",
+      "id": "loc-comment-and-blank-lines-excluded",
+      "input_path": "loc-comment-and-blank-lines-excluded/Alpha.java",
+      "input_sha256": "b1deebd7d338cba08065306828d3ac316af43ae7040f98def4fd75b3f1660b20",
+      "metric_contract_clause": "Lines of Code: physical lines containing syntactic code; blank and comment-only lines are excluded.",
+      "notes": "Line 1 comment, line 2 code, line 3 blank, line 4 code, line 5 code.",
+      "observed_metric_paths": [
+        "aggregate/blank_lines",
+        "aggregate/code_lines",
+        "aggregate/comment_lines",
+        "aggregate/lines_of_code",
+        "aggregate/loc_status",
+        "aggregate/source_files",
+        "aggregate/total_physical_lines"
+      ],
+      "purpose": "Comment-only and blank lines are excluded from Lines of Code while the raw components still record them separately.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "Beta.java",
+      "id": "loc-inline-comment-counts-once",
+      "input_path": "loc-inline-comment-counts-once/Beta.java",
+      "input_sha256": "916aeb5f526f8a0dd2154d325cfcfcdcc95da09890e944a4b4a7f7bfa70ac2e4",
+      "metric_contract_clause": "Lines of Code: code plus an inline comment counts once.",
+      "observed_metric_paths": [
+        "aggregate/lines_of_code",
+        "aggregate/loc_status",
+        "aggregate/total_physical_lines"
+      ],
+      "purpose": "A line carrying code plus an inline comment contributes exactly one line to LOC.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "strings.js",
+      "id": "loc-string-content-counts-as-code",
+      "input_path": "loc-string-content-counts-as-code/strings.js",
+      "input_sha256": "2834873f5c75248b55634f75ca1b550d24c9533fd29cd067dde5a18885595d64",
+      "metric_contract_clause": "Lines of Code: physical lines containing syntactic code; blank and comment-only lines are excluded; syntactic strings and Python docstrings count as code.",
+      "notes": "All four physical lines are inside one statement and count as code.",
+      "observed_metric_paths": [
+        "aggregate/blank_lines",
+        "aggregate/comment_lines",
+        "aggregate/lines_of_code",
+        "aggregate/loc_status"
+      ],
+      "purpose": "Syntactic string and template-literal content counts as code.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "empty.go",
+      "id": "malformed-empty-file-is-a-verified-zero",
+      "input_path": "malformed-empty-file-is-a-verified-zero/empty.go",
+      "input_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file. An entity is rejected when its name or required declaration/body structure is missing or when it lies in an unreliable malformed subtree. LOC status is independent. A partial numeric zero is not a verified complete zero.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/lines_of_code",
+        "aggregate/methods_functions",
+        "aggregate/source_files",
+        "aggregate/total_physical_lines"
+      ],
+      "purpose": "An empty file is a verified complete zero for every metric, not a partial or failed observation.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "Broken.java",
+      "id": "malformed-java-unclosed-brace",
+      "input_path": "malformed-java-unclosed-brace/Broken.java",
+      "input_sha256": "c1881cc78c31018706edee92e9e09ed3e1159b3ea9c3506488d2c7e944cbd4bd",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file. An entity is rejected when its name or required declaration/body structure is missing or when it lies in an unreliable malformed subtree. LOC status is independent. A partial numeric zero is not a verified complete zero.",
+      "notes": "LOC status is independent of parse status, so three code lines are still counted. Entity statuses are asserted by the taxonomy case below.",
+      "observed_metric_paths": [
+        "aggregate/lines_of_code",
+        "aggregate/loc_status",
+        "aggregate/source_files"
+      ],
+      "purpose": "Malformed Java syntax degrades the entity statuses while LOC stays independently measurable.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "legacy.py",
+      "id": "malformed-python2-print-statement",
+      "input_path": "malformed-python2-print-statement/legacy.py",
+      "input_sha256": "2832f922ce1ebe620a6f0a39dd18a577bf2f287e0864d3008286a17b29cb41e2",
+      "metric_contract_clause": "Scope and Source Files: an unreadable, oversized, invalid-syntax, or parser-failed source remains in Source Files. Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file. An entity is rejected when its name or required declaration/body structure is missing or when it lies in an unreliable malformed subtree. LOC status is independent. A partial numeric zero is not a verified complete zero.",
+      "notes": "Negative control: a parse failure must not silently reduce Source Files.",
+      "observed_metric_paths": [
+        "aggregate/source_files",
+        "aggregate/source_files_status"
+      ],
+      "purpose": "Python 2 syntax does not parse under the Python 3 grammar; the file remains in Source Files and the failure is recorded rather than hidden.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "clean.js",
+      "id": "recovery-clean-javascript-uses-no-strategy",
+      "input_path": "recovery-clean-javascript-uses-no-strategy/clean.js",
+      "input_sha256": "d8ccf64137819b0ed9a7c2e76001badb4d718dc4d613e3fc3ef486af4e003f1a",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file with grammar identity, affected metrics, and normalized cause. Valid observed declarations outside malformed ranges may be retained with a partial entity status. Lines of Code: a narrow, same-length, parser-only compatibility strategy may be applied where the contract names one; original Git bytes and hashes remain unchanged.",
+      "notes": "Negative control for all five strategies: none may fire on clean input.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/methods_functions",
+        "aggregate/metric_status"
+      ],
+      "observed_recovery_for": "clean.js",
+      "purpose": "Ordinary, valid JavaScript triggers no compatibility strategy at all.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "broken.js",
+      "id": "recovery-genuinely-broken-javascript-is-not-recovered",
+      "input_path": "recovery-genuinely-broken-javascript-is-not-recovered/broken.js",
+      "input_sha256": "6a1c2189d362d9491b9beb808ac6759e04446d69634ab010d62f970f9a90de29",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file with grammar identity, affected metrics, and normalized cause. Valid observed declarations outside malformed ranges may be retained with a partial entity status. Lines of Code: a narrow, same-length, parser-only compatibility strategy may be applied where the contract names one; original Git bytes and hashes remain unchanged.",
+      "notes": "Negative control. The strategies exist for valid-but-unsupported dialects, never for broken syntax.",
+      "observed_metric_paths": [
+        "aggregate/source_files"
+      ],
+      "observed_recovery_for": "broken.js",
+      "purpose": "Genuinely malformed JavaScript is not rescued by a compatibility strategy; the failure is recorded rather than papered over.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "cfg.mjs",
+      "id": "recovery-javascript-import-assertion-positive",
+      "input_path": "recovery-javascript-import-assertion-positive/cfg.mjs",
+      "input_sha256": "788d383b9db19c15e094a54aa21f44c59108ee2acf9a7ff5b48324dc0e014495",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file with grammar identity, affected metrics, and normalized cause. Valid observed declarations outside malformed ranges may be retained with a partial entity status. Lines of Code: a narrow, same-length, parser-only compatibility strategy may be applied where the contract names one; original Git bytes and hashes remain unchanged.",
+      "notes": "Positive control for javascript_import_assertion_compat.",
+      "observed_metric_paths": [
+        "aggregate/metric_status"
+      ],
+      "observed_recovery_for": "cfg.mjs",
+      "purpose": "An import assertion is accepted through the named compatibility strategy without changing the original bytes.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "comp.jsx",
+      "id": "recovery-jsx-reserved-attribute-positive",
+      "input_path": "recovery-jsx-reserved-attribute-positive/comp.jsx",
+      "input_sha256": "2ec94f9e10d41ea8bca8965647c48240738a5b8aa6ca0c9228c30bd13bbb9c69",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file with grammar identity, affected metrics, and normalized cause. Valid observed declarations outside malformed ranges may be retained with a partial entity status. Lines of Code: a narrow, same-length, parser-only compatibility strategy may be applied where the contract names one; original Git bytes and hashes remain unchanged.",
+      "notes": "Positive control for jsx_reserved_attribute_compat.",
+      "observed_metric_paths": [
+        "aggregate/metric_status"
+      ],
+      "observed_recovery_for": "comp.jsx",
+      "purpose": "Reserved JSX attribute names are accepted through the named strategy.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "amp.jsx",
+      "id": "recovery-raw-jsx-ampersand-positive",
+      "input_path": "recovery-raw-jsx-ampersand-positive/amp.jsx",
+      "input_sha256": "7ab0dac01594b23107debeb33b7251e5cdd7a945a39ec27d7bf61f6084fe95a8",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file with grammar identity, affected metrics, and normalized cause. Valid observed declarations outside malformed ranges may be retained with a partial entity status. Lines of Code: a narrow, same-length, parser-only compatibility strategy may be applied where the contract names one; original Git bytes and hashes remain unchanged.",
+      "notes": "Positive control for raw_jsx_ampersand_compat.",
+      "observed_metric_paths": [
+        "aggregate/metric_status"
+      ],
+      "observed_recovery_for": "amp.jsx",
+      "purpose": "A raw ampersand in JSX text is accepted through the named strategy.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "typed.js",
+      "id": "recovery-typed-javascript-tsx-negative",
+      "input_path": "recovery-typed-javascript-tsx-negative/typed.js",
+      "input_sha256": "9f5711ad454c0a91670f4712c3d60e3538528de0e080d70a2847edaf6714a441",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file with grammar identity, affected metrics, and normalized cause. Valid observed declarations outside malformed ranges may be retained with a partial entity status. Lines of Code: a narrow, same-length, parser-only compatibility strategy may be applied where the contract names one; original Git bytes and hashes remain unchanged.",
+      "notes": "Negative control for typed_javascript_tsx_compat. Identical bytes to the positive case; only the .flowconfig and package.json evidence is removed. This is the case that proves the gate is real.",
+      "observed_metric_paths": [
+        "aggregate/metric_status"
+      ],
+      "observed_recovery_for": "typed.js",
+      "purpose": "Without repository dialect evidence, typed JavaScript is NOT reparsed with the TSX grammar. The strategy is corroboration-gated, not syntax-triggered.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        ".flowconfig",
+        "package.json"
+      ],
+      "file_name": "src/typed.js",
+      "id": "recovery-typed-javascript-tsx-positive",
+      "input_path": "recovery-typed-javascript-tsx-positive/src/typed.js",
+      "input_sha256": "9f5711ad454c0a91670f4712c3d60e3538528de0e080d70a2847edaf6714a441",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file with grammar identity, affected metrics, and normalized cause. Valid observed declarations outside malformed ranges may be retained with a partial entity status. Lines of Code: a narrow, same-length, parser-only compatibility strategy may be applied where the contract names one; original Git bytes and hashes remain unchanged.",
+      "notes": "Positive control for typed_javascript_tsx_compat.",
+      "observed_metric_paths": [
+        "aggregate/metric_status"
+      ],
+      "observed_recovery_for": "src/typed.js",
+      "purpose": "Type annotations in a .js file are parsed with the TSX grammar only when repository dialect evidence corroborates it.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "keywords.ts",
+      "id": "recovery-typescript-keyword-parameter-positive",
+      "input_path": "recovery-typescript-keyword-parameter-positive/keywords.ts",
+      "input_sha256": "eda2cc97e154fdbb13b71cc57698efbc70fe0e4e0a14702dc58d988e56307e1a",
+      "metric_contract_clause": "Malformed ASTs: tree-sitter ERROR and MISSING ranges are recorded once per affected file with grammar identity, affected metrics, and normalized cause. Valid observed declarations outside malformed ranges may be retained with a partial entity status. Lines of Code: a narrow, same-length, parser-only compatibility strategy may be applied where the contract names one; original Git bytes and hashes remain unchanged.",
+      "notes": "Positive control for typescript_keyword_parameter_compat.",
+      "observed_metric_paths": [
+        "aggregate/metric_status"
+      ],
+      "observed_recovery_for": "keywords.ts",
+      "purpose": "A reserved word used as a function-type parameter name is accepted through the named strategy.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "types/index.d.ts"
+      ],
+      "file_name": "index.ts",
+      "id": "scope-declaration-only-typescript-is-excluded",
+      "input_path": "scope-declaration-only-typescript-is-excluded/index.ts",
+      "input_sha256": "80e20059c645414c15b17f81d53c026658ffe22f5af5ced383869296209535e0",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Each included path counts once.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/source_files"
+      ],
+      "purpose": "A TypeScript declaration-only .d.ts stub is excluded; the implementation beside it is included.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "generated.go"
+      ],
+      "file_name": "handwritten.go",
+      "id": "scope-generated-header-is-excluded",
+      "input_path": "scope-generated-header-is-excluded/handwritten.go",
+      "input_sha256": "10f64e17502301049630468083b9e2e39f738160df9709c6da73f36318091808",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Each included path counts once. Policy 1.5.0 accepts generated markers only in an initial language comment/header region.",
+      "notes": "Negative control for the generated-marker rule: only the marked file is excluded.",
+      "observed_metric_paths": [
+        "aggregate/methods_functions",
+        "aggregate/source_files"
+      ],
+      "purpose": "A generated-code marker in the initial header region excludes the file.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "service_test.go"
+      ],
+      "file_name": "service.go",
+      "id": "scope-go-test-suffix-is-excluded",
+      "input_path": "scope-go-test-suffix-is-excluded/service.go",
+      "input_sha256": "f775284374495d259981b41e2755c0a182a42ca1753bf768fafaaf9020a80b7d",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Each included path counts once. Policy 1.5.0 uses *_test.go plus path/name evidence for Go tests.",
+      "observed_metric_paths": [
+        "aggregate/methods_functions",
+        "aggregate/source_files"
+      ],
+      "purpose": "Go uses the *_test.go suffix as test evidence.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "src/test/java/MainTest.java"
+      ],
+      "file_name": "src/Main.java",
+      "id": "scope-test-file-is-excluded",
+      "input_path": "scope-test-file-is-excluded/src/Main.java",
+      "input_sha256": "8e6ecf9463cc06a3343683a1c3b924733399eb16dd2f5d831f4c97c7254ef954",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Each included path counts once.",
+      "notes": "Only src/Main.java is counted; the test tree is excluded by policy.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/source_files"
+      ],
+      "purpose": "A Java test file is excluded from Source Files while the production file beside it is included.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "README.md",
+        "config.yaml"
+      ],
+      "file_name": "app.py",
+      "id": "scope-unsupported-extension-is-not-a-source-file",
+      "input_path": "scope-unsupported-extension-is-not-a-source-file/app.py",
+      "input_sha256": "a40c04aa22c369fa354406d31613f110878d800e33ddd428e124b513762b3635",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Each included path counts once.",
+      "observed_metric_paths": [
+        "aggregate/methods_functions",
+        "aggregate/source_files"
+      ],
+      "purpose": "A file with an unsupported extension is not counted in Source Files.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "extra_files": [
+        "vendor/github.com/other/lib/lib.go"
+      ],
+      "file_name": "app.go",
+      "id": "scope-vendor-directory-is-excluded",
+      "input_path": "scope-vendor-directory-is-excluded/app.go",
+      "input_sha256": "6ba3bbe14ad3ab27560eab69686f12d37497f8bb073f0f4e3ba2fc3bc36dc03c",
+      "metric_contract_clause": "Scope and Source Files: recognized first-party production files after global path, test, generated, vendor/dependency, build-output, declaration/stub, and bundle exclusions. Each included path counts once.",
+      "observed_metric_paths": [
+        "aggregate/methods_functions",
+        "aggregate/source_files"
+      ],
+      "purpose": "A vendored dependency tree is excluded from Source Files.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "file_name": "config.go",
+      "id": "scope-verified-zero-entities",
+      "input_path": "scope-verified-zero-entities/config.go",
+      "input_sha256": "a3ab3b0596e41b790e52ef6ea3e4d541d631fc0f6f1de8295c12904dd2efd5af",
+      "metric_contract_clause": "Malformed ASTs: a partial numeric zero is not a verified complete zero. Per-metric status uses complete/partial/failed/not_applicable.",
+      "notes": "Line 1 code, line 2 blank, line 3 code -> 2 code lines.",
+      "observed_metric_paths": [
+        "aggregate/classes_structs",
+        "aggregate/classes_structs_status",
+        "aggregate/lines_of_code",
+        "aggregate/methods_functions",
+        "aggregate/methods_functions_status",
+        "aggregate/metric_status",
+        "aggregate/source_files"
+      ],
+      "purpose": "A file with no declared entities yields a verified complete zero for both entity metrics, which is distinct from a partial zero.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "config_overrides": {
+        "max_source_file_size_bytes": 4096
+      },
+      "file_name": "atlimit.py",
+      "id": "size-boundary-file-at-the-limit-is-readable",
+      "input_path": "size-boundary-file-at-the-limit-is-readable/atlimit.py",
+      "input_sha256": "1414902aa2fc760c8847cdbc3a8bc424e8de823bf7723b1a9ece31dcbbabf051",
+      "metric_contract_clause": "Scope and Source Files: each included path counts once.",
+      "observed_metric_paths": [
+        "aggregate/loc_status",
+        "aggregate/source_files",
+        "aggregate/source_files_oversized",
+        "aggregate/source_files_readable"
+      ],
+      "purpose": "A file at or below the size bound is read normally. Positive control for the oversized case.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    },
+    {
+      "config_overrides": {
+        "max_source_file_size_bytes": 512
+      },
+      "extra_files": [
+        "big.py"
+      ],
+      "file_name": "small.py",
+      "id": "size-boundary-oversized-file-stays-in-source-files",
+      "input_path": "size-boundary-oversized-file-stays-in-source-files/small.py",
+      "input_sha256": "9e26bf369911c45c243c684147b23fc9e1dcfcf257d299a1c632016a6fcd33f4",
+      "metric_contract_clause": "Scope and Source Files: an unreadable, oversized, invalid-syntax, or parser-failed source remains in Source Files. The failure changes LOC/entity statuses and supporting read/parse counts rather than silently reducing Source Files.",
+      "notes": "big.py is 5600 bytes against a 512-byte bound. It is counted in Source Files and separately in source_files_oversized.",
+      "observed_inventory_fields": [
+        "included_in_metrics",
+        "oversized"
+      ],
+      "observed_inventory_path": "big.py",
+      "observed_metric_paths": [
+        "aggregate/source_files",
+        "aggregate/source_files_oversized",
+        "aggregate/source_files_readable"
+      ],
+      "purpose": "An oversized file remains in Source Files with a recorded oversized state; successful reading is not a prerequisite for inclusion.",
+      "review_date": "2026-08-06",
+      "review_status": "reviewed",
+      "reviewer": "ArchLens 3.5.0 implementation review"
+    }
+  ],
+  "corpus_version": "1.0.0",
+  "exclusion_policy_version": "1.5.0",
+  "inventory_schema_version": "1.6.0",
+  "metric_contract_version": "3.0.0",
+  "oracle_policy": "Every expected value is hand-derived from the cited Metric Contract clause by a human reviewer. Current ArchLens output is never the oracle (plan section 9.3)."
+}

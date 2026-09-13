@@ -1,0 +1,9 @@
+{
+  "case_id": "entity-java-nested-class-counts",
+  "observations": {
+    "aggregate/classes": 2,
+    "aggregate/classes_structs": 2,
+    "aggregate/methods_functions": 2
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

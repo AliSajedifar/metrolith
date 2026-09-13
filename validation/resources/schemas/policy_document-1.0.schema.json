@@ -1,0 +1,114 @@
+{
+  "$id": "https://archlens.dev/schemas/policy_document-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "A Policy v1 document: which integrity, diagnostic and reproducibility rules are enforced, at what severity, with what bounded waivers.\n\nPolicy v1 contains NO metric thresholds and makes no architecture-quality claim. Rules over metric deltas are Policy v2 and remain blocked on differential-validation evidence, because gating on a metric delta before that evidence exists is gating on an unvalidated number.\n\nEvery waiver requires a reason and an expiry. An unbounded waiver is indistinguishable from deleting the rule and decays into a permanent exception nobody remembers agreeing to; an expired waiver stops suppressing its finding and is reported as expired.",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "expected_contracts": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Contract versions the policy pins. Absent means the policy pinned nothing, NOT that the contracts agree.",
+      "type": "object"
+    },
+    "name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "policy_document_format_version": {
+      "const": "1.0.0"
+    },
+    "rules": {
+      "additionalProperties": false,
+      "minProperties": 1,
+      "patternProperties": {
+        "^.*$": {
+          "enum": [
+            "violation",
+            "warning",
+            "info"
+          ]
+        }
+      },
+      "propertyNames": {
+        "enum": [
+          "artifact.compatibility_waiver_required_by_current_generation",
+          "artifact.schema_invalid",
+          "artifact.structurally_unreadable",
+          "capability.parser_unavailable",
+          "contract.artifact_generation_unsupported",
+          "contract.incompatible",
+          "diagnostics.parser_execution_failure",
+          "diagnostics.unknown_category",
+          "measurement.incomplete",
+          "measurement.metric_unavailable",
+          "reproducibility.provenance_incomplete",
+          "run.integrity_failed",
+          "run.mandatory_output_failure"
+        ]
+      },
+      "type": "object"
+    },
+    "waivers": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "expires_on": {
+            "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+            "type": "string"
+          },
+          "issue_id": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "reason": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "rule_id": {
+            "enum": [
+              "artifact.compatibility_waiver_required_by_current_generation",
+              "artifact.schema_invalid",
+              "artifact.structurally_unreadable",
+              "capability.parser_unavailable",
+              "contract.artifact_generation_unsupported",
+              "contract.incompatible",
+              "diagnostics.parser_execution_failure",
+              "diagnostics.unknown_category",
+              "measurement.incomplete",
+              "measurement.metric_unavailable",
+              "reproducibility.provenance_incomplete",
+              "run.integrity_failed",
+              "run.mandatory_output_failure"
+            ]
+          },
+          "subject_key": {
+            "type": [
+              "string",
+              "null"
+            ]
+          }
+        },
+        "required": [
+          "expires_on",
+          "reason",
+          "rule_id"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "policy_document_format_version",
+    "rules"
+  ],
+  "title": "ArchLens policy document 1.0.0",
+  "type": "object"
+}

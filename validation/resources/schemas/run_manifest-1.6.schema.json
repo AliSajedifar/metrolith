@@ -1,0 +1,378 @@
+{
+  "$id": "https://archlens.dev/schemas/run_manifest-1.6.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": true,
+  "description": "Final run identity, configuration, provenance, versions, counts, and artifact inventory (plan section 4.1). run_status.json, not this document, is authoritative for run_integrity_status. Property types are derived from preserved Artifact 1.4 runs. additionalProperties stays true because three runs of thirteen repositories prove which fields exist, not that no other field may appear.\n\nArtifact Schema 1.6.0 is a CORRECTION-ONLY version. It fixes four places where the frozen 1.5.0 schemas contradicted their own producers and in two cases their own sibling schemas (findings F-P3-3, F-P3-4, F-P3-5, F-P3-6). It introduces no new fields, no metric semantics, and none of the B1/local-analysis structure, which remains Artifact Schema 1.7.0.",
+  "properties": {
+    "acquisition_mode": {
+      "enum": [
+        "latest",
+        "frozen",
+        "offline"
+      ]
+    },
+    "architecture_label_semantics": {
+      "description": "Records that architecture labels are supplied input metadata, not inferred truth (plan section 3.4).",
+      "type": "string"
+    },
+    "artifact_inventory": {
+      "description": "Explicit enumeration of mandatory measurement and integrity artifacts (plan section 4.3).",
+      "type": [
+        "object",
+        "array",
+        "null"
+      ]
+    },
+    "artifact_schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "benchmark_environment": {
+      "additionalProperties": true,
+      "properties": {
+        "archlens_version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "type": "string"
+        },
+        "artifact_schema_version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "type": "string"
+        },
+        "effective_git_checkout_configuration": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "exclusion_policy_sha256": {
+          "pattern": "^[0-9a-f]{64}$",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "exclusion_policy_version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "type": "string"
+        },
+        "git_version": {
+          "type": "string"
+        },
+        "grammar_versions": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "inventory_schema_version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "type": "string"
+        },
+        "metric_contract_version": {
+          "pattern": "^\\d+\\.\\d+\\.\\d+$",
+          "type": "string"
+        },
+        "operating_system": {
+          "type": "string"
+        },
+        "package_distribution_version": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "parser_initialization": {
+          "additionalProperties": {
+            "type": "string"
+          },
+          "type": "object"
+        },
+        "platform": {
+          "type": "string"
+        },
+        "profiler_git_commit_sha": {
+          "description": "Null when the profiler has no immutable Git revision. A null value makes reproduce's exact_environment_ready state impossible (plan 16.2); it must never be replaced by a guess.",
+          "pattern": "^[0-9a-f]{40}$",
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "profiler_git_dirty": {
+          "type": "boolean"
+        },
+        "profiler_git_tag": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "python_version": {
+          "type": "string"
+        },
+        "python_version_exact": {
+          "type": "string"
+        },
+        "tree_sitter_version": {
+          "type": "string"
+        }
+      },
+      "type": "object"
+    },
+    "command_line_arguments": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "distribution_name": {
+      "type": "string"
+    },
+    "duplicate_rows_dropped": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "effective_configuration": {
+      "additionalProperties": true,
+      "type": "object"
+    },
+    "effective_git_checkout_configuration": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "end_timestamp": {
+      "description": "Superseded by the normative clocks below; retained for compatibility with Artifact <= 1.4 readers (plan section 19.1).",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:?\\d{2})?$",
+      "type": "string"
+    },
+    "exclusion_policy_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "exclusion_policy_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "execution_mode": {
+      "type": "string"
+    },
+    "failure_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "finalization_finished_at": {
+      "description": "Normative end time (plan section 19.1).",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:?\\d{2})?$",
+      "type": "string"
+    },
+    "finalization_seconds": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "git_mode_maps": {
+      "items": {
+        "additionalProperties": true,
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "git_version": {
+      "type": "string"
+    },
+    "grammar_versions": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "input_file_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "input_file_path": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "string"
+      ]
+    },
+    "input_row_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "input_source": {
+      "type": "string"
+    },
+    "inventory_schema_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "legacy_input_deprecated": {
+      "type": "boolean"
+    },
+    "measurement_finished_at": {
+      "description": "Normative. Set after all repository results complete, before artifact finalization.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:?\\d{2})?$",
+      "type": "string"
+    },
+    "measurement_outcome": {
+      "description": "Aggregate measurement availability derived from repository results. Never changed by failure to write an optional projection (plan section 4.5).",
+      "enum": [
+        "complete",
+        "partial",
+        "failed",
+        "not_evaluable"
+      ]
+    },
+    "measurement_wall_seconds": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "metric_contract_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "operating_system": {
+      "type": "string"
+    },
+    "output_failures": {
+      "additionalProperties": true,
+      "description": "Human-readable output failure messages. Strings, matching the producer, every consumer, and the sibling run_status schema. 1.5.0 declared objects here (finding F-P3-3); the array is empty on a successful run, which is why the contradiction stayed invisible.",
+      "properties": {
+        "mandatory": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        },
+        "optional": {
+          "items": {
+            "type": "string"
+          },
+          "type": "array"
+        }
+      },
+      "type": "object"
+    },
+    "package_distribution_version": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "parser_initialization": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "partial_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "planned_repository_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "processed_repository_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "program_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "repository_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "run_integrity_status": {
+      "enum": [
+        "running",
+        "completed",
+        "completed_with_errors",
+        "failed"
+      ]
+    },
+    "run_started_at": {
+      "description": "Normative. Set after input validation and run-directory initialization, immediately before repository processing.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:?\\d{2})?$",
+      "type": "string"
+    },
+    "run_wall_seconds": {
+      "type": [
+        "number",
+        "null"
+      ]
+    },
+    "skipped_disabled_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "start_timestamp": {
+      "description": "UTC timestamp. Constrained by pattern, not by 'format': ArchLens supplies no FormatChecker, so a 'format' keyword would be silently unenforced.",
+      "pattern": "^\\d{4}-\\d{2}-\\d{2}[T ]\\d{2}:\\d{2}:\\d{2}(\\.\\d+)?(Z|[+-]\\d{2}:?\\d{2})?$",
+      "type": "string"
+    },
+    "success_count": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    }
+  },
+  "required": [
+    "artifact_schema_version",
+    "exclusion_policy_version",
+    "inventory_schema_version",
+    "metric_contract_version",
+    "program_version",
+    "run_id",
+    "start_timestamp"
+  ],
+  "title": "ArchLens run manifest 1.6",
+  "type": "object"
+}

@@ -1,0 +1,30 @@
+{
+  "format": "archlens-duplication-d4-overlap",
+  "format_version": "1.0.0",
+  "partial": [
+    {
+      "path": "synthetic/overlap.py",
+      "start_byte": 10,
+      "end_byte": 90
+    },
+    {
+      "path": "synthetic/overlap.py",
+      "start_byte": 50,
+      "end_byte": 130
+    }
+  ],
+  "identical": [
+    {
+      "path": "synthetic/identical.py",
+      "start_byte": 10,
+      "end_byte": 90,
+      "unit_kind": "callable_body"
+    },
+    {
+      "path": "synthetic/identical.py",
+      "start_byte": 10,
+      "end_byte": 90,
+      "unit_kind": "branch_body"
+    }
+  ]
+}

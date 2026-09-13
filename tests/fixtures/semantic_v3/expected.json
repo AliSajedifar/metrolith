@@ -1,0 +1,63 @@
+{
+  "java": {
+    "included_paths": ["App.java"],
+    "lines_of_code": 1,
+    "source_files": 1,
+    "classes_structs": 1,
+    "methods_functions": 1,
+    "primary_language": "Java"
+  },
+  "javascript": {
+    "included_paths": ["app.js"],
+    "lines_of_code": 2,
+    "source_files": 1,
+    "classes_structs": 1,
+    "methods_functions": 2,
+    "primary_language": "JavaScript"
+  },
+  "typescript": {
+    "included_paths": ["app.ts"],
+    "lines_of_code": 1,
+    "source_files": 1,
+    "classes_structs": 1,
+    "methods_functions": 1,
+    "primary_language": "TypeScript"
+  },
+  "python": {
+    "included_paths": ["app.py"],
+    "lines_of_code": 2,
+    "source_files": 1,
+    "classes_structs": 1,
+    "methods_functions": 1,
+    "primary_language": "Python"
+  },
+  "go": {
+    "included_paths": ["app.go"],
+    "lines_of_code": 3,
+    "source_files": 1,
+    "classes_structs": 1,
+    "methods_functions": 1,
+    "primary_language": "Go"
+  },
+  "mixed": {
+    "included_paths": ["app.go", "app.py"],
+    "lines_of_code": 3,
+    "source_files": 2,
+    "classes_structs": 0,
+    "methods_functions": 2,
+    "primary_language": "Go"
+  },
+  "statuses": {
+    "inventory_status": "complete",
+    "source_files_status": "complete",
+    "loc_status": "complete",
+    "classes_structs_status": "complete",
+    "methods_functions_status": "complete",
+    "metric_status": "complete"
+  },
+  "intentional_changes": [
+    "CommonJS exported functions are main module functions.",
+    "Stable module-level assigned class expressions are main classes.",
+    "Methods directly owned by named local classes are main class methods."
+  ]
+}

@@ -1,0 +1,2987 @@
+{
+  "children": [
+    {
+      "field": null,
+      "node": {
+        "children": [
+          {
+            "field": null,
+            "node": {
+              "children": [],
+              "end_byte": 4,
+              "end_point": [
+                0,
+                4
+              ],
+              "error": false,
+              "extra": false,
+              "has_error": false,
+              "missing": false,
+              "named": false,
+              "start_byte": 0,
+              "start_point": [
+                0,
+                0
+              ],
+              "text": "type",
+              "type": "type"
+            }
+          },
+          {
+            "field": "name",
+            "node": {
+              "children": [],
+              "end_byte": 10,
+              "end_point": [
+                0,
+                10
+              ],
+              "error": false,
+              "extra": false,
+              "has_error": false,
+              "missing": false,
+              "named": true,
+              "start_byte": 5,
+              "start_point": [
+                0,
+                5
+              ],
+              "text": "Props",
+              "type": "type_identifier"
+            }
+          },
+          {
+            "field": null,
+            "node": {
+              "children": [],
+              "end_byte": 12,
+              "end_point": [
+                0,
+                12
+              ],
+              "error": false,
+              "extra": false,
+              "has_error": false,
+              "missing": false,
+              "named": false,
+              "start_byte": 11,
+              "start_point": [
+                0,
+                11
+              ],
+              "text": "=",
+              "type": "="
+            }
+          },
+          {
+            "field": "value",
+            "node": {
+              "children": [
+                {
+                  "field": null,
+                  "node": {
+                    "children": [],
+                    "end_byte": 14,
+                    "end_point": [
+                      0,
+                      14
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": false,
+                    "start_byte": 13,
+                    "start_point": [
+                      0,
+                      13
+                    ],
+                    "text": "{",
+                    "type": "{"
+                  }
+                },
+                {
+                  "field": null,
+                  "node": {
+                    "children": [
+                      {
+                        "field": "name",
+                        "node": {
+                          "children": [],
+                          "end_byte": 20,
+                          "end_point": [
+                            0,
+                            20
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 15,
+                          "start_point": [
+                            0,
+                            15
+                          ],
+                          "text": "title",
+                          "type": "property_identifier"
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [],
+                          "end_byte": 21,
+                          "end_point": [
+                            0,
+                            21
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": false,
+                          "start_byte": 20,
+                          "start_point": [
+                            0,
+                            20
+                          ],
+                          "text": "?",
+                          "type": "?"
+                        }
+                      },
+                      {
+                        "field": "type",
+                        "node": {
+                          "children": [
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [],
+                                "end_byte": 22,
+                                "end_point": [
+                                  0,
+                                  22
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 21,
+                                "start_point": [
+                                  0,
+                                  21
+                                ],
+                                "text": ":",
+                                "type": ":"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [
+                                  {
+                                    "field": null,
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 29,
+                                      "end_point": [
+                                        0,
+                                        29
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": false,
+                                      "start_byte": 23,
+                                      "start_point": [
+                                        0,
+                                        23
+                                      ],
+                                      "text": "string",
+                                      "type": "string"
+                                    }
+                                  }
+                                ],
+                                "end_byte": 29,
+                                "end_point": [
+                                  0,
+                                  29
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 23,
+                                "start_point": [
+                                  0,
+                                  23
+                                ],
+                                "type": "predefined_type"
+                              }
+                            }
+                          ],
+                          "end_byte": 29,
+                          "end_point": [
+                            0,
+                            29
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 21,
+                          "start_point": [
+                            0,
+                            21
+                          ],
+                          "type": "type_annotation"
+                        }
+                      }
+                    ],
+                    "end_byte": 29,
+                    "end_point": [
+                      0,
+                      29
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": true,
+                    "start_byte": 15,
+                    "start_point": [
+                      0,
+                      15
+                    ],
+                    "type": "property_signature"
+                  }
+                },
+                {
+                  "field": null,
+                  "node": {
+                    "children": [],
+                    "end_byte": 30,
+                    "end_point": [
+                      0,
+                      30
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": false,
+                    "start_byte": 29,
+                    "start_point": [
+                      0,
+                      29
+                    ],
+                    "text": ";",
+                    "type": ";"
+                  }
+                },
+                {
+                  "field": null,
+                  "node": {
+                    "children": [
+                      {
+                        "field": "name",
+                        "node": {
+                          "children": [],
+                          "end_byte": 39,
+                          "end_point": [
+                            0,
+                            39
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 31,
+                          "start_point": [
+                            0,
+                            31
+                          ],
+                          "text": "children",
+                          "type": "property_identifier"
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [],
+                          "end_byte": 40,
+                          "end_point": [
+                            0,
+                            40
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": false,
+                          "start_byte": 39,
+                          "start_point": [
+                            0,
+                            39
+                          ],
+                          "text": "?",
+                          "type": "?"
+                        }
+                      },
+                      {
+                        "field": "type",
+                        "node": {
+                          "children": [
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [],
+                                "end_byte": 41,
+                                "end_point": [
+                                  0,
+                                  41
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 40,
+                                "start_point": [
+                                  0,
+                                  40
+                                ],
+                                "text": ":",
+                                "type": ":"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [
+                                  {
+                                    "field": null,
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 49,
+                                      "end_point": [
+                                        0,
+                                        49
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": false,
+                                      "start_byte": 42,
+                                      "start_point": [
+                                        0,
+                                        42
+                                      ],
+                                      "text": "unknown",
+                                      "type": "unknown"
+                                    }
+                                  }
+                                ],
+                                "end_byte": 49,
+                                "end_point": [
+                                  0,
+                                  49
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 42,
+                                "start_point": [
+                                  0,
+                                  42
+                                ],
+                                "type": "predefined_type"
+                              }
+                            }
+                          ],
+                          "end_byte": 49,
+                          "end_point": [
+                            0,
+                            49
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 40,
+                          "start_point": [
+                            0,
+                            40
+                          ],
+                          "type": "type_annotation"
+                        }
+                      }
+                    ],
+                    "end_byte": 49,
+                    "end_point": [
+                      0,
+                      49
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": true,
+                    "start_byte": 31,
+                    "start_point": [
+                      0,
+                      31
+                    ],
+                    "type": "property_signature"
+                  }
+                },
+                {
+                  "field": null,
+                  "node": {
+                    "children": [],
+                    "end_byte": 51,
+                    "end_point": [
+                      0,
+                      51
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": false,
+                    "start_byte": 50,
+                    "start_point": [
+                      0,
+                      50
+                    ],
+                    "text": "}",
+                    "type": "}"
+                  }
+                }
+              ],
+              "end_byte": 51,
+              "end_point": [
+                0,
+                51
+              ],
+              "error": false,
+              "extra": false,
+              "has_error": false,
+              "missing": false,
+              "named": true,
+              "start_byte": 13,
+              "start_point": [
+                0,
+                13
+              ],
+              "type": "object_type"
+            }
+          },
+          {
+            "field": null,
+            "node": {
+              "children": [],
+              "end_byte": 52,
+              "end_point": [
+                0,
+                52
+              ],
+              "error": false,
+              "extra": false,
+              "has_error": false,
+              "missing": false,
+              "named": false,
+              "start_byte": 51,
+              "start_point": [
+                0,
+                51
+              ],
+              "text": ";",
+              "type": ";"
+            }
+          }
+        ],
+        "end_byte": 52,
+        "end_point": [
+          0,
+          52
+        ],
+        "error": false,
+        "extra": false,
+        "has_error": false,
+        "missing": false,
+        "named": true,
+        "start_byte": 0,
+        "start_point": [
+          0,
+          0
+        ],
+        "type": "type_alias_declaration"
+      }
+    },
+    {
+      "field": null,
+      "node": {
+        "children": [
+          {
+            "field": null,
+            "node": {
+              "children": [],
+              "end_byte": 60,
+              "end_point": [
+                2,
+                6
+              ],
+              "error": false,
+              "extra": false,
+              "has_error": false,
+              "missing": false,
+              "named": false,
+              "start_byte": 54,
+              "start_point": [
+                2,
+                0
+              ],
+              "text": "export",
+              "type": "export"
+            }
+          },
+          {
+            "field": "declaration",
+            "node": {
+              "children": [
+                {
+                  "field": null,
+                  "node": {
+                    "children": [],
+                    "end_byte": 69,
+                    "end_point": [
+                      2,
+                      15
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": false,
+                    "start_byte": 61,
+                    "start_point": [
+                      2,
+                      7
+                    ],
+                    "text": "function",
+                    "type": "function"
+                  }
+                },
+                {
+                  "field": "name",
+                  "node": {
+                    "children": [],
+                    "end_byte": 79,
+                    "end_point": [
+                      2,
+                      25
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": true,
+                    "start_byte": 70,
+                    "start_point": [
+                      2,
+                      16
+                    ],
+                    "text": "Component",
+                    "type": "identifier"
+                  }
+                },
+                {
+                  "field": "parameters",
+                  "node": {
+                    "children": [
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [],
+                          "end_byte": 80,
+                          "end_point": [
+                            2,
+                            26
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": false,
+                          "start_byte": 79,
+                          "start_point": [
+                            2,
+                            25
+                          ],
+                          "text": "(",
+                          "type": "("
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [
+                            {
+                              "field": "pattern",
+                              "node": {
+                                "children": [],
+                                "end_byte": 85,
+                                "end_point": [
+                                  2,
+                                  31
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 80,
+                                "start_point": [
+                                  2,
+                                  26
+                                ],
+                                "text": "props",
+                                "type": "identifier"
+                              }
+                            },
+                            {
+                              "field": "type",
+                              "node": {
+                                "children": [
+                                  {
+                                    "field": null,
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 86,
+                                      "end_point": [
+                                        2,
+                                        32
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": false,
+                                      "start_byte": 85,
+                                      "start_point": [
+                                        2,
+                                        31
+                                      ],
+                                      "text": ":",
+                                      "type": ":"
+                                    }
+                                  },
+                                  {
+                                    "field": null,
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 92,
+                                      "end_point": [
+                                        2,
+                                        38
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 87,
+                                      "start_point": [
+                                        2,
+                                        33
+                                      ],
+                                      "text": "Props",
+                                      "type": "type_identifier"
+                                    }
+                                  }
+                                ],
+                                "end_byte": 92,
+                                "end_point": [
+                                  2,
+                                  38
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 85,
+                                "start_point": [
+                                  2,
+                                  31
+                                ],
+                                "type": "type_annotation"
+                              }
+                            }
+                          ],
+                          "end_byte": 92,
+                          "end_point": [
+                            2,
+                            38
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 80,
+                          "start_point": [
+                            2,
+                            26
+                          ],
+                          "type": "required_parameter"
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [],
+                          "end_byte": 93,
+                          "end_point": [
+                            2,
+                            39
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": false,
+                          "start_byte": 92,
+                          "start_point": [
+                            2,
+                            38
+                          ],
+                          "text": ")",
+                          "type": ")"
+                        }
+                      }
+                    ],
+                    "end_byte": 93,
+                    "end_point": [
+                      2,
+                      39
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": true,
+                    "start_byte": 79,
+                    "start_point": [
+                      2,
+                      25
+                    ],
+                    "type": "formal_parameters"
+                  }
+                },
+                {
+                  "field": "return_type",
+                  "node": {
+                    "children": [
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [],
+                          "end_byte": 94,
+                          "end_point": [
+                            2,
+                            40
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": false,
+                          "start_byte": 93,
+                          "start_point": [
+                            2,
+                            39
+                          ],
+                          "text": ":",
+                          "type": ":"
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [
+                            {
+                              "field": "module",
+                              "node": {
+                                "children": [],
+                                "end_byte": 98,
+                                "end_point": [
+                                  2,
+                                  44
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 95,
+                                "start_point": [
+                                  2,
+                                  41
+                                ],
+                                "text": "JSX",
+                                "type": "identifier"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [],
+                                "end_byte": 99,
+                                "end_point": [
+                                  2,
+                                  45
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 98,
+                                "start_point": [
+                                  2,
+                                  44
+                                ],
+                                "text": ".",
+                                "type": "."
+                              }
+                            },
+                            {
+                              "field": "name",
+                              "node": {
+                                "children": [],
+                                "end_byte": 106,
+                                "end_point": [
+                                  2,
+                                  52
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 99,
+                                "start_point": [
+                                  2,
+                                  45
+                                ],
+                                "text": "Element",
+                                "type": "type_identifier"
+                              }
+                            }
+                          ],
+                          "end_byte": 106,
+                          "end_point": [
+                            2,
+                            52
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 95,
+                          "start_point": [
+                            2,
+                            41
+                          ],
+                          "type": "nested_type_identifier"
+                        }
+                      }
+                    ],
+                    "end_byte": 106,
+                    "end_point": [
+                      2,
+                      52
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": true,
+                    "start_byte": 93,
+                    "start_point": [
+                      2,
+                      39
+                    ],
+                    "type": "type_annotation"
+                  }
+                },
+                {
+                  "field": "body",
+                  "node": {
+                    "children": [
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [],
+                          "end_byte": 108,
+                          "end_point": [
+                            2,
+                            54
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": false,
+                          "start_byte": 107,
+                          "start_point": [
+                            2,
+                            53
+                          ],
+                          "text": "{",
+                          "type": "{"
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [
+                            {
+                              "field": "kind",
+                              "node": {
+                                "children": [],
+                                "end_byte": 118,
+                                "end_point": [
+                                  3,
+                                  9
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 113,
+                                "start_point": [
+                                  3,
+                                  4
+                                ],
+                                "text": "const",
+                                "type": "const"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [
+                                  {
+                                    "field": "name",
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 124,
+                                      "end_point": [
+                                        3,
+                                        15
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 119,
+                                      "start_point": [
+                                        3,
+                                        10
+                                      ],
+                                      "text": "title",
+                                      "type": "identifier"
+                                    }
+                                  },
+                                  {
+                                    "field": null,
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 126,
+                                      "end_point": [
+                                        3,
+                                        17
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": false,
+                                      "start_byte": 125,
+                                      "start_point": [
+                                        3,
+                                        16
+                                      ],
+                                      "text": "=",
+                                      "type": "="
+                                    }
+                                  },
+                                  {
+                                    "field": "value",
+                                    "node": {
+                                      "children": [
+                                        {
+                                          "field": "left",
+                                          "node": {
+                                            "children": [
+                                              {
+                                                "field": "object",
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 132,
+                                                  "end_point": [
+                                                    3,
+                                                    23
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 127,
+                                                  "start_point": [
+                                                    3,
+                                                    18
+                                                  ],
+                                                  "text": "props",
+                                                  "type": "identifier"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 133,
+                                                  "end_point": [
+                                                    3,
+                                                    24
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 132,
+                                                  "start_point": [
+                                                    3,
+                                                    23
+                                                  ],
+                                                  "text": ".",
+                                                  "type": "."
+                                                }
+                                              },
+                                              {
+                                                "field": "property",
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 138,
+                                                  "end_point": [
+                                                    3,
+                                                    29
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 133,
+                                                  "start_point": [
+                                                    3,
+                                                    24
+                                                  ],
+                                                  "text": "title",
+                                                  "type": "property_identifier"
+                                                }
+                                              }
+                                            ],
+                                            "end_byte": 138,
+                                            "end_point": [
+                                              3,
+                                              29
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 127,
+                                            "start_point": [
+                                              3,
+                                              18
+                                            ],
+                                            "type": "member_expression"
+                                          }
+                                        },
+                                        {
+                                          "field": "operator",
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 141,
+                                            "end_point": [
+                                              3,
+                                              32
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": false,
+                                            "start_byte": 139,
+                                            "start_point": [
+                                              3,
+                                              30
+                                            ],
+                                            "text": "??",
+                                            "type": "??"
+                                          }
+                                        },
+                                        {
+                                          "field": "right",
+                                          "node": {
+                                            "children": [
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 143,
+                                                  "end_point": [
+                                                    3,
+                                                    34
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 142,
+                                                  "start_point": [
+                                                    3,
+                                                    33
+                                                  ],
+                                                  "text": "\"",
+                                                  "type": "\""
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 151,
+                                                  "end_point": [
+                                                    3,
+                                                    42
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 143,
+                                                  "start_point": [
+                                                    3,
+                                                    34
+                                                  ],
+                                                  "text": "untitled",
+                                                  "type": "string_fragment"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 152,
+                                                  "end_point": [
+                                                    3,
+                                                    43
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 151,
+                                                  "start_point": [
+                                                    3,
+                                                    42
+                                                  ],
+                                                  "text": "\"",
+                                                  "type": "\""
+                                                }
+                                              }
+                                            ],
+                                            "end_byte": 152,
+                                            "end_point": [
+                                              3,
+                                              43
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 142,
+                                            "start_point": [
+                                              3,
+                                              33
+                                            ],
+                                            "type": "string"
+                                          }
+                                        }
+                                      ],
+                                      "end_byte": 152,
+                                      "end_point": [
+                                        3,
+                                        43
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 127,
+                                      "start_point": [
+                                        3,
+                                        18
+                                      ],
+                                      "type": "binary_expression"
+                                    }
+                                  }
+                                ],
+                                "end_byte": 152,
+                                "end_point": [
+                                  3,
+                                  43
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 119,
+                                "start_point": [
+                                  3,
+                                  10
+                                ],
+                                "type": "variable_declarator"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [],
+                                "end_byte": 153,
+                                "end_point": [
+                                  3,
+                                  44
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 152,
+                                "start_point": [
+                                  3,
+                                  43
+                                ],
+                                "text": ";",
+                                "type": ";"
+                              }
+                            }
+                          ],
+                          "end_byte": 153,
+                          "end_point": [
+                            3,
+                            44
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 113,
+                          "start_point": [
+                            3,
+                            4
+                          ],
+                          "type": "lexical_declaration"
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [
+                            {
+                              "field": "kind",
+                              "node": {
+                                "children": [],
+                                "end_byte": 163,
+                                "end_point": [
+                                  4,
+                                  9
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 158,
+                                "start_point": [
+                                  4,
+                                  4
+                                ],
+                                "text": "const",
+                                "type": "const"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [
+                                  {
+                                    "field": "name",
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 170,
+                                      "end_point": [
+                                        4,
+                                        16
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 164,
+                                      "start_point": [
+                                        4,
+                                        10
+                                      ],
+                                      "text": "header",
+                                      "type": "identifier"
+                                    }
+                                  },
+                                  {
+                                    "field": null,
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 172,
+                                      "end_point": [
+                                        4,
+                                        18
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": false,
+                                      "start_byte": 171,
+                                      "start_point": [
+                                        4,
+                                        17
+                                      ],
+                                      "text": "=",
+                                      "type": "="
+                                    }
+                                  },
+                                  {
+                                    "field": "value",
+                                    "node": {
+                                      "children": [
+                                        {
+                                          "field": "open_tag",
+                                          "node": {
+                                            "children": [
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 174,
+                                                  "end_point": [
+                                                    4,
+                                                    20
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 173,
+                                                  "start_point": [
+                                                    4,
+                                                    19
+                                                  ],
+                                                  "text": "<",
+                                                  "type": "<"
+                                                }
+                                              },
+                                              {
+                                                "field": "name",
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 176,
+                                                  "end_point": [
+                                                    4,
+                                                    22
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 174,
+                                                  "start_point": [
+                                                    4,
+                                                    20
+                                                  ],
+                                                  "text": "h1",
+                                                  "type": "identifier"
+                                                }
+                                              },
+                                              {
+                                                "field": "attribute",
+                                                "node": {
+                                                  "children": [
+                                                    {
+                                                      "field": null,
+                                                      "node": {
+                                                        "children": [],
+                                                        "end_byte": 186,
+                                                        "end_point": [
+                                                          4,
+                                                          32
+                                                        ],
+                                                        "error": false,
+                                                        "extra": false,
+                                                        "has_error": false,
+                                                        "missing": false,
+                                                        "named": true,
+                                                        "start_byte": 177,
+                                                        "start_point": [
+                                                          4,
+                                                          23
+                                                        ],
+                                                        "text": "data-kind",
+                                                        "type": "property_identifier"
+                                                      }
+                                                    },
+                                                    {
+                                                      "field": null,
+                                                      "node": {
+                                                        "children": [],
+                                                        "end_byte": 187,
+                                                        "end_point": [
+                                                          4,
+                                                          33
+                                                        ],
+                                                        "error": false,
+                                                        "extra": false,
+                                                        "has_error": false,
+                                                        "missing": false,
+                                                        "named": false,
+                                                        "start_byte": 186,
+                                                        "start_point": [
+                                                          4,
+                                                          32
+                                                        ],
+                                                        "text": "=",
+                                                        "type": "="
+                                                      }
+                                                    },
+                                                    {
+                                                      "field": null,
+                                                      "node": {
+                                                        "children": [
+                                                          {
+                                                            "field": null,
+                                                            "node": {
+                                                              "children": [],
+                                                              "end_byte": 188,
+                                                              "end_point": [
+                                                                4,
+                                                                34
+                                                              ],
+                                                              "error": false,
+                                                              "extra": false,
+                                                              "has_error": false,
+                                                              "missing": false,
+                                                              "named": false,
+                                                              "start_byte": 187,
+                                                              "start_point": [
+                                                                4,
+                                                                33
+                                                              ],
+                                                              "text": "\"",
+                                                              "type": "\""
+                                                            }
+                                                          },
+                                                          {
+                                                            "field": null,
+                                                            "node": {
+                                                              "children": [],
+                                                              "end_byte": 193,
+                                                              "end_point": [
+                                                                4,
+                                                                39
+                                                              ],
+                                                              "error": false,
+                                                              "extra": false,
+                                                              "has_error": false,
+                                                              "missing": false,
+                                                              "named": true,
+                                                              "start_byte": 188,
+                                                              "start_point": [
+                                                                4,
+                                                                34
+                                                              ],
+                                                              "text": "title",
+                                                              "type": "string_fragment"
+                                                            }
+                                                          },
+                                                          {
+                                                            "field": null,
+                                                            "node": {
+                                                              "children": [],
+                                                              "end_byte": 194,
+                                                              "end_point": [
+                                                                4,
+                                                                40
+                                                              ],
+                                                              "error": false,
+                                                              "extra": false,
+                                                              "has_error": false,
+                                                              "missing": false,
+                                                              "named": false,
+                                                              "start_byte": 193,
+                                                              "start_point": [
+                                                                4,
+                                                                39
+                                                              ],
+                                                              "text": "\"",
+                                                              "type": "\""
+                                                            }
+                                                          }
+                                                        ],
+                                                        "end_byte": 194,
+                                                        "end_point": [
+                                                          4,
+                                                          40
+                                                        ],
+                                                        "error": false,
+                                                        "extra": false,
+                                                        "has_error": false,
+                                                        "missing": false,
+                                                        "named": true,
+                                                        "start_byte": 187,
+                                                        "start_point": [
+                                                          4,
+                                                          33
+                                                        ],
+                                                        "type": "string"
+                                                      }
+                                                    }
+                                                  ],
+                                                  "end_byte": 194,
+                                                  "end_point": [
+                                                    4,
+                                                    40
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 177,
+                                                  "start_point": [
+                                                    4,
+                                                    23
+                                                  ],
+                                                  "type": "jsx_attribute"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 195,
+                                                  "end_point": [
+                                                    4,
+                                                    41
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 194,
+                                                  "start_point": [
+                                                    4,
+                                                    40
+                                                  ],
+                                                  "text": ">",
+                                                  "type": ">"
+                                                }
+                                              }
+                                            ],
+                                            "end_byte": 195,
+                                            "end_point": [
+                                              4,
+                                              41
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 173,
+                                            "start_point": [
+                                              4,
+                                              19
+                                            ],
+                                            "type": "jsx_opening_element"
+                                          }
+                                        },
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 196,
+                                                  "end_point": [
+                                                    4,
+                                                    42
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 195,
+                                                  "start_point": [
+                                                    4,
+                                                    41
+                                                  ],
+                                                  "text": "{",
+                                                  "type": "{"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 201,
+                                                  "end_point": [
+                                                    4,
+                                                    47
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 196,
+                                                  "start_point": [
+                                                    4,
+                                                    42
+                                                  ],
+                                                  "text": "title",
+                                                  "type": "identifier"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 202,
+                                                  "end_point": [
+                                                    4,
+                                                    48
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 201,
+                                                  "start_point": [
+                                                    4,
+                                                    47
+                                                  ],
+                                                  "text": "}",
+                                                  "type": "}"
+                                                }
+                                              }
+                                            ],
+                                            "end_byte": 202,
+                                            "end_point": [
+                                              4,
+                                              48
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 195,
+                                            "start_point": [
+                                              4,
+                                              41
+                                            ],
+                                            "type": "jsx_expression"
+                                          }
+                                        },
+                                        {
+                                          "field": "close_tag",
+                                          "node": {
+                                            "children": [
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 204,
+                                                  "end_point": [
+                                                    4,
+                                                    50
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 202,
+                                                  "start_point": [
+                                                    4,
+                                                    48
+                                                  ],
+                                                  "text": "</",
+                                                  "type": "</"
+                                                }
+                                              },
+                                              {
+                                                "field": "name",
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 206,
+                                                  "end_point": [
+                                                    4,
+                                                    52
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 204,
+                                                  "start_point": [
+                                                    4,
+                                                    50
+                                                  ],
+                                                  "text": "h1",
+                                                  "type": "identifier"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 207,
+                                                  "end_point": [
+                                                    4,
+                                                    53
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 206,
+                                                  "start_point": [
+                                                    4,
+                                                    52
+                                                  ],
+                                                  "text": ">",
+                                                  "type": ">"
+                                                }
+                                              }
+                                            ],
+                                            "end_byte": 207,
+                                            "end_point": [
+                                              4,
+                                              53
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 202,
+                                            "start_point": [
+                                              4,
+                                              48
+                                            ],
+                                            "type": "jsx_closing_element"
+                                          }
+                                        }
+                                      ],
+                                      "end_byte": 207,
+                                      "end_point": [
+                                        4,
+                                        53
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 173,
+                                      "start_point": [
+                                        4,
+                                        19
+                                      ],
+                                      "type": "jsx_element"
+                                    }
+                                  }
+                                ],
+                                "end_byte": 207,
+                                "end_point": [
+                                  4,
+                                  53
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 164,
+                                "start_point": [
+                                  4,
+                                  10
+                                ],
+                                "type": "variable_declarator"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [],
+                                "end_byte": 208,
+                                "end_point": [
+                                  4,
+                                  54
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 207,
+                                "start_point": [
+                                  4,
+                                  53
+                                ],
+                                "text": ";",
+                                "type": ";"
+                              }
+                            }
+                          ],
+                          "end_byte": 208,
+                          "end_point": [
+                            4,
+                            54
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 158,
+                          "start_point": [
+                            4,
+                            4
+                          ],
+                          "type": "lexical_declaration"
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [
+                            {
+                              "field": "kind",
+                              "node": {
+                                "children": [],
+                                "end_byte": 218,
+                                "end_point": [
+                                  5,
+                                  9
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 213,
+                                "start_point": [
+                                  5,
+                                  4
+                                ],
+                                "text": "const",
+                                "type": "const"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [
+                                  {
+                                    "field": "name",
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 223,
+                                      "end_point": [
+                                        5,
+                                        14
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 219,
+                                      "start_point": [
+                                        5,
+                                        10
+                                      ],
+                                      "text": "body",
+                                      "type": "identifier"
+                                    }
+                                  },
+                                  {
+                                    "field": null,
+                                    "node": {
+                                      "children": [],
+                                      "end_byte": 225,
+                                      "end_point": [
+                                        5,
+                                        16
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": false,
+                                      "start_byte": 224,
+                                      "start_point": [
+                                        5,
+                                        15
+                                      ],
+                                      "text": "=",
+                                      "type": "="
+                                    }
+                                  },
+                                  {
+                                    "field": "value",
+                                    "node": {
+                                      "children": [
+                                        {
+                                          "field": "open_tag",
+                                          "node": {
+                                            "children": [
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 227,
+                                                  "end_point": [
+                                                    5,
+                                                    18
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 226,
+                                                  "start_point": [
+                                                    5,
+                                                    17
+                                                  ],
+                                                  "text": "<",
+                                                  "type": "<"
+                                                }
+                                              },
+                                              {
+                                                "field": "name",
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 234,
+                                                  "end_point": [
+                                                    5,
+                                                    25
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 227,
+                                                  "start_point": [
+                                                    5,
+                                                    18
+                                                  ],
+                                                  "text": "section",
+                                                  "type": "identifier"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 235,
+                                                  "end_point": [
+                                                    5,
+                                                    26
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 234,
+                                                  "start_point": [
+                                                    5,
+                                                    25
+                                                  ],
+                                                  "text": ">",
+                                                  "type": ">"
+                                                }
+                                              }
+                                            ],
+                                            "end_byte": 235,
+                                            "end_point": [
+                                              5,
+                                              26
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 226,
+                                            "start_point": [
+                                              5,
+                                              17
+                                            ],
+                                            "type": "jsx_opening_element"
+                                          }
+                                        },
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 236,
+                                                  "end_point": [
+                                                    5,
+                                                    27
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 235,
+                                                  "start_point": [
+                                                    5,
+                                                    26
+                                                  ],
+                                                  "text": "{",
+                                                  "type": "{"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [
+                                                    {
+                                                      "field": "object",
+                                                      "node": {
+                                                        "children": [],
+                                                        "end_byte": 241,
+                                                        "end_point": [
+                                                          5,
+                                                          32
+                                                        ],
+                                                        "error": false,
+                                                        "extra": false,
+                                                        "has_error": false,
+                                                        "missing": false,
+                                                        "named": true,
+                                                        "start_byte": 236,
+                                                        "start_point": [
+                                                          5,
+                                                          27
+                                                        ],
+                                                        "text": "props",
+                                                        "type": "identifier"
+                                                      }
+                                                    },
+                                                    {
+                                                      "field": null,
+                                                      "node": {
+                                                        "children": [],
+                                                        "end_byte": 242,
+                                                        "end_point": [
+                                                          5,
+                                                          33
+                                                        ],
+                                                        "error": false,
+                                                        "extra": false,
+                                                        "has_error": false,
+                                                        "missing": false,
+                                                        "named": false,
+                                                        "start_byte": 241,
+                                                        "start_point": [
+                                                          5,
+                                                          32
+                                                        ],
+                                                        "text": ".",
+                                                        "type": "."
+                                                      }
+                                                    },
+                                                    {
+                                                      "field": "property",
+                                                      "node": {
+                                                        "children": [],
+                                                        "end_byte": 250,
+                                                        "end_point": [
+                                                          5,
+                                                          41
+                                                        ],
+                                                        "error": false,
+                                                        "extra": false,
+                                                        "has_error": false,
+                                                        "missing": false,
+                                                        "named": true,
+                                                        "start_byte": 242,
+                                                        "start_point": [
+                                                          5,
+                                                          33
+                                                        ],
+                                                        "text": "children",
+                                                        "type": "property_identifier"
+                                                      }
+                                                    }
+                                                  ],
+                                                  "end_byte": 250,
+                                                  "end_point": [
+                                                    5,
+                                                    41
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 236,
+                                                  "start_point": [
+                                                    5,
+                                                    27
+                                                  ],
+                                                  "type": "member_expression"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 251,
+                                                  "end_point": [
+                                                    5,
+                                                    42
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 250,
+                                                  "start_point": [
+                                                    5,
+                                                    41
+                                                  ],
+                                                  "text": "}",
+                                                  "type": "}"
+                                                }
+                                              }
+                                            ],
+                                            "end_byte": 251,
+                                            "end_point": [
+                                              5,
+                                              42
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 235,
+                                            "start_point": [
+                                              5,
+                                              26
+                                            ],
+                                            "type": "jsx_expression"
+                                          }
+                                        },
+                                        {
+                                          "field": "close_tag",
+                                          "node": {
+                                            "children": [
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 253,
+                                                  "end_point": [
+                                                    5,
+                                                    44
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 251,
+                                                  "start_point": [
+                                                    5,
+                                                    42
+                                                  ],
+                                                  "text": "</",
+                                                  "type": "</"
+                                                }
+                                              },
+                                              {
+                                                "field": "name",
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 260,
+                                                  "end_point": [
+                                                    5,
+                                                    51
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": true,
+                                                  "start_byte": 253,
+                                                  "start_point": [
+                                                    5,
+                                                    44
+                                                  ],
+                                                  "text": "section",
+                                                  "type": "identifier"
+                                                }
+                                              },
+                                              {
+                                                "field": null,
+                                                "node": {
+                                                  "children": [],
+                                                  "end_byte": 261,
+                                                  "end_point": [
+                                                    5,
+                                                    52
+                                                  ],
+                                                  "error": false,
+                                                  "extra": false,
+                                                  "has_error": false,
+                                                  "missing": false,
+                                                  "named": false,
+                                                  "start_byte": 260,
+                                                  "start_point": [
+                                                    5,
+                                                    51
+                                                  ],
+                                                  "text": ">",
+                                                  "type": ">"
+                                                }
+                                              }
+                                            ],
+                                            "end_byte": 261,
+                                            "end_point": [
+                                              5,
+                                              52
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 251,
+                                            "start_point": [
+                                              5,
+                                              42
+                                            ],
+                                            "type": "jsx_closing_element"
+                                          }
+                                        }
+                                      ],
+                                      "end_byte": 261,
+                                      "end_point": [
+                                        5,
+                                        52
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 226,
+                                      "start_point": [
+                                        5,
+                                        17
+                                      ],
+                                      "type": "jsx_element"
+                                    }
+                                  }
+                                ],
+                                "end_byte": 261,
+                                "end_point": [
+                                  5,
+                                  52
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 219,
+                                "start_point": [
+                                  5,
+                                  10
+                                ],
+                                "type": "variable_declarator"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [],
+                                "end_byte": 262,
+                                "end_point": [
+                                  5,
+                                  53
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 261,
+                                "start_point": [
+                                  5,
+                                  52
+                                ],
+                                "text": ";",
+                                "type": ";"
+                              }
+                            }
+                          ],
+                          "end_byte": 262,
+                          "end_point": [
+                            5,
+                            53
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 213,
+                          "start_point": [
+                            5,
+                            4
+                          ],
+                          "type": "lexical_declaration"
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [],
+                                "end_byte": 273,
+                                "end_point": [
+                                  6,
+                                  10
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 267,
+                                "start_point": [
+                                  6,
+                                  4
+                                ],
+                                "text": "return",
+                                "type": "return"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [
+                                  {
+                                    "field": "open_tag",
+                                    "node": {
+                                      "children": [
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 275,
+                                            "end_point": [
+                                              6,
+                                              12
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": false,
+                                            "start_byte": 274,
+                                            "start_point": [
+                                              6,
+                                              11
+                                            ],
+                                            "text": "<",
+                                            "type": "<"
+                                          }
+                                        },
+                                        {
+                                          "field": "name",
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 279,
+                                            "end_point": [
+                                              6,
+                                              16
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 275,
+                                            "start_point": [
+                                              6,
+                                              12
+                                            ],
+                                            "text": "main",
+                                            "type": "identifier"
+                                          }
+                                        },
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 280,
+                                            "end_point": [
+                                              6,
+                                              17
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": false,
+                                            "start_byte": 279,
+                                            "start_point": [
+                                              6,
+                                              16
+                                            ],
+                                            "text": ">",
+                                            "type": ">"
+                                          }
+                                        }
+                                      ],
+                                      "end_byte": 280,
+                                      "end_point": [
+                                        6,
+                                        17
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 274,
+                                      "start_point": [
+                                        6,
+                                        11
+                                      ],
+                                      "type": "jsx_opening_element"
+                                    }
+                                  },
+                                  {
+                                    "field": null,
+                                    "node": {
+                                      "children": [
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 281,
+                                            "end_point": [
+                                              6,
+                                              18
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": false,
+                                            "start_byte": 280,
+                                            "start_point": [
+                                              6,
+                                              17
+                                            ],
+                                            "text": "{",
+                                            "type": "{"
+                                          }
+                                        },
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 287,
+                                            "end_point": [
+                                              6,
+                                              24
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 281,
+                                            "start_point": [
+                                              6,
+                                              18
+                                            ],
+                                            "text": "header",
+                                            "type": "identifier"
+                                          }
+                                        },
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 288,
+                                            "end_point": [
+                                              6,
+                                              25
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": false,
+                                            "start_byte": 287,
+                                            "start_point": [
+                                              6,
+                                              24
+                                            ],
+                                            "text": "}",
+                                            "type": "}"
+                                          }
+                                        }
+                                      ],
+                                      "end_byte": 288,
+                                      "end_point": [
+                                        6,
+                                        25
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 280,
+                                      "start_point": [
+                                        6,
+                                        17
+                                      ],
+                                      "type": "jsx_expression"
+                                    }
+                                  },
+                                  {
+                                    "field": null,
+                                    "node": {
+                                      "children": [
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 289,
+                                            "end_point": [
+                                              6,
+                                              26
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": false,
+                                            "start_byte": 288,
+                                            "start_point": [
+                                              6,
+                                              25
+                                            ],
+                                            "text": "{",
+                                            "type": "{"
+                                          }
+                                        },
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 293,
+                                            "end_point": [
+                                              6,
+                                              30
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 289,
+                                            "start_point": [
+                                              6,
+                                              26
+                                            ],
+                                            "text": "body",
+                                            "type": "identifier"
+                                          }
+                                        },
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 294,
+                                            "end_point": [
+                                              6,
+                                              31
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": false,
+                                            "start_byte": 293,
+                                            "start_point": [
+                                              6,
+                                              30
+                                            ],
+                                            "text": "}",
+                                            "type": "}"
+                                          }
+                                        }
+                                      ],
+                                      "end_byte": 294,
+                                      "end_point": [
+                                        6,
+                                        31
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 288,
+                                      "start_point": [
+                                        6,
+                                        25
+                                      ],
+                                      "type": "jsx_expression"
+                                    }
+                                  },
+                                  {
+                                    "field": "close_tag",
+                                    "node": {
+                                      "children": [
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 296,
+                                            "end_point": [
+                                              6,
+                                              33
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": false,
+                                            "start_byte": 294,
+                                            "start_point": [
+                                              6,
+                                              31
+                                            ],
+                                            "text": "</",
+                                            "type": "</"
+                                          }
+                                        },
+                                        {
+                                          "field": "name",
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 300,
+                                            "end_point": [
+                                              6,
+                                              37
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": true,
+                                            "start_byte": 296,
+                                            "start_point": [
+                                              6,
+                                              33
+                                            ],
+                                            "text": "main",
+                                            "type": "identifier"
+                                          }
+                                        },
+                                        {
+                                          "field": null,
+                                          "node": {
+                                            "children": [],
+                                            "end_byte": 301,
+                                            "end_point": [
+                                              6,
+                                              38
+                                            ],
+                                            "error": false,
+                                            "extra": false,
+                                            "has_error": false,
+                                            "missing": false,
+                                            "named": false,
+                                            "start_byte": 300,
+                                            "start_point": [
+                                              6,
+                                              37
+                                            ],
+                                            "text": ">",
+                                            "type": ">"
+                                          }
+                                        }
+                                      ],
+                                      "end_byte": 301,
+                                      "end_point": [
+                                        6,
+                                        38
+                                      ],
+                                      "error": false,
+                                      "extra": false,
+                                      "has_error": false,
+                                      "missing": false,
+                                      "named": true,
+                                      "start_byte": 294,
+                                      "start_point": [
+                                        6,
+                                        31
+                                      ],
+                                      "type": "jsx_closing_element"
+                                    }
+                                  }
+                                ],
+                                "end_byte": 301,
+                                "end_point": [
+                                  6,
+                                  38
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": true,
+                                "start_byte": 274,
+                                "start_point": [
+                                  6,
+                                  11
+                                ],
+                                "type": "jsx_element"
+                              }
+                            },
+                            {
+                              "field": null,
+                              "node": {
+                                "children": [],
+                                "end_byte": 302,
+                                "end_point": [
+                                  6,
+                                  39
+                                ],
+                                "error": false,
+                                "extra": false,
+                                "has_error": false,
+                                "missing": false,
+                                "named": false,
+                                "start_byte": 301,
+                                "start_point": [
+                                  6,
+                                  38
+                                ],
+                                "text": ";",
+                                "type": ";"
+                              }
+                            }
+                          ],
+                          "end_byte": 302,
+                          "end_point": [
+                            6,
+                            39
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": true,
+                          "start_byte": 267,
+                          "start_point": [
+                            6,
+                            4
+                          ],
+                          "type": "return_statement"
+                        }
+                      },
+                      {
+                        "field": null,
+                        "node": {
+                          "children": [],
+                          "end_byte": 304,
+                          "end_point": [
+                            7,
+                            1
+                          ],
+                          "error": false,
+                          "extra": false,
+                          "has_error": false,
+                          "missing": false,
+                          "named": false,
+                          "start_byte": 303,
+                          "start_point": [
+                            7,
+                            0
+                          ],
+                          "text": "}",
+                          "type": "}"
+                        }
+                      }
+                    ],
+                    "end_byte": 304,
+                    "end_point": [
+                      7,
+                      1
+                    ],
+                    "error": false,
+                    "extra": false,
+                    "has_error": false,
+                    "missing": false,
+                    "named": true,
+                    "start_byte": 107,
+                    "start_point": [
+                      2,
+                      53
+                    ],
+                    "type": "statement_block"
+                  }
+                }
+              ],
+              "end_byte": 304,
+              "end_point": [
+                7,
+                1
+              ],
+              "error": false,
+              "extra": false,
+              "has_error": false,
+              "missing": false,
+              "named": true,
+              "start_byte": 61,
+              "start_point": [
+                2,
+                7
+              ],
+              "type": "function_declaration"
+            }
+          }
+        ],
+        "end_byte": 304,
+        "end_point": [
+          7,
+          1
+        ],
+        "error": false,
+        "extra": false,
+        "has_error": false,
+        "missing": false,
+        "named": true,
+        "start_byte": 54,
+        "start_point": [
+          2,
+          0
+        ],
+        "type": "export_statement"
+      }
+    }
+  ],
+  "end_byte": 305,
+  "end_point": [
+    8,
+    0
+  ],
+  "error": false,
+  "extra": false,
+  "has_error": false,
+  "missing": false,
+  "named": true,
+  "start_byte": 0,
+  "start_point": [
+    0,
+    0
+  ],
+  "type": "program"
+}

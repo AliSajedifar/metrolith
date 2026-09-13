@@ -1,0 +1,10 @@
+{
+  "$id": "https://archlens.dev/schemas/analysis-1.9.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "description": "Every repository result. The item reference moves to repository_document-1.9 because that document gained the complexity summary; this change is mechanical, not a decision.",
+  "items": {
+    "$ref": "https://archlens.dev/schemas/repository_document-1.9.schema.json"
+  },
+  "title": "ArchLens analysis 1.9",
+  "type": "array"
+}

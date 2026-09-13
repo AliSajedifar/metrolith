@@ -1,0 +1,130 @@
+{
+  "$id": "https://archlens.dev/schemas/explain_output-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Factual diagnostic projection emitted by `archlens explain`. This is a DERIVED, explicitly non-authoritative output (plan section 3.3). It carries an independent format version and must never be read back as measurement evidence.",
+  "properties": {
+    "cross_language_comparability_caveat": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "explanation_format_version": {
+      "const": "1.0.0"
+    },
+    "grouping_semantics": {
+      "description": "Must state that groups are ATTENTION grouping, not severity and not research impact (plan section 12.2).",
+      "type": "string"
+    },
+    "groups": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "entries": {
+            "items": {
+              "additionalProperties": false,
+              "properties": {
+                "evidence": {
+                  "items": {
+                    "additionalProperties": true,
+                    "type": "object"
+                  },
+                  "type": "array"
+                },
+                "evidence_scope": {
+                  "enum": [
+                    "file",
+                    "repository",
+                    "run"
+                  ]
+                },
+                "expected_language_family_status": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "explanation_completeness": {
+                  "enum": [
+                    "complete",
+                    "insufficient_evidence"
+                  ]
+                },
+                "metric_effect": {
+                  "enum": [
+                    "recorded",
+                    "unavailable",
+                    "unknown"
+                  ]
+                },
+                "partial_origin": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "recorded_status": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "relative_path": {
+                  "description": "Null is correct for acquisition, cleanup, traversal, Git-mode-map, and run-integrity evidence (plan section 10.2). Never a guessed path.",
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                },
+                "repository_url": {
+                  "minLength": 1,
+                  "type": "string"
+                },
+                "unknown_category": {
+                  "type": [
+                    "string",
+                    "null"
+                  ]
+                }
+              },
+              "required": [
+                "repository_url",
+                "evidence_scope"
+              ],
+              "type": "object"
+            },
+            "type": "array"
+          },
+          "group": {
+            "enum": [
+              "invalid-artifacts",
+              "unavailable-measurements",
+              "expected-family-failed",
+              "expected-family-partial",
+              "multiple",
+              "secondary-language-only"
+            ]
+          }
+        },
+        "required": [
+          "group",
+          "entries"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "run_id": {
+      "minLength": 1,
+      "type": "string"
+    }
+  },
+  "required": [
+    "explanation_format_version",
+    "run_id",
+    "groups"
+  ],
+  "title": "ArchLens explain output 1.0",
+  "type": "object"
+}

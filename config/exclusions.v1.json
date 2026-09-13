@@ -1,0 +1,39 @@
+{
+  "version": "1.5.0",
+  "excluded_directories": [
+    ".git", ".gradle", ".hg", ".idea", ".mypy_cache", ".next",
+    ".nuxt", ".pytest_cache", ".svn", ".tox", ".venv", ".vscode",
+    "__pycache__", "bin", "bower_components", "build", "coverage",
+    "deps", "dist", "generated", "node_modules", "obj", "out",
+    "target", "third-party", "third_party", "vendor", "vendors", "venv"
+  ],
+  "dependency_directories": [
+    "bower_components", "deps", "node_modules", "third-party",
+    "third_party", "vendor", "vendors"
+  ],
+  "build_output_directories": [
+    ".next", ".nuxt", "bin", "build", "coverage", "dist", "obj", "out", "target"
+  ],
+  "cache_directories": [
+    ".gradle", ".mypy_cache", ".pytest_cache", ".tox", ".venv",
+    "__pycache__", "venv"
+  ],
+  "test_directories": [
+    "__tests__", "componenttest", "componenttests", "contracttest",
+    "contracttests", "e2e", "fixture", "fixtures", "functionaltest",
+    "functionaltests", "integration-test", "integration-tests",
+    "integrationtest", "integrationtests", "spec", "specs", "test",
+    "testdata", "tests", "unittest", "unittests"
+  ],
+  "generated_suffixes": [
+    ".gen.go", ".gen.java", ".gen.js", ".gen.jsx", ".gen.ts", ".gen.tsx",
+    ".generated.go", ".generated.java", ".generated.js", ".generated.jsx",
+    ".generated.ts", ".generated.tsx", ".generated.mjs", ".generated.cjs",
+    ".generated.mts", ".generated.cts", ".pb.go", ".pb.gw.go", "_generated.go"
+  ],
+  "minified_or_bundle_suffixes": [
+    ".bundle.js", ".bundle.mjs", ".bundle.cjs", ".bundle.ts", ".bundle.tsx",
+    ".bundle.min.js", ".chunk.js", ".chunk.mjs", ".min.js", ".min.mjs",
+    ".min.cjs", ".min.ts", ".min.tsx"
+  ]
+}

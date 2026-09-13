@@ -1,0 +1,5 @@
+url,architecture_type,expected_language,commit_sha,enabled,notes
+https://github.com/MstfTurgut/hotel-reservation-system,unknown,Java,0912d283fc54caadc361740e675271b0c69be336,true,Frozen Java tutorial
+https://github.com/googlecodelabs/monolith-to-microservices,unknown,JavaScript,deeb3099f6a29c0ec8b92a20013fdc94f69f0d47,true,Frozen JavaScript tutorial
+https://github.com/allegro/ralph,unknown,Python,f0d695e9b24a7d1fa475b81bbee87a897e389eb2,true,Frozen Python tutorial; Complete repository and Python metrics in candidate evidence
+https://github.com/golang-app/ecommerce,unknown,Go,5708b2b784f83825c2550abdc35d1d330e4b1283,true,Frozen Go tutorial

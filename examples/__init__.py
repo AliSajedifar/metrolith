@@ -1,0 +1,1 @@
+"""Packaged Metrolith quickstart inputs."""

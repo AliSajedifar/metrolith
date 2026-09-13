@@ -1,0 +1,10 @@
+{
+  "case_id": "recovery-clean-javascript-uses-no-strategy",
+  "observations": {
+    "aggregate/classes_structs": 1,
+    "aggregate/methods_functions": 1,
+    "aggregate/metric_status": "complete",
+    "recovery/selected_fallback_strategies": []
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract and Exclusion Policy clause recorded in the manifest. ArchLens output is not the oracle."
+}

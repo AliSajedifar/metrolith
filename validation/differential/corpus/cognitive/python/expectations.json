@@ -1,0 +1,977 @@
+{
+  "language": "Python",
+  "source": "constructs.py",
+  "rule_table": "validation/complexity_g1a_20260811/FROZEN_RULE_TABLE.md",
+  "authorship": "Derived from the frozen rule table by hand. No ArchLens cognitive implementation exists; the reference tool was executed only AFTER this file was written.",
+  "contribution_arithmetic": "structural = 1 + nesting_level; flat = 1; nesting_only = 0; zero = 0. A fifth CORPUS-ONLY kind, `not_fired`, contributes 0 and means the named rule was evaluated at that site and did NOT fire -- it is how a negative case is pinned explicitly rather than left to be inferred. The callable total is the sum of the contributions listed.",
+  "callables": [
+    {
+      "name": "trivial",
+      "start_line": 10,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": []
+    },
+    {
+      "name": "plain_if",
+      "start_line": 14,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 15,
+          "line_contains": "if a:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "if_elif_else",
+      "start_line": 20,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 21,
+          "line_contains": "if a == 1:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-ELSEIF",
+          "line": 23,
+          "line_contains": "elif a == 2:",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-ELSE",
+          "line": 25,
+          "line_contains": "else:",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "note": "`elif` and a real `else:` holding an `if` are the same shape in stdlib `ast` and must be separated by column -- the ArchLens defect C4 found in the cyclomatic implementation."
+    },
+    {
+      "name": "nested_if",
+      "start_line": 29,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 30,
+          "line_contains": "if a:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-IF",
+          "line": 31,
+          "line_contains": "if b:",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        }
+      ]
+    },
+    {
+      "name": "loops",
+      "start_line": 36,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 38,
+          "line_contains": "for x in xs:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-LOOP",
+          "line": 39,
+          "line_contains": "while x > 0:",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        }
+      ]
+    },
+    {
+      "name": "loop_else",
+      "start_line": 45,
+      "expected_cognitive_complexity": 4,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 46,
+          "line_contains": "for x in xs:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-IF",
+          "line": 47,
+          "line_contains": "if x:",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        },
+        {
+          "rule": "Z-JUMP",
+          "line": 48,
+          "line_contains": "break",
+          "kind": "zero",
+          "nesting_level": 2,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "F-LOOPELSE",
+          "line": 49,
+          "line_contains": "else:",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "note": "A loop `else` is a branch and is Python-only. It sits at level 0, not inside the loop."
+    },
+    {
+      "name": "exception_handling",
+      "start_line": 54,
+      "expected_cognitive_complexity": 4,
+      "contributions": [
+        {
+          "rule": "Z-TRY",
+          "line": 55,
+          "line_contains": "try:",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "S-CATCH",
+          "line": 57,
+          "line_contains": "except ValueError:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-CATCH",
+          "line": 59,
+          "line_contains": "except TypeError:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-TRYELSE",
+          "line": 61,
+          "line_contains": "else:",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-FINALLY",
+          "line": 63,
+          "line_contains": "finally:",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "Amendment 001: `finally` is ignored entirely -- no increment and no nesting. It was N-FINALLY (nesting-only) in revision 1."
+        },
+        {
+          "rule": "S-IF",
+          "line": 64,
+          "line_contains": "if a:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "note": "The one case that separates N-FINALLY from Z-TRY: `finally` scores nothing yet raises nesting, so the `if` inside it costs 2 rather than 1.",
+      "amended_by": "Amendment 001 (owner, 2026-08-11)",
+      "pre_amendment_expected_cognitive_complexity": 5
+    },
+    {
+      "name": "ternary",
+      "start_line": 68,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-TERNARY",
+          "line": 69,
+          "line_contains": "1 if a else 0",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "bool_same_operator",
+      "start_line": 72,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 73,
+          "line_contains": "if a and b and c:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 73,
+          "line_contains": "a and b and c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "one maximal `and` sequence. Complexity Contract 1.0.0 would count 2 operator tokens here; the cognitive rule counts 1 sequence."
+        }
+      ]
+    },
+    {
+      "name": "bool_mixed_operators",
+      "start_line": 78,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 79,
+          "line_contains": "if a and b or c:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 79,
+          "line_contains": "a and b",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 79,
+          "line_contains": "or c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "bitwise_not_counted",
+      "start_line": 84,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 85,
+          "line_contains": "if a & b:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "Z-BITWISE",
+          "line": 85,
+          "line_contains": "a & b",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "comprehension",
+      "start_line": 90,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-COMPREHENSION",
+          "line": 91,
+          "line_contains": "for x in xs",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-COMPIF",
+          "line": 91,
+          "line_contains": "if x if",
+          "kind": "flat",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "first `if` clause"
+        },
+        {
+          "rule": "F-COMPIF",
+          "line": 91,
+          "line_contains": "if x > 1",
+          "kind": "flat",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "second `if` clause"
+        }
+      ]
+    },
+    {
+      "name": "match_statement",
+      "start_line": 94,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-SWITCH",
+          "line": 95,
+          "line_contains": "match a:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-GUARD",
+          "line": 98,
+          "line_contains": "case int() if a > 5:",
+          "kind": "flat",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "note": "Three arms and one guard: the arms score nothing, the guard scores 1 flat."
+    },
+    {
+      "name": "with_statement",
+      "start_line": 104,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "Z-WITH",
+          "line": 105,
+          "line_contains": "with open(path) as handle:",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "S-IF",
+          "line": 106,
+          "line_contains": "if handle:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "note": "The case that proves Z-WITH does NOT nest: the `if` costs 1, not 2. Complexity Contract 1.0.0 nests `with`; this contract does not, and the two therefore disagree on this file by design."
+    },
+    {
+      "name": "assert_and_raise",
+      "start_line": 111,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "Z-ASSERT",
+          "line": 112,
+          "line_contains": "assert a",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "Z-ASSERT",
+          "line": 113,
+          "line_contains": "raise ValueError(a)",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ]
+    },
+    {
+      "name": "unlabelled_jump",
+      "start_line": 116,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-LOOP",
+          "line": 117,
+          "line_contains": "for x in xs:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-IF",
+          "line": 118,
+          "line_contains": "if x:",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        },
+        {
+          "rule": "Z-JUMP",
+          "line": 119,
+          "line_contains": "continue",
+          "kind": "zero",
+          "nesting_level": 2,
+          "nesting_increment": 0,
+          "contribution": 0
+        },
+        {
+          "rule": "Z-JUMP",
+          "line": 120,
+          "line_contains": "break",
+          "kind": "zero",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 0
+        }
+      ],
+      "note": "Python has no labelled jump, so F-LABELJUMP is not applicable here and is not invented."
+    },
+    {
+      "name": "recursive",
+      "start_line": 124,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 125,
+          "line_contains": "if n <= 0:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 127,
+          "line_contains": "return recursive(n - 1)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ]
+    },
+    {
+      "name": "nested_def_excluded",
+      "start_line": 130,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "B-NESTED",
+          "line": 131,
+          "line_contains": "def helper(b):",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "the nested def's `if` at line 132 contributes to no record"
+        }
+      ]
+    },
+    {
+      "name": "lambda_excluded",
+      "start_line": 139,
+      "expected_cognitive_complexity": 0,
+      "zero_case": true,
+      "contributions": [
+        {
+          "rule": "B-NESTED",
+          "line": 140,
+          "line_contains": "lambda t: 1 if t else 0",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "the lambda's ternary contributes to no record"
+        }
+      ]
+    },
+    {
+      "name": "seq_paren_same",
+      "source": "clarifications.py",
+      "start_line": 9,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 10,
+          "line_contains": "if a and (b and c):",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 10,
+          "line_contains": "a and (b and c)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "seq_paren_mixed",
+      "source": "clarifications.py",
+      "start_line": 15,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 16,
+          "line_contains": "if a and (b or c):",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 16,
+          "line_contains": "a and (",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 16,
+          "line_contains": "b or c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "seq_three_runs",
+      "source": "clarifications.py",
+      "start_line": 21,
+      "expected_cognitive_complexity": 4,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 22,
+          "line_contains": "if a or b and c or d:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 22,
+          "line_contains": "a or",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 22,
+          "line_contains": "b and c",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 22,
+          "line_contains": "or d",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "recursion_twice",
+      "source": "clarifications.py",
+      "start_line": 27,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 28,
+          "line_contains": "if n <= 0:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 30,
+          "line_contains": "recursion_twice(n - 1) + recursion_twice(n - 2)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "two call sites, one increment"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "comp_single",
+      "source": "clarifications.py",
+      "start_line": 33,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-COMPREHENSION",
+          "line": 34,
+          "line_contains": "[x for x in xs]",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "comp_two_generators",
+      "source": "clarifications.py",
+      "start_line": 37,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-COMPREHENSION",
+          "line": 38,
+          "line_contains": "[x for x in xs for y in ys]",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "A second generator clause in the SAME comprehension adds nothing."
+    },
+    {
+      "name": "comp_two_generators_filtered",
+      "source": "clarifications.py",
+      "start_line": 41,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-COMPREHENSION",
+          "line": 42,
+          "line_contains": "for x in xs for y in ys",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-COMPIF",
+          "line": 42,
+          "line_contains": "if p(y)",
+          "kind": "flat",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "comp_boolean_condition",
+      "source": "clarifications.py",
+      "start_line": 45,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-COMPREHENSION",
+          "line": 46,
+          "line_contains": "[x for x in xs if a and b]",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-COMPIF",
+          "line": 46,
+          "line_contains": "if a and b",
+          "kind": "flat",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 1
+        },
+        {
+          "rule": "F-BOOLSEQ",
+          "line": 46,
+          "line_contains": "a and b",
+          "kind": "flat",
+          "nesting_level": 1,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "boolean sequences inside a comprehension condition are independently additive"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "comp_nested",
+      "source": "clarifications.py",
+      "start_line": 49,
+      "expected_cognitive_complexity": 3,
+      "contributions": [
+        {
+          "rule": "S-COMPREHENSION",
+          "line": 50,
+          "line_contains": "for x in xs",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "S-COMPREHENSION",
+          "line": 50,
+          "line_contains": "[y for y in ys]",
+          "kind": "structural",
+          "nesting_level": 1,
+          "nesting_increment": 1,
+          "contribution": 2
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "The inner comprehension observes the nesting the outer one created: 1 + 2 = 3."
+    },
+    {
+      "name": "return_traversed",
+      "source": "clarifications.py",
+      "start_line": 53,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-TERNARY",
+          "line": 54,
+          "line_contains": "return (b if a else c)",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "`return` is zero; the ternary inside it still counts."
+    },
+    {
+      "name": "Holder.recursive_method",
+      "source": "clarifications.py",
+      "start_line": 58,
+      "expected_cognitive_complexity": 2,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 59,
+          "line_contains": "if n <= 0:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        },
+        {
+          "rule": "F-RECURSION",
+          "line": 61,
+          "line_contains": "return self.recursive_method(n - 1)",
+          "kind": "flat",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 1,
+          "detail": "explicit current receiver `self` -- rule B"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "Holder.same_name_other_receiver",
+      "source": "clarifications.py",
+      "start_line": 63,
+      "expected_cognitive_complexity": 0,
+      "contributions": [
+        {
+          "rule": "F-RECURSION",
+          "line": 64,
+          "line_contains": "return other.recursive_method(n)",
+          "kind": "not_fired",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "member name matches, receiver is not `self` -- NOT recursion"
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "zero_case": true
+    },
+    {
+      "name": "discovery_def_class_method",
+      "source": "clarifications.py",
+      "start_line": 67,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "B-NESTED",
+          "line": 68,
+          "line_contains": "class Inner:",
+          "kind": "zero",
+          "nesting_level": 0,
+          "nesting_increment": 0,
+          "contribution": 0,
+          "detail": "the nested class contributes nothing to this callable"
+        },
+        {
+          "rule": "S-TERNARY",
+          "line": 74,
+          "line_contains": "return Inner if flag else None",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)"
+    },
+    {
+      "name": "Inner.measured",
+      "source": "clarifications.py",
+      "start_line": 69,
+      "expected_cognitive_complexity": 1,
+      "contributions": [
+        {
+          "rule": "S-IF",
+          "line": 70,
+          "line_contains": "if a:",
+          "kind": "structural",
+          "nesting_level": 0,
+          "nesting_increment": 1,
+          "contribution": 1
+        }
+      ],
+      "added_by": "Amendment 002 (owner-review closure)",
+      "note": "GLOBAL DISCOVERY: a method of a class declared inside a function is discovered and measured in its own right. The qualified-name spelling is an implementation concern the rule table does not freeze."
+    }
+  ],
+  "predicted_reference_divergences": [
+    {
+      "divergence_id": "D11",
+      "tool": "cognitive_complexity 1.3.0",
+      "callable": "comprehension",
+      "archlens_expected": 3,
+      "reference_predicted": 0,
+      "reason": "The reference scores comprehensions at zero. A comprehension is a loop with filters; scoring it nothing is indefensible, so ArchLens diverges knowingly."
+    },
+    {
+      "divergence_id": "D12",
+      "tool": "cognitive_complexity 1.3.0",
+      "callable": "match_statement",
+      "archlens_expected": 2,
+      "reference_predicted": 0,
+      "reason": "The reference cannot parse `match` and silently returns 0. The comparison must record NOT EVALUABLE, never agreement."
+    },
+    {
+      "divergence_id": "D13",
+      "tool": "cognitive_complexity 1.3.0",
+      "callable": "nested_def_excluded",
+      "archlens_expected": 0,
+      "reference_predicted": 1,
+      "reason": "The reference folds the nested def's body in (with no nesting increment); ArchLens stops at the boundary."
+    },
+    {
+      "divergence_id": "D13",
+      "tool": "cognitive_complexity 1.3.0",
+      "callable": "lambda_excluded",
+      "archlens_expected": 0,
+      "reference_predicted": 2,
+      "reason": "Same mechanism through a lambda; measured at G0 as 2 for this exact shape."
+    },
+    {
+      "divergence_id": "D18",
+      "tool": "cognitive_complexity 1.3.0",
+      "callable": "exception_handling",
+      "archlens_expected": 5,
+      "reference_predicted": 3,
+      "reason": "NEW at G1-A. The reference scored a `try/except/else` at 1 during G0, meaning it does not count `try...else` -- ArchLens's F-TRYELSE does. The predicted 3 also assumes the reference's `finally` does not raise nesting, which G0 did not probe; if the total comes out 4 the finally-nesting question is answered instead."
+    },
+    {
+      "divergence_id": "D14",
+      "tool": "cognitive_complexity 1.3.0",
+      "callable": "with_statement",
+      "archlens_expected": 1,
+      "reference_predicted": 1,
+      "reason": "NO divergence expected -- recorded because Complexity Contract 1.0.0 DOES nest `with`, so a reader comparing the two ArchLens contracts will expect one here."
+    }
+  ],
+  "clarification_source": "clarifications.py",
+  "amendment_002": "Additive: the original source files are untouched so their line citations stay valid. New callables live in a separate clarification file and are authored from revision 3 of the frozen rule table."
+}

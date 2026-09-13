@@ -1,0 +1,11 @@
+{
+  "case_id": "encoding-utf16le-bom-python",
+  "observations": {
+    "aggregate/lines_of_code": 2,
+    "aggregate/loc_status": "complete",
+    "inventory": {
+      "included_in_metrics": true
+    }
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

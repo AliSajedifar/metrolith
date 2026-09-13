@@ -1,0 +1,342 @@
+{
+  "title": "ArchLens duplication canonicalization rule table",
+  "revision": 1,
+  "status": "frozen_after_d0_characterization",
+  "scope": "D0 contract evidence; no production canonicalizer",
+  "parser_provenance": {
+    "Python": "CPython 3.13 ast",
+    "Java": "tree-sitter-java 0.23.5",
+    "Go": "tree-sitter-go 0.25.0",
+    "JavaScript": "tree-sitter-javascript 0.25.0",
+    "TypeScript": "tree-sitter-typescript 0.23.2 (typescript and tsx grammars)",
+    "tree_sitter_core": "0.25.2"
+  },
+  "global_candidate_rules": {
+    "unit": "complete ordered immediate-statement list of one allowed executable body",
+    "occurrence_span": "first significant token of first immediate statement through last significant token of last immediate statement",
+    "span_priority": [
+      "callable_body",
+      "branch_body",
+      "loop_body",
+      "exception_body",
+      "switch_arm_body",
+      "scoped_body"
+    ],
+    "one_record_per_span": true,
+    "all_size_floors_required": {
+      "immediate_statement_count": 4,
+      "significant_lexical_token_count": 40,
+      "duplicated_nloc": 8
+    },
+    "excluded_units": [
+      "module/file bodies",
+      "class/type member lists",
+      "imports as independent candidates",
+      "declaration lists",
+      "individual statements",
+      "arbitrary statement windows",
+      "expressions",
+      "concise expression lambdas/arrows"
+    ],
+    "malformed_or_unknown_rule": "fail the entire file before candidate emission",
+    "partial_parse_rule": "no candidates from a partial or malformed selected tree",
+    "recovered_parse_rule": "eligible only when fully recovered and byte length plus newline positions align with evidence source"
+  },
+  "lexical_rules": {
+    "ignored": [
+      "raw whitespace",
+      "non-significant line breaks",
+      "parser/tokenizer comments",
+      "one decoded encoding-marker BOM",
+      "CRLF versus LF versus normalized lone CR"
+    ],
+    "retained_exact": [
+      "token kind",
+      "UTF-8 token lexeme",
+      "identifier spelling and case",
+      "literal spelling and delimiters",
+      "operator spelling",
+      "punctuation and optional semicolons",
+      "token order and count",
+      "grammar-significant boundaries"
+    ],
+    "unicode_normalization": "none",
+    "python_boundaries": ["logical NEWLINE", "INDENT", "DEDENT"],
+    "javascript_family_boundaries": "retain statement/block boundaries needed to distinguish line-terminator-sensitive and ASI forms"
+  },
+  "structural_rules": {
+    "retain": [
+      "language domain",
+      "semantic node kind",
+      "parent-child field/edge",
+      "child and statement order",
+      "operator and modifier",
+      "identifier role and within-role equality pattern",
+      "literal class and interpolation structure"
+    ],
+    "abstract": [
+      "source positions",
+      "comments and formatting",
+      "identifier spelling",
+      "literal value and lexical spelling",
+      "non-semantic delimiters already represented by AST structure"
+    ],
+    "forbidden_rewrites": [
+      "child sorting",
+      "commutative reordering",
+      "constant folding",
+      "name or type resolution",
+      "control-flow equivalence",
+      "semantic rewriting"
+    ],
+    "unknown_semantic_child": "candidate unavailable; never omit or source-scan as fallback"
+  },
+  "languages": {
+    "Python": {
+      "body_rules": [
+        {"family": "callable_body", "containers": ["FunctionDef", "AsyncFunctionDef"], "statement_field": "body"},
+        {"family": "branch_body", "containers": ["If"], "statement_fields": ["body", "orelse"]},
+        {"family": "loop_body", "containers": ["For", "AsyncFor", "While"], "statement_fields": ["body", "orelse"]},
+        {"family": "exception_body", "containers": ["Try", "TryStar"], "statement_fields": ["body", "orelse", "finalbody"]},
+        {"family": "exception_body", "containers": ["ExceptHandler"], "statement_field": "body"},
+        {"family": "switch_arm_body", "containers": ["match_case"], "statement_field": "body"},
+        {"family": "scoped_body", "containers": ["With", "AsyncWith"], "statement_field": "body"}
+      ],
+      "statement_rule": "each direct ast.stmt in the selected list is one immediate statement",
+      "body_exclusions": ["Module.body", "ClassDef.body", "Lambda.body", "comprehension expression bodies"],
+      "identifier_roles": {
+        "type": [
+          "ClassDef.name",
+          "identifier leaves in annotation, type-parameter, class-base, or type-alias syntax"
+        ],
+        "member": [
+          "Attribute.attr",
+          "keyword.arg",
+          "FunctionDef/AsyncFunctionDef.name when the declaration is a direct ClassDef member"
+        ],
+        "label": [],
+        "value": [
+          "Name.id outside a syntactic type context",
+          "arg.arg",
+          "nested/local FunctionDef or AsyncFunctionDef name",
+          "alias binding names",
+          "ExceptHandler.name",
+          "Global/Nonlocal names",
+          "MatchAs.name, MatchStar.name, MatchMapping.rest and other capture names"
+        ],
+        "limitation": "runtime call targets and values are not resolved as types; same-spelling shadowed values intentionally share one candidate-local ordinal"
+      },
+      "literal_classes": {
+        "Constant(NoneType)": "none",
+        "Constant(bool)": "boolean",
+        "Constant(int_non_bool)": "integer",
+        "Constant(float)": "float",
+        "Constant(complex)": "complex",
+        "Constant(str)": "string",
+        "Constant(bytes)": "bytes",
+        "Constant(EllipsisType)": "ellipsis",
+        "JoinedStr": "f_string",
+        "FormattedValue": "retain expression, conversion integer, and format_spec subtree; abstract Constant string chunks"
+      },
+      "operators": {
+        "named_operator_nodes": [
+          "Add", "Sub", "Mult", "MatMult", "Div", "FloorDiv", "Mod", "Pow",
+          "LShift", "RShift", "BitOr", "BitXor", "BitAnd", "And", "Or",
+          "Eq", "NotEq", "Lt", "LtE", "Gt", "GtE", "Is", "IsNot", "In", "NotIn",
+          "Invert", "Not", "UAdd", "USub"
+        ],
+        "operator_fields": ["BinOp.op", "BoolOp.op", "Compare.ops[]", "UnaryOp.op", "AugAssign.op"],
+        "semantic_node_kinds": [
+          "Assign", "AnnAssign", "NamedExpr", "Delete", "Starred", "Await", "Yield", "YieldFrom",
+          "AsyncFunctionDef", "comprehension.is_async", "arguments.vararg", "arguments.kwarg",
+          "keyword.arg=None for ** expansion", "Dict key=None for ** expansion"
+        ],
+        "unknown_operator_bearing_constructs": []
+      }
+    },
+    "Java": {
+      "body_rules": [
+        {"family": "callable_body", "container": "method_declaration", "body_field": "body", "required_body_type": "block"},
+        {"family": "callable_body", "container": "constructor_declaration", "body_field": "body", "required_body_type": "constructor_body"},
+        {"family": "callable_body", "container": "compact_constructor_declaration", "body_field": "body", "required_body_type": "block"},
+        {"family": "callable_body", "container": "lambda_expression", "body_field": "body", "required_body_type": "block", "exclude_other_body_types": true},
+        {"family": "branch_body", "container": "if_statement", "body_fields": ["consequence", "alternative"], "required_body_type": "block"},
+        {"family": "loop_body", "containers": ["for_statement", "enhanced_for_statement", "while_statement", "do_statement"], "body_field": "body", "required_body_type": "block"},
+        {"family": "exception_body", "containers": ["try_statement", "try_with_resources_statement", "catch_clause"], "body_field": "body", "required_body_type": "block"},
+        {"family": "exception_body", "container": "finally_clause", "unfielded_named_child": "block"},
+        {"family": "switch_arm_body", "container": "switch_block_statement_group", "statement_children_after": "switch_label"},
+        {"family": "switch_arm_body", "container": "switch_rule", "statement_source": "block children when block-bodied; otherwise the single post-arrow statement"},
+        {"family": "scoped_body", "container": "synchronized_statement", "body_field": "body", "required_body_type": "block"},
+        {"family": "scoped_body", "container": "static_initializer", "unfielded_named_child": "block"},
+        {"family": "scoped_body", "container_relation": "class_body > block", "meaning": "instance initializer"},
+        {"family": "scoped_body", "container_relation": "executable block/constructor_body > block not already claimed", "meaning": "standalone executable block"}
+      ],
+      "statement_rule": "direct named children of block or constructor_body, excluding comments and switch labels; any unknown direct child fails the candidate",
+      "body_exclusions": ["class_body member list", "interface/enum/record member list", "annotation body", "expression lambda body", "module/package/import declarations"],
+      "identifier_roles": {
+        "type": ["type_identifier", "scoped_type_identifier", "generic_type name", "class/record/interface/enum/annotation declaration name", "constructor declaration name", "annotation type name"],
+        "member": ["method_declaration name", "field_access field", "method_invocation name", "field_declaration variable names when used as members"],
+        "label": ["identifier under labeled_statement, break_statement or continue_statement label position"],
+        "value": ["formal/catch parameters", "local variable declarators", "ordinary identifier expressions and references"],
+        "limitation": "no symbol table; syntactically ambiguous identifier expressions remain value-role even if a runtime symbol denotes a type"
+      },
+      "literal_classes": {
+        "null_literal": "null",
+        "true|false": "boolean",
+        "character_literal": "char",
+        "string_literal with multiline_string_fragment or triple-quote delimiters": "text_block",
+        "other string_literal": "string",
+        "decimal|hex|octal|binary_integer_literal ending l/L": "long_integer",
+        "other decimal|hex|octal|binary_integer_literal": "integer",
+        "decimal_floating_point_literal|hex_floating_point_literal ending f/F": "float",
+        "other decimal_floating_point_literal|hex_floating_point_literal": "double"
+      },
+      "operators": {
+        "storage": "semantic operator is an anonymous child token; preserve parent node kind plus exact token",
+        "binary": [">", "<", ">=", "<=", "==", "!=", "&&", "||", "+", "-", "*", "/", "&", "|", "^", "%", "<<", ">>", ">>>", "instanceof"],
+        "assignment": ["=", "+=", "-=", "*=", "/=", "&=", "|=", "^=", "%=", "<<=", ">>=", ">>>="],
+        "unary_update": ["+", "-", "!", "~", "++", "--"],
+        "other_semantic": ["?", ":", "->", "::", "...", "new", "yield", "@"],
+        "modifiers": ["public", "protected", "private", "static", "abstract", "final", "native", "synchronized", "transient", "volatile", "strictfp", "default", "sealed", "non-sealed"],
+        "contextual_ambiguities": ["< and > in generic/type syntax", "& in type bounds", "? in wildcard types", ": in labels/switch/enhanced-for"],
+        "unknown_operator_bearing_constructs": []
+      }
+    },
+    "Go": {
+      "body_rules": [
+        {"family": "callable_body", "containers": ["function_declaration", "method_declaration", "func_literal"], "body_field": "body", "required_body_type": "block", "statement_wrapper": "statement_list"},
+        {"family": "branch_body", "container": "if_statement", "body_fields": ["consequence", "alternative"], "required_body_type": "block", "statement_wrapper": "statement_list"},
+        {"family": "loop_body", "container": "for_statement", "body_field": "body", "required_body_type": "block", "statement_wrapper": "statement_list"},
+        {"family": "switch_arm_body", "containers": ["expression_case", "type_case", "communication_case", "default_case"], "unfielded_named_child": "statement_list"},
+        {"family": "scoped_body", "container_relation": "statement_list > block not already claimed", "statement_wrapper": "statement_list", "meaning": "explicit executable block"}
+      ],
+      "statement_rule": "direct named children of the block's single statement_list; comments are excluded; missing or multiple wrappers fail the candidate",
+      "body_exclusions": ["source_file declarations", "type/struct/interface member lists", "function types", "expressions"],
+      "identifier_roles": {
+        "type": ["type_identifier and qualified_type components"],
+        "member": ["field_identifier, including selector fields/methods, struct fields and method declaration names"],
+        "label": ["label identifiers in labeled_statement, break_statement, continue_statement and goto_statement"],
+        "value": ["identifier names for locals, parameters, function declarations, variables and ordinary references"],
+        "limitation": "package/type/value bindings are not resolved beyond grammar-distinct node kinds"
+      },
+      "literal_classes": {
+        "nil": "nil",
+        "true|false": "boolean",
+        "int_literal": "integer",
+        "float_literal": "floating",
+        "imaginary_literal": "imaginary",
+        "rune_literal": "rune",
+        "interpreted_string_literal": "interpreted_string",
+        "raw_string_literal": "raw_string"
+      },
+      "operators": {
+        "storage": "semantic operator is an anonymous child token; preserve parent node kind plus exact token",
+        "binary": ["||", "&&", "==", "!=", "<", "<=", ">", ">=", "+", "-", "|", "^", "*", "/", "%", "<<", ">>", "&", "&^"],
+        "assignment": ["=", "+=", "-=", "*=", "/=", "%=", "&=", "|=", "^=", "<<=", ">>=", "&^="],
+        "unary_update": ["+", "-", "!", "^", "*", "&", "<-", "++", "--"],
+        "other_semantic": [":=", "<-", "...", "defer", "go"],
+        "contextual_ambiguities": ["* as multiplication, pointer type or dereference", "& as bitwise or address-of", "<- as receive or send delimiter", ": in labels/cases"],
+        "unknown_operator_bearing_constructs": []
+      }
+    },
+    "JavaScript": {
+      "body_rules": [
+        {"family": "callable_body", "containers": ["function_declaration", "generator_function_declaration", "function_expression", "generator_function", "method_definition"], "body_field": "body", "required_body_type": "statement_block"},
+        {"family": "callable_body", "container": "arrow_function", "body_field": "body", "required_body_type": "statement_block", "exclude_other_body_types": true},
+        {"family": "branch_body", "container": "if_statement", "body_field": "consequence", "required_body_type": "statement_block"},
+        {"family": "branch_body", "container": "else_clause", "unfielded_named_child": "statement_block"},
+        {"family": "loop_body", "containers": ["for_statement", "for_in_statement", "while_statement", "do_statement"], "body_field": "body", "required_body_type": "statement_block"},
+        {"family": "exception_body", "container": "try_statement", "body_field": "body", "required_body_type": "statement_block"},
+        {"family": "exception_body", "container": "catch_clause", "body_field": "body", "required_body_type": "statement_block"},
+        {"family": "exception_body", "container": "finally_clause", "body_field": "body", "required_body_type": "statement_block"},
+        {"family": "switch_arm_body", "containers": ["switch_case", "switch_default"], "repeated_statement_field": "body"},
+        {"family": "scoped_body", "container": "class_static_block", "body_field": "body", "required_body_type": "statement_block"},
+        {"family": "scoped_body", "container_relation": "statement context > statement_block not already claimed", "meaning": "explicit executable statement block"}
+      ],
+      "statement_rule": "direct named children of statement_block excluding comments, or repeated switch body fields; an unknown direct child fails the candidate",
+      "body_exclusions": ["program body", "class_body", "object member list", "concise arrow expression", "imports/exports/declarations as independent bodies"],
+      "identifier_roles": {
+        "type": ["class declaration name", "identifier in new_expression constructor or class heritage syntax"],
+        "member": ["property_identifier", "private_property_identifier", "shorthand_property_identifier", "JSX tag/attribute names", "method names"],
+        "label": ["statement_identifier"],
+        "value": ["ordinary identifier bindings/references, parameters and function declaration names"],
+        "limitation": "JavaScript does not grammar-distinguish every type-like constructor reference; object shorthand is member-role and binding resolution is not attempted"
+      },
+      "literal_classes": {
+        "null": "null",
+        "true|false": "boolean",
+        "number ending n": "bigint",
+        "other number": "number",
+        "string": "string",
+        "regex": "regex",
+        "template_string": "template; abstract string_fragment chunks and retain each template_substitution subtree",
+        "tagged template": "retain enclosing call/tag shape and template substitution order"
+      },
+      "operators": {
+        "storage": "operators are anonymous child tokens except optional_chain, which is a named leaf node whose node kind carries the semantic",
+        "binary": ["&&", "||", "??", ">>", ">>>", "<<", "&", "^", "|", "+", "-", "*", "/", "%", "**", "<", "<=", "==", "===", "!=", "!==", ">=", ">", "in", "instanceof"],
+        "assignment": ["=", "+=", "-=", "*=", "/=", "%=", "^=", "&=", "|=", ">>=", ">>>=", "<<=", "**=", "&&=", "||=", "??="],
+        "unary_update": ["!", "~", "+", "-", "typeof", "void", "delete", "++", "--"],
+        "other_semantic": ["?", ":", "=>", "...", "await", "yield", "optional_chain node", "async", "generator *", "static", "get", "set"],
+        "contextual_ambiguities": ["/ as division versus regex delimiter", "< > </ /> as JSX delimiters", ": in labels/object pairs/switch"],
+        "unknown_operator_bearing_constructs": []
+      }
+    },
+    "TypeScript": {
+      "inherits_runtime_rules_from": "JavaScript",
+      "body_rule_differences": [
+        "same statement_block candidate mapping under typescript and tsx grammars",
+        "bodyless signatures and abstract_method_signature are excluded",
+        "constructor and implemented method_definition bodies are included",
+        "concise typed arrows remain excluded"
+      ],
+      "identifier_role_differences": {
+        "type": ["type_identifier", "nested_type_identifier", "identifier leaves in type_annotation/generic/type-query/heritage syntax", "class/interface/type-alias/type-parameter declaration names"],
+        "member": ["property_identifier, private_property_identifier, property signatures, field definitions, method names and JSX member/tag names"],
+        "label": ["statement_identifier"],
+        "value": ["ordinary identifier bindings/references outside a syntactic type subtree"]
+      },
+      "literal_classes": "same as JavaScript; tree-sitter-typescript represents number and bigint with one number node distinguished by n suffix",
+      "additional_operators_modifiers": [
+        "as_expression: as",
+        "satisfies_expression: satisfies",
+        "type predicate: is",
+        "type operator: keyof",
+        "type_query: typeof",
+        "non_null_expression: !",
+        "optional_chain: anonymous ?. token",
+        "optional property/parameter: ?",
+        "mapped-type modifiers: -?:, +?: and ?: tokens",
+        "accessibility, readonly, abstract, declare, override, public, protected, private, static, async, get and set modifiers"
+      ],
+      "contextual_ambiguities": ["< and > as comparison, generic or JSX delimiters", "! as unary-not versus non-null assertion", "typeof in expression versus type query"],
+      "unknown_operator_bearing_constructs": []
+    }
+  },
+  "identifier_ordinal_policy": {
+    "maps": "one independent first-seen spelling-to-ordinal map per role and candidate",
+    "roles": ["value", "type", "member", "label"],
+    "shadowing": "same exact spelling in the same role intentionally reuses one ordinal even across nested scopes",
+    "same_spelling_different_roles": "uses independent ordinals",
+    "unicode": "decoded scalar sequence compared exactly; no normalization or case folding",
+    "implementation_status": "documented only; no alpha-normalization code exists in D0"
+  },
+  "operator_coverage_decision": {
+    "grammar_only_nonoperators": [
+      "JavaScript/TSX JSX delimiters <, >, </ and />",
+      "regex delimiters / inside regex nodes",
+      "TypeScript/Flow exact-object delimiters {| and |} when accepted by the pinned grammar",
+      "generic/type punctuation whose semantic is already carried by its parent node kind"
+    ],
+    "fail_closed_rule": "any operator-like token or semantic operator node not classified above makes that candidate unavailable",
+    "unknown_operator_bearing_constructs": []
+  },
+  "threshold_decision": {
+    "frozen_for_v1": true,
+    "values": {"immediate_statements": 4, "significant_tokens": 40, "duplicated_nloc": 8},
+    "evidence": "20 controlled cases across five languages: 5 qualifying; 5 excluded only by statements; 5 only by tokens; 5 only by NLOC",
+    "known_false_negatives": ["substantial three-statement pipelines", "simple four-statement multi-line bodies", "token-dense one-line bodies"],
+    "known_false_positive_risk": "four long statements over eight lines can still be routine scaffolding; size is admission, not relevance or correctness",
+    "post_implementation_tuning": "forbidden without a new contract revision and pre-implementation evidence"
+  }
+}

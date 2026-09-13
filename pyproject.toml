@@ -1,0 +1,87 @@
+[build-system]
+requires = ["setuptools==83.0.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "metrolith"
+version = "4.0.0"
+authors = [{name = "Ali Sajedifar", email = "its.alisajedifar@gmail.com"}]
+maintainers = [{name = "Ali Sajedifar", email = "its.alisajedifar@gmail.com"}]
+description = "Evidence-first multi-language static analysis and engineering governance"
+readme = "README.md"
+license = "Apache-2.0"
+license-files = ["LICENSE"]
+classifiers = [
+  "Programming Language :: Python :: 3.13",
+  "Programming Language :: Python :: Implementation :: CPython",
+  "Topic :: Software Development :: Quality Assurance",
+]
+requires-python = ">=3.13,<3.14"
+dependencies = [
+  "tree-sitter==0.25.2",
+  "tree-sitter-go==0.25.0",
+  "tree-sitter-java==0.23.5",
+  "tree-sitter-javascript==0.25.0",
+  "tree-sitter-typescript==0.23.2",
+  # Structural Draft 2020-12 validation uses
+  # jsonschema.validators.Draft202012Validator. No schema keyword semantics are
+  # reimplemented inside Metrolith. The availability guard in
+  # validation/artifact_io/schema_store.py requires this exact version and
+  # refuses to run against any other, so this pin and
+  # schema_store.REQUIRED_JSONSCHEMA_VERSION must stay in agreement.
+  "jsonschema==4.26.0"
+]
+
+[project.urls]
+Repository = "https://github.com/AliSajedifar/metrolith"
+Documentation = "https://github.com/AliSajedifar/metrolith/blob/main/docs/USAGE.md"
+Issues = "https://github.com/AliSajedifar/metrolith/issues"
+
+[project.scripts]
+metrolith = "pipeline:main"
+archlens = "pipeline:archlens_compat_main"
+arch-bench = "pipeline:deprecated_main"
+
+[tool.setuptools]
+py-modules = ["pipeline", "archlens_json"]
+# The neutral strict-JSON boundary is a top-level module so both production and
+# structural validation can depend on it without either importing the other.
+packages = [
+  "modules",
+  "modules.cli",
+  # CLI construction imports the policy package, so it must be installed.
+  "modules.policy",
+  # Explicit subpackages required by callable, duplication, and Ratchet workflows.
+  "modules.callable_analysis",
+  "modules.duplication",
+  "modules.ratchet",
+  # Independent validation references are maintainer resources, outside runtime packages.
+  "config",
+  "examples",
+  "validation",
+  "validation.scripts",
+  "validation.artifact_io",
+  "validation.resources",
+  "validation.conformance",
+]
+include-package-data = false
+
+[tool.setuptools.package-data]
+config = ["*.json"]
+examples = ["*.csv", "ratchet-rules.json", "README.md", "local_project/*.py", "local_project/*.js"]
+# Loaded through importlib.resources so they resolve from an installed wheel
+# outside any source checkout.
+"validation.resources" = ["schemas/*.json", "schemas/**/*.json"]
+# Dotfiles need explicit patterns: setuptools' `**/*` glob does not match a
+# leading-dot filename, and .flowconfig is real dialect evidence a conformance
+# case depends on, so it cannot be renamed without making the case fictional.
+"validation.conformance" = [
+  "data/manifest.json",
+  "data/REVIEW.md",
+  "data/cases/**/*",
+  "data/cases/**/.flowconfig",
+  "data/expected/**/*",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

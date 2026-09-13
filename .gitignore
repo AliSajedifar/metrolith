@@ -1,0 +1,47 @@
+# Python and local tooling
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+.venv/
+venv/
+env/
+.env
+.env.*
+!.env.example
+*.egg-info/
+build/
+dist/
+wheelhouse/
+
+# User source acquisitions and outputs
+.metrolith/
+metrolith-output/
+.archlens/
+archlens-output/
+.cache/
+data/git-cache/
+**/git-cache/
+data/raw/
+data/processed/
+output/
+results/
+*_checkout_*/
+*.fetching/
+*.fetching.archive/
+*.tmp
+input/*
+!input/README.md
+
+# Editors and operating systems
+.idea/
+.vscode/
+*.code-workspace
+*.suo
+*.user
+.DS_Store
+Thumbs.db
+Desktop.ini

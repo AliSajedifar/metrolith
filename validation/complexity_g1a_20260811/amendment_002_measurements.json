@@ -1,0 +1,109 @@
+{
+  "purpose": "Reference behaviour on the Amendment 002 clarification corpus. Measured AFTER the expectations were frozen from revision 3 of the rule table; kept separate from the expectations so no prediction can be corrected once the measurement is in.",
+  "measured_on": "2026-08-11",
+  "tools_unchanged": {
+    "gocognit": "1.2.1",
+    "pmd": "7.7.0 (CognitiveComplexity, reportLevel=1)",
+    "sonarjs": "eslint-plugin-sonarjs 4.2.0 (S3776 at threshold 0)",
+    "cognitive_complexity": "1.3.0"
+  },
+  "reading": "`null` = the tool reported nothing, which for every tool except cognitive_complexity is indistinguishable from 0 (finding N3).",
+  "go": {
+    "SeqParenSame": {"expected": 2, "gocognit": 3, "divergence": "D25"},
+    "SeqParenMixed": {"expected": 3, "gocognit": 3},
+    "SeqThreeRuns": {"expected": 4, "gocognit": 4},
+    "RecursionTwice": {"expected": 2, "gocognit": 3, "divergence": "D22"},
+    "receiverHolder.RecursiveMethod": {"expected": 2, "gocognit": 1, "divergence": "D23"},
+    "otherHolder.RecursiveMethod": {"expected": 0, "gocognit": null},
+    "receiverHolder.SameNameOtherReceiver": {"expected": 0, "gocognit": null, "agrees": true},
+    "DeferPlainCall": {"expected": 1, "gocognit": 1, "agrees": true, "detail": "confirms default traversal: the deferred call's argument expression is counted by both sides"},
+    "consume": {"expected": 0, "gocognit": null},
+    "ReturnTraversed": {"expected": 1, "gocognit": 1},
+    "identity": {"expected": 0, "gocognit": null}
+  },
+  "java": {
+    "seqParenSame": {"expected": 2, "pmd": 2, "agrees": true},
+    "seqParenMixed": {"expected": 3, "pmd": 3},
+    "seqThreeRuns": {"expected": 4, "pmd": 3, "divergence": "D26"},
+    "recursionTwice": {"expected": 2, "pmd": 3, "divergence": "D22"},
+    "recursiveViaThis": {"expected": 2, "pmd": 2, "agrees": true},
+    "sameNameOtherReceiver": {"expected": 0, "pmd": null, "agrees": true},
+    "returnTraversed": {"expected": 1, "pmd": 1},
+    "throwTraversed": {"expected": 2, "pmd": 2},
+    "discoveryLocalClassMethod": {"expected": 0, "pmd": 2, "divergence": "D27"},
+    "Inner.measured": {"expected": 1, "pmd": 1, "detail": "PMD reports it separately AND folds it into the enclosing method -- the double count is D27"},
+    "Other.recursiveViaThis": {"expected": 0, "pmd": null}
+  },
+  "javascript_and_typescript": {
+    "note": "constructs and clarifications behave identically in .js and .ts; both were measured and agreed.",
+    "seqParenSame": {"expected": 2, "sonarjs": 2, "agrees": true},
+    "seqParenMixed": {"expected": 3, "sonarjs": 2, "divergence": "D6"},
+    "seqThreeRuns": {"expected": 4, "sonarjs": 2, "divergence": "D6"},
+    "seqNullishRun": {"expected": 1, "sonarjs": null, "divergence": "D7"},
+    "seqNullishThenOr": {"expected": 2, "sonarjs": null, "divergence": "D7"},
+    "logicalAssignAnd": {"expected": 1, "sonarjs": null, "divergence": "D6", "detail": "the `||` inside the right operand is what ArchLens counts; SonarJS scores `||` at zero"},
+    "logicalAssignOr": {"expected": 0, "sonarjs": null, "agrees": true},
+    "logicalAssignNullish": {"expected": 0, "sonarjs": null, "agrees": true},
+    "recursionTwice": {"expected": 2, "sonarjs": 1, "divergence": "D8"},
+    "returnTraversed": {"expected": 1, "sonarjs": 1, "agrees": true},
+    "Holder.recursiveMethod": {"expected": 2, "sonarjs": 1, "divergence": "D8"},
+    "Holder.sameNameOtherReceiver": {"expected": 0, "sonarjs": null, "agrees": true},
+    "discoveryFunctionClassMethod": {"expected": 1, "sonarjs": 1, "agrees": true},
+    "Inner.measured": {"expected": 1, "sonarjs": 1, "agrees": true, "detail": "SonarJS reports the inner method separately and does NOT fold it -- the D10 alignment holds for discovery too"}
+  },
+  "python": {
+    "seq_paren_same": {"expected": 2, "cognitive_complexity": 3, "divergence": "D25"},
+    "seq_paren_mixed": {"expected": 3, "cognitive_complexity": 3},
+    "seq_three_runs": {"expected": 4, "cognitive_complexity": 3, "divergence": "D26"},
+    "recursion_twice": {"expected": 2, "cognitive_complexity": 2, "agrees": true, "detail": "the only reference that also caps recursion at one per callable"},
+    "comp_single": {"expected": 1, "cognitive_complexity": 0, "divergence": "D11"},
+    "comp_two_generators": {"expected": 1, "cognitive_complexity": 0, "divergence": "D11"},
+    "comp_two_generators_filtered": {"expected": 2, "cognitive_complexity": 0, "divergence": "D11"},
+    "comp_boolean_condition": {"expected": 3, "cognitive_complexity": 1, "divergence": "D11", "detail": "the reference counts only the `and`; the comprehension and its `if` clause score nothing"},
+    "comp_nested": {"expected": 3, "cognitive_complexity": 0, "divergence": "D11"},
+    "return_traversed": {"expected": 1, "cognitive_complexity": 1},
+    "Holder.recursive_method": {"expected": 2, "cognitive_complexity": 1, "divergence": "D24"},
+    "Holder.same_name_other_receiver": {"expected": 0, "cognitive_complexity": 0, "agrees": true},
+    "discovery_def_class_method": {"expected": 1, "cognitive_complexity": 3, "divergence": "D13"},
+    "Inner.measured": {"expected": 1, "cognitive_complexity": 1, "agrees": true}
+  },
+  "new_divergences": {
+    "D22": {
+      "title": "Recursion counted per CALL SITE, not per callable",
+      "tools": ["PMD 7.7.0", "gocognit 1.2.1"],
+      "evidence": "Two self-call sites scored 2 and three scored 3 on both tools; `cognitive_complexity` scored 1 for all three, and SonarJS scored 0.",
+      "archlens": "capped at +1 per callable by owner decision; not changed"
+    },
+    "D23": {
+      "title": "gocognit does not detect receiver-qualified self-recursion",
+      "tools": ["gocognit 1.2.1"],
+      "evidence": "`func (r receiverHolder) RecursiveMethod` calling `r.RecursiveMethod` scored 1 -- the `if` only.",
+      "archlens": "rule B recognizes the declared receiver identifier"
+    },
+    "D24": {
+      "title": "cognitive_complexity does not detect `self.`-qualified self-recursion",
+      "tools": ["cognitive_complexity 1.3.0"],
+      "evidence": "`Holder.recursive_method` calling `self.recursive_method` scored 1 -- the `if` only.",
+      "archlens": "rule B recognizes `self`"
+    },
+    "D25": {
+      "title": "Parentheses SPLIT a same-operator run",
+      "tools": ["gocognit 1.2.1", "cognitive_complexity 1.3.0"],
+      "evidence": "`a && (b && c)` scored 3 on both (1 for the `if` plus two sequences); PMD and SonarJS scored 2.",
+      "archlens": "parentheses are transparent -- one sequence. Owner-pinned."
+    },
+    "D26": {
+      "title": "Two same-operator runs separated by a different operator are MERGED",
+      "tools": ["PMD 7.7.0", "cognitive_complexity 1.3.0"],
+      "evidence": "`a || b && c || d` scored 3 on both (1 for the `if` plus two sequences); gocognit scored 4.",
+      "archlens": "three runs -- the `&&` interrupts the `||` run. Owner-pinned."
+    },
+    "D27": {
+      "title": "PMD both folds a named local class into the enclosing method and reports its method separately",
+      "tools": ["PMD 7.7.0"],
+      "evidence": "`discoveryLocalClassMethod` scored 2 while `measured` was also reported at 1 -- the same construct counted in two rows.",
+      "archlens": "B-NESTED: the enclosing method absorbs nothing; the inner method gets its own row only"
+    }
+  },
+  "observation": "The two boolean-sequence divergences are the interesting pair: on `a && (b && c)` gocognit and the Python package split where PMD and SonarJS do not, and on `a || b && c || d` PMD and the Python package merge where gocognit does not. No two references agree on both. That is precisely why the owner pinned the seven expressions explicitly instead of leaving the definition to be inferred."
+}

@@ -1,0 +1,118 @@
+{
+  "$id": "https://archlens.dev/schemas/performance_profile-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Created only by explicit `archlens perf` commands at the requested output path. NOT a mandatory run artifact; its absence never fails run validation (plan section 19.7). Timing fields and performance profiles are excluded from the semantic payload and from Frozen/Offline measurement equality (plan section 19.4). This is a DERIVED, explicitly non-authoritative output (plan section 3.3). It carries an independent format version and must never be read back as measurement evidence.",
+  "properties": {
+    "absolute_noise_floor_seconds": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "acquisition_mode": {
+      "enum": [
+        "latest",
+        "frozen",
+        "offline"
+      ]
+    },
+    "blocking": {
+      "const": false,
+      "description": "Report-only until repeated stability evidence exists (plan section 19.8)."
+    },
+    "cache_mode": {
+      "enum": [
+        "warm",
+        "cold"
+      ]
+    },
+    "cohort_or_case_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "comparability_verdict": {
+      "enum": [
+        "comparable",
+        "incomparable_shape",
+        "incomparable_environment",
+        "not_evaluable"
+      ]
+    },
+    "host_class": {
+      "description": "Normalized non-PII host class. Never a hostname or username.",
+      "type": "string"
+    },
+    "median_seconds": {
+      "minimum": 0,
+      "type": "number"
+    },
+    "parser_versions": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "type": "object"
+    },
+    "percentiles": {
+      "additionalProperties": {
+        "minimum": 0,
+        "type": "number"
+      },
+      "type": "object"
+    },
+    "performance_format_version": {
+      "const": "1.0.0"
+    },
+    "profile_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "profiler_identity": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "program_version": {
+      "pattern": "^\\d+\\.\\d+\\.\\d+$",
+      "type": "string"
+    },
+    "python_version": {
+      "type": "string"
+    },
+    "raw_samples": {
+      "description": "Repeated raw samples are retained, not just summaries.",
+      "items": {
+        "minimum": 0,
+        "type": "number"
+      },
+      "minItems": 1,
+      "type": "array"
+    },
+    "sample_count": {
+      "minimum": 1,
+      "type": "integer"
+    },
+    "timing_definition": {
+      "description": "Which normative clock the samples measure (plan section 19.1).",
+      "type": "string"
+    },
+    "warmup_count": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "workers": {
+      "minimum": 1,
+      "type": "integer"
+    }
+  },
+  "required": [
+    "comparability_verdict",
+    "performance_format_version",
+    "profile_hash",
+    "raw_samples",
+    "sample_count",
+    "timing_definition",
+    "warmup_count"
+  ],
+  "title": "ArchLens performance profile 1.0",
+  "type": "object"
+}

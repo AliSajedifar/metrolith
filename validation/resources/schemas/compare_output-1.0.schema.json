@@ -1,0 +1,93 @@
+{
+  "$id": "https://archlens.dev/schemas/compare_output-1.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "Evidence-aware comparison emitted by `archlens compare --explain`. Uses reconciliation wording, never causality (plan section 15.4). This is a DERIVED, explicitly non-authoritative output (plan section 3.3). It carries an independent format version and must never be read back as measurement evidence.",
+  "properties": {
+    "comparable": {
+      "type": "boolean"
+    },
+    "compare_format_version": {
+      "const": "1.0.0"
+    },
+    "differences": {
+      "items": {
+        "additionalProperties": false,
+        "properties": {
+          "dimension": {
+            "type": "string"
+          },
+          "evidence_level": {
+            "enum": [
+              "observed_difference",
+              "consistent_with_recorded_change",
+              "exact_observed_delta_reconciliation",
+              "unexplained_residual",
+              "not_evaluable_missing_evidence"
+            ]
+          },
+          "key": {
+            "description": "Key-aligned, never positional (plan section 15.2).",
+            "type": "string"
+          },
+          "not_evaluable_reason": {
+            "type": [
+              "string",
+              "null"
+            ]
+          },
+          "observed_delta": {},
+          "residual": {},
+          "value_a": {},
+          "value_b": {}
+        },
+        "required": [
+          "dimension",
+          "key",
+          "evidence_level"
+        ],
+        "type": "object"
+      },
+      "type": "array"
+    },
+    "exact_reconciliation_available": {
+      "type": "boolean"
+    },
+    "exact_reconciliation_blockers": {
+      "items": {
+        "type": "string"
+      },
+      "type": "array"
+    },
+    "incomparable_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "metric_contract_versions_equal": {
+      "type": "boolean"
+    },
+    "repository_filter": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "run_a": {
+      "type": "string"
+    },
+    "run_b": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "compare_format_version",
+    "run_a",
+    "run_b",
+    "comparable",
+    "differences"
+  ],
+  "title": "ArchLens compare explanation 1.0",
+  "type": "object"
+}

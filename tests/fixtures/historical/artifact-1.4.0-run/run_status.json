@@ -1,0 +1,16 @@
+{
+  "duplicate_rows_dropped": 0,
+  "failure_count": 1,
+  "input_row_count": 13,
+  "mandatory_output_failures": [],
+  "optional_output_failures": [],
+  "partial_count": 7,
+  "planned_repository_count": 13,
+  "processed_repository_count": 13,
+  "repository_count": 13,
+  "run_id": "2075b780073f",
+  "skipped_disabled_count": 0,
+  "status": "completed_with_errors",
+  "success_count": 5,
+  "updated_at": "2026-08-05T12:34:38.188794Z"
+}

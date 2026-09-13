@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<ruleset name="g2a-enum" xmlns="http://pmd.sourceforge.net/ruleset/2.0.0">
+  <description>G2-A independent callable enumeration for Java.</description>
+  <rule ref="category/java/design.xml/CyclomaticComplexity">
+    <properties>
+      <property name="methodReportLevel" value="1"/>
+      <property name="classReportLevel" value="1000000"/>
+    </properties>
+  </rule>
+</ruleset>

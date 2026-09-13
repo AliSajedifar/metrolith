@@ -1,0 +1,13 @@
+url,architecture_type,expected_language,commit_sha,enabled,notes
+https://github.com/7ep/demo,monolith,Java,7fdc2b0a68ca14c66bfa995f836dd17d70c5a5f4,TRUE,Pinned Git dirty-check diagnosis
+https://github.com/alkacon/opencms-core,monolith,Java,3411490f10d73474d15d3f0dd31d132793cb22cb,TRUE,Template handling
+https://github.com/Donkie/Spoolman,unknown,Python,1d5b8c1d3d59a146ac5173b682d12b469a30cf33,TRUE,Genuine Python 3.13 and quickstart control
+https://github.com/dotCMS/core,monolith,Java,f8dddf85f81345bf0c2427952df6409740a2008b,TRUE,TypeScript and template negative controls
+https://github.com/eventuate-examples/es-kanban-board,monolith,Java,bc18ab81a8ffc8c5ac6ba6e3d7d501d04fa8fae4,TRUE,Oversized counter control
+https://github.com/giteecode/onlineEducationExamPublic,monolith,Java,cacb5a98e62571f57bdff81b6a38e0ad2fdd5b54,TRUE,CR-only regression control
+https://github.com/golang-app/ecommerce,monolith,Go,5708b2b784f83825c2550abdc35d1d330e4b1283,TRUE,Normal Go control
+https://github.com/googlecodelabs/monolith-to-microservices,monolith,JavaScript,deeb3099f6a29c0ec8b92a20013fdc94f69f0d47,TRUE,Normal JavaScript control
+https://github.com/kekingcn/kkFileView,monolith,Java,e134689df3d9c6ae48749d42cc282d9920dd0813,TRUE,Oversized counter control
+https://github.com/openedx/openedx-platform,monolith,Python,feb3e3fd95978b5ccf7ca760516bd68cd2e5e331,TRUE,Git mode and symlink handling
+https://github.com/sakaiproject/sakai,monolith,Java,2cd98a1e6484ec2ad72a3a3077ad2b61860108b3,TRUE,UTF-16 and template handling
+https://github.com/securo-finance/securo,monolith,Python,c81dcc77de1fd47185e285e9ce27df217b09d9f2,TRUE,Documented TypeScript grammar limitation

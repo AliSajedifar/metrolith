@@ -1,0 +1,6924 @@
+[
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 16,
+      "end_line": 5,
+      "start_column": 15,
+      "start_line": 5
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 13,
+      "end_line": 9,
+      "start_column": 12,
+      "start_line": 9
+    },
+    "value_repr": "2",
+    "value_type": "int"
+  },
+  {
+    "field": "kw_defaults",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "arguments",
+    "span": {
+      "end_column": 71,
+      "end_line": 11,
+      "start_column": 67,
+      "start_line": 11
+    },
+    "value_repr": "True",
+    "value_type": "bool"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 20,
+      "end_line": 12,
+      "start_column": 16,
+      "start_line": 12
+    },
+    "value_repr": "None",
+    "value_type": "NoneType"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 20,
+      "end_line": 13,
+      "start_column": 16,
+      "start_line": 13
+    },
+    "value_repr": "True",
+    "value_type": "bool"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 22,
+      "end_line": 14,
+      "start_column": 18,
+      "start_line": 14
+    },
+    "value_repr": "42",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 24,
+      "end_line": 15,
+      "start_column": 19,
+      "start_line": 15
+    },
+    "value_repr": "350.0",
+    "value_type": "float"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 26,
+      "end_line": 16,
+      "start_column": 24,
+      "start_line": 16
+    },
+    "value_repr": "4j",
+    "value_type": "complex"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 26,
+      "end_line": 17,
+      "start_column": 17,
+      "start_line": 17
+    },
+    "value_repr": "'value\\n'",
+    "value_type": "str"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 28,
+      "end_line": 18,
+      "start_column": 20,
+      "start_line": 18
+    },
+    "value_repr": "b'bytes'",
+    "value_type": "bytes"
+  },
+  {
+    "child_types": [
+      "FormattedValue",
+      "Constant",
+      "FormattedValue"
+    ],
+    "field": "value",
+    "language": "Python",
+    "node_type": "JoinedStr",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 49,
+      "end_line": 19,
+      "start_column": 20,
+      "start_line": 19
+    }
+  },
+  {
+    "child_types": [
+      "Name",
+      "JoinedStr"
+    ],
+    "field": "values",
+    "language": "Python",
+    "node_type": "FormattedValue",
+    "parent_type": "JoinedStr",
+    "span": {
+      "end_column": 38,
+      "end_line": 19,
+      "start_column": 22,
+      "start_line": 19
+    }
+  },
+  {
+    "child_types": [
+      "Constant"
+    ],
+    "field": "format_spec",
+    "language": "Python",
+    "node_type": "JoinedStr",
+    "parent_type": "FormattedValue",
+    "span": {
+      "end_column": 37,
+      "end_line": 19,
+      "start_column": 33,
+      "start_line": 19
+    }
+  },
+  {
+    "field": "values",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "JoinedStr",
+    "span": {
+      "end_column": 37,
+      "end_line": 19,
+      "start_column": 34,
+      "start_line": 19
+    },
+    "value_repr": "'>10'",
+    "value_type": "str"
+  },
+  {
+    "field": "values",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "JoinedStr",
+    "span": {
+      "end_column": 39,
+      "end_line": 19,
+      "start_column": 38,
+      "start_line": 19
+    },
+    "value_repr": "'-'",
+    "value_type": "str"
+  },
+  {
+    "child_types": [
+      "Name"
+    ],
+    "field": "values",
+    "language": "Python",
+    "node_type": "FormattedValue",
+    "parent_type": "JoinedStr",
+    "span": {
+      "end_column": 48,
+      "end_line": 19,
+      "start_column": 39,
+      "start_line": 19
+    }
+  },
+  {
+    "field": "args",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Call",
+    "span": {
+      "end_column": 52,
+      "end_line": 21,
+      "start_column": 39,
+      "start_line": 21
+    },
+    "value_repr": "'method_name'",
+    "value_type": "str"
+  },
+  {
+    "field": "right",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "BinOp",
+    "span": {
+      "end_column": 32,
+      "end_line": 25,
+      "start_column": 31,
+      "start_line": 25
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "right",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "BinOp",
+    "span": {
+      "end_column": 30,
+      "end_line": 26,
+      "start_column": 29,
+      "start_line": 26
+    },
+    "value_repr": "2",
+    "value_type": "int"
+  },
+  {
+    "field": "right",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "BinOp",
+    "span": {
+      "end_column": 31,
+      "end_line": 27,
+      "start_column": 30,
+      "start_line": 27
+    },
+    "value_repr": "3",
+    "value_type": "int"
+  },
+  {
+    "field": "comparators",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Compare",
+    "span": {
+      "end_column": 31,
+      "end_line": 31,
+      "start_column": 30,
+      "start_line": 31
+    },
+    "value_repr": "0",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 24,
+      "end_line": 33,
+      "start_column": 23,
+      "start_line": 33
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 21,
+      "end_line": 37,
+      "start_column": 20,
+      "start_line": 37
+    },
+    "value_repr": "0",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 24,
+      "end_line": 38,
+      "start_column": 23,
+      "start_line": 38
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 31,
+      "end_line": 39,
+      "start_column": 21,
+      "start_line": 39
+    },
+    "value_repr": "'fallback'",
+    "value_type": "str"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 25,
+      "end_line": 40,
+      "start_column": 20,
+      "start_line": 40
+    },
+    "value_repr": "False",
+    "value_type": "bool"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 24,
+      "end_line": 48,
+      "start_column": 23,
+      "start_line": 48
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 28,
+      "end_line": 50,
+      "start_column": 22,
+      "start_line": 50
+    },
+    "value_repr": "'done'",
+    "value_type": "str"
+  },
+  {
+    "field": "comparators",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Compare",
+    "span": {
+      "end_column": 27,
+      "end_line": 53,
+      "start_column": 24,
+      "start_line": 53
+    },
+    "value_repr": "100",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 24,
+      "end_line": 54,
+      "start_column": 23,
+      "start_line": 54
+    },
+    "value_repr": "2",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 25,
+      "end_line": 56,
+      "start_column": 22,
+      "start_line": 56
+    },
+    "value_repr": "'.'",
+    "value_type": "str"
+  },
+  {
+    "field": "comparators",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Compare",
+    "span": {
+      "end_column": 43,
+      "end_line": 57,
+      "start_column": 40,
+      "start_line": 57
+    },
+    "value_repr": "200",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 24,
+      "end_line": 59,
+      "start_column": 23,
+      "start_line": 59
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 34,
+      "end_line": 61,
+      "start_column": 22,
+      "start_line": 61
+    },
+    "value_repr": "'while-done'",
+    "value_type": "str"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 24,
+      "end_line": 62,
+      "start_column": 20,
+      "start_line": 62
+    },
+    "value_repr": "True",
+    "value_type": "bool"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 24,
+      "end_line": 66,
+      "start_column": 23,
+      "start_line": 66
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "comparators",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Compare",
+    "span": {
+      "end_column": 36,
+      "end_line": 68,
+      "start_column": 32,
+      "start_line": 68
+    },
+    "value_repr": "None",
+    "value_type": "NoneType"
+  },
+  {
+    "field": "slice",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Subscript",
+    "span": {
+      "end_column": 35,
+      "end_line": 71,
+      "start_column": 28,
+      "start_line": 71
+    },
+    "value_repr": "'value'",
+    "value_type": "str"
+  },
+  {
+    "field": "operand",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "UnaryOp",
+    "span": {
+      "end_column": 24,
+      "end_line": 77,
+      "start_column": 23,
+      "start_line": 77
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 25,
+      "end_line": 79,
+      "start_column": 20,
+      "start_line": 79
+    },
+    "value_repr": "False",
+    "value_type": "bool"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 24,
+      "end_line": 81,
+      "start_column": 23,
+      "start_line": 81
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 26,
+      "end_line": 83,
+      "start_column": 22,
+      "start_line": 83
+    },
+    "value_repr": "'ok'",
+    "value_type": "str"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 24,
+      "end_line": 84,
+      "start_column": 20,
+      "start_line": 84
+    },
+    "value_repr": "True",
+    "value_type": "bool"
+  },
+  {
+    "field": "values",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "BoolOp",
+    "span": {
+      "end_column": 30,
+      "end_line": 88,
+      "start_column": 29,
+      "start_line": 88
+    },
+    "value_repr": "0",
+    "value_type": "int"
+  },
+  {
+    "field": "keys",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "MatchMapping",
+    "span": {
+      "end_column": 24,
+      "end_line": 92,
+      "start_column": 18,
+      "start_line": 92
+    },
+    "value_repr": "'kind'",
+    "value_type": "str"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 28,
+      "end_line": 95,
+      "start_column": 24,
+      "start_line": 95
+    },
+    "value_repr": "True",
+    "value_type": "bool"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 27,
+      "end_line": 103,
+      "start_column": 26,
+      "start_line": 103
+    },
+    "value_repr": "0",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 31,
+      "end_line": 104,
+      "start_column": 25,
+      "start_line": 104
+    },
+    "value_repr": "'none'",
+    "value_type": "str"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 29,
+      "end_line": 105,
+      "start_column": 24,
+      "start_line": 105
+    },
+    "value_repr": "False",
+    "value_type": "bool"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 28,
+      "end_line": 106,
+      "start_column": 24,
+      "start_line": 106
+    },
+    "value_repr": "None",
+    "value_type": "NoneType"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Assign",
+    "span": {
+      "end_column": 13,
+      "end_line": 111,
+      "start_column": 12,
+      "start_line": 111
+    },
+    "value_repr": "0",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 18,
+      "end_line": 118,
+      "start_column": 17,
+      "start_line": 118
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "value",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "AugAssign",
+    "span": {
+      "end_column": 18,
+      "end_line": 123,
+      "start_column": 17,
+      "start_line": 123
+    },
+    "value_repr": "1",
+    "value_type": "int"
+  },
+  {
+    "field": "keys",
+    "kind": null,
+    "language": "Python",
+    "node_type": "Constant",
+    "parent_type": "Dict",
+    "span": {
+      "end_column": 32,
+      "end_line": 22,
+      "start_column": 25,
+      "start_line": 22
+    },
+    "value_repr": "'value'",
+    "value_type": "str"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      8,
+      29
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      8,
+      28
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      9,
+      30
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      9,
+      29
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      10,
+      30
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      10,
+      29
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      11,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      11,
+      24
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      16,
+      32
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      16,
+      30
+    ],
+    "text": "1L"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      17,
+      36
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      17,
+      28
+    ],
+    "text": "\"member\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      17,
+      35
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      17,
+      29
+    ],
+    "text": "member"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      20,
+      21
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      20,
+      20
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      21,
+      30
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      21,
+      29
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      22,
+      30
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      22,
+      29
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      23,
+      30
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      23,
+      29
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      27,
+      22
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      27,
+      17
+    ],
+    "text": "\"one\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      27,
+      21
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      27,
+      18
+    ],
+    "text": "one"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      28,
+      23
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      28,
+      18
+    ],
+    "text": "\"two\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      28,
+      22
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      28,
+      19
+    ],
+    "text": "two"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      34,
+      35
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      34,
+      22
+    ],
+    "text": "\"constructed\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      34,
+      34
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      34,
+      23
+    ],
+    "text": "constructed"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      35,
+      26
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      35,
+      23
+    ],
+    "text": "\"!\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      35,
+      25
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      35,
+      24
+    ],
+    "text": "!"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      41,
+      25
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "null_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      41,
+      21
+    ],
+    "text": "null"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      42,
+      28
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      42,
+      24
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      43,
+      29
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "character_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      43,
+      25
+    ],
+    "text": "'λ'"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "escape_sequence",
+      "\""
+    ],
+    "end_point": [
+      44,
+      33
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [
+      "string_fragment",
+      "escape_sequence"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      44,
+      24
+    ],
+    "text": "\"value\\n\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      44,
+      30
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      44,
+      25
+    ],
+    "text": "value"
+  },
+  {
+    "all_children": [
+      "\"\"\"",
+      "multiline_string_fragment",
+      "\"\"\""
+    ],
+    "end_point": [
+      48,
+      19
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [
+      "multiline_string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      45,
+      22
+    ],
+    "text": "\"\"\"\n                line one\n                line two\n                \"\"\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      48,
+      16
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "multiline_string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      45,
+      25
+    ],
+    "text": "\n                line one\n                line two\n                "
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      49,
+      26
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "hex_integer_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      49,
+      22
+    ],
+    "text": "0x2A"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      50,
+      24
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      50,
+      22
+    ],
+    "text": "42"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      51,
+      23
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "octal_integer_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      51,
+      20
+    ],
+    "text": "052"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      52,
+      29
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "binary_integer_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      52,
+      21
+    ],
+    "text": "0b101010"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      53,
+      31
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_floating_point_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      53,
+      26
+    ],
+    "text": "3.5e2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      54,
+      28
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_floating_point_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      54,
+      23
+    ],
+    "text": "1.25f"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      55,
+      44
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "hex_floating_point_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      55,
+      37
+    ],
+    "text": "0x1.0p2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      56,
+      25
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      56,
+      23
+    ],
+    "text": "9L"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      60,
+      37
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      60,
+      36
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      61,
+      38
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      61,
+      37
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      62,
+      38
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      62,
+      37
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      68,
+      29
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      68,
+      21
+    ],
+    "text": "\"lambda\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      68,
+      28
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      68,
+      22
+    ],
+    "text": "lambda"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      76,
+      36
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      76,
+      25
+    ],
+    "text": "\"anonymous\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      76,
+      35
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      76,
+      26
+    ],
+    "text": "anonymous"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      77,
+      29
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      77,
+      26
+    ],
+    "text": "\"!\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      77,
+      28
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      77,
+      27
+    ],
+    "text": "!"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      83,
+      32
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      83,
+      31
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      86,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      86,
+      20
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      87,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      87,
+      24
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      91,
+      24
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      91,
+      20
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      92,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      92,
+      24
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      95,
+      33
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      95,
+      32
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      98,
+      30
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      98,
+      29
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      99,
+      26
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      99,
+      25
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      110,
+      24
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      110,
+      23
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      111,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      111,
+      23
+    ],
+    "text": "1L"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      112,
+      43
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      112,
+      39
+    ],
+    "text": "1000"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      113,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      113,
+      22
+    ],
+    "text": "\"d\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      113,
+      24
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      113,
+      23
+    ],
+    "text": "d"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      114,
+      29
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      114,
+      27
+    ],
+    "text": "10"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      116,
+      28
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      116,
+      25
+    ],
+    "text": "100"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      120,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      120,
+      22
+    ],
+    "text": "\".\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      120,
+      24
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      120,
+      23
+    ],
+    "text": "."
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      129,
+      24
+    ],
+    "field": "operand",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "unary_expression",
+    "start_point": [
+      129,
+      23
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      130,
+      24
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      130,
+      22
+    ],
+    "text": "0L"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      131,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      131,
+      20
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      134,
+      24
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      134,
+      23
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      135,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      135,
+      23
+    ],
+    "text": "1L"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      140,
+      71
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "dimensions_expr",
+    "start_point": [
+      140,
+      70
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      144,
+      32
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      144,
+      22
+    ],
+    "text": "\"resource\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      144,
+      31
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      144,
+      23
+    ],
+    "text": "resource"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      146,
+      24
+    ],
+    "field": "operand",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "unary_expression",
+    "start_point": [
+      146,
+      23
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      147,
+      25
+    ],
+    "field": "operand",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "unary_expression",
+    "start_point": [
+      147,
+      23
+    ],
+    "text": "2L"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      148,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      148,
+      20
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      154,
+      26
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      154,
+      25
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      155,
+      33
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      155,
+      32
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      160,
+      24
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      160,
+      23
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      161,
+      25
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      161,
+      23
+    ],
+    "text": "1L"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      162,
+      40
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      162,
+      39
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      163,
+      29
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      163,
+      22
+    ],
+    "text": "\"block\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      163,
+      28
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      163,
+      23
+    ],
+    "text": "block"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      167,
+      18
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "switch_label",
+    "start_point": [
+      167,
+      17
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      168,
+      28
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      168,
+      27
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      169,
+      30
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      169,
+      25
+    ],
+    "text": "\"one\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      169,
+      29
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      169,
+      26
+    ],
+    "text": "one"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      170,
+      28
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      170,
+      24
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      173,
+      27
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      173,
+      26
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      174,
+      34
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string_literal",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      174,
+      25
+    ],
+    "text": "\"default\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      174,
+      33
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string_literal",
+    "start_point": [
+      174,
+      26
+    ],
+    "text": "default"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      175,
+      29
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      175,
+      24
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      180,
+      18
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "switch_label",
+    "start_point": [
+      180,
+      17
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      181,
+      39
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      181,
+      38
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      182,
+      38
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      182,
+      37
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      183,
+      38
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      183,
+      37
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      184,
+      31
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      184,
+      30
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      186,
+      24
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "expression_statement",
+    "start_point": [
+      186,
+      23
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      4,
+      33
+    ],
+    "field": "value",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      4,
+      32
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      5,
+      27
+    ],
+    "field": null,
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "return_statement",
+    "start_point": [
+      5,
+      26
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      7,
+      42
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      7,
+      41
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      7,
+      46
+    ],
+    "field": "right",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      7,
+      45
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      22,
+      88
+    ],
+    "field": "consequence",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "ternary_expression",
+    "start_point": [
+      22,
+      87
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      22,
+      92
+    ],
+    "field": "alternative",
+    "language": "Java",
+    "named_children": [],
+    "node_type": "decimal_integer_literal",
+    "parent_type": "ternary_expression",
+    "start_point": [
+      22,
+      91
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "interpreted_string_literal_content",
+      "\""
+    ],
+    "end_point": [
+      2,
+      12
+    ],
+    "field": "path",
+    "language": "Go",
+    "named_children": [
+      "interpreted_string_literal_content"
+    ],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "import_spec",
+    "start_point": [
+      2,
+      7
+    ],
+    "text": "\"fmt\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      2,
+      11
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal_content",
+    "parent_type": "interpreted_string_literal",
+    "start_point": [
+      2,
+      8
+    ],
+    "text": "fmt"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      9,
+      26
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "nil",
+    "parent_type": "expression_list",
+    "start_point": [
+      9,
+      23
+    ],
+    "text": "nil"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      10,
+      17
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "expression_list",
+    "start_point": [
+      10,
+      13
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      11,
+      19
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      11,
+      15
+    ],
+    "text": "0x2A"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      12,
+      21
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "float_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      12,
+      16
+    ],
+    "text": "3.5e2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      13,
+      19
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "imaginary_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      13,
+      17
+    ],
+    "text": "4i"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      14,
+      21
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "rune_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      14,
+      17
+    ],
+    "text": "'λ'"
+  },
+  {
+    "all_children": [
+      "\"",
+      "interpreted_string_literal_content",
+      "escape_sequence",
+      "\""
+    ],
+    "end_point": [
+      15,
+      28
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "interpreted_string_literal_content",
+      "escape_sequence"
+    ],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      15,
+      19
+    ],
+    "text": "\"value\\n\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      15,
+      25
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal_content",
+    "parent_type": "interpreted_string_literal",
+    "start_point": [
+      15,
+      20
+    ],
+    "text": "value"
+  },
+  {
+    "all_children": [
+      "`",
+      "raw_string_literal_content",
+      "`"
+    ],
+    "end_point": [
+      16,
+      23
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "raw_string_literal_content"
+    ],
+    "node_type": "raw_string_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      16,
+      11
+    ],
+    "text": "`raw string`"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      16,
+      22
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "raw_string_literal_content",
+    "parent_type": "raw_string_literal",
+    "start_point": [
+      16,
+      12
+    ],
+    "text": "raw string"
+  },
+  {
+    "all_children": [
+      "func",
+      "parameter_list",
+      "type_identifier",
+      "block"
+    ],
+    "end_point": [
+      24,
+      5
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "parameter_list",
+      "type_identifier",
+      "block"
+    ],
+    "node_type": "func_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      19,
+      14
+    ],
+    "text": "func(shadow int) int {\n        RoleName := shadow\n        first := RoleName + 1\n        second := first * 2\n        return second / 3\n    }"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      21,
+      29
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      21,
+      28
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      22,
+      27
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      22,
+      26
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      23,
+      25
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      23,
+      24
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      26,
+      27
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      26,
+      26
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      32,
+      18
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      32,
+      17
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      33,
+      26
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      33,
+      25
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      35,
+      21
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "expression_list",
+    "start_point": [
+      35,
+      16
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      39,
+      18
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      39,
+      17
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      42,
+      34
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      42,
+      33
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      43,
+      21
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      43,
+      20
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [
+      "\"",
+      "\""
+    ],
+    "end_point": [
+      49,
+      35
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      49,
+      33
+    ],
+    "text": "\"\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      54,
+      18
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      54,
+      17
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      56,
+      35
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      56,
+      34
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "interpreted_string_literal_content",
+      "\""
+    ],
+    "end_point": [
+      57,
+      26
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "interpreted_string_literal_content"
+    ],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      57,
+      23
+    ],
+    "text": "\".\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      57,
+      25
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal_content",
+    "parent_type": "interpreted_string_literal",
+    "start_point": [
+      57,
+      24
+    ],
+    "text": "."
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      64,
+      20
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "expression_list",
+    "start_point": [
+      64,
+      16
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [
+      "\"",
+      "interpreted_string_literal_content",
+      "\""
+    ],
+    "end_point": [
+      65,
+      28
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "interpreted_string_literal_content"
+    ],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      65,
+      23
+    ],
+    "text": "\"int\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      65,
+      27
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal_content",
+    "parent_type": "interpreted_string_literal",
+    "start_point": [
+      65,
+      24
+    ],
+    "text": "int"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      67,
+      17
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      67,
+      16
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      68,
+      19
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      68,
+      18
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      69,
+      21
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "expression_list",
+    "start_point": [
+      69,
+      16
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [
+      "\"",
+      "interpreted_string_literal_content",
+      "\""
+    ],
+    "end_point": [
+      70,
+      31
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "interpreted_string_literal_content"
+    ],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      70,
+      22
+    ],
+    "text": "\"default\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      70,
+      30
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal_content",
+    "parent_type": "interpreted_string_literal",
+    "start_point": [
+      70,
+      23
+    ],
+    "text": "default"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      74,
+      10
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      74,
+      9
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      74,
+      13
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      74,
+      12
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      76,
+      20
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      76,
+      19
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      77,
+      20
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "expression_list",
+    "start_point": [
+      77,
+      16
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [
+      "\"",
+      "interpreted_string_literal_content",
+      "\""
+    ],
+    "end_point": [
+      78,
+      30
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "interpreted_string_literal_content"
+    ],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      78,
+      23
+    ],
+    "text": "\"small\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      78,
+      29
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal_content",
+    "parent_type": "interpreted_string_literal",
+    "start_point": [
+      78,
+      24
+    ],
+    "text": "small"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      80,
+      17
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      80,
+      16
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      81,
+      19
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      81,
+      18
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      82,
+      21
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "expression_list",
+    "start_point": [
+      82,
+      16
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [
+      "\"",
+      "interpreted_string_literal_content",
+      "\""
+    ],
+    "end_point": [
+      83,
+      29
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "interpreted_string_literal_content"
+    ],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      83,
+      22
+    ],
+    "text": "\"other\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      83,
+      28
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal_content",
+    "parent_type": "interpreted_string_literal",
+    "start_point": [
+      83,
+      23
+    ],
+    "text": "other"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      90,
+      20
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "expression_list",
+    "start_point": [
+      90,
+      16
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [
+      "\"",
+      "interpreted_string_literal_content",
+      "\""
+    ],
+    "end_point": [
+      91,
+      33
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "interpreted_string_literal_content"
+    ],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      91,
+      23
+    ],
+    "text": "\"received\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      91,
+      32
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal_content",
+    "parent_type": "interpreted_string_literal",
+    "start_point": [
+      91,
+      24
+    ],
+    "text": "received"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      93,
+      18
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      93,
+      17
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      94,
+      20
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      94,
+      19
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      95,
+      21
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "expression_list",
+    "start_point": [
+      95,
+      16
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [
+      "\"",
+      "interpreted_string_literal_content",
+      "\""
+    ],
+    "end_point": [
+      96,
+      32
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [
+      "interpreted_string_literal_content"
+    ],
+    "node_type": "interpreted_string_literal",
+    "parent_type": "expression_list",
+    "start_point": [
+      96,
+      23
+    ],
+    "text": "\"default\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      96,
+      31
+    ],
+    "field": null,
+    "language": "Go",
+    "named_children": [],
+    "node_type": "interpreted_string_literal_content",
+    "parent_type": "interpreted_string_literal",
+    "start_point": [
+      96,
+      24
+    ],
+    "text": "default"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      105,
+      22
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      105,
+      21
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      106,
+      23
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      106,
+      22
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      107,
+      23
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      107,
+      22
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      3,
+      35
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      3,
+      34
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      3,
+      39
+    ],
+    "field": "right",
+    "language": "Go",
+    "named_children": [],
+    "node_type": "int_literal",
+    "parent_type": "binary_expression",
+    "start_point": [
+      3,
+      38
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      0,
+      26
+    ],
+    "field": "source",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "import_statement",
+    "start_point": [
+      0,
+      18
+    ],
+    "text": "\"module\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      0,
+      25
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      0,
+      19
+    ],
+    "text": "module"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      2,
+      15
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      2,
+      14
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      5,
+      26
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      5,
+      25
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      6,
+      28
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      6,
+      27
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      7,
+      28
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      7,
+      27
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      12,
+      13
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "pair",
+    "start_point": [
+      12,
+      12
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      14,
+      33
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      14,
+      32
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      15,
+      30
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      15,
+      29
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      16,
+      30
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      16,
+      29
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      22,
+      20
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "field_definition",
+    "start_point": [
+      22,
+      19
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      23,
+      21
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "field_definition",
+    "start_point": [
+      23,
+      20
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      25,
+      23
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      25,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      26,
+      23
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      26,
+      22
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      27,
+      23
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      27,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      28,
+      24
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      28,
+      23
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      32,
+      23
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      32,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      33,
+      23
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      33,
+      22
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      34,
+      24
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      34,
+      23
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      37,
+      27
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "null",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      37,
+      23
+    ],
+    "text": "null"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      38,
+      24
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      38,
+      20
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      39,
+      26
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      39,
+      21
+    ],
+    "text": "3.5e2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      40,
+      24
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      40,
+      21
+    ],
+    "text": "42n"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "escape_sequence",
+      "\""
+    ],
+    "end_point": [
+      41,
+      30
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment",
+      "escape_sequence"
+    ],
+    "node_type": "string",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      41,
+      21
+    ],
+    "text": "\"value\\n\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      41,
+      27
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      41,
+      22
+    ],
+    "text": "value"
+  },
+  {
+    "all_children": [
+      "/",
+      "regex_pattern",
+      "/",
+      "regex_flags"
+    ],
+    "end_point": [
+      42,
+      29
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [
+      "regex_pattern",
+      "regex_flags"
+    ],
+    "node_type": "regex",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      42,
+      20
+    ],
+    "text": "/a+b?/giu"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      42,
+      25
+    ],
+    "field": "pattern",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "regex_pattern",
+    "parent_type": "regex",
+    "start_point": [
+      42,
+      21
+    ],
+    "text": "a+b?"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      42,
+      29
+    ],
+    "field": "flags",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "regex_flags",
+    "parent_type": "regex",
+    "start_point": [
+      42,
+      26
+    ],
+    "text": "giu"
+  },
+  {
+    "all_children": [
+      "`",
+      "string_fragment",
+      "template_substitution",
+      "string_fragment",
+      "template_substitution",
+      "`"
+    ],
+    "end_point": [
+      43,
+      58
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment",
+      "template_substitution",
+      "string_fragment",
+      "template_substitution"
+    ],
+    "node_type": "template_string",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      43,
+      23
+    ],
+    "text": "`value ${parameter} ${rest.length}`"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      43,
+      30
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "template_string",
+    "start_point": [
+      43,
+      24
+    ],
+    "text": "value "
+  },
+  {
+    "all_children": [
+      "${",
+      "identifier",
+      "}"
+    ],
+    "end_point": [
+      43,
+      42
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [
+      "identifier"
+    ],
+    "node_type": "template_substitution",
+    "parent_type": "template_string",
+    "start_point": [
+      43,
+      30
+    ],
+    "text": "${parameter}"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      43,
+      43
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "template_string",
+    "start_point": [
+      43,
+      42
+    ],
+    "text": " "
+  },
+  {
+    "all_children": [
+      "${",
+      "member_expression",
+      "}"
+    ],
+    "end_point": [
+      43,
+      57
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [
+      "member_expression"
+    ],
+    "node_type": "template_substitution",
+    "parent_type": "template_string",
+    "start_point": [
+      43,
+      43
+    ],
+    "text": "${rest.length}"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      48,
+      36
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      48,
+      35
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      49,
+      34
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      49,
+      33
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      50,
+      29
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      50,
+      28
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      54,
+      34
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      54,
+      33
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      55,
+      36
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      55,
+      35
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      56,
+      36
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      56,
+      35
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      60,
+      31
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      60,
+      30
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      64,
+      25
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      64,
+      23
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      66,
+      23
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      66,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      67,
+      31
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      67,
+      21
+    ],
+    "text": "\"fallback\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      67,
+      30
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      67,
+      22
+    ],
+    "text": "fallback"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      68,
+      25
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      68,
+      20
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      69,
+      25
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      69,
+      23
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      72,
+      33
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      72,
+      32
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      75,
+      31
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      75,
+      30
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      76,
+      27
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      76,
+      26
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      82,
+      45
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "binary_expression",
+    "start_point": [
+      82,
+      37
+    ],
+    "text": "\"member\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      82,
+      44
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      82,
+      38
+    ],
+    "text": "member"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      83,
+      24
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      83,
+      22
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      89,
+      44
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      89,
+      43
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      90,
+      24
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      90,
+      22
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      94,
+      23
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      94,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      95,
+      24
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      95,
+      22
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      96,
+      42
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      96,
+      38
+    ],
+    "text": "1000"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      97,
+      25
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      97,
+      22
+    ],
+    "text": "\"d\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      97,
+      24
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      97,
+      23
+    ],
+    "text": "d"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      98,
+      28
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      98,
+      26
+    ],
+    "text": "10"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      100,
+      27
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      100,
+      24
+    ],
+    "text": "100"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      103,
+      34
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      103,
+      33
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      104,
+      25
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      104,
+      22
+    ],
+    "text": "\".\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      104,
+      24
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      104,
+      23
+    ],
+    "text": "."
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      109,
+      24
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      109,
+      22
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      113,
+      23
+    ],
+    "field": "argument",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "unary_expression",
+    "start_point": [
+      113,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      114,
+      23
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      114,
+      21
+    ],
+    "text": "0n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      115,
+      25
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      115,
+      20
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      116,
+      46
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "binary_expression",
+    "start_point": [
+      116,
+      39
+    ],
+    "text": "\"error\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      116,
+      45
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      116,
+      40
+    ],
+    "text": "error"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      118,
+      23
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      118,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      119,
+      24
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      119,
+      22
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      125,
+      18
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "switch_case",
+    "start_point": [
+      125,
+      17
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      126,
+      27
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      126,
+      26
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      127,
+      30
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      127,
+      25
+    ],
+    "text": "\"one\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      127,
+      29
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      127,
+      26
+    ],
+    "text": "one"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      128,
+      28
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      128,
+      24
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      131,
+      26
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      131,
+      25
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      132,
+      34
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      132,
+      25
+    ],
+    "text": "\"default\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      132,
+      33
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      132,
+      26
+    ],
+    "text": "default"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      133,
+      29
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      133,
+      24
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      139,
+      25
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      139,
+      23
+    ],
+    "text": "2n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      140,
+      34
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "binary_expression",
+    "start_point": [
+      140,
+      29
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      148,
+      17
+    ],
+    "field": "value",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      148,
+      16
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      1,
+      43
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "binary_expression",
+    "start_point": [
+      1,
+      33
+    ],
+    "text": "\"untitled\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      1,
+      42
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      1,
+      34
+    ],
+    "text": "untitled"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      2,
+      40
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "jsx_attribute",
+    "start_point": [
+      2,
+      33
+    ],
+    "text": "\"title\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      2,
+      39
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      2,
+      34
+    ],
+    "text": "title"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      1,
+      40
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      1,
+      39
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      1,
+      44
+    ],
+    "field": "left",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      1,
+      43
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      1,
+      49
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      1,
+      48
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      6,
+      30
+    ],
+    "field": "left",
+    "language": "JavaScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "binary_expression",
+    "start_point": [
+      6,
+      23
+    ],
+    "text": "\"field\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      6,
+      29
+    ],
+    "field": null,
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      6,
+      24
+    ],
+    "text": "field"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      11,
+      61
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      11,
+      60
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      14,
+      50
+    ],
+    "field": "right",
+    "language": "JavaScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      14,
+      49
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      12,
+      37
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "public_field_definition",
+    "start_point": [
+      12,
+      36
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      13,
+      29
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "public_field_definition",
+    "start_point": [
+      13,
+      28
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      14,
+      39
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "public_field_definition",
+    "start_point": [
+      14,
+      32
+    ],
+    "text": "\"label\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      14,
+      38
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      14,
+      33
+    ],
+    "text": "label"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      17,
+      23
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      17,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      18,
+      32
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      18,
+      31
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      24,
+      23
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      24,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [
+      "null"
+    ],
+    "end_point": [
+      30,
+      26
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [
+      "null"
+    ],
+    "node_type": "literal_type",
+    "parent_type": "type_annotation",
+    "start_point": [
+      30,
+      22
+    ],
+    "text": "null"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      30,
+      26
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "null",
+    "parent_type": "literal_type",
+    "start_point": [
+      30,
+      22
+    ],
+    "text": "null"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      30,
+      33
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "null",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      30,
+      29
+    ],
+    "text": "null"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      31,
+      33
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      31,
+      29
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      32,
+      34
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      32,
+      29
+    ],
+    "text": "3.5e2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      33,
+      32
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      33,
+      29
+    ],
+    "text": "42n"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      34,
+      36
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      34,
+      29
+    ],
+    "text": "\"value\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      34,
+      35
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      34,
+      30
+    ],
+    "text": "value"
+  },
+  {
+    "all_children": [
+      "/",
+      "regex_pattern",
+      "/",
+      "regex_flags"
+    ],
+    "end_point": [
+      35,
+      37
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [
+      "regex_pattern",
+      "regex_flags"
+    ],
+    "node_type": "regex",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      35,
+      28
+    ],
+    "text": "/a+b?/giu"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      35,
+      33
+    ],
+    "field": "pattern",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "regex_pattern",
+    "parent_type": "regex",
+    "start_point": [
+      35,
+      29
+    ],
+    "text": "a+b?"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      35,
+      37
+    ],
+    "field": "flags",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "regex_flags",
+    "parent_type": "regex",
+    "start_point": [
+      35,
+      34
+    ],
+    "text": "giu"
+  },
+  {
+    "all_children": [
+      "`",
+      "string_fragment",
+      "template_substitution",
+      "string_fragment",
+      "template_substitution",
+      "`"
+    ],
+    "end_point": [
+      36,
+      57
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment",
+      "template_substitution",
+      "string_fragment",
+      "template_substitution"
+    ],
+    "node_type": "template_string",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      36,
+      23
+    ],
+    "text": "`value ${RoleName} ${rest.length}`"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      36,
+      30
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "template_string",
+    "start_point": [
+      36,
+      24
+    ],
+    "text": "value "
+  },
+  {
+    "all_children": [
+      "${",
+      "identifier",
+      "}"
+    ],
+    "end_point": [
+      36,
+      41
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [
+      "identifier"
+    ],
+    "node_type": "template_substitution",
+    "parent_type": "template_string",
+    "start_point": [
+      36,
+      30
+    ],
+    "text": "${RoleName}"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      36,
+      42
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "template_string",
+    "start_point": [
+      36,
+      41
+    ],
+    "text": " "
+  },
+  {
+    "all_children": [
+      "${",
+      "member_expression",
+      "}"
+    ],
+    "end_point": [
+      36,
+      56
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [
+      "member_expression"
+    ],
+    "node_type": "template_substitution",
+    "parent_type": "template_string",
+    "start_point": [
+      36,
+      42
+    ],
+    "text": "${rest.length}"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      40,
+      34
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      40,
+      33
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      41,
+      36
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      41,
+      35
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      42,
+      36
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      42,
+      35
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      45,
+      58
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      45,
+      57
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      47,
+      31
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      47,
+      30
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      51,
+      25
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      51,
+      23
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      53,
+      23
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      53,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      54,
+      31
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      54,
+      21
+    ],
+    "text": "\"fallback\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      54,
+      30
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      54,
+      22
+    ],
+    "text": "fallback"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      55,
+      25
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      55,
+      20
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      56,
+      25
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      56,
+      23
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      61,
+      24
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      61,
+      22
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      65,
+      23
+    ],
+    "field": "argument",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "unary_expression",
+    "start_point": [
+      65,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      66,
+      23
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      66,
+      21
+    ],
+    "text": "0n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      67,
+      25
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      67,
+      20
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      68,
+      57
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "binary_expression",
+    "start_point": [
+      68,
+      50
+    ],
+    "text": "\"error\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      68,
+      56
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      68,
+      51
+    ],
+    "text": "error"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      70,
+      23
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      70,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      71,
+      24
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      71,
+      22
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      77,
+      18
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "switch_case",
+    "start_point": [
+      77,
+      17
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      78,
+      27
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      78,
+      26
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      79,
+      30
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      79,
+      25
+    ],
+    "text": "\"one\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      79,
+      29
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      79,
+      26
+    ],
+    "text": "one"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      80,
+      28
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "true",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      80,
+      24
+    ],
+    "text": "true"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      83,
+      26
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      83,
+      25
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      84,
+      34
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      84,
+      25
+    ],
+    "text": "\"default\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      84,
+      33
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      84,
+      26
+    ],
+    "text": "default"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      85,
+      29
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "assignment_expression",
+    "start_point": [
+      85,
+      24
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      89,
+      33
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      89,
+      32
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      92,
+      31
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      92,
+      30
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      93,
+      27
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      93,
+      26
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      98,
+      44
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      98,
+      43
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      99,
+      24
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      99,
+      22
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      101,
+      27
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      101,
+      24
+    ],
+    "text": "100"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      104,
+      39
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      104,
+      38
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      105,
+      25
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      105,
+      22
+    ],
+    "text": "\".\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      105,
+      24
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      105,
+      23
+    ],
+    "text": "."
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      108,
+      23
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      108,
+      22
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      109,
+      24
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      109,
+      22
+    ],
+    "text": "1n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      110,
+      42
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      110,
+      38
+    ],
+    "text": "1000"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      111,
+      25
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      111,
+      22
+    ],
+    "text": "\"d\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      111,
+      24
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      111,
+      23
+    ],
+    "text": "d"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      112,
+      28
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      112,
+      26
+    ],
+    "text": "10"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      115,
+      25
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      115,
+      23
+    ],
+    "text": "2n"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      116,
+      34
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "false",
+    "parent_type": "binary_expression",
+    "start_point": [
+      116,
+      29
+    ],
+    "text": "false"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      123,
+      31
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      123,
+      30
+    ],
+    "text": "1"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      124,
+      32
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      124,
+      31
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      125,
+      32
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      125,
+      31
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      131,
+      17
+    ],
+    "field": "value",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "variable_declarator",
+    "start_point": [
+      131,
+      16
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      3,
+      43
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "binary_expression",
+    "start_point": [
+      3,
+      33
+    ],
+    "text": "\"untitled\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      3,
+      42
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      3,
+      34
+    ],
+    "text": "untitled"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      4,
+      40
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "jsx_attribute",
+    "start_point": [
+      4,
+      33
+    ],
+    "text": "\"title\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      4,
+      39
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      4,
+      34
+    ],
+    "text": "title"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      4,
+      40
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      4,
+      39
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      4,
+      44
+    ],
+    "field": "left",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      4,
+      43
+    ],
+    "text": "3"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      4,
+      49
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      4,
+      48
+    ],
+    "text": "2"
+  },
+  {
+    "all_children": [
+      "\"",
+      "string_fragment",
+      "\""
+    ],
+    "end_point": [
+      9,
+      30
+    ],
+    "field": "left",
+    "language": "TypeScript",
+    "named_children": [
+      "string_fragment"
+    ],
+    "node_type": "string",
+    "parent_type": "binary_expression",
+    "start_point": [
+      9,
+      23
+    ],
+    "text": "\"field\""
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      9,
+      29
+    ],
+    "field": null,
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "string_fragment",
+    "parent_type": "string",
+    "start_point": [
+      9,
+      24
+    ],
+    "text": "field"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      14,
+      88
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "augmented_assignment_expression",
+    "start_point": [
+      14,
+      87
+    ],
+    "text": "0"
+  },
+  {
+    "all_children": [],
+    "end_point": [
+      17,
+      59
+    ],
+    "field": "right",
+    "language": "TypeScript",
+    "named_children": [],
+    "node_type": "number",
+    "parent_type": "binary_expression",
+    "start_point": [
+      17,
+      58
+    ],
+    "text": "0"
+  }
+]

@@ -1,0 +1,9 @@
+{
+  "case_id": "entity-python-nested-function-is-secondary",
+  "observations": {
+    "aggregate/methods_functions": 1,
+    "aggregate/module_functions": 1,
+    "aggregate/nested_functions": 1
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

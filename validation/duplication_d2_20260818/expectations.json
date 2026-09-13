@@ -1,0 +1,98 @@
+{
+  "format": "archlens-duplication-d2-expectations",
+  "format_version": "1.0.0",
+  "authored_before_production_matcher": true,
+  "clone_kind": "lexical_exact",
+  "languages": [
+    "Go",
+    "Java",
+    "JavaScript",
+    "Python",
+    "TypeScript"
+  ],
+  "equivalence_classes": [
+    {
+      "id": "go-baseline",
+      "members": [
+        "go/base.go",
+        "go/comment.go",
+        "go/exact.go",
+        "go/lone_cr.go",
+        "go/whitespace.go"
+      ]
+    },
+    {
+      "id": "java-baseline",
+      "members": [
+        "java/base.java",
+        "java/comment.java",
+        "java/crlf.java",
+        "java/exact.java",
+        "java/whitespace.java"
+      ]
+    },
+    {
+      "id": "javascript-baseline",
+      "members": [
+        "javascript/base.js",
+        "javascript/comment.js",
+        "javascript/exact.js",
+        "javascript/whitespace.js"
+      ]
+    },
+    {
+      "id": "python-baseline",
+      "members": [
+        "python/base.py",
+        "python/comment.py",
+        "python/exact.py",
+        "python/same_file.py#1",
+        "python/same_file.py#2",
+        "python/whitespace.py"
+      ]
+    },
+    {
+      "id": "python-unicode",
+      "members": [
+        "python/café/日本語_unicode_a.py",
+        "python/café/日本語_unicode_b.py"
+      ]
+    },
+    {
+      "id": "typescript-baseline",
+      "members": [
+        "typescript/base.ts",
+        "typescript/bom.ts",
+        "typescript/comment.ts",
+        "typescript/exact.ts",
+        "typescript/whitespace.ts"
+      ]
+    }
+  ],
+  "non_relations": [
+    {"left": "{language}/base", "right": "{language}/identifier", "reason": "identifier spelling preserved", "languages": ["Go", "Java", "JavaScript", "Python", "TypeScript"]},
+    {"left": "{language}/base", "right": "{language}/literal", "reason": "literal spelling preserved", "languages": ["Go", "Java", "JavaScript", "Python", "TypeScript"]},
+    {"left": "{language}/base", "right": "{language}/operator", "reason": "operator spelling preserved", "languages": ["Go", "Java", "JavaScript", "Python", "TypeScript"]},
+    {"left": "{language}/base", "right": "{language}/reordered", "reason": "token and statement order preserved", "languages": ["Go", "Java", "JavaScript", "Python", "TypeScript"]},
+    {"left": "{language}/base", "right": "{language}/added", "reason": "statement addition preserved", "languages": ["Go", "Java", "JavaScript", "Python", "TypeScript"]},
+    {"left": "{language}/base", "right": "{language}/removed", "reason": "statement removal preserved", "languages": ["Go", "Java", "JavaScript", "Python", "TypeScript"]},
+    {"left": "python/unicode_nfc.py", "right": "python/unicode_nfd.py", "reason": "no Unicode normalization", "languages": ["Python"]}
+  ],
+  "typed_unavailable": [
+    "go/malformed.go",
+    "java/malformed.java",
+    "javascript/malformed.js",
+    "python/malformed.py",
+    "typescript/malformed.ts"
+  ],
+  "coverage": {
+    "bom": "typescript/bom.ts",
+    "crlf": "java/crlf.java",
+    "lone_cr": "go/lone_cr.go",
+    "same_file": "python/same_file.py",
+    "cross_file": ["python/base.py", "python/exact.py"],
+    "multiple_occurrences": "python-baseline",
+    "unicode_path": "python/café/日本語_unicode_a.py",
+    "parser_unavailable": "injected by the clean-room validation harness"
+  }
+}

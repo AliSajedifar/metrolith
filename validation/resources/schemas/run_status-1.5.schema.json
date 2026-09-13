@@ -1,0 +1,120 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://archlens.dev/schemas/run_status-1.5.schema.json",
+  "title": "ArchLens run status 1.5",
+  "description": "Authoritative run-integrity state. This document, not summary.md and not run_manifest.json, is authoritative for run_integrity_status (plan sections 4.1 and 4.5).",
+  "type": "object",
+  "required": [
+    "run_id",
+    "status",
+    "updated_at"
+  ],
+  "properties": {
+    "run_id": {
+      "type": "string",
+      "minLength": 1,
+      "description": "Stable identifier of this run."
+    },
+    "status": {
+      "description": "run_integrity_status. ArchLens writes 'running' at run-directory creation and one terminal value at finalization. It never writes 'interrupted' as a run status; interruption is observed from repository checkpoint evidence instead.",
+      "enum": [
+        "running",
+        "completed",
+        "completed_with_errors",
+        "failed"
+      ]
+    },
+    "updated_at": {
+      "$ref": "#/$defs/utcTimestamp"
+    },
+    "repository_count": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "input_row_count": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Accepted source rows. Reconciles with normalized_input.csv when that artifact is present."
+    },
+    "planned_repository_count": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "processed_repository_count": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "success_count": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "partial_count": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "failure_count": {
+      "type": ["integer", "null"],
+      "minimum": 0
+    },
+    "skipped_disabled_count": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Rows accepted but disabled. Retained in normalized_input.csv rather than discarded."
+    },
+    "duplicate_rows_dropped": {
+      "type": ["integer", "null"],
+      "minimum": 0,
+      "description": "Identical duplicates removed from execution. Each remains represented in normalized_input.csv with its representative row."
+    },
+    "mandatory_output_failures": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Non-empty implies status 'failed'."
+    },
+    "optional_output_failures": {
+      "type": "array",
+      "items": { "type": "string" },
+      "description": "Optional projection failures. These must not change measurement_outcome (plan section 4.5)."
+    },
+    "measurement_outcome": {
+      "description": "Aggregate measurement availability, separated from run integrity in Artifact Schema 1.5. Absent in artifacts written by ArchLens 3.4.0 and earlier.",
+      "enum": [
+        "complete",
+        "partial",
+        "unavailable",
+        "not_evaluable"
+      ]
+    }
+  },
+  "allOf": [
+    {
+      "if": {
+        "properties": { "status": { "const": "running" } },
+        "required": ["status"]
+      },
+      "then": {
+        "description": "A non-terminal run carries no finalized verdict; finalized counts are not required."
+      }
+    },
+    {
+      "if": {
+        "properties": {
+          "mandatory_output_failures": { "type": "array", "minItems": 1 }
+        },
+        "required": ["mandatory_output_failures"]
+      },
+      "then": {
+        "properties": { "status": { "const": "failed" } },
+        "required": ["status"]
+      }
+    }
+  ],
+  "unevaluatedProperties": false,
+  "$defs": {
+    "utcTimestamp": {
+      "type": "string",
+      "pattern": "^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}(\\.[0-9]+)?Z$",
+      "description": "UTC timestamp with an explicit trailing Z. Local offsets are not portable evidence."
+    }
+  }
+}

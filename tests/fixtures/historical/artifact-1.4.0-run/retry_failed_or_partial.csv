@@ -1,0 +1,9 @@
+url,architecture_type,expected_language,commit_sha,enabled,notes
+https://github.com/7ep/demo,monolith,Java,,TRUE,Acquisition control; SHA preserved from prior local input because supplied failed row has no analyzed SHA
+https://github.com/apache/roller,monolith,Java,db3915af6f6f198cc8efed8da172f7c4acad157f,TRUE,Conservative malformed monolith control; SHA from supplied monolith sheet
+https://github.com/cgrates/cgrates,microservices,Go,68b79dca2e32e51d25e38b62088ab96bb3feb0df,TRUE,Conservative malformed control; SHA from supplied microservice sheet
+https://github.com/dotCMS/core,monolith,Java,f8dddf85f81345bf0c2427952df6409740a2008b,TRUE,Affected NUL and source-scope control; SHA from supplied monolith sheet
+https://github.com/nuglifeleoji/Options-Analytics-Agent,microservices,Python,9de22c3184598440ae2209be87bcd764bd1349af,TRUE,Conservative Python control; SHA from supplied microservice sheet
+https://github.com/rodrigorodrigues/microservices-design-patterns,microservices,Java,5c5bf319b3db74d187c97fbd805fb6da7e0715f4,TRUE,Conservative malformed control; SHA from supplied microservice sheet
+https://github.com/ucfopen/Obojobo,monolith,JavaScript,74554818d5d7897105b036fc1285dcfcebef01a5,TRUE,Affected raw-ampersand control; SHA from supplied monolith sheet
+https://github.com/umermansoor/microservices,microservices,Python,c9d4770a6e2b5a6db7656f6b3c0bee320c7fe71b,TRUE,Conservative Python control; SHA from supplied microservice sheet

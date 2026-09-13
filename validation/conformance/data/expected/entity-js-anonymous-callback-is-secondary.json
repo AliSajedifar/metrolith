@@ -1,0 +1,8 @@
+{
+  "case_id": "entity-js-anonymous-callback-is-secondary",
+  "observations": {
+    "aggregate/methods_functions": 0,
+    "aggregate/methods_functions_status": "complete"
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

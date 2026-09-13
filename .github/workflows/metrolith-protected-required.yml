@@ -1,0 +1,257 @@
+name: Metrolith protected required gate
+
+on:
+  pull_request:
+  merge_group:
+    types: [checks_requested]
+  workflow_call:
+    inputs:
+      evaluator_repository:
+        description: Independently controlled evaluator owner/repository
+        required: true
+        type: string
+      evaluator_revision:
+        description: Full 40-hex evaluator commit SHA
+        required: true
+        type: string
+      evaluator_source_sha256:
+        description: Reviewed evaluator source-set SHA-256
+        required: true
+        type: string
+      evaluator_program_version:
+        description: Reviewed Metrolith Program version
+        required: true
+        type: string
+      evaluator_runtime_lock_sha256:
+        description: SHA-256 of requirements/action-runtime.lock
+        required: true
+        type: string
+      custody_repository:
+        description: Owner-controlled policy/run/evidence/baseline repository
+        required: true
+        type: string
+      custody_revision:
+        description: Full 40-hex custody commit SHA
+        required: true
+        type: string
+      run_relative_path:
+        description: Custody-relative finalized single-candidate run directory
+        required: true
+        type: string
+      run_manifest_sha256:
+        description: Owner-pinned SHA-256 of the exact run_manifest.json bytes
+        required: true
+        type: string
+      policy_relative_path:
+        description: Custody-relative Policy path
+        required: true
+        type: string
+      policy_sha256:
+        description: Owner-pinned SHA-256 of the exact Policy bytes
+        required: true
+        type: string
+      hotspots_relative_path:
+        description: Optional custody-relative canonical Hotspot document
+        required: false
+        default: ""
+        type: string
+      duplication_relative_path:
+        description: Optional custody-relative canonical Duplication document
+        required: false
+        default: ""
+        type: string
+      evidence_receipt_sha256:
+        description: Owner-pinned expected digest of the receipt recreated by the gate
+        required: true
+        type: string
+      baseline_relative_path:
+        description: Optional custody-relative Ratchet Baseline path
+        required: false
+        default: ""
+        type: string
+      baseline_sha256:
+        description: Optional owner-pinned Ratchet Baseline SHA-256
+        required: false
+        default: ""
+        type: string
+      upload_sarif:
+        description: Request code-scanning upload when event permissions allow it
+        required: false
+        default: false
+        type: boolean
+    outputs:
+      exit_code:
+        description: Metrolith check exit 0, 1, or 2
+        value: ${{ jobs.protected_gate.outputs.exit-code }}
+      verdict:
+        description: pass, fail, or error
+        value: ${{ jobs.protected_gate.outputs.verdict }}
+      sarif_sha256:
+        description: SHA-256 of the unchanged SARIF bytes
+        value: ${{ jobs.protected_gate.outputs.sarif-sha256 }}
+      evaluator_revision:
+        description: Verified full evaluator commit SHA
+        value: ${{ jobs.protected_gate.outputs.evaluator-revision }}
+      candidate_revision:
+        description: Candidate revision bound to the admitted run
+        value: ${{ jobs.protected_gate.outputs.candidate-revision }}
+      policy_sha256:
+        description: Verified Policy digest
+        value: ${{ jobs.protected_gate.outputs.policy-sha256 }}
+      receipt_sha256:
+        description: Externally expected and verified receipt digest
+        value: ${{ jobs.protected_gate.outputs.receipt-sha256 }}
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  protected_gate:
+    name: Metrolith protected required gate
+    runs-on: ubuntu-latest
+    outputs:
+      exit-code: ${{ steps.check.outputs.exit-code }}
+      verdict: ${{ steps.check.outputs.verdict }}
+      sarif-sha256: ${{ steps.check.outputs.sarif-sha256 }}
+      evaluator-revision: ${{ steps.boundary.outputs.evaluator-revision }}
+      candidate-revision: ${{ steps.boundary.outputs.candidate-revision }}
+      policy-sha256: ${{ steps.boundary.outputs.policy-sha256 }}
+      receipt-sha256: ${{ steps.receipt.outputs.receipt-sha256 }}
+    env:
+      METROLITH_EXPECTED_EVALUATOR_REPOSITORY: ${{ inputs.evaluator_repository || vars.METROLITH_EVALUATOR_REPOSITORY }}
+      METROLITH_EXPECTED_EVALUATOR_REVISION: ${{ inputs.evaluator_revision || vars.METROLITH_EVALUATOR_REVISION }}
+      METROLITH_EXPECTED_EVALUATOR_SOURCE_SHA256: ${{ inputs.evaluator_source_sha256 || vars.METROLITH_EVALUATOR_SOURCE_SHA256 }}
+      METROLITH_EXPECTED_PROGRAM_VERSION: ${{ inputs.evaluator_program_version || vars.METROLITH_EVALUATOR_PROGRAM_VERSION }}
+      METROLITH_EXPECTED_RUNTIME_LOCK_SHA256: ${{ inputs.evaluator_runtime_lock_sha256 || vars.METROLITH_EVALUATOR_RUNTIME_LOCK_SHA256 }}
+      METROLITH_CUSTODY_REPOSITORY: ${{ inputs.custody_repository || vars.METROLITH_CUSTODY_REPOSITORY }}
+      METROLITH_CUSTODY_REVISION: ${{ inputs.custody_revision || vars.METROLITH_CUSTODY_REVISION }}
+      METROLITH_RUN_RELATIVE_PATH: ${{ inputs.run_relative_path || vars.METROLITH_RUN_RELATIVE_PATH }}
+      METROLITH_RUN_MANIFEST_SHA256: ${{ inputs.run_manifest_sha256 || vars.METROLITH_RUN_MANIFEST_SHA256 }}
+      METROLITH_POLICY_RELATIVE_PATH: ${{ inputs.policy_relative_path || vars.METROLITH_POLICY_RELATIVE_PATH }}
+      METROLITH_POLICY_SHA256: ${{ inputs.policy_sha256 || vars.METROLITH_POLICY_SHA256 }}
+      METROLITH_HOTSPOTS_RELATIVE_PATH: ${{ inputs.hotspots_relative_path || vars.METROLITH_HOTSPOTS_RELATIVE_PATH }}
+      METROLITH_DUPLICATION_RELATIVE_PATH: ${{ inputs.duplication_relative_path || vars.METROLITH_DUPLICATION_RELATIVE_PATH }}
+      METROLITH_EVIDENCE_RECEIPT_SHA256: ${{ inputs.evidence_receipt_sha256 || vars.METROLITH_EVIDENCE_RECEIPT_SHA256 }}
+      METROLITH_BASELINE_RELATIVE_PATH: ${{ inputs.baseline_relative_path || vars.METROLITH_BASELINE_RELATIVE_PATH }}
+      METROLITH_BASELINE_SHA256: ${{ inputs.baseline_sha256 || vars.METROLITH_BASELINE_SHA256 }}
+      METROLITH_UPLOAD_SARIF: ${{ inputs.upload_sarif || vars.METROLITH_UPLOAD_SARIF || 'false' }}
+      METROLITH_CANDIDATE_REPOSITORY: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.repo.full_name || github.repository }}
+      METROLITH_CANDIDATE_REVISION: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || github.sha }}
+      METROLITH_CANDIDATE_ROOT: ${{ github.workspace }}/.metrolith-protected/candidate
+      METROLITH_EVALUATOR_ROOT: ${{ github.workspace }}/.metrolith-protected/evaluator
+      METROLITH_CUSTODY_ROOT: ${{ github.workspace }}/.metrolith-protected/custody
+      METROLITH_GATE_ROOT: ${{ github.workspace }}/.metrolith-protected/gate
+    steps:
+      - name: Checkout protected evaluator at the configured full SHA
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: ${{ env.METROLITH_EXPECTED_EVALUATOR_REPOSITORY }}
+          ref: ${{ env.METROLITH_EXPECTED_EVALUATOR_REVISION }}
+          path: .metrolith-protected/evaluator
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Checkout owner custody material at the configured full SHA
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: ${{ env.METROLITH_CUSTODY_REPOSITORY }}
+          ref: ${{ env.METROLITH_CUSTODY_REVISION }}
+          path: .metrolith-protected/custody
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Checkout candidate source as data only
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          repository: ${{ env.METROLITH_CANDIDATE_REPOSITORY }}
+          ref: ${{ env.METROLITH_CANDIDATE_REVISION }}
+          path: .metrolith-protected/candidate
+          persist-credentials: false
+          fetch-depth: 1
+
+      - name: Set up exact reviewed CPython
+        uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1
+        with:
+          python-version: "3.13.9"
+          cache: pip
+          cache-dependency-path: .metrolith-protected/evaluator/requirements/action-runtime.lock
+
+      - name: Create protected gate output root
+        shell: bash
+        run: mkdir -p "$METROLITH_GATE_ROOT"
+
+      - name: Validate all protected trust configuration before installation
+        id: boundary
+        shell: bash
+        run: python "$METROLITH_EVALUATOR_ROOT/tools/protected_workflow.py" validate
+
+      - name: Enforce evaluator and event boundary before installation
+        shell: bash
+        run: python "$METROLITH_EVALUATOR_ROOT/.github/actions/metrolith-check/metrolith_action.py" preflight
+        env:
+          METROLITH_PROTECTED_REQUIRED: "true"
+          METROLITH_ACTION_PATH_OVERRIDE: ${{ env.METROLITH_EVALUATOR_ROOT }}/.github/actions/metrolith-check
+          METROLITH_ACTION_REPOSITORY: ${{ env.METROLITH_EXPECTED_EVALUATOR_REPOSITORY }}
+          METROLITH_ACTION_REF: ${{ env.METROLITH_EXPECTED_EVALUATOR_REVISION }}
+
+      - name: Install exact hash-locked evaluator runtime
+        shell: bash
+        run: python "$METROLITH_EVALUATOR_ROOT/.github/actions/metrolith-check/metrolith_action.py" install
+        env:
+          METROLITH_PROTECTED_REQUIRED: "true"
+          METROLITH_ACTION_PATH_OVERRIDE: ${{ env.METROLITH_EVALUATOR_ROOT }}/.github/actions/metrolith-check
+          METROLITH_ACTION_REPOSITORY: ${{ env.METROLITH_EXPECTED_EVALUATOR_REPOSITORY }}
+          METROLITH_ACTION_REF: ${{ env.METROLITH_EXPECTED_EVALUATOR_REVISION }}
+
+      - name: Verify custody run binds the GitHub-selected candidate
+        shell: bash
+        run: python "$METROLITH_EVALUATOR_ROOT/tools/protected_workflow.py" verify-candidate
+
+      - name: Recreate and externally authenticate canonical evidence receipt
+        id: receipt
+        shell: bash
+        run: python "$METROLITH_EVALUATOR_ROOT/tools/protected_workflow.py" create-receipt
+
+      - name: Invoke metrolith check exactly once
+        id: check
+        continue-on-error: true
+        shell: bash
+        run: python "$METROLITH_EVALUATOR_ROOT/.github/actions/metrolith-check/metrolith_action.py" check
+        env:
+          METROLITH_RUN: ${{ env.METROLITH_PROTECTED_RUN_PATH }}
+          METROLITH_POLICY: ${{ env.METROLITH_PROTECTED_POLICY_PATH }}
+          METROLITH_PROTECTED_REQUIRED: "true"
+          METROLITH_ACTION_PATH_OVERRIDE: ${{ env.METROLITH_EVALUATOR_ROOT }}/.github/actions/metrolith-check
+          METROLITH_ACTION_REPOSITORY: ${{ env.METROLITH_EXPECTED_EVALUATOR_REPOSITORY }}
+          METROLITH_ACTION_REF: ${{ env.METROLITH_EXPECTED_EVALUATOR_REVISION }}
+          METROLITH_EVIDENCE_RECEIPT: ${{ steps.receipt.outputs.receipt-path }}
+          METROLITH_HOTSPOTS: ${{ env.METROLITH_PROTECTED_HOTSPOTS_PATH }}
+          METROLITH_DUPLICATION: ${{ env.METROLITH_PROTECTED_DUPLICATION_PATH }}
+          METROLITH_BASELINE: ${{ env.METROLITH_PROTECTED_BASELINE_PATH }}
+          METROLITH_BASELINE_ORIGIN: ${{ env.METROLITH_PROTECTED_BASELINE_ORIGIN }}
+          METROLITH_BASELINE_REQUIRED: "false"
+          METROLITH_SARIF: .metrolith-protected/gate/metrolith.sarif
+
+      - name: Upload unchanged SARIF when explicitly enabled and permitted
+        id: upload
+        if: ${{ steps.check.outputs.upload-eligible == 'true' && steps.check.outputs.sarif-created == 'true' }}
+        uses: github/codeql-action/upload-sarif@faaa5d804fc648d0fdb28822a8e36cf7d0a6132c
+        with:
+          sarif_file: ${{ steps.check.outputs.sarif-path }}
+          category: metrolith-protected-required
+
+      - name: Verify SARIF bytes remained unchanged
+        if: ${{ always() && steps.check.outputs.sarif-created == 'true' }}
+        shell: bash
+        run: python "$METROLITH_EVALUATOR_ROOT/.github/actions/metrolith-check/metrolith_action.py" verify
+        env:
+          METROLITH_SARIF: ${{ steps.check.outputs.sarif-path }}
+          METROLITH_EXPECTED_SHA256: ${{ steps.check.outputs.sarif-sha256 }}
+
+      - name: Propagate Metrolith exit 0, 1, or 2
+        if: ${{ always() }}
+        shell: bash
+        run: python "$METROLITH_EVALUATOR_ROOT/.github/actions/metrolith-check/metrolith_action.py" propagate
+        env:
+          METROLITH_EXIT_CODE: ${{ steps.check.outputs.exit-code }}

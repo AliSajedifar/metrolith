@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+<!--
+  PMD CognitiveComplexity at its MINIMUM LEGAL threshold.
+
+  reportLevel is a minimum and PMD refuses any non-positive value: a ruleset
+  with 0 or -1 fails XML validation with "Value should be positive" and does not
+  load at all. So 1 is the lowest reachable setting, and a callable scoring a
+  genuine 0 is structurally unreportable by this tool. That is the measured
+  basis for the Java zero-suppression verdict, not a configuration preference.
+-->
+<ruleset name="archlens-cognitive-metric"
+         xmlns="http://pmd.sourceforge.net/ruleset/2.0.0">
+  <description>ArchLens CG differential validation: cognitive complexity.</description>
+  <rule ref="category/java/design.xml/CognitiveComplexity">
+    <properties><property name="reportLevel" value="1"/></properties>
+  </rule>
+</ruleset>

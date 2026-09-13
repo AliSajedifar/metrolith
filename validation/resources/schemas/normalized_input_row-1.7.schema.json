@@ -1,0 +1,168 @@
+{
+  "$id": "https://archlens.dev/schemas/normalized_input_row-1.7.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "One row of normalized_input.csv, the authoritative complete accepted input population (plan section 11). Every accepted source row is represented, including disabled rows and identical duplicates dropped from execution. Conflicting duplicates are fatal input validation and never reach this ledger.\n\nArtifact Schema 1.7.0: `subject_key` is the logical join key for this row. The locator column becomes nullable because a local subject has no remote URL — a key that is sometimes absent was never a key.",
+  "properties": {
+    "acquisition_outcome": {
+      "enum": [
+        "succeeded",
+        "failed",
+        "skipped",
+        "not_attempted"
+      ]
+    },
+    "analyzed_sha": {
+      "pattern": "^([0-9a-f]{40})?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "architecture_metadata": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "canonical_url": {
+      "description": "Source/origin locator. **Nullable and no longer the identity key** — a local subject may have no origin. Use `subject_key` for joins.",
+      "minLength": 1,
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-nullable": true
+    },
+    "commit_verification_state": {
+      "enum": [
+        "verified",
+        "unverified",
+        "mismatch",
+        "not_applicable",
+        "not_evaluable"
+      ]
+    },
+    "duplicate_classification": {
+      "description": "Conflicting duplicates are fatal and never appear here.",
+      "enum": [
+        "unique",
+        "identical_duplicate",
+        "duplicate_representative"
+      ]
+    },
+    "duplicate_representative_source_row": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "execution_disposition": {
+      "enum": [
+        "executed",
+        "skipped_disabled",
+        "skipped_duplicate",
+        "failed_acquisition",
+        "not_attempted"
+      ]
+    },
+    "expected_language": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "measured_scope_inclusion": {
+      "type": "boolean"
+    },
+    "normalization_warnings": {
+      "items": {
+        "type": "string"
+      },
+      "type": [
+        "array",
+        "null"
+      ]
+    },
+    "normalized_enabled": {
+      "type": "boolean"
+    },
+    "notes": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "original_enabled": {
+      "type": "string"
+    },
+    "original_input_line": {
+      "minimum": 0,
+      "type": [
+        "integer",
+        "null"
+      ]
+    },
+    "original_row_index": {
+      "minimum": 0,
+      "type": "integer"
+    },
+    "requested_sha": {
+      "description": "Never lost, including for a failed acquisition (plan section 11.5).",
+      "pattern": "^([0-9a-f]{40})?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "resolved_sha": {
+      "pattern": "^([0-9a-f]{40})?$",
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "skip_or_failure_reason": {
+      "type": [
+        "string",
+        "null"
+      ]
+    },
+    "source_input_aggregate_hash": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "source_input_file_id": {
+      "description": "Logical identifier. Never an absolute host path (plan section 11.3).",
+      "minLength": 1,
+      "type": "string"
+    },
+    "source_input_file_sha256": {
+      "pattern": "^[0-9a-f]{64}$",
+      "type": "string"
+    },
+    "subject_key": {
+      "description": "Logical subject identity. The join key across runs, revisions and source modes. Never a content hash.",
+      "minLength": 1,
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.7.0"
+    }
+  },
+  "required": [
+    "duplicate_classification",
+    "execution_disposition",
+    "measured_scope_inclusion",
+    "normalized_enabled",
+    "original_enabled",
+    "original_row_index",
+    "source_input_aggregate_hash",
+    "source_input_file_id",
+    "source_input_file_sha256",
+    "subject_key"
+  ],
+  "title": "ArchLens normalized input row 1.5 1.7",
+  "type": "object"
+}

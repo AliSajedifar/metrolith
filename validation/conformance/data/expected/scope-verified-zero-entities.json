@@ -1,0 +1,13 @@
+{
+  "case_id": "scope-verified-zero-entities",
+  "observations": {
+    "aggregate/classes_structs": 0,
+    "aggregate/classes_structs_status": "complete",
+    "aggregate/lines_of_code": 2,
+    "aggregate/methods_functions": 0,
+    "aggregate/methods_functions_status": "complete",
+    "aggregate/metric_status": "complete",
+    "aggregate/source_files": 1
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

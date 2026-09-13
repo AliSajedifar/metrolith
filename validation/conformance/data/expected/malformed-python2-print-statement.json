@@ -1,0 +1,8 @@
+{
+  "case_id": "malformed-python2-print-statement",
+  "observations": {
+    "aggregate/source_files": 1,
+    "aggregate/source_files_status": "complete"
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

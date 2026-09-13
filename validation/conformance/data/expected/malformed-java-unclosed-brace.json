@@ -1,0 +1,9 @@
+{
+  "case_id": "malformed-java-unclosed-brace",
+  "observations": {
+    "aggregate/lines_of_code": 3,
+    "aggregate/loc_status": "complete",
+    "aggregate/source_files": 1
+  },
+  "oracle_derivation": "Hand-derived from the Metric Contract clause recorded in the manifest. Current ArchLens output is not the oracle."
+}

@@ -1,0 +1,284 @@
+{
+  "$defs": {
+    "metricRule": {
+      "additionalProperties": false,
+      "description": "One user-authored threshold rule. A rule states its FAILING condition: the rule fires when `observed <operator> threshold` holds, so `{\"operator\": \"gt\", \"threshold\": 30}` fires when the observed value exceeds 30.",
+      "properties": {
+        "exclude_paths": {
+          "description": "fnmatch globs over the POSIX-normalized relative path. A matching callable is excluded. Callable scope only. `*` also matches `/`, so `src/*.py` matches `src/a/b.py`.",
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "id": {
+          "description": "Stable identifier, unique across integrity_rules and metric_rules. It is a component of every finding's deterministic id, so two rules may not share one.",
+          "maxLength": 128,
+          "minLength": 1,
+          "pattern": "^[A-Za-z0-9._:-]+$",
+          "type": "string"
+        },
+        "languages": {
+          "description": "Restrict the rule to these languages, matched case-insensitively against the language the artifact recorded. Language and callable scope only: a repository-scope aggregate has no notion of a language subset.",
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "message": {
+          "description": "Replaces the generated sentence for a firing rule. It does not change what the rule does.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "metadata": {
+          "description": "Free-form annotations carried through to the finding's rule summary. Never interpreted.",
+          "type": "object"
+        },
+        "metric": {
+          "description": "A metric from the ArchLens Policy v2 allowlist, printed by `archlens policy metrics`. Every entry names a field ArchLens already persists; NO METRIC MAY BE INVENTED FOR A POLICY. An unknown metric is refused, never skipped.",
+          "enum": [
+            "callable.cognitive_complexity",
+            "callable.cyclomatic_complexity",
+            "callable.formal_parameter_count",
+            "callable.max_nesting_depth",
+            "callable.nloc",
+            "language.callable_count",
+            "language.classes_structs",
+            "language.cognitive_callable_count",
+            "language.cognitive_complexity_max",
+            "language.cognitive_complexity_mean",
+            "language.cognitive_complexity_median",
+            "language.cognitive_complexity_total",
+            "language.cyclomatic_complexity_max",
+            "language.cyclomatic_complexity_mean",
+            "language.cyclomatic_complexity_median",
+            "language.cyclomatic_complexity_total",
+            "language.formal_parameter_count_max",
+            "language.formal_parameter_count_median",
+            "language.lines_of_code",
+            "language.max_nesting_depth_max",
+            "language.max_nesting_depth_median",
+            "language.methods_functions",
+            "language.nloc_max",
+            "language.nloc_median",
+            "language.source_files",
+            "repository.callable_count",
+            "repository.classes_structs",
+            "repository.cognitive_callable_count",
+            "repository.cognitive_complexity_max",
+            "repository.cognitive_complexity_mean",
+            "repository.cognitive_complexity_median",
+            "repository.cognitive_complexity_total",
+            "repository.cyclomatic_complexity_max",
+            "repository.cyclomatic_complexity_mean",
+            "repository.cyclomatic_complexity_median",
+            "repository.cyclomatic_complexity_total",
+            "repository.formal_parameter_count_max",
+            "repository.formal_parameter_count_median",
+            "repository.lines_of_code",
+            "repository.max_nesting_depth_max",
+            "repository.max_nesting_depth_median",
+            "repository.methods_functions",
+            "repository.nloc_max",
+            "repository.nloc_median",
+            "repository.source_files"
+          ]
+        },
+        "operator": {
+          "description": "`eq` and `ne` compare exact IEEE-754 doubles; on a fractional `_mean` aggregate an exact-equality rule will rarely fire.",
+          "enum": [
+            "gt",
+            "gte",
+            "lt",
+            "lte",
+            "eq",
+            "ne"
+          ]
+        },
+        "paths": {
+          "description": "Restrict the rule to callables whose relative path matches one of these fnmatch globs. Callable scope only.",
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "scope": {
+          "description": "Optional and redundant: the metric determines its own scope. When present it must equal the metric's scope; a mismatch is refused rather than reinterpreted, because ArchLens persists each metric at one scope only and evaluating it elsewhere would require deriving a value nobody measured.",
+          "enum": [
+            "repository",
+            "language",
+            "callable"
+          ]
+        },
+        "severity": {
+          "description": "Decides whether firing fails the build; never whether the rule fires. Defaults to `violation`. Only `violation` moves the exit code.",
+          "enum": [
+            "violation",
+            "warning",
+            "info"
+          ]
+        },
+        "subjects": {
+          "description": "Restrict the rule to these subject_keys. Omit to cover every analyzed subject.",
+          "items": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "minItems": 1,
+          "type": "array"
+        },
+        "threshold": {
+          "description": "USER-SUPPLIED POLICY. Must be a finite number. ArchLens ships no default threshold and asserts no correct value: this number means the policy author decided it, never that research established it.",
+          "type": "number"
+        }
+      },
+      "required": [
+        "id",
+        "metric",
+        "operator",
+        "threshold"
+      ],
+      "type": "object"
+    },
+    "v1RuleId": {
+      "enum": [
+        "artifact.compatibility_waiver_required_by_current_generation",
+        "artifact.schema_invalid",
+        "artifact.structurally_unreadable",
+        "capability.parser_unavailable",
+        "contract.artifact_generation_unsupported",
+        "contract.incompatible",
+        "diagnostics.parser_execution_failure",
+        "diagnostics.unknown_category",
+        "measurement.incomplete",
+        "measurement.metric_unavailable",
+        "reproducibility.provenance_incomplete",
+        "run.integrity_failed",
+        "run.mandatory_output_failure"
+      ]
+    },
+    "waiver": {
+      "additionalProperties": false,
+      "properties": {
+        "expires_on": {
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "type": "string"
+        },
+        "issue_id": {
+          "type": [
+            "string",
+            "null"
+          ]
+        },
+        "reason": {
+          "minLength": 1,
+          "type": "string"
+        },
+        "rule_id": {
+          "description": "An integrity rule id or a metric rule id the policy enables. A waiver naming a rule the policy does not enable is refused: it would silently protect nothing.",
+          "minLength": 1,
+          "type": "string"
+        },
+        "subject_key": {
+          "type": [
+            "string",
+            "null"
+          ]
+        }
+      },
+      "required": [
+        "expires_on",
+        "reason",
+        "rule_id"
+      ],
+      "type": "object"
+    }
+  },
+  "$id": "https://archlens.dev/schemas/policy_document-2.0.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "A Policy v2 document: user-supplied thresholds over metrics ArchLens already persists, plus the Policy v1 integrity rules, evaluated together by `archlens check`.\n\nEVERY THRESHOLD IS USER-SUPPLIED POLICY. ArchLens ships no default v2 policy and no default threshold, and `archlens check` refuses to run without an explicit policy file. A number in this document means the policy author decided it; it is never a research finding and never an architecture-quality claim.\n\nNO METRIC MAY BE INVENTED FOR A POLICY. The `metric` enum is the whole surface, and each entry names a persisted ArchLens field. There is deliberately no branch count, no complex-condition count, no percentile, no composite quality score, no maintainability index and no normalized score.\n\nNOTHING MALFORMED IS SKIPPED. An unknown key, an unknown metric, an invalid operator, a non-finite threshold, a duplicate rule id and an impossible scope/metric pairing are each refused at load time. A rule quietly dropped for being unrecognized is worse than no rule, because the gate then reports success while checking nothing.\n\nPolicy v1 documents (`policy_document_format_version: \"1.0.0\"`) remain valid and unchanged, are still evaluated by `archlens policy evaluate`, and are accepted by `archlens check` with the same rules, severities and waivers.",
+  "properties": {
+    "description": {
+      "type": "string"
+    },
+    "expected_contracts": {
+      "additionalProperties": {
+        "type": "string"
+      },
+      "description": "Contract versions the policy pins, checked by the `contract.incompatible` integrity rule. Absent means the policy pinned nothing, NOT that the contracts agree.",
+      "type": "object"
+    },
+    "integrity_rules": {
+      "additionalProperties": false,
+      "description": "Policy v1 rules to enable, by id, at a chosen severity. These are evaluated by the existing v1 rule engine, not a reimplementation of it, so a rule behaves identically under `archlens policy evaluate` and `archlens check`.",
+      "patternProperties": {
+        "^.*$": {
+          "enum": [
+            "violation",
+            "warning",
+            "info"
+          ]
+        }
+      },
+      "propertyNames": {
+        "$ref": "#/$defs/v1RuleId"
+      },
+      "type": "object"
+    },
+    "metric_rules": {
+      "description": "Threshold rules. Rule ids must be unique across this array and `integrity_rules`.",
+      "items": {
+        "$ref": "#/$defs/metricRule"
+      },
+      "type": "array"
+    },
+    "name": {
+      "minLength": 1,
+      "type": "string"
+    },
+    "options": {
+      "additionalProperties": false,
+      "description": "Policy-level semantics for data that is not a clean measurement. Both settings are explicit, deterministic and reported in the check result.",
+      "properties": {
+        "on_not_evaluable": {
+          "description": "How a rule that could not be evaluated affects the verdict. `fail` (the default) treats it as a failure: you asked for a gate and the gate did not run. `warn` reports it in `not_evaluable` and in the counts without moving the exit code. There is deliberately no `ignore` — a policy must never report PASS merely because required data was absent.",
+          "enum": [
+            "fail",
+            "warn"
+          ]
+        },
+        "partial_data": {
+          "description": "How a partial observation is treated. `evaluate` (the default) compares it and stamps the finding `data_completeness: partial`. `not_evaluable` routes it to the non-evaluable path instead, for callers who will not gate on a value that is not verified complete.",
+          "enum": [
+            "evaluate",
+            "not_evaluable"
+          ]
+        }
+      },
+      "type": "object"
+    },
+    "policy_document_format_version": {
+      "const": "2.0.0"
+    },
+    "waivers": {
+      "description": "Bounded exceptions. Every waiver requires a reason and an expiry: an unbounded waiver is indistinguishable from deleting the rule and decays into a permanent exception nobody remembers agreeing to. An expired waiver stops suppressing its finding and is reported as expired. A waiver never applies to a `not_evaluable` finding, because that would suppress the statement that the rule did not run.",
+      "items": {
+        "$ref": "#/$defs/waiver"
+      },
+      "type": "array"
+    }
+  },
+  "required": [
+    "name",
+    "policy_document_format_version"
+  ],
+  "title": "ArchLens policy document 2.0.0",
+  "type": "object"
+}

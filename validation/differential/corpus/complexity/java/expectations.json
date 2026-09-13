@@ -1,0 +1,493 @@
+{
+  "$comment": "Per-construct expectations derived from docs/COMPLEXITY_CONTRACT_V1.md. Each value was checked against the contract rule that produces it, construct by construct; entries with increment 0 are as load-bearing as the rest.",
+  "corpus_layer": "layer1_synthetic",
+  "language": "Java",
+  "complexity_contract_version": "1.0.0",
+  "source": "Constructs.java",
+  "file_level": {
+    "methods_functions": 24,
+    "callable_count": 24,
+    "structural_complexity_status": "complete",
+    "nloc_status": "complete"
+  },
+  "outside_population": [
+    {
+      "name": "<init>",
+      "start_line": 174,
+      "reason": "constructor; secondary component",
+      "expected_records": 0
+    },
+    {
+      "name": "static initializer",
+      "start_line": 177,
+      "reason": "initializer block; counted nowhere",
+      "expected_records": 0
+    },
+    {
+      "name": "abstractMethod",
+      "start_line": 184,
+      "reason": "no body; signature_only_methods",
+      "expected_records": 0
+    },
+    {
+      "name": "run",
+      "start_line": 116,
+      "reason": "anonymous-class method; secondary component",
+      "expected_records": 0
+    }
+  ],
+  "callables": [
+    {
+      "name": "trivial",
+      "qualified_name": "Constructs.trivial",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "()",
+      "start_line": 14,
+      "end_line": 16,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 0
+      },
+      "pins": "no decision, no operator: exactly 1"
+    },
+    {
+      "name": "sequentialBranches",
+      "qualified_name": "Constructs.sequentialBranches",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int,int)",
+      "start_line": 18,
+      "end_line": 26,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 2
+      }
+    },
+    {
+      "name": "elseIfChain",
+      "qualified_name": "Constructs.elseIfChain",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 28,
+      "end_line": 36,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 1
+      },
+      "pins": "an else-if alternative is a nested if_statement, not a block, so the chain measures flat; the bare else adds 0 decisions"
+    },
+    {
+      "name": "nestedBranches",
+      "qualified_name": "Constructs.nestedBranches",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int,int)",
+      "start_line": 38,
+      "end_line": 45,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 8,
+        "formal_parameter_count": 2
+      },
+      "pins": "same cyclomatic as sequentialBranches, twice the nesting"
+    },
+    {
+      "name": "loops",
+      "qualified_name": "Constructs.loops",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(List<String>,int)",
+      "start_line": 47,
+      "end_line": 61,
+      "expected": {
+        "cyclomatic_complexity": 5,
+        "decision_point_count": 4,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 15,
+        "formal_parameter_count": 2
+      },
+      "pins": "enhanced-for + for + while + do = 4"
+    },
+    {
+      "name": "colonSwitch",
+      "qualified_name": "Constructs.colonSwitch",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 63,
+      "end_line": 68,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 6,
+        "formal_parameter_count": 1
+      },
+      "pins": "fallthrough `case 1: case 2:` is TWO arms; `default` is zero; switch body and arm each nest"
+    },
+    {
+      "name": "arrowSwitch",
+      "qualified_name": "Constructs.arrowSwitch",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 70,
+      "end_line": 72,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      },
+      "pins": "`case 2, 3 ->` is ONE arm"
+    },
+    {
+      "name": "guardedSwitch",
+      "qualified_name": "Constructs.guardedSwitch",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(Object)",
+      "start_line": 74,
+      "end_line": 76,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 2,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      },
+      "pins": "one arm plus one `when` guard; the guard is its own node"
+    },
+    {
+      "name": "exceptionHandling",
+      "qualified_name": "Constructs.exceptionHandling",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 78,
+      "end_line": 89,
+      "expected": {
+        "cyclomatic_complexity": 3,
+        "decision_point_count": 2,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 12,
+        "formal_parameter_count": 1
+      },
+      "pins": "two catch clauses are 2; try and finally are 0 decisions but DO nest"
+    },
+    {
+      "name": "ternary",
+      "qualified_name": "Constructs.ternary",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 91,
+      "end_line": 93,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "booleanOperators",
+      "qualified_name": "Constructs.booleanOperators",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(boolean,boolean,boolean)",
+      "start_line": 95,
+      "end_line": 103,
+      "expected": {
+        "cyclomatic_complexity": 8,
+        "decision_point_count": 2,
+        "boolean_operator_count": 5,
+        "max_condition_operator_count": 2,
+        "max_nesting_depth": 1,
+        "nloc": 9,
+        "formal_parameter_count": 3
+      },
+      "pins": "5 operators across the callable, 2 within the largest single condition"
+    },
+    {
+      "name": "excludedLambda",
+      "qualified_name": "Constructs.excludedLambda",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(List<Integer>)",
+      "start_line": 105,
+      "end_line": 112,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 8,
+        "formal_parameter_count": 1
+      },
+      "pins": "the lambda's if and && belong to no record, yet its LINES stay in the span"
+    },
+    {
+      "name": "excludedAnonymousClass",
+      "qualified_name": "Constructs.excludedAnonymousClass",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "()",
+      "start_line": 114,
+      "end_line": 123,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 10,
+        "formal_parameter_count": 0
+      },
+      "pins": "an anonymous class body is a boundary; its method is anonymous_class_methods, outside the population"
+    },
+    {
+      "name": "bareBlock",
+      "qualified_name": "Constructs.bareBlock",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 125,
+      "end_line": 130,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 6,
+        "formal_parameter_count": 1
+      },
+      "pins": "a bare block is not attached to a control construct and opens no nesting"
+    },
+    {
+      "name": "synchronizedBlock",
+      "qualified_name": "Constructs.synchronizedBlock",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 132,
+      "end_line": 137,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 6,
+        "formal_parameter_count": 1
+      },
+      "pins": "synchronized contributes 0 decisions and +1 nesting: nesting is STRUCTURAL nesting"
+    },
+    {
+      "name": "receiverAndVarargs",
+      "qualified_name": "Constructs.receiverAndVarargs",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int,int...)",
+      "start_line": 139,
+      "end_line": 141,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 2
+      },
+      "pins": "the receiver parameter is excluded from both the count and the discriminator; varargs is one"
+    },
+    {
+      "name": "overloaded",
+      "qualified_name": "Constructs.overloaded",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 143,
+      "end_line": 145,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      },
+      "pins": "overloads separate on the signature discriminator, not on an ordinal"
+    },
+    {
+      "name": "overloaded",
+      "qualified_name": "Constructs.overloaded",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(String)",
+      "start_line": 147,
+      "end_line": 149,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "measuredLocalClass",
+      "qualified_name": "Constructs.measuredLocalClass",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 151,
+      "end_line": 161,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 11,
+        "formal_parameter_count": 1
+      },
+      "pins": "the local class is a boundary for attribution; discovery still finds the method inside"
+    },
+    {
+      "name": "innerMethod",
+      "qualified_name": "Constructs.measuredLocalClass.Local.innerMethod",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 153,
+      "end_line": 158,
+      "expected": {
+        "cyclomatic_complexity": 2,
+        "decision_point_count": 1,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 1,
+        "nloc": 6,
+        "formal_parameter_count": 1
+      },
+      "pins": "a method of a NAMED local class is a direct class method and IS in the population"
+    },
+    {
+      "name": "commentsAndBlanks",
+      "qualified_name": "Constructs.commentsAndBlanks",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 163,
+      "end_line": 169,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 4,
+        "formal_parameter_count": 1
+      },
+      "pins": "comment-only and blank lines are excluded; a line mixing code and a block comment counts once"
+    },
+    {
+      "name": "count",
+      "qualified_name": "Constructs.count",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 171,
+      "end_line": 172,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 2,
+        "formal_parameter_count": 1
+      }
+    },
+    {
+      "name": "defaultMethod",
+      "qualified_name": "Constructs.Api.defaultMethod",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "(int)",
+      "start_line": 181,
+      "end_line": 183,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 1
+      },
+      "pins": "an interface default method has a body and a named owner, so it counts"
+    },
+    {
+      "name": "enumMethod",
+      "qualified_name": "Constructs.Kind.enumMethod",
+      "callable_kind": "class_method",
+      "row_id_basis": "qualified_with_signature",
+      "signature_discriminator": "()",
+      "start_line": 191,
+      "end_line": 193,
+      "expected": {
+        "cyclomatic_complexity": 1,
+        "decision_point_count": 0,
+        "boolean_operator_count": 0,
+        "max_condition_operator_count": 0,
+        "max_nesting_depth": 0,
+        "nloc": 3,
+        "formal_parameter_count": 0
+      },
+      "pins": "an enum-body method counts; this is the case differential validation originally found missing"
+    }
+  ]
+}

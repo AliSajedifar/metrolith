@@ -1,0 +1,472 @@
+{
+  "$id": "https://archlens.dev/schemas/catalog_row-1.5.schema.json",
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "additionalProperties": false,
+  "description": "One typed row of catalog.csv, as produced by validation.artifact_io.strict_csv. Column types were derived from preserved Artifact 1.3 and 1.4 runs rather than assumed; see validation/scripts/derive_tabular_schemas.py. This artifact is a checked projection of authoritative repository results, not an independent measurement authority.",
+  "properties": {
+    "acquisition_mode": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "acquisition_seconds": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-archlens-cell-type": "number",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "analyzed_commit_sha": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "architecture_type": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "artifact_schema_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "audit_json": {
+      "description": "JSON-valued cell. Decodes through the strict CSV layer; a top-level null is 'present and null', distinct from an empty cell.",
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "classes_structs": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "classes_structs_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "classification_json": {
+      "description": "JSON-valued cell. Decodes through the strict CSV layer; a top-level null is 'present and null', distinct from an empty cell.",
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "classification_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "cleanup_seconds": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-archlens-cell-type": "number",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "core_metrics_seconds": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-archlens-cell-type": "number",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "coverage_analysis_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "coverage_json": {
+      "description": "JSON-valued cell. Decodes through the strict CSV layer; a top-level null is 'present and null', distinct from an empty cell.",
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "db_analysis_json": {
+      "description": "JSON-valued cell. Decodes through the strict CSV layer; a top-level null is 'present and null', distinct from an empty cell.",
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "db_analysis_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "deployability_json": {
+      "description": "JSON-valued cell. Decodes through the strict CSV layer; a top-level null is 'present and null', distinct from an empty cell.",
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "deployability_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "endpoint_analysis_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "endpoints_json": {
+      "description": "JSON-valued cell. Decodes through the strict CSV layer; a top-level null is 'present and null', distinct from an empty cell.",
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "error_summary": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "exclusion_policy_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "execution_mode": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "expected_language": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "expected_language_family_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.4.0"
+    },
+    "expected_language_mismatch": {
+      "type": "boolean",
+      "x-archlens-cell-type": "boolean",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "inventory_schema_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "inventory_seconds": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-archlens-cell-type": "number",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "inventory_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "lines_of_code": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "loc_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "message_broker_analysis_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "message_brokers_json": {
+      "description": "JSON-valued cell. Decodes through the strict CSV layer; a top-level null is 'present and null', distinct from an empty cell.",
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "metadata_json": {
+      "description": "JSON-valued cell. Decodes through the strict CSV layer; a top-level null is 'present and null', distinct from an empty cell.",
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "methods_functions": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "methods_functions_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "metric_contract_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "metric_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "partial_origin": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.4.0"
+    },
+    "primary_language": {
+      "type": [
+        "string",
+        "null"
+      ],
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "program_version": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "repository_name": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "repository_owner": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "repository_url": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "integer",
+        "null"
+      ],
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_entity_parsed": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_failed_parse": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_failed_read": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_loc_analyzed": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_oversized": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.2.0"
+    },
+    "source_files_partial_parse": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_readable": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "source_files_recovered_parse": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "integer",
+      "x-archlens-cell-type": "integer",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.1.0"
+    },
+    "source_files_status": {
+      "type": "string",
+      "x-archlens-cell-type": "string",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "timing_json": {
+      "description": "JSON-valued cell. Decodes through the strict CSV layer; a top-level null is 'present and null', distinct from an empty cell.",
+      "x-archlens-cell-type": "json",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "total_repository_seconds": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": "number",
+      "x-archlens-cell-type": "number",
+      "x-archlens-nullable": false,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    },
+    "worktree_seconds": {
+      "description": "Empty cells decode to null and must not be read as zero.",
+      "type": [
+        "number",
+        "null"
+      ],
+      "x-archlens-cell-type": "number",
+      "x-archlens-nullable": true,
+      "x-archlens-since-artifact-schema": "1.0.0"
+    }
+  },
+  "required": [
+    "acquisition_mode",
+    "acquisition_seconds",
+    "analyzed_commit_sha",
+    "architecture_type",
+    "artifact_schema_version",
+    "audit_json",
+    "classes_structs",
+    "classes_structs_status",
+    "classification_json",
+    "classification_status",
+    "cleanup_seconds",
+    "core_metrics_seconds",
+    "coverage_analysis_status",
+    "coverage_json",
+    "db_analysis_json",
+    "db_analysis_status",
+    "deployability_json",
+    "deployability_status",
+    "endpoint_analysis_status",
+    "endpoints_json",
+    "error_summary",
+    "exclusion_policy_version",
+    "execution_mode",
+    "expected_language",
+    "expected_language_family_status",
+    "expected_language_mismatch",
+    "inventory_schema_version",
+    "inventory_seconds",
+    "inventory_status",
+    "lines_of_code",
+    "loc_status",
+    "message_broker_analysis_status",
+    "message_brokers_json",
+    "metadata_json",
+    "methods_functions",
+    "methods_functions_status",
+    "metric_contract_version",
+    "metric_status",
+    "partial_origin",
+    "primary_language",
+    "program_version",
+    "repository_name",
+    "repository_owner",
+    "repository_url",
+    "source_files",
+    "source_files_entity_parsed",
+    "source_files_failed_parse",
+    "source_files_failed_read",
+    "source_files_loc_analyzed",
+    "source_files_oversized",
+    "source_files_partial_parse",
+    "source_files_readable",
+    "source_files_recovered_parse",
+    "source_files_status",
+    "timing_json",
+    "total_repository_seconds",
+    "worktree_seconds"
+  ],
+  "title": "ArchLens catalog row 1.5",
+  "type": "object",
+  "x-archlens-key-columns": [
+    "repository_url"
+  ],
+  "x-archlens-unverified-columns": []
+}

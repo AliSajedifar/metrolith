@@ -1,0 +1,224 @@
+[
+  {
+    "file": "grammar/python.py",
+    "language": "Python",
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_parse": "cpython_ast",
+    "source_bytes": 3548,
+    "state": "complete"
+  },
+  {
+    "file": "grammar/operators.py",
+    "language": "Python",
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_parse": "cpython_ast",
+    "source_bytes": 763,
+    "state": "complete"
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/GrammarProbe.java",
+    "language": "Java",
+    "limit_error": null,
+    "parser_byte_length": 5030,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 5030,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/OperatorProbe.java",
+    "language": "Java",
+    "limit_error": null,
+    "parser_byte_length": 950,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 950,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/grammar.go",
+    "language": "Go",
+    "limit_error": null,
+    "parser_byte_length": 2264,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 2264,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/operators.go",
+    "language": "Go",
+    "limit_error": null,
+    "parser_byte_length": 669,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 669,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/javascript.js",
+    "language": "JavaScript",
+    "limit_error": null,
+    "parser_byte_length": 3931,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 3931,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/javascript.jsx",
+    "language": "JavaScript",
+    "limit_error": null,
+    "parser_byte_length": 228,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 228,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/operators.js",
+    "language": "JavaScript",
+    "limit_error": null,
+    "parser_byte_length": 1088,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 1088,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/typescript.ts",
+    "language": "TypeScript",
+    "limit_error": null,
+    "parser_byte_length": 3812,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 3812,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/typescript.tsx",
+    "language": "TypeScript",
+    "limit_error": null,
+    "parser_byte_length": 305,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 305,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  },
+  {
+    "all_applied_strategies": [],
+    "fallback_created": false,
+    "file": "grammar/operators.ts",
+    "language": "TypeScript",
+    "limit_error": null,
+    "parser_byte_length": 1425,
+    "primary_malformed": [
+      0,
+      0
+    ],
+    "selected_byte_length": 1425,
+    "selected_malformed": [
+      0,
+      0
+    ],
+    "selected_offsets_match_parser_source": true,
+    "selected_parse": "primary",
+    "selected_strategies": []
+  }
+]

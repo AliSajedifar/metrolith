@@ -1,0 +1,3 @@
+const Alpha = class {
+  run() {}
+};
