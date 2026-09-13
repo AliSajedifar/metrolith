@@ -1,5 +1,7 @@
 # Metrolith
 
+![Metrolith](https://raw.githubusercontent.com/AliSajedifar/metrolith/af49510a0d44dd14cb18e11ec86aaee0a3bfa57c/docs/assets/metrolith-wordmark-dark.png)
+
 **Evidence, not scores.**
 
 Metrolith helps repository maintainers and researchers understand their code and evaluate rules they choose, with measurements they can inspect.

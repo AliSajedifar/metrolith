@@ -1,0 +1,166 @@
+name: Prepare or publish Metrolith to PyPI
+run-name: Metrolith 4.0.0 | publish=${{ inputs.publish == true }} | ${{ github.sha }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: Upload this run's validated files after owner approval
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: metrolith-pypi
+  cancel-in-progress: false
+
+jobs:
+  prepare:
+    if: ${{ github.repository == 'AliSajedifar/metrolith' && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    permissions:
+      contents: read
+    outputs:
+      artifact-id: ${{ steps.candidate.outputs.artifact-id }}
+      manifest-sha256: ${{ steps.identity.outputs.manifest-sha256 }}
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
+      PIP_NO_INPUT: '1'
+    steps:
+      - name: Checkout immutable dispatch source
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          fetch-depth: 1
+      - name: Set up reviewed CPython
+        uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13.9'
+          architecture: x64
+      - name: Provision hash-locked build and validation environments
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m venv "$RUNNER_TEMP/metrolith-build"
+          "$RUNNER_TEMP/metrolith-build/bin/python" -m pip install --require-hashes -r requirements/release-verification.lock
+          python -m venv "$RUNNER_TEMP/metrolith-validation"
+          "$RUNNER_TEMP/metrolith-validation/bin/python" -m pip install --require-hashes -r requirements/artifact-validation.lock
+      - name: Build standalone sdist and wheel and run bounded validation
+        shell: bash
+        env:
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/metrolith-build/bin/python" tools/prepare_pypi.py \
+            --source-sha "$SOURCE_SHA" \
+            --validation-python "$RUNNER_TEMP/metrolith-validation/bin/python" \
+            --output "$RUNNER_TEMP/metrolith-candidate"
+      - name: Record exact candidate identity for review
+        id: identity
+        shell: bash
+        run: |
+          set -euo pipefail
+          cd "$RUNNER_TEMP/metrolith-candidate"
+          sha256sum --check --strict SHA256SUMS
+          echo "manifest-sha256=$(sha256sum candidate-manifest.json | cut -d ' ' -f 1)" >> "$GITHUB_OUTPUT"
+          {
+            echo '### Validated Metrolith candidate (no upload in prepare mode)'
+            echo 'Review this run and its own manifest and SHA256SUMS before approval.'
+            echo '```'
+            cat candidate-manifest.json
+            echo '```'
+          } >> "$GITHUB_STEP_SUMMARY"
+      - name: Preserve exact validated pair and manifest
+        id: candidate
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: metrolith-candidate-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/metrolith-candidate/dist/metrolith-4.0.0-py3-none-any.whl
+            ${{ runner.temp }}/metrolith-candidate/dist/metrolith-4.0.0.tar.gz
+            ${{ runner.temp }}/metrolith-candidate/SHA256SUMS
+            ${{ runner.temp }}/metrolith-candidate/candidate-manifest.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+      - name: Preserve bounded check results
+        if: ${{ always() }}
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7.0.1
+        with:
+          name: metrolith-checks-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/metrolith-candidate/checks/
+          if-no-files-found: warn
+          retention-days: 14
+
+  publish:
+    if: ${{ inputs.publish == true && github.repository == 'AliSajedifar/metrolith' && github.ref == 'refs/heads/main' && github.event_name == 'workflow_dispatch' }}
+    needs: prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    environment:
+      name: pypi
+    permissions:
+      id-token: write
+    steps:
+      - name: Download only this run's validated artifact
+        uses: actions/download-artifact@3e5f45b2cfb9172054b4087a40e8e0b5a5461e7c # v8.0.1
+        with:
+          artifact-ids: ${{ needs.prepare.outputs.artifact-id }}
+          path: candidate
+          digest-mismatch: error
+      - name: Verify exact bytes and current first-release name/version state
+        shell: bash
+        env:
+          EXPECTED_MANIFEST_SHA256: ${{ needs.prepare.outputs.manifest-sha256 }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          cd candidate
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, urllib.request, urllib.error, zipfile
+          root = pathlib.Path('.')
+          data = (root / 'candidate-manifest.json').read_bytes()
+          assert hashlib.sha256(data).hexdigest() == os.environ['EXPECTED_MANIFEST_SHA256']
+          manifest = json.loads(data)
+          assert manifest['source_sha'] == os.environ['SOURCE_SHA']
+          assert manifest['run_id'] == os.environ['GITHUB_RUN_ID']
+          assert manifest['run_attempt'] == os.environ['GITHUB_RUN_ATTEMPT']
+          assert manifest['project'] == 'metrolith' and manifest['version'] == '4.0.0'
+          expected = {'metrolith-4.0.0-py3-none-any.whl', 'metrolith-4.0.0.tar.gz'}
+          assert len(manifest['artifacts']) == 2
+          assert {a['filename'] for a in manifest['artifacts']} == expected
+          assert {p.name for p in (root / 'dist').iterdir()} == expected
+          lines = []
+          for a in manifest['artifacts']:
+              p = root / 'dist' / a['filename']
+              assert p.is_file() and not p.is_symlink()
+              assert p.stat().st_size == a['size_bytes']
+              assert hashlib.sha256(p.read_bytes()).hexdigest() == a['sha256']
+              lines.append(f"{a['sha256']}  dist/{a['filename']}\n")
+          assert (root / 'SHA256SUMS').read_text() == ''.join(lines)
+          with zipfile.ZipFile(root / 'dist/metrolith-4.0.0-py3-none-any.whl') as wheel:
+              description = wheel.read('metrolith-4.0.0.dist-info/METADATA').decode()
+              assert 'not yet published to PyPI' not in description, 'Review release copy before a new publishing run'
+          # This is a first-release workflow: stop if the name or version exists.
+          # A 404 neither reserves the name nor proves account ownership.
+          for url in ('https://pypi.org/pypi/metrolith/json', 'https://pypi.org/pypi/metrolith/4.0.0/json'):
+              try:
+                  with urllib.request.urlopen(url, timeout=30) as response:
+                      raise RuntimeError(f'{url}: already exists; owner review required')
+              except urllib.error.HTTPError as error:
+                  if error.code != 404:
+                      raise
+                  print(f'{url}: 404; no reservation or ownership inferred')
+          PY
+          sha256sum --check --strict SHA256SUMS
+      - name: Publish the reviewed bytes through PyPI Trusted Publishing
+        uses: pypa/gh-action-pypi-publish@dc37677b2e1c63e2034f94d8a5b11f265b73ba33 # v1.14.2
+        with:
+          packages-dir: candidate/dist/
