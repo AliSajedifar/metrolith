@@ -57,10 +57,9 @@ bypass required review. Do not weaken other repository protections.
 ## Future publication procedure — NOT EXECUTED
 
 1. Confirm owner PyPI setup and the GitHub environment controls. Review current
-   name/version state and candidate release copy. The preparation README retains
-   its truthful unpublished notice; before a publishing run, commit the reviewed
-   release wording so that notice is absent from the candidate's own description.
-   The upload job fails closed if it still contains that notice.
+   name/version state and candidate release copy. Keep installation wording
+   accurate before and after upload. The upload job fails closed if the candidate's
+   own description still contains the preparation's unpublished notice.
 2. After explicit owner authorization, dispatch this workflow on `main` with
    `publish=true`. This new run builds its own pair and hashes. Earlier preparation
    hashes do not identify a new build, even for identical source.

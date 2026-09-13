@@ -18,7 +18,7 @@ It records versioned evidence for code lines, source files, classes/structs, met
 
 ## Install
 
-> Metrolith 4.0.0 is not yet published to PyPI. Install from this source tree or a local wheel.
+> Install from a source checkout or a local wheel using the instructions below.
 
 Start in the downloaded or cloned **source root** (containing `pyproject.toml`). Use CPython 3.13 and an **unused sibling environment directory**; stop if either prerequisite check fails. The commands below install Metrolith and its dependencies, including native tree-sitter parsers, and make `metrolith` available in the current shell. Installation can download dependencies.
 
