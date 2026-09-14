@@ -183,18 +183,21 @@ class FinalCliSurfaceTests(unittest.TestCase):
             POLICY_DOCUMENT_V2_FORMAT_VERSION,
         )
 
-    def test_readme_exit_table_covers_the_audited_commands(self):
+    def test_readme_links_to_reference_covering_the_audited_commands(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
+        usage = (ROOT / "docs/USAGE.md").read_text(encoding="utf-8")
+        self.assertIn("docs/USAGE.md", readme)
         for name in self.EXIT_CODES:
-            self.assertIn(f"| `metrolith {name}` |", readme)
+            self.assertIn(f"| `metrolith {name}` |", usage)
 
     def test_public_reproducibility_claims_keep_the_three_boundaries(self):
         readme = (ROOT / "README.md").read_text(encoding="utf-8")
         reproducibility = (ROOT / "docs" / "REPRODUCIBILITY.md").read_text(
             encoding="utf-8"
         )
-        self.assertIn("measurement-semantic", readme)
-        self.assertIn("environment equivalence", readme)
+        self.assertIn("docs/REPRODUCIBILITY.md", readme)
+        self.assertIn("Measurement-semantic", reproducibility)
+        self.assertIn("Environment equivalence", " ".join(reproducibility.split()))
         self.assertGreaterEqual(reproducibility.lower().count("byte-identical only"), 3)
         self.assertIn("Semantic equivalence does not imply byte identity", reproducibility)
         self.assertIn(

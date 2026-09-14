@@ -3,6 +3,9 @@
 from __future__ import annotations
 
 import argparse
+import datetime
+import re
+import tomllib
 import unittest
 from pathlib import Path
 
@@ -42,7 +45,23 @@ class ReleaseDocumentationTests(unittest.TestCase):
                 self.assertIn(f"metrolith {command}", self.readme + self.usage)
 
     def test_changelog_preserves_38_history_and_names_the_40_migration(self):
-        self.assertIn("## 4.0.0 - unreleased", self.changelog)
+        # Authenticated first production upload date (UTC); no network or clock dependency.
+        date = "2026-09-13"
+        released = re.findall(r"^## 4\.0\.0 - (\d{4}-\d{2}-\d{2})$", self.changelog, re.M)
+        self.assertEqual(released, [date])
+        self.assertEqual(datetime.date.fromisoformat(released[0]).isoformat(), date)
+        self.assertNotIn("## 4.0.0 - unreleased", self.changelog)
+        citation = (REPOSITORY / "CITATION.cff").read_text(encoding="utf-8")
+        project = tomllib.loads((REPOSITORY / "pyproject.toml").read_text(encoding="utf-8"))["project"]
+        self.assertEqual(project["version"], "4.0.0")
+        self.assertRegex(citation, r'(?m)^version: "4\.0\.0"$')
+        self.assertRegex(citation, rf"(?m)^date-released: {date}$")
+        self.assertNotIn("unreleased software", citation)
+        publishing = (REPOSITORY / "docs/PYPI_PUBLISHING.md").read_text(encoding="utf-8")
+        for doc in (self.changelog, publishing, self.checklist):
+            self.assertIn(date, doc)
+            self.assertIn("34788631105", doc)
+            self.assertIn("0fba1c9d0b57fa16524ca8bb9ac4315430442f95", doc)
         self.assertIn("## 3.8.0 - unreleased", self.changelog)
         self.assertIn("Make `metrolith` the canonical console command", self.changelog)
         for command in ("archlens diff", "archlens duplication", "archlens changed"):

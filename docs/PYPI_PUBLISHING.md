@@ -1,88 +1,86 @@
-# Manual PyPI preparation and publication
+# PyPI publication record and future releases
 
-`publish-pypi.yml` is manual only, restricted to `AliSajedifar/metrolith` on
-`main`. Its Boolean `publish` input defaults to **false**. Preparation builds
-Metrolith 4.0.0 from the immutable dispatch SHA, using CPython 3.13.9 and the
-existing hash-locked build, validation and runtime provisioning. The reviewed
-`ReleaseVerifier.build_distributions` method exports Git source, builds and
-normalizes the sdist, then builds the wheel from that standalone sdist outside
-the checkout. The full verifier and full engine suite are not run.
+## Completed 4.0.0 publication
 
-## Prepare only
+[Metrolith 4.0.0](https://pypi.org/project/metrolith/4.0.0/) was published to
+production PyPI on **2026-09-13**, using the first production upload date in UTC.
+The wheel arrived at `2026-09-13T23:09:04.37946Z`; the sdist followed at
+`2026-09-13T23:09:06.49975Z`.
+[PyPI JSON](https://pypi.org/pypi/metrolith/4.0.0/json) records the file identities.
+[Publishing run 34788631105](https://github.com/AliSajedifar/metrolith/actions/runs/34788631105)
+completed successfully from commit
+[`0fba1c9d0b57fa16524ca8bb9ac4315430442f95`](https://github.com/AliSajedifar/metrolith/commit/0fba1c9d0b57fa16524ca8bb9ac4315430442f95).
 
-In Actions, choose **Prepare or publish Metrolith to PyPI**, select `main`,
-leave `publish` unchecked and run. Equivalent CLI:
-
-```console
-gh workflow run publish-pypi.yml --repo AliSajedifar/metrolith --ref main -f publish=false
-```
-
-The `prepare` job checks safe archive members, exact source/resource inclusion,
-metadata, README, license and wheel RECORD; runs strict Twine, the documentation
-and publication-boundary regression modules; then installs the actual wheel
-into an isolated environment and runs pip check, version, doctor, the packaged
-network-free example, report, explain and validate. Runtime payload and measured
-ProducerIdentity must equal the reviewed baseline. This is bounded evidence,
-not a new full qualification. Markdown uses the existing validation lock's
-CommonMark renderer plus readme-renderer's HTML sanitizer; it is a
-PyPI-compatible approximation, not a live PyPI page.
-
-Review this run's `candidate-manifest.json`, `SHA256SUMS`, check results and the
-two distributions. Artifacts expire after 14 days; retain private review copies.
-The entire `publish` job is skipped for false/omitted input, so preparation
-requires neither PyPI configuration nor OIDC publishing privileges.
-
-## Owner setup
-
-On PyPI, the owner completes email verification and 2FA in their own browser,
-then creates a pending GitHub publisher with these exact fields:
-
-| Field | Value |
+| Published file | SHA-256 |
 |---|---|
-| Project name | `metrolith` |
-| Owner | `AliSajedifar` |
-| Repository | `metrolith` |
-| Workflow filename | `publish-pypi.yml` |
-| Environment | `pypi` |
+| `metrolith-4.0.0-py3-none-any.whl` | `bddeca14d71485529f54c5639c43d0ba193694a45a011b93336751ac85c38a5a` |
+| `metrolith-4.0.0.tar.gz` | `0c93efa7485c5a2a38ae5904069e8abbd2a5fadeec1a72b781248f6df955c95f` |
 
-Use the filename alone. Account username: `AliSajedifar`. A pending publisher
-does not reserve the project name. A public 404 does not prove ownership.
-Never place passwords, API tokens, TOTP seeds or recovery codes in the workflow.
+PyPI also exposes [wheel provenance](https://pypi.org/integrity/metrolith/4.0.0/metrolith-4.0.0-py3-none-any.whl/provenance)
+and [sdist provenance](https://pypi.org/integrity/metrolith/4.0.0/metrolith-4.0.0.tar.gz/provenance).
+The retained statements identify those hashes and the GitHub publishing workflow.
+Downloading and hashing files checks file identity; it does not independently
+perform every cryptographic attestation verification step.
 
-GitHub Settings -> Environments -> `pypi` must require `AliSajedifar` review,
-allow self-review for the sole maintainer and permit only branch `main`.
-An environment name in YAML alone does not establish these controls. Do not
-bypass required review. Do not weaken other repository protections.
+The original packaged README was source-first, and its changelog/citation still
+called 4.0.0 unreleased. Current GitHub documentation corrects these statements.
+It does **not** modify the long description, citation or other bytes embedded in
+published 4.0.0. Source metadata now links the website; published metadata remains
+as uploaded. Carry revised documentation into a separately approved new version.
+Do not re-upload, delete, yank or cosmetically relabel the existing files.
 
-## Future publication procedure — NOT EXECUTED
+## Existing workflow: first release only
 
-1. Confirm owner PyPI setup and the GitHub environment controls. Review current
-   name/version state and candidate release copy. Keep installation wording
-   accurate before and after upload. The upload job fails closed if the candidate's
-   own description still contains the preparation's unpublished notice.
-2. After explicit owner authorization, dispatch this workflow on `main` with
-   `publish=true`. This new run builds its own pair and hashes. Earlier preparation
-   hashes do not identify a new build, even for identical source.
-3. Before approving `pypi`, inspect that run's exact SHA, checks, distributions,
-   description and hashes. The owner approves only that concrete candidate pair.
-4. After approval, the publish job downloads the same immutable artifact by ID,
-   checks its manifest against the prepare job's digest and verifies every file's
-   size/hash. It checks first-release name/version absence immediately before
-   upload, failing on existing projects/versions or unexpected responses. This
-   deliberately first-release workflow needs a reviewed update for later releases.
-5. Only the isolated publish job has `id-token: write`; it runs no project checkout,
-   build or installation. The official pinned PyPA Action uploads those exact bytes
-   via Trusted Publishing, with default attestations. There is no `skip-existing`.
-   A failure requires diagnosis; never silently rebuild or change reviewed bytes.
+[`publish-pypi.yml`](../.github/workflows/publish-pypi.yml) is manual, restricted
+to this repository's `main`, with `publish` defaulting to false. Its protected
+`pypi` environment separates preparation from the OIDC upload job. Only upload
+has `id-token: write`; that job downloads its own run's exact artifact by ID and
+verifies manifest/file hashes before the pinned PyPA publishing action.
 
-Publication is serialized with cancellation disabled and finite job timeouts.
-Normal documentation/preparation commits may use `[skip ci]` to avoid the separate
-long push CI; manually dispatch this workflow afterward. Do not claim the original
-CI ran when it was skipped. No tags or GitHub Releases are needed by this workflow.
+**It is not ready for a second release.** The upload guard refuses an existing
+project or version, and filenames/version expectations are fixed to 4.0.0.
+Preparation also requires the frozen first-release 362-member payload and
+ProducerIdentity. Editing installed `examples/README.md` changes those identities,
+even though executable code is unchanged. Therefore current documentation builds
+must use [Build & smoke](../.github/workflows/package-smoke.yml), not rerun the
+publisher or relax its baseline checks.
 
-Primary references: [pending publishers](https://docs.pypi.org/trusted-publishers/creating-a-project-through-oidc/),
-[publishing](https://docs.pypi.org/trusted-publishers/using-a-publisher/),
-[security model](https://docs.pypi.org/trusted-publishers/security-model/),
+The original preparation used CPython 3.13.9, hash-locked tooling, standalone
+sdist/wheel builds, strict Twine, documentation/publication-boundary tests and a
+tiny installed example. This bounded scope is not full engine qualification.
+The separate `ci.yml` invokes `tools/release_verify.py` on Windows and Ubuntu.
+
+## Future release procedure
+
+1. Obtain approval for the new version and exact intended source. Follow the
+   [release checklist](PUBLIC_RELEASE_CHECKLIST.md), including deliberate full
+   qualification and review of new documentation and installed data identities.
+2. Review and update the first-release workflow for repeat publication before
+   using it: version/file expectations, reviewed baseline identities, and safe
+   existing-project/new-version checks all need explicit treatment. Preserve
+   fail-closed behavior, immutable artifact binding and approval separation.
+3. Confirm the owner's PyPI Trusted Publisher and GitHub `pypi` environment
+   controls: repository `AliSajedifar/metrolith`, workflow `publish-pypi.yml`,
+   environment `pypi`, allowed branch `main`, and required owner review. A YAML
+   environment name alone does not prove that these controls are configured.
+4. After that workflow update is separately reviewed, prepare a candidate with
+   upload disabled. Review its exact source SHA, metadata, README rendering,
+   standalone archives, hashes, installed resources and check evidence. Retain
+   copies before temporary Actions artifacts expire.
+5. Only with explicit publication authorization, request publication and have
+   the owner approve that run's exact pair. Do not substitute an earlier build's
+   hashes. Keep uploading isolated from checkout, builds and installation; never
+   add `skip-existing` to disguise a conflict.
+6. Read production PyPI file metadata and provenance back, authenticate downloads,
+   and test fresh index installations outside the checkout. Record historical
+   upload time separately from any later GitHub Release creation time.
+
+A GitHub Release is independent of PyPI success. A retrospective `v4.0.0` must
+target the publishing commit above, never a later docs or performance commit.
+The current unrestricted `ci.yml` push trigger also reacts to tags; creating a
+tag can launch full qualification. Review event effects before any tag/release
+write. No tag is needed for installation from PyPI.
+
+References: [Trusted Publishing](https://docs.pypi.org/trusted-publishers/using-a-publisher/),
 [GitHub environments](https://docs.github.com/en/actions/how-tos/deploy/configure-and-manage-deployments/manage-environments),
-[manual workflows](https://docs.github.com/en/actions/how-tos/manage-workflow-runs/manually-run-a-workflow),
 [PyPI README guidance](https://packaging.python.org/en/latest/guides/making-a-pypi-friendly-readme/).

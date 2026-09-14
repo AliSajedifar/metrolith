@@ -1,0 +1,55 @@
+name: Build & smoke
+
+on:
+  push:
+    branches: ['**']
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: package-smoke-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  package:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      PYTHONDONTWRITEBYTECODE: '1'
+      PYTHONUTF8: '1'
+      PIP_DISABLE_PIP_VERSION_CHECK: '1'
+      PIP_NO_INPUT: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@5fda3b95a4ea91299a34e894583c3862153e4b97 # v7.0.0
+        with:
+          python-version: '3.13.9'
+          architecture: x64
+      - name: Provision existing hash-locked tooling
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m venv "$RUNNER_TEMP/build"
+          "$RUNNER_TEMP/build/bin/python" -m pip install --require-hashes -r requirements/release-verification.lock
+          python -m venv "$RUNNER_TEMP/validation"
+          "$RUNNER_TEMP/validation/bin/python" -m pip install --require-hashes -r requirements/artifact-validation.lock
+      - name: Build, check documentation and smoke the installed wheel
+        shell: bash
+        run: |
+          set -euo pipefail
+          "$RUNNER_TEMP/build/bin/python" tools/package_smoke.py \
+            --validation-python "$RUNNER_TEMP/validation/bin/python" \
+            --output "$RUNNER_TEMP/package-checks"
+      - name: Record bounded scope
+        if: always()
+        shell: bash
+        run: |
+          echo 'Ubuntu package build, strict Twine, focused documentation/publication guards and one installed local example. Full engine suite: NOT RUN. No upload.' >> "$GITHUB_STEP_SUMMARY"
+          if test -f "$RUNNER_TEMP/package-checks/checks/summary.json"; then
+            cat "$RUNNER_TEMP/package-checks/checks/summary.json" >> "$GITHUB_STEP_SUMMARY"
+          fi

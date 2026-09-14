@@ -10,8 +10,18 @@ metrolith example run --local
 ```
 
 The command copies the packaged sources into controlled temporary storage and
-runs the normal analysis pipeline. Read the printed Run path and `summary.md`;
-`metrolith report RUN` creates an offline HTML report.
+runs the normal analysis pipeline. Read the printed Run path and follow this short journey:
+
+1. Open `summary.md`: expect 22 code lines, 2 source files, 0 classes/structs and
+   4 methods/functions with complete core measurements. Zero is an observed count.
+2. Replace `RUN` with the printed directory in `metrolith report "RUN"` and open
+   `RUN/report.html`. This offline report is derived from the Run evidence.
+3. Run `metrolith explain "RUN"` to inspect scope and statuses, then
+   `metrolith validate "RUN"` to check recorded consistency, without reanalysis.
+4. Analyze your own source with `metrolith analyze . --workspace "../metrolith-results"`.
+   Keep that workspace and your virtual environment outside the analyzed tree.
+
+The hosted recorded Story/Explorer is a separate companion, not this HTML report.
 
 From the source project you can use the same files directly:
 
@@ -29,5 +39,5 @@ Choose your own tolerance. Capture requires a qualifying exact-revision Run;
 the baseline's `.source-run/` sidecar and the current CLI ancestry limitation
 are explained in [USAGE](../docs/USAGE.md) in the source distribution.
 
-Start with the [source setup](../README.md); see [USAGE](../docs/USAGE.md)
+Start with the [PyPI quickstart](https://github.com/AliSajedifar/metrolith#quickstart-from-pypi); see [USAGE](../docs/USAGE.md)
 for quoted Run paths and the example wrapper's exit 1 on preflight refusal.

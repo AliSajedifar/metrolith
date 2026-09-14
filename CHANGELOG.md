@@ -1,6 +1,18 @@
 # Changelog
 
-## 4.0.0 - unreleased
+## Unreleased
+
+- Improve current documentation, PyPI onboarding, recorded examples and package smoke checks.
+  These changes are not included in the already published 4.0.0 distributions.
+
+## 4.0.0 - 2026-09-13
+
+Released on [production PyPI](https://pypi.org/project/metrolith/4.0.0/).
+Date convention: first production upload in UTC, as recorded by
+[PyPI file metadata](https://pypi.org/pypi/metrolith/4.0.0/json).
+[Publishing run](https://github.com/AliSajedifar/metrolith/actions/runs/34788631105)
+used source `0fba1c9d0b57fa16524ca8bb9ac4315430442f95`.
+
 
 - Make `metrolith` the canonical console command and distribution. Retain
   `archlens`/`arch-bench` aliases, environment fallbacks and frozen format IDs.

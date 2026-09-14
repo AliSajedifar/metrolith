@@ -8,6 +8,40 @@ and acquisition inputs.
 Semantic equivalence does not imply byte identity.
 Environment reproducibility does not imply measurement equivalence.
 
+## A tiny observed comparison
+
+Two network-free bundled examples were run in separate empty workspaces using
+production-PyPI Metrolith 4.0.0 on Windows, CPython 3.13.9, with the same installed
+dependencies and default configuration. Both recorded 22 code lines, 2 files,
+0 classes/structs and 4 methods/functions with complete core metrics.
+
+| Evidence | First Run | Second Run |
+|---|---|---|
+| Run ID | `15f6a63ce259` | `43942a0fe0e8` |
+| Manifest SHA-256 | `c76242a3bcb3cca1dd75692c2b54a8e1e84507ec1c022b729614800544414a1b` | `8714900ede7aa7247bf2913688150af56565c768935273baa0b15f6c29ffe9c3` |
+
+Their IDs, timestamps and manifest bytes differ. Their versioned measurement
+projection hashes are equal:
+`09f6b6a5d44ba76e5f14b02f5e5021089f881d66326f662d36a639da4bdef16b`.
+This was computed with
+`validation.scripts.semantic_projection.measurement_semantic_hash`, which first
+admits the Run through the strict reader. It hashes the projection version and
+selected semantic fields: subject identity, source/measurement context, contracts,
+normalized metrics and inventory. Its separate environment section retains
+producer/interpreter/parser/acquisition context but is not part of that hash.
+
+To compare your two Runs without another analysis, replace the quoted paths:
+
+```console
+python -c "from pathlib import Path; from validation.scripts.semantic_projection import measurement_semantic_hash as h; print(h(Path('FIRST_RUN'))); print(h(Path('SECOND_RUN')))"
+```
+
+Use the installed virtual environment's Python. Equal hashes support this
+specific measurement projection, not equality of every artifact, environment,
+optional supplement or byte. No arbitrary timestamp/path stripping is used.
+The manifest's validation `semantic_sha256` is a different digest boundary;
+do not interchange it with this measurement projection hash.
+
 ## Standalone output contracts
 
 | Surface | Equality boundary |

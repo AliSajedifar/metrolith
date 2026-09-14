@@ -1,5 +1,21 @@
 # Releasing Metrolith
 
+## Published baseline
+
+4.0.0 was published on **2026-09-13 UTC**, from
+`0fba1c9d0b57fa16524ca8bb9ac4315430442f95` in
+[run 34788631105](https://github.com/AliSajedifar/metrolith/actions/runs/34788631105).
+See the [publication record](PYPI_PUBLISHING.md) for exact PyPI file hashes.
+Current documentation corrections do not replace published bytes.
+
+## Checklist for a future approved release
+
+The current publisher is first-release-specific and refuses an existing project
+or version. Review a repeat-release workflow update before using it for another
+version; its frozen payload/ProducerIdentity checks also require deliberate review.
+Build & smoke is a bounded packaging check, not full release qualification.
+
+
 1. Confirm version, license, maintainer metadata and controlled repository URLs.
    Do not infer identity, citation status or publication rights.
 2. Review exactly the source being released, including corrected working files.

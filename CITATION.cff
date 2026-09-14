@@ -1,5 +1,5 @@
 cff-version: 1.2.0
-message: "If you use this unreleased software, please cite it using this metadata."
+message: "If you use this software, please cite it using this metadata."
 type: software
 title: Metrolith
 authors:
@@ -7,6 +7,7 @@ authors:
     given-names: Ali
     email: its.alisajedifar@gmail.com
 repository-code: "https://github.com/AliSajedifar/metrolith"
-url: "https://github.com/AliSajedifar/metrolith"
+url: "https://metrolith.dev/"
 license: Apache-2.0
 version: "4.0.0"
+date-released: 2026-09-13

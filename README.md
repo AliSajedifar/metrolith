@@ -4,127 +4,103 @@
   Metrolith
 </h1>
 
+[![PyPI](https://img.shields.io/pypi/v/metrolith)](https://pypi.org/project/metrolith/)
+[![Build & smoke](https://github.com/AliSajedifar/metrolith/actions/workflows/package-smoke.yml/badge.svg?branch=main)](https://github.com/AliSajedifar/metrolith/actions/workflows/package-smoke.yml?query=branch%3Amain)
+[![License: Apache-2.0](https://img.shields.io/badge/License-Apache--2.0-blue.svg)](https://github.com/AliSajedifar/metrolith/blob/main/LICENSE)
+
 **Evidence, not scores.**
 
-Metrolith helps repository maintainers and researchers understand their code and evaluate rules they choose, with measurements they can inspect.
+Metrolith is a local-first, multi-language static-analysis CLI. It produces versioned code metrics and offline reports so you can investigate a source tree, inspect complex functions, and compare changes between revisions. Optional duplication and history analyses provide additional evidence; you choose which analyses and rules to run.
 
-**Languages:** Java, JavaScript/TypeScript, Python and Go.
+Inspect what was measured, what was excluded, and where results are partial or unavailable before deciding what to change.
 
-It records versioned evidence for code lines, source files, classes/structs, methods/functions and complexity. Maintenance analyses are optional.
+**Languages:** Python, Java, JavaScript/TypeScript and Go. Parsing and measurement coverage are language-specific.
 
-## Prerequisites
+[Try online](https://metrolith.dev/#try) · [Explore a recorded demo](https://metrolith.dev/demo) · [Install from PyPI](https://pypi.org/project/metrolith/) · [Read the guide](https://github.com/AliSajedifar/metrolith/blob/main/docs/USAGE.md)
 
-**Requires CPython 3.13.** Release verification is currently performed with **3.13.9 on x86-64 Windows and Ubuntu**.
+[![Recorded hosted Story for ambient-code/platform, showing source metrics, language composition, and partial duplication coverage](https://raw.githubusercontent.com/AliSajedifar/metrolith/main/docs/assets/recorded-story.png)](https://metrolith.dev/demo)
 
-**Git must be on PATH.** The current source-acquisition workflow requires it even for directory snapshots. Your source directory does **not** need to be a Git repository.
+*The separately hosted companion's recorded Story/Explorer, using historical evidence for `ambient-code/platform`. This is not the offline HTML report produced by `metrolith report`, or a fresh PyPI execution. The [walkthrough](https://github.com/AliSajedifar/metrolith/blob/main/docs/RECORDED_WALKTHROUGH.md) explains the original 3.8.0 producer and later evaluator provenance despite the viewer's 4.0.0 heading.*
 
-## Install
+## Three questions to start with
 
-> Install from a source checkout or a local wheel using the instructions below.
+- **What is in this source tree?** Inspect languages, files, code size, classes/structs and methods/functions alongside inclusion reasons and explicit measurement coverage.
+- **Where should I look more closely?** Read callable complexity, then request lexical or structural duplication evidence separately. Their populations can overlap; their group counts are not a combined defect total.
+- **What changed between revisions?** Use revision Diff or existing-Run comparisons, and Changed Code for explicit base/head revisions. Evaluate a Policy of rules you select; measurements do not infer architecture quality.
 
-Start in the downloaded or cloned **source root** (containing `pyproject.toml`). Use CPython 3.13 and an **unused sibling environment directory**; stop if either prerequisite check fails. The commands below install Metrolith and its dependencies, including native tree-sitter parsers, and make `metrolith` available in the current shell. Installation can download dependencies.
+## Quickstart from PyPI
+
+Install in a fresh virtual environment, check the environment, then run a tiny bundled example. **CPython 3.13 is required** (`>=3.13,<3.14`); **3.13.9** is the verified patch on Windows and Ubuntu. **Git must be on PATH**, including for local directory snapshots. Your analyzed directory need not be a Git repository.
+
+Start in an empty working directory outside your project's source. Use an unused `metrolith-user` environment directory. Installation can download dependencies; the bundled local example is network-free afterward.
 
 **PowerShell** — `python` must resolve to CPython 3.13:
 
 ```powershell
 python --version
 git --version
-python -m venv ../metrolith-user
-& ../metrolith-user/Scripts/python.exe -m pip install --require-hashes -r requirements/install-tooling.lock
-& ../metrolith-user/Scripts/python.exe -m pip install .
-$env:PATH = "$((Resolve-Path '../metrolith-user/Scripts').Path);$env:PATH"
+python -m venv "metrolith-user"
+& "./metrolith-user/Scripts/python.exe" -m pip install "metrolith==4.0.0"
+$env:PATH = "$((Resolve-Path './metrolith-user/Scripts').Path);$env:PATH"
+metrolith doctor --format text
+metrolith example run --local
 ```
 
-**Ubuntu shell:**
+**Ubuntu / POSIX shell:**
 
 ```bash
 python3.13 --version
 git --version
-python3.13 -m venv ../metrolith-user
-../metrolith-user/bin/python -m pip install --require-hashes -r requirements/install-tooling.lock
-../metrolith-user/bin/python -m pip install .
-source ../metrolith-user/bin/activate
-```
-
-PowerShell's PATH change is session-only; no execution-policy change is needed. See [Usage](docs/USAGE.md) for local-wheel installation and troubleshooting.
-
-Check the installed environment:
-
-```console
+python3.13 -m venv "metrolith-user"
+"./metrolith-user/bin/python" -m pip install "metrolith==4.0.0"
+. "./metrolith-user/bin/activate"
 metrolith doctor --format text
-```
-
-## Analyze your project
-
-In the same configured shell, change to your project's source directory and run:
-
-```console
-metrolith analyze .
-```
-
-A **Run directory** holds the results and evidence for an analysis; the command prints its path. By default, Runs are written under `metrolith-output/runs/` in the invocation workspace (`METROLITH_HOME` or the current directory). Analysis leaves analyzed source files unchanged; it writes generated outputs and cache/workspace state. See [source and output locations](docs/USAGE.md#select-the-source-state) for overrides.
-
-## Inspect the results
-
-Open the printed Run directory's `summary.md` for the summary and measurement states.
-
-Replace `RUN` below with that printed directory. Keep the quotes around the path.
-
-| Command | Purpose |
-|---|---|
-| `metrolith report "RUN"` | Build a static offline HTML view at `RUN/report.html`. |
-| `metrolith explain "RUN"` | Explain recorded diagnostics and measurement availability. |
-| `metrolith validate "RUN"` | Check required artifacts and cross-file measurement consistency. |
-
-Validation checks recorded evidence; it does not rerun analysis or establish repository authenticity. The HTML report is a derived view. The Run also contains JSON/CSV evidence, per-subject fact sheets and per-language details in `language_metrics.csv`.
-
-## Optional: verify your installation
-
-From an empty working directory, this command runs the packaged example without network access. Git must remain available.
-
-```console
 metrolith example run --local
 ```
 
-Recorded output from the bundled synthetic example:
+Stop if a prerequisite check or installation fails. PowerShell changes PATH only for this session; no execution-policy change is needed.
 
-```text
-Subject key      example:network-free
-Source           directory snapshot (non-Git)
-Overall status   complete
-Lines of Code       22 (complete)
-Source Files        2 (complete)
-Classes/Structs     0 (complete)
-Methods/Functions   4 (complete)
+Next, in the same configured shell, change to your project's source directory and run:
+
+```console
+metrolith analyze . --workspace "../metrolith-results"
 ```
 
-Zero classes is a measured result, not missing data. This example illustrates the output; it is not a benchmark. Use its newly printed Run path with the inspection commands above.
+Choose an output workspace outside the analyzed source. The command prints a **Run directory** under `WORKSPACE/metrolith-output/runs/`. `metrolith analyze .` also works; its default workspace is `METROLITH_HOME` or the current directory. Analysis reads source and writes outputs/cache state in the workspace. See [source modes and locations](https://github.com/AliSajedifar/metrolith/blob/main/docs/USAGE.md#select-the-source-state).
 
-## Evidence and limits
+## Read your first Run
 
-**Source state.** Directory snapshots, Git working snapshots, tracked-only snapshots and exact Git revisions have different source identities. Each Run records its source identity; a working snapshot is not proof of committed bytes.
+Open the printed Run directory's `summary.md`. The bundled example measures **22 code lines, 2 source files, 0 classes/structs and 4 methods/functions**, with complete core metrics. Zero classes is a measured result.
 
-**Measurement status.** Complete, partial, unavailable, not requested and measured zero are different outcomes. A successful analysis can contain partial measurements; inspect the recorded statuses rather than relying on the exit code alone.
+Replace `RUN` below with the printed directory, keeping quotes:
 
-**Your rules.** A *policy* is a set of measurement rules you provide. `metrolith check` evaluates it; Metrolith does not supply universal quality thresholds or infer architecture labels. `metrolith dossier` combines accepted evidence into a report. A local PASS does not establish organizational approval. See [Policy and trust requirements](docs/USAGE.md#author-and-evaluate-policy) for these workflows.
+```console
+metrolith report "RUN"
+metrolith explain "RUN"
+metrolith validate "RUN"
+```
 
-See [Reproducibility](docs/REPRODUCIBILITY.md) for source identity, output comparisons and environment limitations. The separately implemented hosted website is not installed by this package.
+`report` writes the derived offline view at `RUN/report.html`; open it in a browser. `explain` describes recorded scope and availability. `validate` checks required artifacts and cross-file consistency; it does not rerun analysis or prove source authenticity. Keep the Run's JSON/CSV evidence and fact sheets with the report.
 
-## Documentation and development
+Completion does not mean every measurement is complete. Read **partial**, **unavailable**, **not requested**, and **not applicable** separately from measured zero. Optional analyses are not all executed by `analyze`.
 
-- [Usage](docs/USAGE.md): source modes, policies, Ratchet, safe exports and the full command/version reference.
-- [Examples](examples/README.md): local samples and optional repository examples.
-- [Development](docs/DEVELOPMENT.md): pinned build, test and artifact-validation environments, using [requirements/release-verification.lock](requirements/release-verification.lock) and [tools/release_verify.py](tools/release_verify.py) for deliberate full release verification.
-- [Release checklist](docs/PUBLIC_RELEASE_CHECKLIST.md): maintainer publication checks.
+## Evidence and boundaries
 
-Technical references: [metrics](docs/METRIC_CONTRACT_V3.md), [complexity](docs/COMPLEXITY_CONTRACT_V2.md) and [artifact contracts](docs/ARTIFACT_CONTRACTS_V35.md).
+Directory snapshots, working snapshots and exact Git revisions record different source identities. A working snapshot is not proof of committed bytes. A **Policy** contains your rules; a **Ratchet** compares selected measurements with a retained baseline and chosen tolerances. Neither supplies universal quality thresholds. Local PASS does not establish protected organizational approval.
 
-The package is `metrolith`. The deprecated `archlens` and `arch-bench` commands, `archlens_json` import, legacy configuration keys and format identifiers remain for compatibility.
+`pip install metrolith` installs the CLI and offline reporting, not the hosted web application. Local source processing and the website's server-side repository processing have different privacy and feasibility boundaries; see the [website guide](https://metrolith.dev/guide).
+
+## Choose your next path
+
+- **Using Metrolith:** [Documentation map](https://github.com/AliSajedifar/metrolith/blob/main/docs/README.md), [Usage and full command reference](https://github.com/AliSajedifar/metrolith/blob/main/docs/USAGE.md), [Examples](https://github.com/AliSajedifar/metrolith/blob/main/examples/README.md).
+- **Understanding evidence:** [Architecture](https://github.com/AliSajedifar/metrolith/blob/main/docs/ARCHITECTURE.md), [recorded walkthrough](https://github.com/AliSajedifar/metrolith/blob/main/docs/RECORDED_WALKTHROUGH.md), [reproducibility](https://github.com/AliSajedifar/metrolith/blob/main/docs/REPRODUCIBILITY.md).
+- **Contributing:** [Development](https://github.com/AliSajedifar/metrolith/blob/main/docs/DEVELOPMENT.md) preserves the hash-locked source setup. Build & smoke checks Ubuntu packaging and a tiny installed example; it is not full engine qualification.
+- **Maintaining releases:** [Publication record and procedure](https://github.com/AliSajedifar/metrolith/blob/main/docs/PYPI_PUBLISHING.md). Deliberate full qualification uses `tools/release_verify.py` and `requirements/release-verification.lock`.
+
+The deprecated `archlens`/`arch-bench` commands and frozen ArchLens format identifiers remain compatibility contracts.
 
 ## License, citation and contact
 
-[Apache-2.0](LICENSE) · [Software citation](CITATION.cff)
+[Apache-2.0](https://github.com/AliSajedifar/metrolith/blob/main/LICENSE) · [Software citation](https://github.com/AliSajedifar/metrolith/blob/main/CITATION.cff) · [Issues](https://github.com/AliSajedifar/metrolith/issues)
 
 Maintainer: **Ali Sajedifar** — `its.alisajedifar@gmail.com`.
-
-[Source](https://github.com/AliSajedifar/metrolith) · [Issues](https://github.com/AliSajedifar/metrolith/issues)

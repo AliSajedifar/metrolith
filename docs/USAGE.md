@@ -1,31 +1,39 @@
 # Using Metrolith locally
 
-## Installation and prerequisites
+## First successful analysis
 
-Follow the [README setup](../README.md) from an extracted source root. CPython
-`>=3.13,<3.14` is required; tested hosts use 3.13.9 on x86-64 Windows and Ubuntu.
-Git must be on PATH for all current acquisition modes, including non-Git
-directory snapshots and `metrolith example run --local`. The analyzed directory
-need not be a Git repository. The installed local tutorial needs no network
-after installation; Git availability is a separate prerequisite.
+Follow the [PyPI quickstart](../README.md#quickstart-from-pypi): no source checkout,
+lockfile or build tools are needed. Use a fresh virtual environment and keep it
+outside the source you analyze. CPython `>=3.13,<3.14` is required; 3.13.9 is
+verified on Windows and non-root Ubuntu. Git must be on PATH even for non-Git
+directory snapshots. Installation downloads dependencies; the installed local
+tutorial needs no network afterward.
 
-For an identified local wheel, use the same fresh venv and the README's hashed
-install-tooling setup, replacing its `pip install .` step with the appropriate
-command below. Replace `WHEEL` with the exact owner's wheel file path and retain
-quotes. These commands start at the extracted-source root; no global Twine or
-developer tools are required.
+1. Run `metrolith doctor --format text`, then `metrolith example run --local`.
+2. Open `summary.md` in the printed Run directory. The tiny Python/JavaScript
+   sample records 22 code lines, 2 source files, 0 classes/structs and 4
+   methods/functions. Inspect each metric's status as well as its value.
+3. Replace `RUN` with that directory: `metrolith report "RUN"` creates
+   `RUN/report.html`; open it in your browser. `metrolith explain "RUN"` describes
+   scope and availability. `metrolith validate "RUN"` checks the recorded bundle,
+   not a new analysis or proof of authenticity.
+4. Change to your project's directory and run
+   `metrolith analyze . --workspace "../metrolith-results"`, selecting a workspace
+   outside the source. Read the new printed Run path; do not reuse the example's.
 
-```powershell
-& ../metrolith-user/Scripts/python.exe -m pip install "WHEEL"
-```
+A **Run** is one analysis's directory of evidence. Its HTML report is derived.
+The separately hosted [Story/Explorer](https://metrolith.dev/demo) is not installed
+by the package; see the [recorded walkthrough](RECORDED_WALKTHROUGH.md).
 
-```bash
-../metrolith-user/bin/python -m pip install "WHEEL"
-```
+## Advanced installation
 
-Public package-index availability is not assumed. Installation can download
-dependencies; only subsequent local tutorial execution is network-free. Source
-and sdist include this guide; the wheel does not install the full docs tree.
+For editable source work or fully locked environments, use [Development](DEVELOPMENT.md).
+Do not point an end-user index install at a source-root lockfile. For an identified
+local wheel, create the same fresh venv as the README, then replace the index
+installation command with `python -m pip install "WHEEL"` using that venv's
+Python and the exact file path. Dependencies may still require network access.
+The wheel installs the beginner example; the full docs tree is in source/sdist
+and on GitHub. No global Twine or global PowerShell policy change is required.
 
 ## Command-specific refusal
 
@@ -81,6 +89,14 @@ means the metric was measured completely and counted zero. Unavailable or
 not-applicable values must not be read as zero. Check `run_status.json`, per-
 metric statuses, and the report before using numbers. Policy failure is
 separate from Run integrity: a valid completed Run can fail your threshold.
+
+## Optional investigations
+
+`metrolith duplication --help` describes separately requested lexical/structural
+evidence. `metrolith diff --help` describes revision and existing-Run modes;
+`metrolith compare --help` covers retained Runs. `metrolith changed --help`
+describes explicit base/head source comparison. These workflows have their own
+scope and admission rules; ordinary `analyze` does not run all of them.
 
 ## Author and evaluate Policy
 

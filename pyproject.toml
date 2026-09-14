@@ -33,6 +33,7 @@ dependencies = [
 ]
 
 [project.urls]
+Homepage = "https://metrolith.dev/"
 Repository = "https://github.com/AliSajedifar/metrolith"
 Documentation = "https://github.com/AliSajedifar/metrolith/blob/main/docs/USAGE.md"
 Issues = "https://github.com/AliSajedifar/metrolith/issues"
