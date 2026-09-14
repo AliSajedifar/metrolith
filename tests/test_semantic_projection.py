@@ -94,7 +94,7 @@ class RunFixture(unittest.TestCase):
         )
         with (
             patch("modules.benchmark_runner.acquire_repository", self._acquire),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             summary = run_benchmark(
                 [self.input], config, "offline", command_line_arguments=["test"]
@@ -660,7 +660,7 @@ class CrossRootRegenerationTests(unittest.TestCase):
         )
         with (
             patch("modules.benchmark_runner.acquire_repository", acquire),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             summary = run_benchmark(
                 [source_csv], config, "offline", command_line_arguments=["test"]

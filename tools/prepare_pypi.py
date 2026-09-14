@@ -22,10 +22,10 @@ from packaging.requirements import Requirement
 from packaging.specifiers import SpecifierSet
 from release_verify import ReleaseVerifier
 
-VERSION = "4.0.0"
+VERSION = "4.0.1"
 FILENAMES = (f"metrolith-{VERSION}-py3-none-any.whl", f"metrolith-{VERSION}.tar.gz")
-BASELINE_RUNTIME = "9447207fbe25027a5878fd652ef56fe387372a5be690fa11e790521eea3f352a"
-BASELINE_PRODUCER = "sha256:3815aa21c2d091cd208e2db7038bae50acb0bed80c34b59d36a3775ea19a0020"
+BASELINE_RUNTIME = "7b85f929a470e05e7967832d5cec24fddaf2dc5594dccb99730fe08ec412eacf"
+BASELINE_PRODUCER = "sha256:7aa31368b01ad24c4523fe53b4afd232637a0006e631830293219b04e76ea92d"
 LOGO_URL = "https://raw.githubusercontent.com/AliSajedifar/metrolith/af49510a0d44dd14cb18e11ec86aaee0a3bfa57c/docs/assets/Logo.png"
 
 
@@ -106,7 +106,7 @@ def archive_checks(source, dist):
             require(digest == "sha256=" + expected and int(size) == len(data), f"RECORD: {name}")
         runtime = sorted((n, sha(z.read(n))) for n in names if ".dist-info/" not in n)
         runtime_hash = sha(json.dumps(runtime, separators=(",", ":"), ensure_ascii=True).encode())
-        require(len(runtime) == 362 and runtime_hash == BASELINE_RUNTIME, "runtime differs from reviewed baseline")
+        require(len(runtime) == 362 and runtime_hash == BASELINE_RUNTIME, "runtime differs from the reviewed 4.0.1 payload")
 
     with tarfile.open(dist / FILENAMES[1]) as t, tarfile.open(source.parent / "source.tar") as exported:
         members = t.getmembers()
@@ -127,7 +127,7 @@ def archive_checks(source, dist):
     return {"safe_members_metadata_record_license_readme_assets": "passed",
             "source_files": len(original), "sdist_files": len(files), "wheel_files": len(names),
             "runtime_members": len(runtime), "runtime_sha256": runtime_hash,
-            "runtime_equals_reviewed_baseline": True}
+            "runtime_equals_reviewed_release": True}
 
 
 def prepare(repository, output, validation_python, source_sha):
@@ -157,7 +157,8 @@ def prepare(repository, output, validation_python, source_sha):
     render = "from pathlib import Path; from markdown_it import MarkdownIt; from readme_renderer.clean import clean; import sys; html=clean(MarkdownIt('commonmark', {'html':True}).enable('table').render(Path(sys.argv[1]).read_text(encoding='utf-8'))); assert html and 'Logo.png' in html; Path(sys.argv[2]).write_text(html, encoding='utf-8')"
     run([validation_python, "-c", render, source / "README.md", logs / "readme-pypi-compatible.html"], output, logs, "readme-render")
     run([sys.executable, "-m", "pytest", "-q", "-p", "no:cacheprovider",
-         "tests/test_release_documentation.py", "tests/test_pypi_preparation.py"], source, logs, "focused-regressions")
+         "tests/test_release_documentation.py", "tests/test_pypi_preparation.py",
+         "tests/test_pypi_patch_release.py", "tests/test_duplication_python_preparation.py"], source, logs, "focused-regressions")
 
     runtime = output / "installed-wheel"
     run([sys.executable, "-m", "venv", runtime], output, logs, "create-runtime")
@@ -168,7 +169,7 @@ def prepare(repository, output, validation_python, source_sha):
     run([python, "-I", "-c", verify_install, dist / FILENAMES[0]], output, logs, "installed-member-bytes")
     run([python, "-m", "pip", "check"], output, logs, "runtime-pip-check")
     cli = [python, "-I", "-m", "pipeline"]
-    require(run([*cli, "--version"], output, logs, "installed-version").strip() == "Metrolith 4.0.0", "installed version")
+    require(run([*cli, "--version"], output, logs, "installed-version").strip() == f"Metrolith {VERSION}", "installed version")
     run([*cli, "doctor", "--format", "text"], output, logs, "installed-doctor")
     smoke = output / "smoke"
     smoke.mkdir()

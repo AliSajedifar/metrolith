@@ -398,7 +398,7 @@ class FinalHardeningV32Tests(unittest.TestCase):
         )
 
         config = AnalysisConfig.from_env()
-        self.assertEqual(PROGRAM_VERSION, "4.0.0")
+        self.assertEqual(PROGRAM_VERSION, "4.0.1")
         self.assertEqual(METRIC_CONTRACT_VERSION, "3.0.0")
         self.assertEqual(config.exclusion_policy_version, "1.5.0")
         self.assertEqual(INVENTORY_SCHEMA_VERSION, "1.7.0")

@@ -97,7 +97,7 @@ class ArtifactContractRoundTripTests(unittest.TestCase):
         )
         with (
             patch("modules.benchmark_runner.acquire_repository", self._acquire),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             summary = run_benchmark(
                 [self._input_csv(expected_language)],

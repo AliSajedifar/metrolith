@@ -33,7 +33,7 @@ def evaluation(corpus_state):
 
 def test_d4_baseline_and_d5_product_integration_boundary():
     pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
-    assert 'version = "4.0.0"' in pyproject
+    assert 'version = "4.0.1"' in pyproject
     assert (ROOT / "modules" / "duplication" / "lexical.py").is_file()
     assert (ROOT / "modules" / "duplication" / "structural.py").is_file()
     assert (ROOT / "modules" / "duplication" / "grouping.py").is_file()

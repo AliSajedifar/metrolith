@@ -193,7 +193,7 @@ def _with_coordinate(
 
 def test_contract_program_boundary_and_internal_exports():
     pyproject = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
-    assert 'version = "4.0.0"' in pyproject
+    assert 'version = "4.0.1"' in pyproject
     assert (ROOT / "docs" / "DUPLICATION_STRUCTURAL_GROUPING_CONTRACT_V1.md").is_file()
     assert (ROOT / "modules" / "duplication" / "structural_grouping.py").is_file()
     assert not (ROOT / "modules" / "cli" / "duplicates_command.py").exists()

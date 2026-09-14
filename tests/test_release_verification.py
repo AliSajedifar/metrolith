@@ -104,7 +104,7 @@ class ReleaseVerificationProcedureTests(unittest.TestCase):
             env=release_verify._base_environment(),
         )
 
-        self.assertEqual(completed.stdout.strip(), "Metrolith 4.0.0")
+        self.assertEqual(completed.stdout.strip(), "Metrolith 4.0.1")
         self.assertEqual(self._source_bytecode_snapshot(), before)
 
     def test_version_preflight_bytecode_guard_has_a_positive_control(self):

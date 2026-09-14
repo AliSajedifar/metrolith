@@ -174,7 +174,7 @@ class InstalledWheelPolicyTests(unittest.TestCase):
                 capture_output=True,
                 text=True,
             )
-            sdists = list(sdist_directory.glob("metrolith-4.0.0.tar.gz"))
+            sdists = list(sdist_directory.glob("metrolith-4.0.1.tar.gz"))
             self.assertEqual(len(sdists), 1)
             with tarfile.open(sdists[0], "r:gz") as archive:
                 members = archive.getnames()
@@ -198,7 +198,7 @@ class InstalledWheelPolicyTests(unittest.TestCase):
                             self.assertNotIn(prohibited, data, member.name)
                 archive.extractall(extracted, filter="data")
 
-            clean_source = extracted / "metrolith-4.0.0"
+            clean_source = extracted / "metrolith-4.0.1"
             _run_with_diagnostics(
                 [
                     sys.executable,
@@ -215,18 +215,18 @@ class InstalledWheelPolicyTests(unittest.TestCase):
                 capture_output=True,
                 text=True,
             )
-            wheels = list(wheel_directory.glob("metrolith-4.0.0-py3-none-any.whl"))
+            wheels = list(wheel_directory.glob("metrolith-4.0.1-py3-none-any.whl"))
             self.assertEqual(len(wheels), 1)
             with zipfile.ZipFile(wheels[0]) as archive:
                 members = set(archive.namelist())
-                self.assertIn("metrolith-4.0.0.dist-info/licenses/LICENSE", members)
-                metadata_text = archive.read("metrolith-4.0.0.dist-info/METADATA").decode("utf-8")
+                self.assertIn("metrolith-4.0.1.dist-info/licenses/LICENSE", members)
+                metadata_text = archive.read("metrolith-4.0.1.dist-info/METADATA").decode("utf-8")
                 self.assertIn("License-Expression: Apache-2.0", metadata_text)
                 self.assertIn("License-File: LICENSE", metadata_text)
                 self.assertIn("examples/ratchet-rules.json", members)
                 self.assertIn("config/exclusions.v1.json", members)
                 self.assertIn("examples/quickstart_repositories.csv", members)
-                self.assertIn("metrolith-4.0.0.dist-info/entry_points.txt", members)
+                self.assertIn("metrolith-4.0.1.dist-info/entry_points.txt", members)
                 self.assertIn("archlens_json.py", members)
                 # `pyproject.toml` lists packages explicitly, so a new SUBPACKAGE
                 # is silently omitted from the wheel unless it is added there.
@@ -345,8 +345,8 @@ print(json.dumps({
                 text=True,
             )
             report = json.loads(installed.stdout)
-            self.assertEqual(report["distribution_version"], "4.0.0")
-            self.assertEqual(report["workspace_version"], "4.0.0")
+            self.assertEqual(report["distribution_version"], "4.0.1")
+            self.assertEqual(report["workspace_version"], "4.0.1")
             self.assertEqual(report["policy_version"], "1.5.0")
             self.assertEqual(report["policy_sha256"], expected_policy_sha)
             self.assertTrue(report["examples_present"])
@@ -391,7 +391,7 @@ print(json.dumps({
                 check=True,
                 capture_output=True,
             )
-            self.assertEqual(version.stdout.strip(), "Metrolith 4.0.0")
+            self.assertEqual(version.stdout.strip(), "Metrolith 4.0.1")
 
             # Product Foundations installed journey. Every command runs from
             # the temporary non-Git directory, imports the fresh-venv wheel,
@@ -675,7 +675,7 @@ print(json.dumps({
             self.assertEqual(
                 sarif_document["runs"][0]["tool"]["driver"]
                 ["semanticVersion"],
-                "4.0.0",
+                "4.0.1",
             )
 
 

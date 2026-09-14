@@ -675,7 +675,7 @@ class Layer1StudyTests(unittest.TestCase):
         from unittest.mock import patch
 
         root = LAYER1 / case
-        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"):
+        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"):
             run_directory, summary = study.analyze_subject(
                 root, self.root / case, subject_key=f"layer1-{case}",
                 expected_language=language,

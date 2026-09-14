@@ -39,7 +39,7 @@ def _reset_environment_warning_registry():
 
 def test_canonical_product_distribution_parser_and_version(capsys):
     metadata = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
-    assert PROGRAM_VERSION == metadata["project"]["version"] == "4.0.0"
+    assert PROGRAM_VERSION == metadata["project"]["version"] == "4.0.1"
     assert metadata["project"]["name"] == "metrolith"
     assert metadata["project"]["scripts"] == {
         "metrolith": "pipeline:main",
@@ -54,7 +54,7 @@ def test_canonical_product_distribution_parser_and_version(capsys):
     with pytest.raises(SystemExit) as exited:
         parser.parse_args(["--version"])
     assert exited.value.code == 0
-    assert capsys.readouterr().out == "Metrolith 4.0.0\n"
+    assert capsys.readouterr().out == "Metrolith 4.0.1\n"
 
 
 def test_compatibility_aliases_warn_once_and_share_canonical_main():

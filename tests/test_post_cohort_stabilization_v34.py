@@ -434,7 +434,7 @@ class ArtifactAndVersionV34Tests(unittest.TestCase):
         )
         with (
             patch("modules.benchmark_runner.acquire_repository", self._acquire),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             return run_benchmark(
                 [self.input], config, "offline", command_line_arguments=["test"]
@@ -483,7 +483,7 @@ class ArtifactAndVersionV34Tests(unittest.TestCase):
             PROGRAM_VERSION,
         )
 
-        self.assertEqual(PROGRAM_VERSION, "4.0.0")
+        self.assertEqual(PROGRAM_VERSION, "4.0.1")
         self.assertEqual(METRIC_CONTRACT_VERSION, "3.0.0")
         self.assertEqual(INVENTORY_SCHEMA_VERSION, "1.7.0")
         self.assertEqual(ARTIFACT_SCHEMA_VERSION, "1.12.0")

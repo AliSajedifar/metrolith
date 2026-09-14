@@ -98,7 +98,7 @@ class LocalFixture(unittest.TestCase):
             temporary_directory=self.root / "worktrees",
             workers=1,
         )
-        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"):
+        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"):
             summary = run_benchmark(
                 repository_specs=[spec], config=config, acquisition_mode="offline",
                 command_line_arguments=["analyze"], single_repository=True,

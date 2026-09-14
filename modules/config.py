@@ -46,7 +46,7 @@ ARTIFACT_SCHEMA_VERSION = "1.12.0"
 # against every run ever produced, for a metric family the four benchmark
 # metrics do not depend on.
 COMPLEXITY_CONTRACT_VERSION = "2.0.0"
-PROGRAM_VERSION = "4.0.0"
+PROGRAM_VERSION = "4.0.1"
 
 # The fixed profile every R0 qualification decision is made under. It asks
 # whether the selected supported scope adequately represents first-party

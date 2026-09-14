@@ -328,7 +328,7 @@ class EnvironmentAndArtifactRegressionTests(unittest.TestCase):
 
         with (
             patch("modules.benchmark_runner.acquire_repository", fail_acquisition),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             summary = run_benchmark(
                 repository_specs=[spec],
@@ -365,7 +365,7 @@ class EnvironmentAndArtifactRegressionTests(unittest.TestCase):
             text=True,
         )
         self.assertEqual(completed.returncode, 0, completed.stderr)
-        self.assertEqual(completed.stdout.strip(), "Metrolith 4.0.0")
+        self.assertEqual(completed.stdout.strip(), "Metrolith 4.0.1")
 
     def test_analyze_command_exists_with_the_local_analysis_surface(self):
         """Superseded by B1: `analyze` is now an approved command.

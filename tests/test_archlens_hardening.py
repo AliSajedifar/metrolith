@@ -494,7 +494,7 @@ class ParserDiagnosticHardeningTests(unittest.TestCase):
 
 class MetrolithIdentityTests(unittest.TestCase):
     def test_versions_match_the_hardening_scope(self):
-        self.assertEqual(PROGRAM_VERSION, "4.0.0")
+        self.assertEqual(PROGRAM_VERSION, "4.0.1")
         self.assertEqual(METRIC_CONTRACT_VERSION, "3.0.0")
         self.assertEqual(AnalysisConfig().exclusion_policy_version, "1.5.0")
         self.assertEqual(INVENTORY_SCHEMA_VERSION, "1.7.0")

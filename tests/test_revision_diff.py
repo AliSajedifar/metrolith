@@ -100,7 +100,7 @@ class DiffFixture(unittest.TestCase):
         right_spec = revision_diff.parse_side(
             to_side, "to", source=source_text, tracked_only=tracked_only
         )
-        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"):
+        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"):
             left, right = diff_command.resolve_sides(
                 left_spec, right_spec, config,
                 subject_key=subject_key,
@@ -118,7 +118,7 @@ class DiffFixture(unittest.TestCase):
             url="", architecture_type="unknown", expected_language="Python",
             local_path=str(source), revision=revision, subject_key=subject_key,
         )
-        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"):
+        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"):
             summary = run_benchmark(
                 repository_specs=[spec], config=self.config(),
                 acquisition_mode="offline", command_line_arguments=["analyze"],
@@ -1101,7 +1101,7 @@ class ExitCodeTests(DiffFixture):
     def test_identical_sides_exit_zero(self):
         repository = self.make_repository()
         head = self.head(repository)
-        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"):
+        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"):
             code = diff_command.handle(
                 self._args(repository, head, head), self.config()
             )
@@ -1114,7 +1114,7 @@ class ExitCodeTests(DiffFixture):
             HELPER_SOURCE, encoding="utf-8", newline="\n"
         )
         second = self.commit(repository, "add")
-        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"):
+        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"):
             code = diff_command.handle(
                 self._args(repository, first, second), self.config()
             )
@@ -1132,7 +1132,7 @@ class ExitCodeTests(DiffFixture):
         one = self.make_repository("one")
         two = self.make_repository("two")
         run = self.analyze_once(two)
-        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"):
+        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"):
             code = diff_command.handle(
                 self._args(one, self.head(one), f"run:{run}"), self.config()
             )
@@ -1142,7 +1142,7 @@ class ExitCodeTests(DiffFixture):
         repository = self.make_repository()
         head = self.head(repository)
         destination = self.root / "reports" / "diff.json"
-        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"):
+        with patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"):
             diff_command.handle(
                 self._args(repository, head, head, output=destination, format="json"),
                 self.config(),

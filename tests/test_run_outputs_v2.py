@@ -71,7 +71,7 @@ class ImmutableRunOutputTests(unittest.TestCase):
     def _run(self, output="output", workers=1):
         with (
             patch("modules.benchmark_runner.acquire_repository", self._acquire),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             return run_benchmark([self.input], self._config(output, workers), "offline", command_line_arguments=["test"])
 
@@ -103,7 +103,7 @@ class ImmutableRunOutputTests(unittest.TestCase):
             self.assertEqual(row["exclusion_policy_version"], "1.5.0")
             self.assertEqual(row["inventory_schema_version"], "1.7.0")
             self.assertEqual(row["artifact_schema_version"], ARTIFACT_SCHEMA_VERSION)
-            self.assertEqual(row["program_version"], "4.0.0")
+            self.assertEqual(row["program_version"], "4.0.1")
         for result in analysis:
             self.assertEqual(result["execution_mode"], "metrics")
             self.assertIn("repository_start_timestamp", result)
@@ -114,7 +114,7 @@ class ImmutableRunOutputTests(unittest.TestCase):
             self.assertEqual(result["exclusion_policy_version"], "1.5.0")
             self.assertEqual(result["inventory_schema_version"], "1.7.0")
             self.assertEqual(result["artifact_schema_version"], ARTIFACT_SCHEMA_VERSION)
-            self.assertEqual(result["program_version"], "4.0.0")
+            self.assertEqual(result["program_version"], "4.0.1")
             self.assertEqual(
                 result["module_statuses"]["endpoint_analysis"],
                 "skipped_by_execution_mode",
@@ -141,7 +141,7 @@ class ImmutableRunOutputTests(unittest.TestCase):
             self.assertEqual(row["exclusion_policy_version"], "1.5.0")
             self.assertEqual(row["inventory_schema_version"], "1.7.0")
             self.assertEqual(row["artifact_schema_version"], ARTIFACT_SCHEMA_VERSION)
-            self.assertEqual(row["program_version"], "4.0.0")
+            self.assertEqual(row["program_version"], "4.0.1")
 
     def test_cleanup_failure_is_reported_without_erasing_core_metrics(self):
         @contextmanager

@@ -53,9 +53,9 @@ class ReleaseDocumentationTests(unittest.TestCase):
         self.assertNotIn("## 4.0.0 - unreleased", self.changelog)
         citation = (REPOSITORY / "CITATION.cff").read_text(encoding="utf-8")
         project = tomllib.loads((REPOSITORY / "pyproject.toml").read_text(encoding="utf-8"))["project"]
-        self.assertEqual(project["version"], "4.0.0")
-        self.assertRegex(citation, r'(?m)^version: "4\.0\.0"$')
-        self.assertRegex(citation, rf"(?m)^date-released: {date}$")
+        self.assertEqual(project["version"], "4.0.1")
+        self.assertRegex(citation, r'(?m)^version: "4\.0\.1"$')
+        self.assertNotIn("date-released:", citation)  # Record the actual upload date after publication.
         self.assertNotIn("unreleased software", citation)
         publishing = (REPOSITORY / "docs/PYPI_PUBLISHING.md").read_text(encoding="utf-8")
         for doc in (self.changelog, publishing, self.checklist):

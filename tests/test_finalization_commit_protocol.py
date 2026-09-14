@@ -96,7 +96,7 @@ class FinalizationFixture(unittest.TestCase):
         )
         with (
             patch("modules.benchmark_runner.acquire_repository", self._acquire),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             return run_benchmark(
                 [self.input], config, "offline", command_line_arguments=["test"]
@@ -687,7 +687,7 @@ class Known15SchemaDefectTests(FinalizationFixture):
 
         with (
             patch("modules.benchmark_runner.acquire_repository", fail_acquisition),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             config = AnalysisConfig.from_env(
                 output_root=self.root / "output",

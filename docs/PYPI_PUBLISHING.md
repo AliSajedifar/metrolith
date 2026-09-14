@@ -29,7 +29,7 @@ published 4.0.0. Source metadata now links the website; published metadata remai
 as uploaded. Carry revised documentation into a separately approved new version.
 Do not re-upload, delete, yank or cosmetically relabel the existing files.
 
-## Existing workflow: first release only
+## Existing workflow: reviewed 4.0.1 patch
 
 [`publish-pypi.yml`](../.github/workflows/publish-pypi.yml) is manual, restricted
 to this repository's `main`, with `publish` defaulting to false. Its protected
@@ -37,13 +37,14 @@ to this repository's `main`, with `publish` defaulting to false. Its protected
 has `id-token: write`; that job downloads its own run's exact artifact by ID and
 verifies manifest/file hashes before the pinned PyPA publishing action.
 
-**It is not ready for a second release.** The upload guard refuses an existing
-project or version, and filenames/version expectations are fixed to 4.0.0.
-Preparation also requires the frozen first-release 362-member payload and
-ProducerIdentity. Editing installed `examples/README.md` changes those identities,
-even though executable code is unchanged. Therefore current documentation builds
-must use [Build & smoke](../.github/workflows/package-smoke.yml), not rerun the
-publisher or relax its baseline checks.
+The workflow is narrowly updated for 4.0.1: preparation pins its reviewed
+362-member installed payload and genuine ProducerIdentity; upload authenticates
+the two published 4.0.0 hashes above and requires 4.0.1 to be absent. Network
+failures, an unexpected baseline, or an existing version fail closed. This
+allows no replacement, automatic retry, or arbitrary version selection.
+The owner personally reviews the exact same-run candidates at the unchanged
+`pypi` environment gate. The runtime includes the current documentation payload
+and accepted invocation-local Python token preparation correction.
 
 The original preparation used CPython 3.13.9, hash-locked tooling, standalone
 sdist/wheel builds, strict Twine, documentation/publication-boundary tests and a
@@ -55,7 +56,7 @@ The separate `ci.yml` invokes `tools/release_verify.py` on Windows and Ubuntu.
 1. Obtain approval for the new version and exact intended source. Follow the
    [release checklist](PUBLIC_RELEASE_CHECKLIST.md), including deliberate full
    qualification and review of new documentation and installed data identities.
-2. Review and update the first-release workflow for repeat publication before
+2. For any later release, review and update the frozen patch publisher before
    using it: version/file expectations, reviewed baseline identities, and safe
    existing-project/new-version checks all need explicit treatment. Preserve
    fail-closed behavior, immutable artifact binding and approval separation.
@@ -63,8 +64,8 @@ The separate `ci.yml` invokes `tools/release_verify.py` on Windows and Ubuntu.
    controls: repository `AliSajedifar/metrolith`, workflow `publish-pypi.yml`,
    environment `pypi`, allowed branch `main`, and required owner review. A YAML
    environment name alone does not prove that these controls are configured.
-4. After that workflow update is separately reviewed, prepare a candidate with
-   upload disabled. Review its exact source SHA, metadata, README rendering,
+4. After that workflow update is separately reviewed, prepare one publishing run
+   with upload held at the personal environment approval gate. Review its exact source SHA, metadata, README rendering,
    standalone archives, hashes, installed resources and check evidence. Retain
    copies before temporary Actions artifacts expire.
 5. Only with explicit publication authorization, request publication and have

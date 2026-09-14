@@ -1,5 +1,5 @@
 name: Prepare or publish Metrolith to PyPI
-run-name: Metrolith 4.0.0 | publish=${{ inputs.publish == true }} | ${{ github.sha }}
+run-name: Metrolith 4.0.1 | publish=${{ inputs.publish == true }} | ${{ github.sha }}
 
 on:
   workflow_dispatch:
@@ -83,8 +83,8 @@ jobs:
         with:
           name: metrolith-candidate-${{ github.run_id }}-${{ github.run_attempt }}
           path: |
-            ${{ runner.temp }}/metrolith-candidate/dist/metrolith-4.0.0-py3-none-any.whl
-            ${{ runner.temp }}/metrolith-candidate/dist/metrolith-4.0.0.tar.gz
+            ${{ runner.temp }}/metrolith-candidate/dist/metrolith-4.0.1-py3-none-any.whl
+            ${{ runner.temp }}/metrolith-candidate/dist/metrolith-4.0.1.tar.gz
             ${{ runner.temp }}/metrolith-candidate/SHA256SUMS
             ${{ runner.temp }}/metrolith-candidate/candidate-manifest.json
           if-no-files-found: error
@@ -115,7 +115,7 @@ jobs:
           artifact-ids: ${{ needs.prepare.outputs.artifact-id }}
           path: candidate
           digest-mismatch: error
-      - name: Verify exact bytes and current first-release name/version state
+      - name: Verify exact bytes and reviewed existing project and unused patch version
         shell: bash
         env:
           EXPECTED_MANIFEST_SHA256: ${{ needs.prepare.outputs.manifest-sha256 }}
@@ -132,8 +132,8 @@ jobs:
           assert manifest['source_sha'] == os.environ['SOURCE_SHA']
           assert manifest['run_id'] == os.environ['GITHUB_RUN_ID']
           assert manifest['run_attempt'] == os.environ['GITHUB_RUN_ATTEMPT']
-          assert manifest['project'] == 'metrolith' and manifest['version'] == '4.0.0'
-          expected = {'metrolith-4.0.0-py3-none-any.whl', 'metrolith-4.0.0.tar.gz'}
+          assert manifest['project'] == 'metrolith' and manifest['version'] == '4.0.1'
+          expected = {'metrolith-4.0.1-py3-none-any.whl', 'metrolith-4.0.1.tar.gz'}
           assert len(manifest['artifacts']) == 2
           assert {a['filename'] for a in manifest['artifacts']} == expected
           assert {p.name for p in (root / 'dist').iterdir()} == expected
@@ -145,19 +145,25 @@ jobs:
               assert hashlib.sha256(p.read_bytes()).hexdigest() == a['sha256']
               lines.append(f"{a['sha256']}  dist/{a['filename']}\n")
           assert (root / 'SHA256SUMS').read_text() == ''.join(lines)
-          with zipfile.ZipFile(root / 'dist/metrolith-4.0.0-py3-none-any.whl') as wheel:
-              description = wheel.read('metrolith-4.0.0.dist-info/METADATA').decode()
+          with zipfile.ZipFile(root / 'dist/metrolith-4.0.1-py3-none-any.whl') as wheel:
+              description = wheel.read('metrolith-4.0.1.dist-info/METADATA').decode()
               assert 'not yet published to PyPI' not in description, 'Review release copy before a new publishing run'
-          # This is a first-release workflow: stop if the name or version exists.
-          # A 404 neither reserves the name nor proves account ownership.
-          for url in ('https://pypi.org/pypi/metrolith/json', 'https://pypi.org/pypi/metrolith/4.0.0/json'):
-              try:
-                  with urllib.request.urlopen(url, timeout=30) as response:
-                      raise RuntimeError(f'{url}: already exists; owner review required')
-              except urllib.error.HTTPError as error:
-                  if error.code != 404:
-                      raise
-                  print(f'{url}: 404; no reservation or ownership inferred')
+          # This reviewed patch requires the authenticated published baseline.
+          # Never infer project ownership from a missing name or allow replacement.
+          with urllib.request.urlopen('https://pypi.org/pypi/metrolith/4.0.0/json', timeout=30) as response:
+              baseline = json.load(response)
+          assert baseline['info']['name'] == 'metrolith' and baseline['info']['version'] == '4.0.0'
+          assert {f['filename']: f['digests']['sha256'] for f in baseline['urls']} == {
+              'metrolith-4.0.0-py3-none-any.whl': 'bddeca14d71485529f54c5639c43d0ba193694a45a011b93336751ac85c38a5a',
+              'metrolith-4.0.0.tar.gz': '0c93efa7485c5a2a38ae5904069e8abbd2a5fadeec1a72b781248f6df955c95f'}
+          url = 'https://pypi.org/pypi/metrolith/4.0.1/json'
+          try:
+              with urllib.request.urlopen(url, timeout=30):
+                  raise RuntimeError('4.0.1 already exists; no upload or automatic retry permitted')
+          except urllib.error.HTTPError as error:
+              if error.code != 404:
+                  raise
+              print('4.0.1 is absent; existing project baseline authenticated')
           PY
           sha256sum --check --strict SHA256SUMS
       - name: Publish the reviewed bytes through PyPI Trusted Publishing

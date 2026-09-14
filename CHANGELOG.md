@@ -1,6 +1,17 @@
 # Changelog
 
-## Unreleased
+## 4.0.1 - pending publication
+
+- Prepare Python token byte coordinates once per selected-source extraction,
+  retaining body-local admission, spans and output semantics. In a bounded
+  hosted comparison of one Python-heavy repository, Duplication took about
+  6.04 seconds instead of 12.18 seconds; mean total time was 25.606 instead of
+  31.669 seconds (two runs per variant). One moderate repository pair took
+  23.619 instead of 24.682 seconds. These are workload-specific observations,
+  not a universal speedup guarantee.
+- Preserve Policy, validation and the existing optional-Duplication provenance
+  limitation. This release does not change schema initialization or concurrency.
+
 
 - Improve current documentation, PyPI onboarding, recorded examples and package smoke checks.
   These changes are not included in the already published 4.0.0 distributions.

@@ -10,9 +10,9 @@ Current documentation corrections do not replace published bytes.
 
 ## Checklist for a future approved release
 
-The current publisher is first-release-specific and refuses an existing project
-or version. Review a repeat-release workflow update before using it for another
-version; its frozen payload/ProducerIdentity checks also require deliberate review.
+The publisher is now narrowly pinned to the reviewed 4.0.1 patch. It authenticates
+the published 4.0.0 file hashes and refuses an existing 4.0.1. A later version
+requires another deliberate version, payload and ProducerIdentity review.
 Build & smoke is a bounded packaging check, not full release qualification.
 
 

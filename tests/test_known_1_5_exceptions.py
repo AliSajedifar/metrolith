@@ -236,7 +236,7 @@ class FinalizationAndValidateAgreeTests(unittest.TestCase):
 
         with (
             patch("modules.benchmark_runner.acquire_repository", fail_acquisition),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             summary = run_benchmark(
                 repository_specs=[spec],
@@ -339,7 +339,7 @@ class FinalizationAndValidateAgreeTests(unittest.TestCase):
         )
         with (
             patch("modules.benchmark_runner.acquire_repository", acquire),
-            patch("modules.benchmark_runner._distribution_version", return_value="4.0.0"),
+            patch("modules.benchmark_runner._distribution_version", return_value="4.0.1"),
         ):
             summary = run_benchmark(
                 [source], config, "offline", command_line_arguments=["test"]

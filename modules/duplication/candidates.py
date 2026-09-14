@@ -443,24 +443,14 @@ def _python_position_to_byte(
 def _python_candidate(
     syntax: SelectedSyntax,
     body: _Body,
-    tokens: tuple[tokenize.TokenInfo, ...],
+    positioned: tuple[tuple[tokenize.TokenInfo, int, int], ...],
 ) -> Candidate:
     first_statement, last_statement = body.statements[0], body.statements[-1]
     starts = syntax.mapping.selected_line_starts
-    text_lines = tuple((syntax.evidence_text or "").splitlines(keepends=True))
     lower = starts[int(first_statement.lineno) - 1] + int(first_statement.col_offset)
     upper = (
         starts[int(last_statement.end_lineno or last_statement.lineno) - 1]
         + int(last_statement.end_col_offset or 0)
-    )
-    positioned = tuple(
-        (
-            token,
-            _python_position_to_byte(starts, text_lines, token.start[0], token.start[1]),
-            _python_position_to_byte(starts, text_lines, token.end[0], token.end[1]),
-        )
-        for token in tokens
-        if token.type not in PYTHON_TRIVIA
     )
     significant = tuple(
         (token, start, end)
@@ -524,7 +514,21 @@ def extract_candidates(syntax: SelectedSyntax) -> CandidateExtractionResult:
             tokens = tuple(
                 tokenize.generate_tokens(io.StringIO(syntax.evidence_text).readline)
             )
-            measured = [_python_candidate(syntax, body, tokens) for body in bodies]
+            # These immutable token coordinates belong only to this extraction.
+            # Build them once from the same selected text and mapping; every body
+            # still applies its own exact span, admission floors and invariants.
+            starts = syntax.mapping.selected_line_starts
+            text_lines = tuple(syntax.evidence_text.splitlines(keepends=True))
+            positioned = tuple(
+                (
+                    token,
+                    _python_position_to_byte(starts, text_lines, token.start[0], token.start[1]),
+                    _python_position_to_byte(starts, text_lines, token.end[0], token.end[1]),
+                )
+                for token in tokens
+                if token.type not in PYTHON_TRIVIA
+            ) if bodies else ()
+            measured = [_python_candidate(syntax, body, positioned) for body in bodies]
         elif syntax.language == "Java":
             measured = [_tree_candidate(syntax, body) for body in _java_bodies(syntax.root)]
         elif syntax.language == "Go":

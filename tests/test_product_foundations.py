@@ -30,7 +30,7 @@ ROOT = Path(__file__).resolve().parent.parent
 
 def test_version_authorities_are_consistent():
     metadata = tomllib.loads((ROOT / "pyproject.toml").read_text(encoding="utf-8"))
-    assert metadata["project"]["version"] == PROGRAM_VERSION == "4.0.0"
+    assert metadata["project"]["version"] == PROGRAM_VERSION == "4.0.1"
     assert POLICY_DOCUMENT_V2_FORMAT_VERSION == "2.2.0"
     assert ARTIFACT_SCHEMA_VERSION == "1.12.0"
 
