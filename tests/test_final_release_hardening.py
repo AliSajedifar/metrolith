@@ -138,8 +138,8 @@ class StandaloneContractRegistryTests(unittest.TestCase):
 
 class FinalCliSurfaceTests(unittest.TestCase):
     EXIT_CODES = {
-        "run": (0, 1, 2, 3),
-        "analyze": (0, 1, 2, 3),
+        "run": (0, 1, 2, 4),
+        "analyze": (0, 1, 2, 4),
         "diff": (0, 1, 2, 3, 4),
         "check": (0, 1, 2),
         "hotspots": (0, 1, 2, 3),

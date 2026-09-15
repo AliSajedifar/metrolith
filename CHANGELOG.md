@@ -1,6 +1,6 @@
 # Changelog
 
-## 4.0.1 - pending publication
+## 4.0.1
 
 - Prepare Python token byte coordinates once per selected-source extraction,
   retaining body-local admission, spans and output semantics. In a bounded

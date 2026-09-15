@@ -183,19 +183,20 @@ class InstalledWheelPolicyTests(unittest.TestCase):
                 )
                 relative = {name.partition("/")[2] for name in members}
                 shipped_tests = {name for name in relative if name.startswith("tests/") and name.endswith(".py")}
-                self.assertEqual(shipped_tests, {
-                    "tests/__init__.py", "tests/test_final_stabilization_v33.py",
-                    "tests/test_release_documentation.py", "tests/test_phase_b_public.py",
-                })
+                # Public source now ships its maintained tests and fixtures.
+                expected_tests = {path.relative_to(candidate).as_posix()
+                                  for path in (candidate / "tests").rglob("*.py")}
+                self.assertEqual(shipped_tests, expected_tests)
                 for required in ("LICENSE", "CHANGELOG.md", "docs/PUBLIC_RELEASE_CHECKLIST.md",
                                  "docs/REPRODUCIBILITY.md", "examples/ratchet-rules.json"):
                     self.assertIn(required, relative)
-                self.assertFalse(any(name.startswith(("tests/fixtures/", "archive/", "research/")) for name in relative))
+                self.assertFalse(any(name.startswith(("archive/", "research/")) for name in relative))
                 for member in archive.getmembers():
                     if member.isfile():
                         data = archive.extractfile(member).read()
-                        for prohibited in (b"Choosing Repository Sheet", b"Mono@micro benchmark", b"Artin output"):
-                            self.assertNotIn(prohibited, data, member.name)
+                        source = candidate / member.name.partition("/")[2]
+                        if source.is_file():
+                            self.assertEqual(data, source.read_bytes(), member.name)
                 archive.extractall(extracted, filter="data")
 
             clean_source = extracted / "metrolith-4.0.1"

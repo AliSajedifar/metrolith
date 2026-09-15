@@ -445,11 +445,11 @@ class ReleaseLiveLoggingTests(unittest.TestCase):
                             path = Path(command_log[0]["logs"]["stdout"])
                             if path.exists():
                                 observed = path.read_bytes()
-                        if observed == "START Î©".encode() and "START Î©" in terminal.getvalue():
+                        if observed == "START \u03a9".encode() and "START \u03a9" in terminal.getvalue():
                             break
                         time.sleep(.01)
-                    self.assertEqual(observed, "START Î©".encode())
-                    self.assertIn("START Î©", terminal.getvalue())
+                    self.assertEqual(observed, "START \u03a9".encode())
+                    self.assertIn("START \u03a9", terminal.getvalue())
                     self.assertTrue(worker.is_alive(), "marker must precede child completion")
                     self.assertIsNone(command_log[0]["returncode"])
                 finally:
@@ -457,7 +457,7 @@ class ReleaseLiveLoggingTests(unittest.TestCase):
                     worker.join(timeout=10)
                 self.assertFalse(worker.is_alive())
                 self.assertEqual(errors, [])
-                self.assertEqual(results[0].stdout, "START Î© END")
+                self.assertEqual(results[0].stdout, "START \u03a9 END")
                 self.assertEqual(command_log[0]["returncode"], 0)
                 self.assertIn("END command: exit=0", terminal.getvalue())
 
