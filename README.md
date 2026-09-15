@@ -18,15 +18,13 @@ Inspect what was measured, what was excluded, and where results are partial or u
 
 [Try online](https://metrolith.dev/#try) · [Explore a recorded demo](https://metrolith.dev/demo) · [Install from PyPI](https://pypi.org/project/metrolith/) · [Read the guide](https://github.com/AliSajedifar/metrolith/blob/main/docs/USAGE.md)
 
-[![Recorded hosted Story for ambient-code/platform, showing source metrics, language composition, and partial duplication coverage](https://raw.githubusercontent.com/AliSajedifar/metrolith/main/docs/assets/recorded-story.png)](https://metrolith.dev/demo)
-
-*The separately hosted companion's recorded Story/Explorer, using historical evidence for `ambient-code/platform`. This is not the offline HTML report produced by `metrolith report`, or a fresh PyPI execution. The [walkthrough](https://github.com/AliSajedifar/metrolith/blob/main/docs/RECORDED_WALKTHROUGH.md) explains the original 3.8.0 producer and later evaluator provenance despite the viewer's 4.0.0 heading.*
-
 ## Three questions to start with
 
 - **What is in this source tree?** Inspect languages, files, code size, classes/structs and methods/functions alongside inclusion reasons and explicit measurement coverage.
 - **Where should I look more closely?** Read callable complexity, then request lexical or structural duplication evidence separately. Their populations can overlap; their group counts are not a combined defect total.
 - **What changed between revisions?** Use revision Diff or existing-Run comparisons, and Changed Code for explicit base/head revisions. Evaluate a Policy of rules you select; measurements do not infer architecture quality.
+
+For how these pieces fit together, see [Architecture](https://github.com/AliSajedifar/metrolith/blob/main/docs/ARCHITECTURE.md).
 
 ## Quickstart from PyPI
 
@@ -60,17 +58,19 @@ metrolith example run --local
 
 Stop if a prerequisite check or installation fails. PowerShell changes PATH only for this session; no execution-policy change is needed.
 
+With published **Metrolith 4.0.0**, the bundled example measures **22 code lines, 2 source files, 0 classes/structs and 4 methods/functions**, with complete core metrics. Zero classes is a measured result. The Run path printed by `example run --local` belongs to this example; open its `summary.md` to inspect these values.
+
 Next, in the same configured shell, change to your project's source directory and run:
 
 ```console
 metrolith analyze . --workspace "../metrolith-results"
 ```
 
-Choose an output workspace outside the analyzed source. The command prints a **Run directory** under `WORKSPACE/metrolith-output/runs/`. `metrolith analyze .` also works; its default workspace is `METROLITH_HOME` or the current directory. Analysis reads source and writes outputs/cache state in the workspace. See [source modes and locations](https://github.com/AliSajedifar/metrolith/blob/main/docs/USAGE.md#select-the-source-state).
+Choose an output workspace outside the analyzed source. This command prints a new **Run directory** for your project under `WORKSPACE/metrolith-output/runs/`. `metrolith analyze .` also works; its default workspace is `METROLITH_HOME` or the current directory. Analysis reads source and writes outputs/cache state in the workspace. See [source modes and locations](https://github.com/AliSajedifar/metrolith/blob/main/docs/USAGE.md#select-the-source-state).
 
 ## Read your first Run
 
-Open the printed Run directory's `summary.md`. The bundled example measures **22 code lines, 2 source files, 0 classes/structs and 4 methods/functions**, with complete core metrics. Zero classes is a measured result.
+Open `summary.md` in the Run directory for the source you want to inspect. Each invocation prints its own path; use your project's path when reading your project.
 
 Replace `RUN` below with the printed directory, keeping quotes:
 
@@ -88,7 +88,7 @@ Completion does not mean every measurement is complete. Read **partial**, **unav
 
 Directory snapshots, working snapshots and exact Git revisions record different source identities. A working snapshot is not proof of committed bytes. A **Policy** contains your rules; a **Ratchet** compares selected measurements with a retained baseline and chosen tolerances. Neither supplies universal quality thresholds. Local PASS does not establish protected organizational approval.
 
-`pip install metrolith` installs the CLI and offline reporting, not the hosted web application. Local source processing and the website's server-side repository processing have different privacy and feasibility boundaries; see the [website guide](https://metrolith.dev/guide).
+`pip install metrolith` installs the CLI and offline reporting. The hosted Story/Explorer is a separate companion to the CLI's offline HTML report. Local source processing and the website's server-side repository processing have different privacy and feasibility boundaries; see the [website guide](https://metrolith.dev/guide).
 
 ## Choose your next path
 

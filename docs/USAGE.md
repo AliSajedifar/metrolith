@@ -92,11 +92,149 @@ separate from Run integrity: a valid completed Run can fail your threshold.
 
 ## Optional investigations
 
-`metrolith duplication --help` describes separately requested lexical/structural
-evidence. `metrolith diff --help` describes revision and existing-Run modes;
-`metrolith compare --help` covers retained Runs. `metrolith changed --help`
-describes explicit base/head source comparison. These workflows have their own
-scope and admission rules; ordinary `analyze` does not run all of them.
+These three recipes were tested with production-PyPI **4.0.0** on Windows
+PowerShell and non-root Ubuntu, both with CPython 3.13.9. Use the configured
+environment from the quickstart (`python` and `metrolith` on PATH), Git, and a
+fresh empty working directory outside your own repository. Stop on failed setup
+commands. All paths below are literal except the explicitly marked Run placeholders.
+
+### Shared input: a disposable two-revision repository
+
+Run this block in either shell. It creates only `recipe-source`; the temporary
+commit identity applies to these two example commits, not your Git configuration.
+
+```console
+python -c "from pathlib import Path; p=Path('recipe-source'); p.mkdir(); s='def total(values):\n    result = 0\n    for value in values:\n        if value > 0:\n            result += value * 2\n        else:\n            result -= value\n    return result\n'; (p/'first.py').write_text(s, encoding='utf-8'); (p/'second.py').write_text(s, encoding='utf-8')"
+git init "recipe-source"
+git -C "recipe-source" add first.py second.py
+git -C "recipe-source" -c user.name="Recipe Example" -c user.email="recipe@example.invalid" commit -m "Add two small functions"
+python -c "from pathlib import Path; p=Path('recipe-source/first.py'); p.write_text(p.read_text(encoding='utf-8')+'\ndef twice(value):\n    return value * 2\n', encoding='utf-8')"
+git -C "recipe-source" add first.py
+git -C "recipe-source" -c user.name="Recipe Example" -c user.email="recipe@example.invalid" commit -m "Add a helper"
+```
+
+Resolve the references to immutable commit IDs now; later commands use these
+IDs even if a branch moves. Your IDs will differ because commit metadata differs.
+
+PowerShell:
+
+```powershell
+$base = git -C "recipe-source" rev-parse "HEAD~1"
+$head = git -C "recipe-source" rev-parse HEAD
+Write-Output "base=$base head=$head"
+```
+
+Ubuntu / POSIX:
+
+```bash
+base=$(git -C "recipe-source" rev-parse "HEAD~1")
+head=$(git -C "recipe-source" rev-parse HEAD)
+echo "base=$base head=$head"
+```
+
+### A. Investigate duplication
+
+**Question:** Does this revision contain admitted lexical or structural repetition?
+Use the local repository and resolved `$head` above. Both kinds can be requested
+in one invocation; `--kind lexical` or `--kind structural` selects one population.
+
+```console
+metrolith duplication "recipe-source" --revision "$head" --kind all --format json --output "duplication.json"
+python -m json.tool "duplication.json"
+```
+
+The output is `duplication.json` in your working directory. This tiny example
+records **0 lexical groups and 0 retained structural groups**, both `complete`,
+with 2 candidate-complete files and 0 candidate-unavailable files. The bodies
+fall below candidate size floors: identical-looking source need not form an
+admitted group. Zero groups or a partial result is not automatically failure.
+
+For a nonempty result, read each `lexical_groups` or `structural_groups` entry's
+`occurrences`: `path`, `start_line` and `end_line` locate the evidence. Inspect
+those lines at the recorded revision. Read `counts.lexical.status`,
+`counts.structural.status`, candidate coverage counts and per-file reasons beside
+the groups. Lexical and structural populations overlap; **do not add their group
+counts as one defect total**. The [lexical](DUPLICATION_LEXICAL_CONTRACT_V1.md),
+[structural](DUPLICATION_STRUCTURAL_CONTRACT_V1.md) and
+[grouping](DUPLICATION_STRUCTURAL_GROUPING_CONTRACT_V1.md) contracts define eligibility.
+Standalone output is not automatically admitted to a native Dossier: required
+commit provenance must be present and match the Run. A snapshot without that
+provenance cannot supply an admitted duplication summary.
+
+### B. Compare two revisions
+
+**Question:** What measurements and changed source ranges differ between base and head?
+Use the two resolved commits above. First measure each exact revision into a
+distinct workspace outside `recipe-source`, then compare those retained Runs.
+This preserves evidence for the history recipe and leaves your original project
+untouched. Existing-Run comparison reads retained artifacts; direct revision
+Diff (`metrolith diff --help`) materializes and measures its source sides.
+
+```console
+metrolith analyze "recipe-source" --revision "$base" --workspace "base-results"
+metrolith analyze "recipe-source" --revision "$head" --workspace "head-results"
+```
+
+The two printed Run directories are under `base-results/metrolith-output/runs/`
+and `head-results/metrolith-output/runs/`. Replace `BASE_RUN` and `HEAD_RUN` below
+with those full printed paths (keep the `run:` prefix). Reuse this same `HEAD_RUN`
+in recipe C; neither placeholder means the packaged tutorial's Run.
+
+```console
+metrolith diff --from "run:BASE_RUN" --to "run:HEAD_RUN" --format json --output "revision-diff.json" --workspace "diff-results"
+```
+
+`revision-diff.json` records source identities, comparability and measurement
+deltas. Here `aggregate_metric_deltas` reports code lines **16 → 18 (+2)** and
+methods/functions **2 → 3 (+1)**. Diff exits **1 for differences**, 0 for none;
+2–4 indicate usage, artifact or comparison failures. Inspect the exit immediately
+(`$LASTEXITCODE` in PowerShell, `$?` in POSIX); do not suppress failures.
+
+For Git file/range evidence over the same commits, request Changed Code explicitly:
+
+```console
+metrolith changed "recipe-source" --base "$base" --head "$head" --format json --output "changed.json"
+python -m json.tool "changed.json"
+```
+
+`changed.json` records one modified code file, `first.py`, with 3 added diff lines
+(including a blank line), 0 deleted lines, and side-local callable overlap evidence.
+It exits 0 when completed, even with changes. It does not match callables across
+revisions or judge a change as improvement, risk or architecture quality. See
+[source identity](#select-the-source-state) and the
+[standalone output contracts](REPRODUCIBILITY.md#standalone-output-contracts).
+
+### C. Add history context
+
+**Question:** Which measured files also have repeated committed changes?
+Reuse the exact head Run from B and the full local Git history. This one-repository
+Run accepts a bare repository path; multi-repository Runs require repeated
+`--repository "SUBJECT_KEY=PATH"` mappings using the Run's recorded subject keys.
+
+```console
+metrolith hotspots "HEAD_RUN" --repository "recipe-source" --format json --output "hotspots.json"
+python -m json.tool "hotspots.json"
+metrolith dossier "HEAD_RUN" --hotspots "hotspots.json" --format markdown --output "maintenance.md"
+```
+
+Read `hotspots.json` and the derived `maintenance.md` in the working directory.
+Here `first.py` has `churn.status` of `measured`, `churn.commits` of **2** and
+`churn.touched_lines` of **11** (creation counts). Its `moderate_attention`
+classification combines relative complexity and churn signals; it is not a defect
+prediction or universal threshold. The Dossier lists this Hotspots supplement as
+`admitted`; inspect that admission before using its figures.
+
+History means **all commits reachable from the analyzed revision**, not latest-N.
+Required objects must be locally available for offline use; shallow history is
+`unavailable`, never complete or zero churn. Missing source mapping can produce
+`local_repository_override_required` and unclassified files. Check repository
+history status, per-file reasons and metric availability. Acquiring Git history
+does not request every consumer: Hotspots is invoked separately, and Changed Code
+still needs its own `--base`/`--head`. Hosted admission caps do not define local CLI
+history limits. See the [history semantics](../modules/hotspots.py),
+[output contracts](REPRODUCIBILITY.md#standalone-output-contracts) and
+[Dossier admission](#author-and-evaluate-policy).
+
 
 ## Author and evaluate Policy
 
@@ -151,10 +289,10 @@ The installed rules example is available via `importlib.resources.files('example
 
 ## History and exports
 
-Hotspots uses available reachable Git history and explicit source mapping.
-Changed Code accepts explicit `--base` and `--head` revisions. Use the actual
-subcommand help for mapping and source arguments; no recent-N History mode is
-provided. Offline execution requires the selected Git objects already present.
+The [history recipe](#c-add-history-context) supplies the source mapping for
+Hotspots; [revision comparison](#b-compare-two-revisions) supplies Changed Code's
+explicit base/head inputs. Offline execution requires the selected Git objects
+already present; no recent-N History mode is provided.
 
 The engine produces JSON/CSV Run evidence, Markdown summaries/fact sheets,
 static HTML reports, explain text/JSON, standalone Duplication/Hotspot/

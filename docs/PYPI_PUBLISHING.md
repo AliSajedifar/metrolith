@@ -22,6 +22,12 @@ The retained statements identify those hashes and the GitHub publishing workflow
 Downloading and hashing files checks file identity; it does not independently
 perform every cryptographic attestation verification step.
 
+The retrospective [GitHub Release](https://github.com/AliSajedifar/metrolith/releases/tag/v4.0.0)
+was published on **2026-09-15 UTC**, separately from the original PyPI upload.
+Its `v4.0.0` tag targets the publishing commit above. Its attached wheel and sdist
+are those unchanged PyPI files, accompanied by `SHA256SUMS.txt`; no new PyPI
+upload occurred. Later main documentation is outside the original tagged source.
+
 The original packaged README was source-first, and its changelog/citation still
 called 4.0.0 unreleased. Current GitHub documentation corrects these statements.
 It does **not** modify the long description, citation or other bytes embedded in

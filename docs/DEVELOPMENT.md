@@ -16,26 +16,6 @@ select source; `inventory.py` accounts for scope; `source_frontend.py` and
 `validation/artifact_io` reads evidence; `report_view.py`, `policy` and `ratchet`
 consume it. See [Architecture](ARCHITECTURE.md) for implementation links.
 
-## Build & smoke scope
-
-[Build & smoke](../.github/workflows/package-smoke.yml) is a secretless Ubuntu
-24.04 / CPython 3.13.9 job: standalone sdist and wheel build, strict Twine,
-`tests/test_release_documentation.py`, `tests/test_pypi_preparation.py`, and the two
-documentation/navigation checks in `FinalCliSurfaceTests`, then an
-isolated wheel installation, pip check, version/help/doctor and one packaged
-local example with report/explain/validate. It has a 20-minute timeout and read-only
-repository permissions. It uploads nothing and has no publishing privileges.
-Normal branch pushes and pull requests run it; manual dispatch supports a bounded
-check after a `[skip ci]` documentation commit. Its main-branch badge follows
-current workflow state, not a permanently pinned successful commit.
-
-This job does not run the full engine suite, Windows qualification, performance
-benchmarks or protected policy admission. The existing `ci.yml` remains the full
-Windows/Ubuntu release verifier. Use full CI deliberately at a release boundary;
-a skipped full CI is **NOT RUN**, not passed. Do not dispatch the publisher for
-documentation checks: its frozen first-release identities no longer describe
-changed packaged documentation. See [publishing](PYPI_PUBLISHING.md).
-
 ## Reproducible source setup
 
 Use CPython 3.13.9 and Git on PATH on x86-64 Windows or Ubuntu. Start each block
@@ -101,6 +81,26 @@ packaged conformance resources. Other retained validation directories are
 maintainer test corpora/reference implementations, not runtime dependencies.
 Optional external reference adapters require their separately installed tools;
 the regular engine does not acquire them.
+
+## Build & smoke scope
+
+[Build & smoke](../.github/workflows/package-smoke.yml) is a secretless Ubuntu
+24.04 / CPython 3.13.9 job: standalone sdist and wheel build, strict Twine,
+`tests/test_release_documentation.py`, `tests/test_pypi_preparation.py`, and the two
+documentation/navigation checks in `FinalCliSurfaceTests`, then an
+isolated wheel installation, pip check, version/help/doctor and one packaged
+local example with report/explain/validate. It has a 20-minute timeout and read-only
+repository permissions. It uploads nothing and has no publishing privileges.
+Normal branch pushes and pull requests run it; manual dispatch supports a bounded
+check after a `[skip ci]` documentation commit. Its main-branch badge follows
+current workflow state, not a permanently pinned successful commit.
+
+This job does not run the full engine suite, Windows qualification, performance
+benchmarks or protected policy admission. The existing `ci.yml` remains the full
+Windows/Ubuntu release verifier. Use full CI deliberately at a release boundary;
+a skipped full CI is **NOT RUN**, not passed. Do not dispatch the publisher for
+documentation checks: its frozen first-release identities no longer describe
+changed packaged documentation. See [publishing](PYPI_PUBLISHING.md).
 
 ## Release engineering: separate artifact-validation environment
 
