@@ -110,8 +110,10 @@ class PopulationCompletenessTests(unittest.TestCase):
         self.assertNotEqual(forward.aggregate_hash, changed.aggregate_hash)
 
     def test_no_absolute_path_is_stored_in_a_portable_field(self):
+        private_path = Path(tempfile.gettempdir()).resolve() / "secret" / "place" / "repositories.csv"
+        self.assertTrue(private_path.is_absolute())
         result = normalize_specs([
-            spec("https://github.com/acme/one", file=r"D:\secret\place\repositories.csv"),
+            spec("https://github.com/acme/one", file=str(private_path)),
         ])
         self.assertEqual(result.rows[0].source_input_file_id, "repositories.csv")
 

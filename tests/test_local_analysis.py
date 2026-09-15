@@ -604,10 +604,15 @@ class ComparabilityTests(LocalFixture):
         """
         repository = self.make_git_repository("crlf")
         head = git(repository, "rev-parse", "HEAD")
-        # No setup is needed to create the divergence: `Path.write_text`
-        # produced CRLF on disk, Git stored LF in the object database, and the
-        # worktree is clean. That *is* the ordinary Windows situation, which is
-        # precisely why it matters.
+        # Construct the Windows-style materialization explicitly on every host.
+        git(repository, "config", "core.autocrlf", "true")
+        (repository / "app.py").write_bytes(PYTHON_SOURCE.replace("\n", "\r\n").encode())
+        git(repository, "add", "--renormalize", ".")
+        if git(repository, "diff", "--cached", "--name-only"):
+            git(repository, "commit", "-m", "canonical LF fixture")
+        head = git(repository, "rev-parse", "HEAD")
+        canonical = subprocess.check_output(["git", "-C", str(repository), "show", "HEAD:app.py"])
+        self.assertNotIn(b"\r\n", canonical)
         if git(repository, "status", "--porcelain"):
             self.fail("fixture assumption broken: the worktree is not clean")
 

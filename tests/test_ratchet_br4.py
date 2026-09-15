@@ -160,6 +160,10 @@ class RatchetCheckIntegrationTests(_RunFixture):
         )
         baseline = replace(
             baseline,
+            source_run=replace(
+                baseline.source_run,
+                producer_version=producer_from_manifest(view.manifest).program_version,
+            ),
             producer=producer_from_manifest(view.manifest),
             measurement_semantics=semantics_from_manifest(view.manifest),
         )

@@ -159,11 +159,11 @@ def test_legacy_workspace_state_is_read_only_bounded_and_never_merged(
 
 def test_readme_primary_surface_is_metrolith_only():
     readme = (ROOT / "README.md").read_text(encoding="utf-8")
-    primary = readme.split("## Migration from ArchLens", 1)[0]
-    assert primary.startswith("# Metrolith\n")
-    assert "python -m pip install ." in primary
+    primary = readme.split("The deprecated `archlens`/`arch-bench` commands", 1)[0]
+    assert "<h1>" in primary and "  Metrolith\n</h1>" in primary
+    assert 'pip install "metrolith==' in primary
     assert "metrolith analyze ." in primary
-    assert "Metrolith analyzes Java, JavaScript/TypeScript, Python and Go source" in primary
+    assert "**Languages:** Python, Java, JavaScript/TypeScript and Go." in primary
     assert "pip install archlens" not in primary
     assert "ArchLens" not in primary
     assert not re.search(r"(?<![\w./-])archlens(?=\s)", primary, re.IGNORECASE)

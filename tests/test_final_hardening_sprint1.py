@@ -382,12 +382,13 @@ class CliAndDocumentationTests(unittest.TestCase):
         readme = (Path(__file__).resolve().parents[1] / "README.md").read_text(
             encoding="utf-8"
         )
-        self.assertIn(
-            "metrolith run metrics --input repositories.csv "
-            "--qualification-registry",
-            readme,
-        )
+        self.assertIn("docs/USAGE.md", readme)
+        self.assertIn("metrolith analyze .", readme)
         self.assertNotIn("metrolith run --step metrics", readme)
+        # The detailed batch command is now documented by its parser help.
+        import pipeline
+        args = pipeline.build_cli().parse_args(["run", "metrics", "--input", "repositories.csv"])
+        self.assertEqual(args.command, "run")
 
 
 if __name__ == "__main__":  # pragma: no cover

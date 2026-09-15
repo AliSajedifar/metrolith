@@ -20,6 +20,7 @@ from modules.policy import findings as finding_module
 from modules.policy import sarif as sarif_module
 from modules.policy.document import default_policy
 from modules.policy.document_v2 import adapt_v1_document
+from modules.policy.document_v2 import POLICY_DOCUMENT_V2_FORMAT_VERSION
 from tests import historical_fixtures
 from tests.test_policy_v2_check import RunBuilder, _policy, _rule
 
@@ -130,7 +131,13 @@ def _result(
     rules = rules if rules is not None else [_summary("rule.one", violated=1)]
     findings = findings if findings is not None else [_finding()]
     verdict = "error" if failure_kind else ("fail" if exit_code == 1 else "pass")
+    # Use the current result envelope; retain the projection cases below.
+    envelope = check_module.failure_result(
+        kind="run_unreadable", message="synthetic fixture", run_directory=None,
+        policy_name="policy", today=date(2099, 12, 31),
+    )
     return {
+        **envelope,
         # Sourced from the producer rather than pinned: SARIF only echoes this
         # value, so a hardcoded version silently drifts when the result format
         # moves and tests the fixture instead of the projection.
@@ -142,24 +149,29 @@ def _result(
         "failure_kind": failure_kind,
         "failure_message": None,
         "policy": {
+            **envelope["policy"],
             "name": "policy",
             "policy_document_format_version": "2.0.0",
-            "evaluated_as_format_version": "2.0.0",
+            "evaluated_as_format_version": POLICY_DOCUMENT_V2_FORMAT_VERSION,
         },
         "run": {
+            **envelope["run"],
             "run_id": "run-1",
-            "run_directory": r"D:\private\checkout\run-1",
             "run_status": "completed",
             "lifecycle": "finalized",
             "artifact_schema_version": "1.11.0",
             "benchmark_qualification": None,
         },
         "counts": {
+            **envelope["counts"],
             "findings": len(findings),
             "waived": len(waived or []),
             "failing": int(exit_code == 1),
             "rules_evaluated": len(rules),
-            "units": {},
+            "units": {
+                key: sum(rule[key] for rule in rules)
+                for key in envelope["counts"]["units"]
+            },
         },
         "rules": rules,
         "findings": findings,

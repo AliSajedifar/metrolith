@@ -173,6 +173,9 @@ def test_readme_above_fold_is_local_and_does_not_claim_deferred_products():
     top = (ROOT / "README.md").read_text(encoding="utf-8")[:7000]
     assert "Evidence, not scores." in top
     assert "metrolith example run --local" in top
-    assert "LOCAL — UNPROTECTED" in top
-    assert "Artifact Schema | 1.12.0" in top
+    assert "Local PASS does not establish protected organizational approval." in top
+    assert "not the hosted web application" in top
+    usage = (ROOT / "docs" / "USAGE.md").read_text(encoding="utf-8")
+    assert "LOCAL — UNPROTECTED" in usage
+    assert "Artifact Schema | 1.12.0" in usage
     assert "Offline Explorer" not in top

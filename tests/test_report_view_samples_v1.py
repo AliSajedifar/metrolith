@@ -4,6 +4,8 @@ import copy
 import hashlib
 import json
 import runpy
+import tempfile
+import zipfile
 from pathlib import Path
 
 import pytest
@@ -15,7 +17,18 @@ from modules.report_view_validation import (
 
 
 ROOT = Path(__file__).resolve().parent.parent
-SAMPLES = ROOT / "validation" / "report_view_v1_samples"
+# Synthetic fixtures are test data, not installed runtime resources.
+_SAMPLE_TEMP = tempfile.TemporaryDirectory(prefix="metrolith-report-view-fixtures-")
+SAMPLES = Path(_SAMPLE_TEMP.name)
+_ARCHIVE = ROOT / "tests" / "fixtures" / "report_view_v1_samples.zip"
+assert hashlib.sha256(_ARCHIVE.read_bytes()).hexdigest() == (
+    "041ee0e8d98bd5266b27d03b95a9be69deacca428d254402538defad812a9a1f"
+)
+with zipfile.ZipFile(_ARCHIVE) as _samples:
+    for _entry in _samples.infolist():
+        assert Path(_entry.filename).name == _entry.filename
+        assert not _entry.is_dir()
+        (SAMPLES / _entry.filename).write_bytes(_samples.read(_entry))
 HISTORICAL_REFUSAL_SAMPLE = "missing-refused-unavailable.json"
 CORRECTED_REFUSAL_SAMPLE = "supplied-refused-unavailable-corrected.json"
 RETAINED_SAMPLE_SHA256 = {
